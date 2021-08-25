@@ -1,0 +1,49 @@
+/* Container holding the image and the text */
+body{
+  background-image : url("Background.png");
+}
+.centerimage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10%;
+  width:4%;
+}
+
+/* Centered text */
+.centered {
+  text-align: center ;
+  font-size: 60px;
+  color: white;
+  margin-top: 5%;
+}
+.btn{
+  font-family:'Courier New', Courier, monospace;
+  display: block; 
+  border-radius: 20px;
+  font-size: 16px;
+  width: 300px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  margin-top:5%;
+  margin-left: auto;
+  margin-right: auto;
+} 
+
+/* Green */
+.login {
+  border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));
+  background:transparent;
+  color: white;
+}
+
+.login:hover {
+  background: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));
+  color: black;
+}
+
+marquee{
+  margin-top: 10%;
+  color: white;
+}
