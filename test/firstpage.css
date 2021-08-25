@@ -17,8 +17,12 @@ body{
   color: white;
   margin-top: 5%;
 }
+.address{
+  text-align: center ;
+  font-size: 15px;
+  color: white;
+}
 .btn{
-  font-family:'Courier New', Courier, monospace;
   display: block; 
   border-radius: 20px;
   font-size: 16px;
