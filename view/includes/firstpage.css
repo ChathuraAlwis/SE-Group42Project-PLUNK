@@ -1,6 +1,6 @@
 /* Container holding the image and the text */
 body{
-  background-image : url("Background.png");
+  background-image : url("../images/Background.PNG");
 }
 .centerimage {
   display: block;
