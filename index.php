@@ -2,7 +2,10 @@
 
     require_once 'controller/controller.php';
 
-    $controller = new Controller();
-    $controller->invoke();
+    $firstPage = new FirstPage;
+    $firstPage->show();
+
+    // $controller = new Controller();
+    // $controller->invoke();
     //
 ?>
