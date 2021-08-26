@@ -1,13 +1,10 @@
 <html>
     <head>
-
+        <title>Login</title>
     </head>
     <body>
-        <?php
-            echo $result;
-        ?>
 
-        <form action="" method="post">
+        <form action="../model/models.php" method="post">
 
             <!-- username -->
             <p>
