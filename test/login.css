@@ -57,10 +57,10 @@ input{
     margin-left: 10px;
     
 }
+
 button{
-  display: block; 
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 10px;
   width: 100px;
   height:40px;
   border:0px;
@@ -69,11 +69,13 @@ button{
   margin-top:20%;
   background: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));
   opacity: 0.8;
+
 } 
 
 button:hover{
   opacity:1.0;
 }
+
  
 .form-control i {
 	visibility: hidden;
