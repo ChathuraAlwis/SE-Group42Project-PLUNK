@@ -1,6 +1,13 @@
 <?php
 
-    require_once('model/models.php');
+    class FirstPage{
+
+        public function show(){
+            header('location: view/firstpage.php');
+            exit();
+        }
+
+    }
 
     class Controller{
 
@@ -8,7 +15,7 @@
 
         //constructor
         public function __construct(){
-
+            require_once('../model/models.php');
             $this->models = new Model();
 
         }
@@ -19,10 +26,13 @@
             $result = $this->models->getLogin();
 
             if ($result == 'login'){
-                include 'view/afterLogin.php';
+                header('../view/afterLogin.php');
+                exit();
             }
             else{
-                include 'view/login.php';
+                echo $result;
+                header('../view/login.php');
+                exit();
             }
             //
         }
