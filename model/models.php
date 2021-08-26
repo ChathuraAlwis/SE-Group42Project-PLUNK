@@ -1,14 +1,12 @@
 <?php
 
-    require_once('model/models.php');
-
     class Model{
 
         public function getLogin(){
 
-            if(isset($_REQUEST['username']) && isset($_REQUEST['password'])){
+            if(isset($_POST['username']) && isset($_POST['password'])){
 
-                if($_REQUEST['username'] == 'Chathura' && $_REQUEST['password'] == 'Alwis'){
+                if($_POST['username'] == 'Chathura' && $_POST['password'] == 'Alwis'){
                     return 'login';
                 }
                 else{
