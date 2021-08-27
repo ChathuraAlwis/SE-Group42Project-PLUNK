@@ -1,0 +1,17 @@
+body{
+  background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
+
+}
+header{
+  margin: 0;
+  padding: 0px;
+
+}
+.plunk{
+  width: 5%;
+  height: 80%;
+  margin-top: 0px;
+  padding:0px;
+
+
+}
