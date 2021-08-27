@@ -1,16 +1,28 @@
 <?php
 
-    require_once '../model/models.php';
+    if(isset($_POST['UserID']) && isset($_POST['password'])){
 
-    $model = new Model;
-    $result = $model->getLogin();
+        require_once '../model/models.php';
+        require_once 'controller.php';
 
-    if($result == 'login'){
-        header('generalmanager.html');
-        exit();
+        $model = new Model;
+        $result = $model->getLogin($_POST['UserID'], $_POST['password']);
+
+        if($result == 'login'){
+            $page = new Page('../view/generalmanager.html');
+            $page->show();
+        }
+        else{
+            // echo $result;
+            // include_once '../view/login.html';
+            $page = new Page('../view/login.html');
+            $page->show();
+        }
     }
     else{
-        echo $result;
+        echo "not set";
     }
+
+    
 
 ?>
