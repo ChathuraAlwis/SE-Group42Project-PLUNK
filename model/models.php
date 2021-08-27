@@ -2,19 +2,14 @@
 
     class Model{
 
-        public function getLogin(){
+        public function getLogin($username, $password){
 
-            if(isset($_POST['username']) && isset($_POST['password'])){
-
-                if($_POST['username'] == 'Chathura' && $_POST['password'] == 'Alwis'){
-                    return 'login';
-                }
-                else{
-                    return 'invaid user';
-                }
-
+            if($username == 'Chathura' && $password == 'Alwis'){
+                return 'login';
             }
-
+            else{
+                return 'invaid user';
+            }
         }
 
     }

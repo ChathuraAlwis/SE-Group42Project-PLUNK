@@ -13,26 +13,26 @@
           <img class="plunk" src="images/projectlogo.png" alt="plunk logo">
     </header>
 
-    <form id="form" class="form">
+    <form id="form" class="form" method="POST" action="../controller/checkLogin.php">
 
           <p><b>Login Form</b></p>
 
           <div class="form-control">
                 <label for="UserID"><b>User ID</b></label>
-                <input id="UserID" type="text" placeholder="Enter Your user ID" required>
+                <input name ="UserID" id="UserID" type="text" placeholder="Enter Your user ID" required>
                 <hr>
                 <small>Error message</small>
           </div>
 
           <div class="form-control">
                 <label for="password"><b>Password</b></label>
-                <input id="password"type="password" placeholder="Enter Your password" required>
+                <input name="password" id="password" type="password" placeholder="Enter Your password" required>
                 <hr>
             		<small>Error message</small>
           </div>
 
-        <a href="firstpage.html"><button class = "button login">Login</button></a>
-        <a href="firstpage.html"><button class = "buttonforgot">Forgot Password</button></a>
+        <button class = "button login">Login</button>
+        <button class = "buttonforgot">Forgot Password</button>
 
     </form>
 
