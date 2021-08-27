@@ -1,9 +1,16 @@
 <?php
 
-    class FirstPage{
+    class Page{
+
+        private $path;
+        
+
+        public function __construct($path){
+            $this->path = $path;
+        }
 
         public function show(){
-            header('location: view/cover.html');
+            header('location:' . $this->path);
             exit();
         }
 
