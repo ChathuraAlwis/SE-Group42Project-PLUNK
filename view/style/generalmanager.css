@@ -1,5 +1,5 @@
 body{
-  background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
+  background-image: linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
 
 }
 header{
@@ -12,6 +12,34 @@ header{
   height: 80%;
   margin-top: 0px;
   padding:0px;
+  float:left;
 
+}
 
+ h2{
+
+   color: white;
+   font-size: 50px;
+   text-align: center;
+ }
+.buttongroup{
+
+}
+.buttongroup .button{
+  display: block;
+  background-color:#2d7166;
+  font-family:'Times New Roaman';
+  display: block;
+  font-size: 150%;
+  width: 10%;
+  height: 50px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  border-width:thick;
+  border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));
+}
+.linkbutton{
+  color: white;
+  text-decoration: none;
 }
