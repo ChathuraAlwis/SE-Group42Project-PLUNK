@@ -3,7 +3,7 @@
     class FirstPage{
 
         public function show(){
-            header('location: view/firstpage.php');
+            header('location: view/cover.html');
             exit();
         }
 
