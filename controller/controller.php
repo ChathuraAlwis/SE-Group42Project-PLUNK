@@ -1,30 +1,17 @@
 <?php
 
-    require_once('model/models.php');
+    class Page{
 
-    class Controller{
+        private $path;
+        
 
-        public $model;
-
-        //constructor
-        public function __construct(){
-
-            $this->models = new Model();
-
+        public function __construct($path){
+            $this->path = $path;
         }
 
-        //show result
-        public function invoke(){
-
-            $result = $this->models->getLogin();
-
-            if ($result == 'login'){
-                include 'view/afterLogin.php';
-            }
-            else{
-                include 'view/login.php';
-            }
-            //
+        public function show(){
+            header('location:' . $this->path);
+            exit();
         }
 
     }

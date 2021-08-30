@@ -1,5 +1,5 @@
 body{
-  background-image:url(cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
+  background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
 
 }
 header{
@@ -30,13 +30,18 @@ h1{
   text-align: center;
   margin: 0px;
 }
+.login{
+  width: 20%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .button{
   font-family:'Courier New', Courier, monospace;
   display: block;
   font-size: 30px;
   width: 300px;
   padding: 5px;
-  color: white;
   cursor: pointer;
   margin-top:1%;
   margin-left: auto;
@@ -47,4 +52,8 @@ h1{
   background:transparent;
 
 
+}
+.loginlink{
+  color: white;
+  text-decoration: none;
 }
