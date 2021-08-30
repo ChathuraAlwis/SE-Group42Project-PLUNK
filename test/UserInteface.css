@@ -1,0 +1,65 @@
+body{
+    background-image : url("Background.png");
+  }
+  .leftimage {
+    display: block;
+    margin-top: 1%;
+    width:4%;
+  }
+  .centered {
+    text-align: center ;
+    font-size: 30px;
+    color: white;
+    margin-top: 2%;
+  }
+  
+  .btn:hover{
+    opacity:1.0;
+  }
+  
+  .btn {
+    background: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));;
+    color: white;
+    padding: 14px 28px;
+    margin-top: 3%;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  
+  /* Green */
+  .success {
+    margin-left: 33%;
+    
+  }
+  
+  .success:hover {
+    background: #04AA6D;
+  }
+  
+  /* Blue */
+  
+  .info:hover {
+    background: #2196F3;
+  }
+  
+  /* Orange */
+  .warning:hover {
+    background: #ff9800;
+  }
+  
+  /* Red */
+  
+  .danger:hover {
+    background: #f44336;
+  }
+  
+  /* Gray */
+
+  
+  marquee{
+    margin-top:30%;
+    color: white;
+  }
+
+  
