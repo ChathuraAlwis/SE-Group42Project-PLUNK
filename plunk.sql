@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 24, 2021 at 03:24 PM
+-- Generation Time: Aug 30, 2021 at 01:07 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -28,12 +28,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `accountant` (
-  `Staff_ID` varchar(5) NOT NULL,
-  `Name` text NOT NULL,
-  `Address` text NOT NULL,
-  `Joined_Year` date NOT NULL,
-  `Contact_No` int(10) NOT NULL
+  `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `accountant`
+--
+
+INSERT INTO `accountant` (`Staff_ID`) VALUES
+('A0001');
 
 -- --------------------------------------------------------
 
@@ -93,8 +96,8 @@ CREATE TABLE `bill` (
 CREATE TABLE `booking` (
   `Booking_ID` varchar(5) NOT NULL,
   `Customer_Name` text NOT NULL,
-  `Received_Date` date NOT NULL,
-  `Received_Time` time NOT NULL,
+  `Reserved_Date` date NOT NULL,
+  `Reserved_Time` time NOT NULL,
   `Contact_No` varchar(10) NOT NULL,
   `Duration` time NOT NULL,
   `User_ID` varchar(5) NOT NULL COMMENT 'Member_ID or Staff_ID',
@@ -115,12 +118,15 @@ CREATE TABLE `booking` (
 --
 
 CREATE TABLE `cashier` (
-  `Staff_ID` varchar(5) NOT NULL,
-  `Name` text NOT NULL,
-  `Address` text NOT NULL,
-  `Joined_Year` date NOT NULL,
-  `Contact_No` int(10) NOT NULL
+  `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `cashier`
+--
+
+INSERT INTO `cashier` (`Staff_ID`) VALUES
+('C0001');
 
 -- --------------------------------------------------------
 
@@ -155,6 +161,13 @@ CREATE TABLE `club member` (
   `Card_No` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `club member`
+--
+
+INSERT INTO `club member` (`Member_ID`, `Name`, `Member_Type`, `NIC`, `Address`, `Contact_No`, `Profession`, `Signed_People`, `Card_No`) VALUES
+('M0001', 'Member1', 'Life', '941231232v', '8/street7', 765674532, 'Businessman ', 'Peris', 534645756);
+
 -- --------------------------------------------------------
 
 --
@@ -177,12 +190,15 @@ CREATE TABLE `forum` (
 --
 
 CREATE TABLE `general manager` (
-  `Staff_ID` varchar(5) NOT NULL,
-  `Name` text NOT NULL,
-  `Address` text NOT NULL,
-  `Joined_Year` date NOT NULL,
-  `Contact_No` int(10) NOT NULL
+  `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `general manager`
+--
+
+INSERT INTO `general manager` (`Staff_ID`) VALUES
+('G0001');
 
 -- --------------------------------------------------------
 
@@ -319,12 +335,15 @@ CREATE TABLE `report` (
 --
 
 CREATE TABLE `restaurant manager` (
-  `Staff_ID` varchar(5) NOT NULL,
-  `Name` text NOT NULL,
-  `Address` text NOT NULL,
-  `Joined_Year` date NOT NULL,
-  `Contact_No` int(10) NOT NULL
+  `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `restaurant manager`
+--
+
+INSERT INTO `restaurant manager` (`Staff_ID`) VALUES
+('R0001');
 
 -- --------------------------------------------------------
 
@@ -364,9 +383,20 @@ CREATE TABLE `staff` (
   `Name` text NOT NULL,
   `Position` text NOT NULL,
   `Address` text NOT NULL,
+  `NIC` varchar(12) NOT NULL,
   `Joined_Year` date NOT NULL,
   `Contact_No` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `staff`
+--
+
+INSERT INTO `staff` (`Staff_ID`, `Name`, `Position`, `Address`, `NIC`, `Joined_Year`, `Contact_No`) VALUES
+('C0001', 'Cashier1', 'Cashier', '6/Street6', '963456789v', '2020-08-02', 755555553),
+('A0001', 'Pavani Marasinghe', 'Accountant', '1/Stree13', '9712343214v', '2018-05-01', 763432312),
+('G0001', 'Chathura Alwis', 'General manager', '3/Street3', '991265434v', '2018-03-04', 784334232),
+('R0001', 'Gimhani Rubasinghe', 'Restaurant Manager', '2/Street2', '997791312v', '2018-05-08', 702776475);
 
 -- --------------------------------------------------------
 
@@ -390,43 +420,44 @@ CREATE TABLE `visa_payement` (
 -- Indexes for table `accountant`
 --
 ALTER TABLE `accountant`
-  ADD PRIMARY KEY (`Staff_ID`),
-  ADD UNIQUE KEY `Contact_No` (`Contact_No`);
+  ADD PRIMARY KEY (`Staff_ID`);
 
 --
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`Admin_ID`),
+  ADD PRIMARY KEY (`NIC`) USING BTREE,
   ADD UNIQUE KEY `Contact_No` (`Contact_No`),
-  ADD UNIQUE KEY `NIC` (`NIC`);
+  ADD UNIQUE KEY `Admin_ID` (`Admin_ID`) USING BTREE;
 
 --
 -- Indexes for table `beverage_item`
 --
 ALTER TABLE `beverage_item`
-  ADD PRIMARY KEY (`Item_ID`);
+  ADD PRIMARY KEY (`Item_ID`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `bill`
 --
 ALTER TABLE `bill`
   ADD PRIMARY KEY (`Bill_ID`),
-  ADD UNIQUE KEY `Order_ID` (`Order_ID`);
+  ADD UNIQUE KEY `Order_ID` (`Order_ID`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`Booking_ID`),
-  ADD UNIQUE KEY `Contact_No` (`Contact_No`);
+  ADD UNIQUE KEY `Contact_No` (`Contact_No`),
+  ADD KEY `User_ID` (`User_ID`);
 
 --
 -- Indexes for table `cashier`
 --
 ALTER TABLE `cashier`
-  ADD PRIMARY KEY (`Staff_ID`),
-  ADD UNIQUE KEY `Contact_No` (`Contact_No`);
+  ADD PRIMARY KEY (`Staff_ID`);
 
 --
 -- Indexes for table `cash_payment`
@@ -439,41 +470,46 @@ ALTER TABLE `cash_payment`
 -- Indexes for table `club member`
 --
 ALTER TABLE `club member`
-  ADD PRIMARY KEY (`Member_ID`),
+  ADD PRIMARY KEY (`Member_ID`) USING BTREE,
   ADD UNIQUE KEY `Card_No` (`Card_No`),
   ADD UNIQUE KEY `Contact_No` (`Contact_No`),
-  ADD UNIQUE KEY `NIC` (`NIC`);
+  ADD UNIQUE KEY `NIC` (`NIC`) USING BTREE;
 
 --
 -- Indexes for table `forum`
 --
 ALTER TABLE `forum`
-  ADD PRIMARY KEY (`Complaint_ID`);
+  ADD PRIMARY KEY (`Complaint_ID`),
+  ADD KEY `Member_ID` (`Member_ID`),
+  ADD KEY `Reply_Person_ID` (`Reply_Person_ID`);
 
 --
 -- Indexes for table `general manager`
 --
 ALTER TABLE `general manager`
-  ADD PRIMARY KEY (`Staff_ID`),
-  ADD UNIQUE KEY `Contact_No` (`Contact_No`);
+  ADD PRIMARY KEY (`Staff_ID`);
 
 --
 -- Indexes for table `grn`
 --
 ALTER TABLE `grn`
-  ADD PRIMARY KEY (`GRN_ID`);
+  ADD PRIMARY KEY (`GRN_ID`),
+  ADD KEY `Item_ID` (`Item_ID`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `invoice`
 --
 ALTER TABLE `invoice`
-  ADD PRIMARY KEY (`Invoice_ID`);
+  ADD PRIMARY KEY (`Invoice_ID`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `kichen_item`
 --
 ALTER TABLE `kichen_item`
-  ADD PRIMARY KEY (`Item_ID`);
+  ADD PRIMARY KEY (`Item_ID`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `leave`
@@ -503,20 +539,21 @@ ALTER TABLE `order`
 -- Indexes for table `order_item`
 --
 ALTER TABLE `order_item`
-  ADD PRIMARY KEY (`Order_ID`,`Items_ID`);
+  ADD PRIMARY KEY (`Order_ID`,`Items_ID`),
+  ADD KEY `Items_ID` (`Items_ID`);
 
 --
 -- Indexes for table `report`
 --
 ALTER TABLE `report`
-  ADD PRIMARY KEY (`Report_ID`);
+  ADD PRIMARY KEY (`Report_ID`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `restaurant manager`
 --
 ALTER TABLE `restaurant manager`
-  ADD PRIMARY KEY (`Staff_ID`),
-  ADD UNIQUE KEY `Contact_No` (`Contact_No`);
+  ADD PRIMARY KEY (`Staff_ID`);
 
 --
 -- Indexes for table `salary`
@@ -529,14 +566,16 @@ ALTER TABLE `salary`
 -- Indexes for table `service charge`
 --
 ALTER TABLE `service charge`
-  ADD PRIMARY KEY (`SC_Year_Month`);
+  ADD PRIMARY KEY (`SC_Year_Month`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `staff`
 --
 ALTER TABLE `staff`
-  ADD PRIMARY KEY (`Staff_ID`),
-  ADD UNIQUE KEY `Contact_No` (`Contact_No`);
+  ADD PRIMARY KEY (`NIC`) USING BTREE,
+  ADD UNIQUE KEY `Contact_No` (`Contact_No`),
+  ADD UNIQUE KEY `Staff_ID` (`Staff_ID`) USING BTREE;
 
 --
 -- Indexes for table `visa_payement`
@@ -544,6 +583,154 @@ ALTER TABLE `staff`
 ALTER TABLE `visa_payement`
   ADD PRIMARY KEY (`Payment_ID`),
   ADD UNIQUE KEY `Booking_ID` (`Booking_ID`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `accountant`
+--
+ALTER TABLE `accountant`
+  ADD CONSTRAINT `accountant_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `admin`
+--
+ALTER TABLE `admin`
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`Admin_ID`) REFERENCES `user_login` (`User_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `admin_ibfk_2` FOREIGN KEY (`Admin_ID`) REFERENCES `user_login` (`User_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `beverage_item`
+--
+ALTER TABLE `beverage_item`
+  ADD CONSTRAINT `beverage_item_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `order_item` (`Items_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `beverage_item_ibfk_2` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `bill`
+--
+ALTER TABLE `bill`
+  ADD CONSTRAINT `bill_ibfk_1` FOREIGN KEY (`Order_ID`) REFERENCES `order` (`Order_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bill_ibfk_2` FOREIGN KEY (`Staff_ID`) REFERENCES `cashier` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `booking`
+--
+ALTER TABLE `booking`
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `club member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`User_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cashier`
+--
+ALTER TABLE `cashier`
+  ADD CONSTRAINT `cashier_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `cash_payment`
+--
+ALTER TABLE `cash_payment`
+  ADD CONSTRAINT `cash_payment_ibfk_1` FOREIGN KEY (`Booking_ID`) REFERENCES `booking` (`Booking_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `club member`
+--
+ALTER TABLE `club member`
+  ADD CONSTRAINT `club member_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `user_login` (`User_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `forum`
+--
+ALTER TABLE `forum`
+  ADD CONSTRAINT `forum_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `club member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `forum_ibfk_2` FOREIGN KEY (`Reply_Person_ID`) REFERENCES `admin` (`Admin_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `forum_ibfk_3` FOREIGN KEY (`Reply_Person_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `forum_ibfk_4` FOREIGN KEY (`Reply_Person_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `general manager`
+--
+ALTER TABLE `general manager`
+  ADD CONSTRAINT `general manager_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `grn`
+--
+ALTER TABLE `grn`
+  ADD CONSTRAINT `grn_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `beverage_item` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `grn_ibfk_2` FOREIGN KEY (`Item_ID`) REFERENCES `kichen_item` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `grn_ibfk_3` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `invoice`
+--
+ALTER TABLE `invoice`
+  ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `accountant` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `kichen_item`
+--
+ALTER TABLE `kichen_item`
+  ADD CONSTRAINT `kichen_item_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `leave`
+--
+ALTER TABLE `leave`
+  ADD CONSTRAINT `leave_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `make_payement`
+--
+ALTER TABLE `make_payement`
+  ADD CONSTRAINT `make_payement_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `club member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order_item`
+--
+ALTER TABLE `order_item`
+  ADD CONSTRAINT `order_item_ibfk_1` FOREIGN KEY (`Order_ID`) REFERENCES `order` (`Order_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_item_ibfk_2` FOREIGN KEY (`Items_ID`) REFERENCES `kichen_item` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `report`
+--
+ALTER TABLE `report`
+  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `accountant` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `report_ibfk_2` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `report_ibfk_3` FOREIGN KEY (`Staff_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `restaurant manager`
+--
+ALTER TABLE `restaurant manager`
+  ADD CONSTRAINT `restaurant manager_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `salary`
+--
+ALTER TABLE `salary`
+  ADD CONSTRAINT `salary_ibfk_1` FOREIGN KEY (`Staff_No`) REFERENCES `staff` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `service charge`
+--
+ALTER TABLE `service charge`
+  ADD CONSTRAINT `service charge_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `staff`
+--
+ALTER TABLE `staff`
+  ADD CONSTRAINT `staff_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `user_login` (`User_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `visa_payement`
+--
+ALTER TABLE `visa_payement`
+  ADD CONSTRAINT `visa_payement_ibfk_1` FOREIGN KEY (`Booking_ID`) REFERENCES `booking` (`Booking_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
