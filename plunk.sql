@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2021 at 07:13 PM
+-- Generation Time: Sep 03, 2021 at 07:18 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -515,6 +515,36 @@ INSERT INTO `staff` (`Staff_ID`, `Name`, `Position`, `Address`, `NIC`, `Joined_Y
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `user_login`
+--
+
+CREATE TABLE `user_login` (
+  `User_ID` varchar(5) NOT NULL,
+  `Login_name` text NOT NULL,
+  `Password` text NOT NULL,
+  `Sec_Q1` text NOT NULL,
+  `Answer1` text NOT NULL,
+  `Sec_Q2` text NOT NULL,
+  `Answer2` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user_login`
+--
+
+INSERT INTO `user_login` (`User_ID`, `Login_name`, `Password`, `Sec_Q1`, `Answer1`, `Sec_Q2`, `Answer2`) VALUES
+('A0001', 'Pavani Marasinghe', 'Pavani1', 'pet', 'dog', 'country', 'Japan'),
+('C0001', 'Cashier1', 'Cash1', 'Country', 'China', 'Sport', 'Football'),
+('D0001', 'Shan Dilranga', 'Shan1', 'Color', 'Black', 'Sport', 'Cricket'),
+('G0001', 'Chathura Alwis', 'Chathura1', 'Country', 'America', 'Game', 'Temple Run '),
+('HM001', 'Member1', 'Mem1', 'Color', 'Yellow', 'Vehical', 'BMW'),
+('LM001', 'Member2', 'Mem2', 'Color', 'Red', 'Pet', 'Parrot '),
+('OM001', 'Member3', 'Mem3', 'Country', 'Sri Lanka', 'Sport', 'Volleyball '),
+('R0001', 'Gimhani Rubasinghe ', 'Gimhani1', 'Color', 'Blue', 'Pet', 'Cat');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `visa_payement`
 --
 
@@ -699,6 +729,13 @@ ALTER TABLE `staff`
   ADD PRIMARY KEY (`NIC`) USING BTREE,
   ADD UNIQUE KEY `Contact_No` (`Contact_No`),
   ADD UNIQUE KEY `Staff_ID` (`Staff_ID`) USING BTREE;
+
+--
+-- Indexes for table `user_login`
+--
+ALTER TABLE `user_login`
+  ADD PRIMARY KEY (`User_ID`);
+ALTER TABLE `user_login` ADD FULLTEXT KEY `Password` (`Password`,`Answer1`,`Answer2`);
 
 --
 -- Indexes for table `visa_payement`
