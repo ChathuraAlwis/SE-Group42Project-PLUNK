@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2021 at 01:07 PM
+-- Generation Time: Sep 03, 2021 at 04:45 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -53,6 +53,13 @@ CREATE TABLE `admin` (
   `Contact_No` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`Admin_ID`, `Name`, `Address`, `NIC`, `Joined_Year`, `Contact_No`) VALUES
+('D0001', 'Shan Dilranga', '1/Street1', '991234567v', '2018-05-08', 712345678);
+
 -- --------------------------------------------------------
 
 --
@@ -72,6 +79,13 @@ CREATE TABLE `beverage_item` (
   `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `beverage_item`
+--
+
+INSERT INTO `beverage_item` (`Item_ID`, `Name`, `Price`, `Discount`, `Availability`, `Quantity`, `Volume`, `Company_Name`, `Reorder_Quantity`, `Staff_ID`) VALUES
+('BI001', 'RedBull', 800, 5, 1, 100, 180, 'Company1', 0, 'R0001');
+
 -- --------------------------------------------------------
 
 --
@@ -80,12 +94,19 @@ CREATE TABLE `beverage_item` (
 
 CREATE TABLE `bill` (
   `Bill_ID` varchar(5) NOT NULL,
-  `Payment_Type` varchar(4) NOT NULL,
+  `Payment_Type` enum('Cash','Card') NOT NULL,
   `Discount` double NOT NULL,
   `Steward_Name` text NOT NULL,
   `Staff_ID` varchar(5) NOT NULL,
   `Order_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`Bill_ID`, `Payment_Type`, `Discount`, `Steward_Name`, `Staff_ID`, `Order_ID`) VALUES
+('L0001', 'Cash', 5, 'Steward1', 'C0001', 'O0001');
 
 -- --------------------------------------------------------
 
@@ -97,19 +118,29 @@ CREATE TABLE `booking` (
   `Booking_ID` varchar(5) NOT NULL,
   `Customer_Name` text NOT NULL,
   `Reserved_Date` date NOT NULL,
-  `Reserved_Time` time NOT NULL,
-  `Contact_No` varchar(10) NOT NULL,
+  `Received_Time` time NOT NULL,
+  `Create_Date` date NOT NULL,
+  `Contact_No` int(10) NOT NULL,
   `Duration` time NOT NULL,
-  `User_ID` varchar(5) NOT NULL COMMENT 'Member_ID or Staff_ID',
-  `Club_Flag` tinyint(1) NOT NULL,
-  `Resaurant_Flag` tinyint(1) NOT NULL,
+  `Position` enum('Club Member','General manager') NOT NULL,
+  `G_ID` varchar(5) DEFAULT NULL,
+  `Member_ID` varchar(5) DEFAULT NULL,
+  `Booking_Type` enum('Club','Restaurant') NOT NULL,
   `Net_Type` varchar(20) DEFAULT NULL,
-  `Place` text DEFAULT NULL,
-  `No_People` int(11) DEFAULT NULL,
+  `Place` varchar(10) DEFAULT NULL,
+  `No_Of_People` int(11) DEFAULT NULL,
   `Last_Modified_Date` date NOT NULL,
   `Delete_Date` date DEFAULT NULL,
-  `Reason` longtext DEFAULT NULL
+  `Reason` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`Booking_ID`, `Customer_Name`, `Reserved_Date`, `Received_Time`, `Create_Date`, `Contact_No`, `Duration`, `Position`, `G_ID`, `Member_ID`, `Booking_Type`, `Net_Type`, `Place`, `No_Of_People`, `Last_Modified_Date`, `Delete_Date`, `Reason`) VALUES
+('B0001', 'Customer1', '2021-09-08', '08:00:00', '2021-09-03', 723456234, '20:00:00', 'Club Member', NULL, 'LM001', 'Restaurant', NULL, 'Place1', 100, '2021-09-03', NULL, NULL),
+('B0002', 'Customer2', '2021-09-10', '18:30:00', '2021-09-03', 763552312, '13:00:00', 'General manager', 'G0001', NULL, 'Club', 'Center Wic', NULL, NULL, '2021-09-03', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -143,6 +174,13 @@ CREATE TABLE `cash_payment` (
   `Booking_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `cash_payment`
+--
+
+INSERT INTO `cash_payment` (`Payment_ID`, `Value`, `Date`, `Reciept_No`, `Signed_Person`, `Booking_ID`) VALUES
+('CP001', 20000, '2021-09-03', 1, 'Mr.Perera', 'B0001');
+
 -- --------------------------------------------------------
 
 --
@@ -152,7 +190,7 @@ CREATE TABLE `cash_payment` (
 CREATE TABLE `club member` (
   `Member_ID` varchar(5) NOT NULL,
   `Name` text NOT NULL,
-  `Member_Type` varchar(10) NOT NULL,
+  `Member_Type` enum('Life','Ordinary',' Honorary') NOT NULL,
   `NIC` varchar(12) NOT NULL,
   `Address` text NOT NULL,
   `Contact_No` int(10) NOT NULL,
@@ -166,7 +204,9 @@ CREATE TABLE `club member` (
 --
 
 INSERT INTO `club member` (`Member_ID`, `Name`, `Member_Type`, `NIC`, `Address`, `Contact_No`, `Profession`, `Signed_People`, `Card_No`) VALUES
-('M0001', 'Member1', 'Life', '941231232v', '8/street7', 765674532, 'Businessman ', 'Peris', 534645756);
+('HM001', 'Member1', ' Honorary', '941231232v', '8/street7', 765674532, 'Businessman ', 'Peris', 534645756),
+('LM001', 'Member2', 'Life', '9234567834v', '4/temple road', 723456232, 'Cricketer', 'Mr A. Perera', 123455678),
+('OM001', 'Member 3', 'Ordinary', '987654212v', '23/Nelum road', 708954323, 'Accountant', 'Mr. E. Palihavadana', 1234567894);
 
 -- --------------------------------------------------------
 
@@ -180,8 +220,18 @@ CREATE TABLE `forum` (
   `Date` date NOT NULL,
   `Reply` longtext NOT NULL,
   `Member_ID` varchar(5) NOT NULL,
-  `Reply_Person_ID` varchar(5) NOT NULL
+  `Position` enum('Admin','General Manager','Restaurant Manager') NOT NULL,
+  `Reply_A_ID` varchar(5) DEFAULT NULL,
+  `Reply_G_ID` varchar(5) DEFAULT NULL,
+  `Reply_R_ID` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `forum`
+--
+
+INSERT INTO `forum` (`Complaint_ID`, `Complain`, `Date`, `Reply`, `Member_ID`, `Position`, `Reply_A_ID`, `Reply_G_ID`, `Reply_R_ID`) VALUES
+('M0001', 'Test complain', '2021-09-03', 'Test Reply', 'HM001', 'Admin', 'D0001', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -213,9 +263,19 @@ CREATE TABLE `grn` (
   `Add_Date` date NOT NULL,
   `Return_Date` date DEFAULT NULL,
   `Reason` longtext DEFAULT NULL,
-  `Item_ID` varchar(5) NOT NULL,
+  `Item_type` enum('Kitchen','Beverage') NOT NULL,
+  `Beverage_Item_ID` varchar(5) DEFAULT NULL,
+  `Kitchen_Item_ID` varchar(5) DEFAULT NULL,
   `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `grn`
+--
+
+INSERT INTO `grn` (`GRN_ID`, `Quantity`, `Company_Name`, `Add_Date`, `Return_Date`, `Reason`, `Item_type`, `Beverage_Item_ID`, `Kitchen_Item_ID`, `Staff_ID`) VALUES
+('X0001', 100, 'Company1', '2021-09-01', NULL, NULL, 'Kitchen', NULL, 'KI001', 'R0001'),
+('X0002', 150, 'Company2', '2021-09-03', NULL, NULL, 'Beverage', 'BI001', NULL, 'R0001');
 
 -- --------------------------------------------------------
 
@@ -232,6 +292,13 @@ CREATE TABLE `invoice` (
   `Value` int(11) NOT NULL,
   `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`Invoice_ID`, `Company_Name`, `Content`, `Received_Date`, `Due_Date`, `Value`, `Staff_ID`) VALUES
+('I0001', 'Company1', 'This is invoice 1', '2021-09-01', '2021-09-03', 300, 'A0001');
 
 -- --------------------------------------------------------
 
@@ -251,6 +318,13 @@ CREATE TABLE `kichen_item` (
   `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kichen_item`
+--
+
+INSERT INTO `kichen_item` (`Item_ID`, `Name`, `Price`, `Discount`, `Availability`, `Quantity`, `Category`, `Portion`, `Staff_ID`) VALUES
+('KI001', 'Carrot', 80, 5, 1, 100, 'vegetables', 50, 'R0001');
+
 -- --------------------------------------------------------
 
 --
@@ -263,17 +337,12 @@ CREATE TABLE `leave` (
   `Reason` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `make_payement`
+-- Dumping data for table `leave`
 --
 
-CREATE TABLE `make_payement` (
-  `Member_ID` varchar(5) NOT NULL,
-  `Payment_ID` int(11) NOT NULL,
-  `Staff_ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `leave` (`Staff_ID`, `Date`, `Reason`) VALUES
+('C0001', '2021-09-03', 'Reason1');
 
 -- --------------------------------------------------------
 
@@ -289,6 +358,13 @@ CREATE TABLE `nortification` (
   `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `nortification`
+--
+
+INSERT INTO `nortification` (`Nortification_ID`, `Date`, `Event_Type`, `Message`, `Staff_ID`) VALUES
+('N0001', '2021-09-01', 'Nortification 1', 'Messages ', 'R0001');
+
 -- --------------------------------------------------------
 
 --
@@ -303,6 +379,13 @@ CREATE TABLE `order` (
   `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`Order_ID`, `Oder_Place`, `Quantity`, `Member_ID`, `Staff_ID`) VALUES
+('O0001', 'Table1', 2, 'LM001', 'C0001');
+
 -- --------------------------------------------------------
 
 --
@@ -313,6 +396,13 @@ CREATE TABLE `order_item` (
   `Order_ID` varchar(5) NOT NULL,
   `Items_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_item`
+--
+
+INSERT INTO `order_item` (`Order_ID`, `Items_ID`) VALUES
+('O0001', 'KI001');
 
 -- --------------------------------------------------------
 
@@ -325,8 +415,18 @@ CREATE TABLE `report` (
   `Type` text NOT NULL,
   `Date` date NOT NULL,
   `Period` int(11) NOT NULL,
-  `Staff_ID` varchar(5) NOT NULL
+  `Position` enum('Accountant','General Manager','Restaurant Manager') NOT NULL,
+  `A_ID` varchar(5) DEFAULT NULL,
+  `G_ID` varchar(5) DEFAULT NULL,
+  `R_ID` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `report`
+--
+
+INSERT INTO `report` (`Report_ID`, `Type`, `Date`, `Period`, `Position`, `A_ID`, `G_ID`, `R_ID`) VALUES
+('T0001', 'Report1', '2021-09-03', 30, 'Accountant', 'A0001', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -359,6 +459,13 @@ CREATE TABLE `salary` (
   `Staff_No` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `salary`
+--
+
+INSERT INTO `salary` (`Salary_ID`, `Year_Month`, `Amount`, `No_Working_days`, `Staff_No`) VALUES
+('S0001', '2021-09-01', 55000, 26, 'C0001');
+
 -- --------------------------------------------------------
 
 --
@@ -371,6 +478,13 @@ CREATE TABLE `service charge` (
   `Value` double NOT NULL,
   `Staff_ID` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service charge`
+--
+
+INSERT INTO `service charge` (`SC_Year_Month`, `Percentage`, `Value`, `Staff_ID`) VALUES
+('2021-09-01', 10, 50000, 'C0001');
 
 -- --------------------------------------------------------
 
@@ -413,6 +527,13 @@ CREATE TABLE `visa_payement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `visa_payement`
+--
+
+INSERT INTO `visa_payement` (`Payment_ID`, `Value`, `Date`, `Card_No`, `Booking_ID`) VALUES
+('VP002', 8000, '2021-09-03', 534645755, 'B0002');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -450,8 +571,8 @@ ALTER TABLE `bill`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`Booking_ID`),
-  ADD UNIQUE KEY `Contact_No` (`Contact_No`),
-  ADD KEY `User_ID` (`User_ID`);
+  ADD KEY `G_ID` (`G_ID`),
+  ADD KEY `Member_ID` (`Member_ID`);
 
 --
 -- Indexes for table `cashier`
@@ -481,7 +602,9 @@ ALTER TABLE `club member`
 ALTER TABLE `forum`
   ADD PRIMARY KEY (`Complaint_ID`),
   ADD KEY `Member_ID` (`Member_ID`),
-  ADD KEY `Reply_Person_ID` (`Reply_Person_ID`);
+  ADD KEY `Reply_Person_ID` (`Reply_R_ID`),
+  ADD KEY `forum_ibfk_2` (`Reply_G_ID`),
+  ADD KEY `forum_ibfk_4` (`Reply_A_ID`);
 
 --
 -- Indexes for table `general manager`
@@ -494,8 +617,9 @@ ALTER TABLE `general manager`
 --
 ALTER TABLE `grn`
   ADD PRIMARY KEY (`GRN_ID`),
-  ADD KEY `Item_ID` (`Item_ID`),
-  ADD KEY `Staff_ID` (`Staff_ID`);
+  ADD KEY `Staff_ID` (`Staff_ID`),
+  ADD KEY `grn_ibfk_3` (`Kitchen_Item_ID`),
+  ADD KEY `grn_ibfk_2` (`Beverage_Item_ID`);
 
 --
 -- Indexes for table `invoice`
@@ -518,22 +642,19 @@ ALTER TABLE `leave`
   ADD PRIMARY KEY (`Staff_ID`,`Date`);
 
 --
--- Indexes for table `make_payement`
---
-ALTER TABLE `make_payement`
-  ADD PRIMARY KEY (`Member_ID`,`Payment_ID`);
-
---
 -- Indexes for table `nortification`
 --
 ALTER TABLE `nortification`
-  ADD PRIMARY KEY (`Nortification_ID`);
+  ADD PRIMARY KEY (`Nortification_ID`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
-  ADD PRIMARY KEY (`Order_ID`);
+  ADD PRIMARY KEY (`Order_ID`),
+  ADD KEY `Member_ID` (`Member_ID`),
+  ADD KEY `Staff_ID` (`Staff_ID`);
 
 --
 -- Indexes for table `order_item`
@@ -547,7 +668,9 @@ ALTER TABLE `order_item`
 --
 ALTER TABLE `report`
   ADD PRIMARY KEY (`Report_ID`),
-  ADD KEY `Staff_ID` (`Staff_ID`);
+  ADD KEY `Staff_ID` (`R_ID`),
+  ADD KEY `report_ibfk_1` (`A_ID`),
+  ADD KEY `report_ibfk_3` (`G_ID`);
 
 --
 -- Indexes for table `restaurant manager`
@@ -598,14 +721,12 @@ ALTER TABLE `accountant`
 -- Constraints for table `admin`
 --
 ALTER TABLE `admin`
-  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`Admin_ID`) REFERENCES `user_login` (`User_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `admin_ibfk_2` FOREIGN KEY (`Admin_ID`) REFERENCES `user_login` (`User_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`Admin_ID`) REFERENCES `user_login` (`User_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `beverage_item`
 --
 ALTER TABLE `beverage_item`
-  ADD CONSTRAINT `beverage_item_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `order_item` (`Items_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `beverage_item_ibfk_2` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
@@ -619,8 +740,8 @@ ALTER TABLE `bill`
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `club member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`User_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`G_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`Member_ID`) REFERENCES `club member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cashier`
@@ -645,9 +766,9 @@ ALTER TABLE `club member`
 --
 ALTER TABLE `forum`
   ADD CONSTRAINT `forum_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `club member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `forum_ibfk_2` FOREIGN KEY (`Reply_Person_ID`) REFERENCES `admin` (`Admin_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `forum_ibfk_3` FOREIGN KEY (`Reply_Person_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `forum_ibfk_4` FOREIGN KEY (`Reply_Person_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `forum_ibfk_2` FOREIGN KEY (`Reply_G_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `forum_ibfk_3` FOREIGN KEY (`Reply_R_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `forum_ibfk_4` FOREIGN KEY (`Reply_A_ID`) REFERENCES `admin` (`Admin_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `general manager`
@@ -659,9 +780,9 @@ ALTER TABLE `general manager`
 -- Constraints for table `grn`
 --
 ALTER TABLE `grn`
-  ADD CONSTRAINT `grn_ibfk_1` FOREIGN KEY (`Item_ID`) REFERENCES `beverage_item` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `grn_ibfk_2` FOREIGN KEY (`Item_ID`) REFERENCES `kichen_item` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `grn_ibfk_3` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `grn_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `grn_ibfk_2` FOREIGN KEY (`Beverage_Item_ID`) REFERENCES `beverage_item` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `grn_ibfk_3` FOREIGN KEY (`Kitchen_Item_ID`) REFERENCES `kichen_item` (`Item_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `invoice`
@@ -682,10 +803,17 @@ ALTER TABLE `leave`
   ADD CONSTRAINT `leave_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `staff` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `make_payement`
+-- Constraints for table `nortification`
 --
-ALTER TABLE `make_payement`
-  ADD CONSTRAINT `make_payement_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `club member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `nortification`
+  ADD CONSTRAINT `nortification_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `order`
+--
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`Member_ID`) REFERENCES `club member` (`Member_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `order_ibfk_2` FOREIGN KEY (`Staff_ID`) REFERENCES `cashier` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order_item`
@@ -698,9 +826,9 @@ ALTER TABLE `order_item`
 -- Constraints for table `report`
 --
 ALTER TABLE `report`
-  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`Staff_ID`) REFERENCES `accountant` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `report_ibfk_2` FOREIGN KEY (`Staff_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `report_ibfk_3` FOREIGN KEY (`Staff_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `report_ibfk_1` FOREIGN KEY (`A_ID`) REFERENCES `accountant` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `report_ibfk_2` FOREIGN KEY (`R_ID`) REFERENCES `restaurant manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `report_ibfk_3` FOREIGN KEY (`G_ID`) REFERENCES `general manager` (`Staff_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `restaurant manager`
