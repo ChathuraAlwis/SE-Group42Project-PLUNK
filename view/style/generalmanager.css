@@ -37,7 +37,7 @@ header{
    font-family:'Times New Roaman';
    display: block;
    font-size: 150%;
-   width: 5%;
+   width: 6%;
    height: 50px;
    padding: 5px;
    cursor: pointer;
@@ -86,7 +86,7 @@ header{
   font-family:'Times New Roaman';
   display: block;
   font-size: 120%;
-  width: 100%;
+  width: 120%;
   height: 50px;
   padding: 5px;
   cursor: pointer;
