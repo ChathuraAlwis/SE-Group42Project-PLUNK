@@ -11,36 +11,53 @@
 
   </head>
   <body>
-    <div class="upper">
+    <div class="upper" id="myheader">
 
         <header>
               <img class="plunk" src="images/projectlogo.png" alt="plunk logo"><br>
               <img class="Logo" src="images/bloomfieldlogo.png" alt="Bloomfield Logo">
               <h2>Bloomfield C. & A.C.</h2><br>
-              <button type="button" name="Menu" class="Menu" onclick="document.getElementById('buttonset').style.display='none'">M e</button>
-              <button type="button" name="Menu" class="Menu" id="show" onclick="document.getElementById('buttonset').style.display='block'">n u</button>
+              <button type="button" name="Menu" class="Menu" onclick=myFunction() ><a href="gmnavbtn.html" class="menubtn" target="navigation">Menu</a></button>
 
               <h3>General Manager</h3>
 
         </header>
     </div>
-    <div class="">
+    <div class="htmlpages">
+                  <div id="panel" class=" panel">
+
+                      <iframe id="navv"class="nav" name="navigation" title="iframe for nav"></iframe>
+
+                  </div>
 
 
-            <div class="buttongroup" id="buttonset">
-                <button type="button" class="button" name="user"><a href="#" class="linkbutton"> User </a></button>
-                <button type="button" class="button" name="Booking"><a href="#" class="linkbutton"> Booking </a></button>
-                <button type="button" class="button" name="Payment"><a href="#" class="linkbutton"> Payment </a></button>
-                <button type="button" class="button" name="Report"><a href="#" class="linkbutton"> Report </a></button>
-                <button type="button" class="button" name="Leave"><a href="#" class="linkbutton"> Leave </a></button>
-                <button type="button" class="button" name="GRN"><a href="#" class="linkbutton"> GRN </a></button>
-                <button type="button" class="button" name="Forum"><a href="#" class="linkbutton"> Forum </a></button> <br><br><br><br><br><br><br><br>
-                <button type="button" class="button" name="Log out"><a href="cover.html" class="linkbutton"> Log out </a></button>
+              <script type="text/javascript">
+                    // function openNav() {
+                    // document.getElementById("panel").style.width = "10%";
+      	            // document.getElementById("main").style.marginLeft = "10%";
+                    //             }
+                    // function closeNav() {
+                    // document.getElementById("panel").style.width = "0";
+                    // document.getElementById("main").style.marginLeft = "0";
+                    // }
+                    function myFunction() {
+                      var x = document.getElementById("panel");
+                      if (x.style.display === "none") {
+                        x.style.display = "block";
+                        x.style.width = "10%";
+                        document.getElementById("main").style.marginLeft = "10%";
+                      } else {
+                        x.style.display = "none";
+                        x.style.width = "0";
+                        document.getElementById("main").style.marginLeft = "0";
+                      }
+                    }
 
-            </div>
 
-      <div class="main">
+              </script>
 
+      <div class="main" id="main">
+              <iframe class="page" name="Pages"  title="Iframe for pages"></iframe>
 
       </div>
 

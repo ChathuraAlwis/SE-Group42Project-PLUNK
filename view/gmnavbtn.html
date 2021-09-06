@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style/gmnavbtn.css">
+
+
+  </head>
+  <body>
+
+    <div class="">
+
+
+            <div class="buttongroup" id="buttonset">
+                <button type="button" class="button" name="user"> User </button>
+                    <div class="dropdown-container">
+                          <button type="button" class="subbutton" name="Add User"><a href="adduser.html" target="Pages" ><b> Add  </b></a></button>
+                          <button type="button" class="subbutton" name="Update User"><a href="#" ><b>Update  </b></a></button>
+                          <button type="button" class="subbutton" name="Delete User"><a href="#" ><b>Delete </b></a></button>
+                    </div>
+                <button type="button" class="button" name="Booking"> Booking </button>
+                    <div class="dropdown-container">
+                          <button type="button" class="subbutton" name="Add User"><a href="#" ><b> Add </b></a></button>
+                          <button type="button" class="subbutton" name="Update User"><a href="#" ><b>Update </b></a></button>
+                          <button type="button" class="subbutton" name="Delete User"><a href="#" ><b>Delete </b></a></button>
+                    </div>
+                <button type="button" class="button" name="Payment"> Payment </button>
+                    <div class="dropdown-container">
+                          <button type="button" class="subbutton" name="Add User"><a href="#" ><b> Cash </b></a></button>
+                          <button type="button" class="subbutton" name="Update User"><a href="#" ><b>Visa </b></a></button>
+                    </div>
+                <button type="button" class="button" name="Report"> Report </button>
+                <button type="button" class="button" name="Leave"> Leave </button>
+                <button type="button" class="button" name="GRN"> GRN </button>
+                    <div class="dropdown-container">
+                          <button type="button" class="subbutton" name="Add User"><a href="#" ><b> Add </b></a></button>
+                          <button type="button" class="subbutton" name="Update User"><a href="#" ><b> Return </b></a></button>
+                    </div>
+                <button type="button" class="button" name="Forum"> Forum </button> <br><br><br><br><br><br><br><br>
+                <button type="button" class="button" name="Log out"><a href="cover.html" class="linkbutton"> Log out </a></button>
+
+            </div>
+
+              <script type="text/javascript">
+
+                    var dropdown = document.getElementsByClassName("button");
+                    var i;
+
+                    for (i = 0; i < dropdown.length; i++) {
+                      dropdown[i].addEventListener("click", function() {
+                      this.classList.toggle("active");
+                      var dropdownContent = this.nextElementSibling;
+                      if (dropdownContent.style.display === "block") {
+                      dropdownContent.style.display = "none";
+                      } else {
+                      dropdownContent.style.display = "block";
+                      }
+                      });
+                    }
+
+              </script>
+
+    </div>
+  </body>
+</html>
