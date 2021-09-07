@@ -9,7 +9,7 @@
 
 
 }
-.buttongroup .button{
+.buttongroup #dropbtn{
   display: block;
   background-color:#2d7166;
   font-family:'Times New Roaman';

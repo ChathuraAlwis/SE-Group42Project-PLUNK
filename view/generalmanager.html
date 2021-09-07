@@ -4,6 +4,7 @@
 
         <meta charset="utf-8">
         <title>Bloomfield</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="style/generalmanager.css">
@@ -14,12 +15,14 @@
     <div class="upper" id="myheader">
 
         <header>
+              <button type="button"  class="logout" name="Log out"><a href="cover.html" class="linkbutton"> L<br>o<br>g<br>O<br>u<br>t </a></button>
               <img class="plunk" src="images/projectlogo.png" alt="plunk logo"><br>
               <img class="Logo" src="images/bloomfieldlogo.png" alt="Bloomfield Logo">
               <h2>Bloomfield C. & A.C.</h2><br>
-              <button type="button" name="Menu" class="Menu" onclick=myFunction() ><a href="gmnavbtn.html" class="menubtn" target="navigation">Menu</a></button>
-
+              <button type="button" name="Menu" class="Menu" onclick=myFunction() ><a href="gmnavbtn.html" class="menubtn" target="navigation">&#9776;</a></button>
               <h3>General Manager</h3>
+
+
 
         </header>
     </div>
@@ -46,10 +49,12 @@
                         x.style.display = "block";
                         x.style.width = "10%";
                         document.getElementById("main").style.marginLeft = "10%";
+
                       } else {
                         x.style.display = "none";
                         x.style.width = "0";
                         document.getElementById("main").style.marginLeft = "0";
+
                       }
                     }
 
