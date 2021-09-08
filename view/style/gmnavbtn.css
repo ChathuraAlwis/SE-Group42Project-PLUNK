@@ -13,10 +13,10 @@
   display: block;
   background-color:#2d7166;
   font-family:'Times New Roaman';
-  font-size: 120%;
+  font-size: 14vw;
   color: white;
   width: 100%;
-  height: 50px;
+  height: 40%;
   padding: 5px;
   cursor: pointer;
   border-radius: 10px;
@@ -31,15 +31,16 @@
 .linkbutton{
   color: white;
   text-decoration: none;
+  font-size: 14vw;
 }
 .dropdown-container .subbutton{
   display: block;
   background-color:#ffdf45;
   font-family:'Times New Roaman';
-  font-size: 120%;
+  font-size: 12vw;
   color: #2d7166;
   width: 90%;
-  height: 50px;
+  height: 40%;
   padding: 5px;
   cursor: pointer;
   border-radius: 10px;
@@ -51,10 +52,7 @@
   text-decoration: none;
 }
 
-@media screen and (max-height: 450px) {
-  .buttongroup {padding-top: 15px;}
-  .buttongroup a {font-size: 18px;}
-}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
