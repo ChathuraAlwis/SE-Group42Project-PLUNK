@@ -1,11 +1,63 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    restaurant manager
-</body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="style/generalmanager.css">
+
+
+  </head>
+  <body>
+    <div class="upper" id="myheader">
+
+        <header>
+              <button type="button"  class="logout" name="Log out"><a href="cover.html" class="linkbutton"> L<br>o<br>g<br>O<br>u<br>t </a></button>
+              <img class="plunk" src="images/projectlogo.png" alt="plunk logo"><br>
+              <img class="Logo" src="images/bloomfieldlogo.png" alt="Bloomfield Logo">
+              <h2>Bloomfield C. & A.C.</h2><br>
+              <button type="button" name="Menu" class="Menu" onclick=myFunction() ><a href="rmnavbtn.html" class="menubtn" target="navigation">&#9776;</a></button>
+              <h3>General Manager</h3>
+
+
+
+        </header>
+    </div>
+    <div class="htmlpages">
+                  <div id="panel" class=" panel">
+
+                      <iframe id="navv"class="nav" name="navigation" title="iframe for nav"></iframe>
+
+                  </div>
+
+
+              <script type="text/javascript">
+                    function myFunction() {
+                      var x = document.getElementById("panel");
+                      if (x.style.display === "none") {
+                        x.style.display = "block";
+                        x.style.width = "10%";
+                        document.getElementById("main").style.marginLeft = "10%";
+
+                      } else {
+                        x.style.display = "none";
+                        x.style.width = "0";
+                        document.getElementById("main").style.marginLeft = "0";
+
+                      }
+                    }
+
+
+              </script>
+
+      <div class="main" id="main">
+              <iframe class="page" name="Pages"  title="Iframe for pages"></iframe>
+
+      </div>
+
+    </div>
+  </body>
 </html>
