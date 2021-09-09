@@ -6,7 +6,7 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style/usernavbtn.css">
-
+        <script type="text/javascript" src="usernavbtn.js"> </script>
 
   </head>
   <body>
@@ -17,7 +17,7 @@
             <div class="buttongroup" id="buttonset">
                 <button type="button" id="dropbtn" name="user"> <a href="#"  class="linkbutton" >Home</a> </button>
 
-                <button type="button" class="button" id="dropbtn" name="user"> User </button>
+                <button type="button" class="button" id="dropbtn" name="user" onclick="drop()"> User </button>
                     <div class="dropdown-container">
                           <button type="button" class="subbutton" name="Add User"><a href="adduser.html" target="Pages" ><b> Add  </b></a></button>
                           <button type="button" class="subbutton" name="Update User"><a href="#" ><b>Update  </b></a></button>
@@ -29,26 +29,6 @@
 
 
             </div>
-
-              <script type="text/javascript">
-
-                    var dropdown = document.getElementsByClassName("button");
-                    var i;
-
-                    for (i = 0; i < dropdown.length; i++) {
-                      dropdown[i].addEventListener("click", function() {
-                      this.classList.toggle("active");
-                      var dropdownContent = this.nextElementSibling;
-                      if (dropdownContent.style.display === "block") {
-                      dropdownContent.style.display = "none";
-                      } else {
-                      dropdownContent.style.display = "block";
-                      }
-                      });
-                    }
-
-              </script>
-
     </div>
   </body>
 </html>

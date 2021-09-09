@@ -6,19 +6,17 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style/usernavbtn.css">
-
+        <script type="text/javascript" src="usernavbtn.js"> </script>
 
   </head>
   <body>
 
     <div class="">
-
-
             <div class="buttongroup" id="buttonset">
                 <button type="button" id="dropbtn" name="user"> <a href="#"  class="linkbutton" >Home</a> </button>
                 <button type="button"  id="dropbtn" name="Report"> Leave </button>
 
-                <button type="button" class="button" id="dropbtn" name="Leave"> Report </button>
+                <button type="button" class="button" id="dropbtn" name="Leave" onclick="drop()"> Report </button>
                     <div class="dropdown-container">
                           <button type="button" class="subbutton" name="Add User"><a href="#" ><b> Salary </b></a></button>
                           <button type="button" class="subbutton" name="Update User"><a href="#" ><b>Service<br>Charege </b></a></button>
@@ -26,29 +24,7 @@
                     </div>
 
                 <button type="button"  id="dropbtn" name="Salary"> Profile </button> <br><br><br><br><br><br>
-
-
             </div>
-
-              <script type="text/javascript">
-
-                    var dropdown = document.getElementsByClassName("button");
-                    var i;
-
-                    for (i = 0; i < dropdown.length; i++) {
-                      dropdown[i].addEventListener("click", function() {
-                      this.classList.toggle("active");
-                      var dropdownContent = this.nextElementSibling;
-                      if (dropdownContent.style.display === "block") {
-                      dropdownContent.style.display = "none";
-                      } else {
-                      dropdownContent.style.display = "block";
-                      }
-                      });
-                    }
-
-              </script>
-
-    </div>
-  </body>
+        </div>
+    </body>
 </html>

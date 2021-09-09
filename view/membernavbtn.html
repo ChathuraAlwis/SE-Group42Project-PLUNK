@@ -6,30 +6,28 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style/usernavbtn.css">
-
+        <script type="text/javascript" src="usernavbtn.js"> </script>
 
   </head>
   <body>
 
     <div class="">
-
-
             <div class="buttongroup" id="buttonset">
                 <button type="button" id="dropbtn" name="user"> <a href="#"  class="linkbutton" >Home</a> </button>
-                <button type="button" class="button" id="dropbtn" name="order"> Order </button>
+                <button type="button" class="button" id="dropbtn" name="order" onclick="drop()"> Order </button>
                     <div class="dropdown-container">
                           <button type="button" class="subbutton" name="Add Order"><a href="adduser.html" target="Pages" ><b> Add  </b></a></button>
                           <button type="button" class="subbutton" name="Update Order"><a href="#" ><b>Update  </b></a></button>
                           <button type="button" class="subbutton" name="Delete Order"><a href="#" ><b>Search </b></a></button>
                     </div>
                 <button type="button"  id="dropbtn" name="Items"> Items </button>
-                <button type="button" class="button" id="dropbtn" name="Booking"> Booking </button>
+                <button type="button" class="button" id="dropbtn" name="Booking" onclick="drop()"> Booking </button>
                     <div class="dropdown-container">
                           <button type="button" class="subbutton" name="Add Booking"><a href="#" ><b> Add </b></a></button>
                           <button type="button" class="subbutton" name="Update Booking"><a href="#" ><b>Update </b></a></button>
                           <button type="button" class="subbutton" name="Delete Booking"><a href="#" ><b>Delete </b></a></button>
                     </div>
-                <button type="button" class="button" id="dropbtn" name="Payment"> Payment </button>
+                <button type="button" class="button" id="dropbtn" name="Payment" onclick="drop()"> Payment </button>
                     <div class="dropdown-container">
                           <button type="button" class="subbutton" name="Add User"><a href="#" ><b> Cash </b></a></button>
                           <button type="button" class="subbutton" name="Update User"><a href="#" ><b>Visa </b></a></button>
@@ -38,29 +36,7 @@
                 <button type="button"   id="dropbtn" name="Leave"> Profile </button>
 
                 <button type="button"  id="dropbtn" name="Forum"> Forum </button> <br><br><br><br><br><br>
-
-
             </div>
-
-              <script type="text/javascript">
-
-                    var dropdown = document.getElementsByClassName("button");
-                    var i;
-
-                    for (i = 0; i < dropdown.length; i++) {
-                      dropdown[i].addEventListener("click", function() {
-                      this.classList.toggle("active");
-                      var dropdownContent = this.nextElementSibling;
-                      if (dropdownContent.style.display === "block") {
-                      dropdownContent.style.display = "none";
-                      } else {
-                      dropdownContent.style.display = "block";
-                      }
-                      });
-                    }
-
-              </script>
-
-    </div>
+        </div>
   </body>
 </html>
