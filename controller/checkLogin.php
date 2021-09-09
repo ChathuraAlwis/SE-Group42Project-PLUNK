@@ -2,8 +2,8 @@
 
     if(isset($_POST['UserID']) && isset($_POST['password'])){
 
-        require_once '../model/users.php';
-        require_once 'controller.php';
+        require_once 'users.php';
+        require_once 'pages.php';
 
         $user = new User;
         $userType = $user->getLogin($_POST['UserID'], $_POST['password']);
