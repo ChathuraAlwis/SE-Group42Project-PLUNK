@@ -39,6 +39,18 @@
             }
         }
 
+        function crud($sql){
+            try{
+                $this->stmt = $this->pdo->prepare($sql);
+                $this->stmt->execute();
+                return "Success.";
+            }
+            catch(Exception $ex){
+                $this->error = $ex->getMessage();
+                return $this->error;
+            }
+        }
+
     }
 
     define('DB_HOST', 'localhost');
