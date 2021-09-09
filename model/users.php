@@ -13,30 +13,7 @@
         }
 
         private function userType($userID){
-
-            //club members
-            if($userID[1]=="M"){
-
-                switch ($userID[0]) {
-
-                    case 'H':
-                        return "honorarymember";
-
-                    case 'L':
-                        return "lifemember";
-
-                    case 'O':
-                        return "ordinarymember";
-                    
-                    default:
-                        # code...
-                        break;
-                }
-                
-            }
-
-            //staff
-
+            
             switch ($userID[0]) {
 
                 case 'A':
@@ -53,6 +30,9 @@
 
                 case 'R':
                     return "restaurantmanager";
+
+                case 'M':
+                    return "clubmember";
                 
                 default:
                     # code...
