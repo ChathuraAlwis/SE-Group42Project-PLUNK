@@ -1,6 +1,6 @@
 <?php
 
-    require_once "database.php";
+    require_once "../model/database.php";
 
     class User{
 
@@ -13,30 +13,7 @@
         }
 
         private function userType($userID){
-
-            //club members
-            if($userID[1]=="M"){
-
-                switch ($userID[0]) {
-
-                    case 'H':
-                        return "honorarymember";
-
-                    case 'L':
-                        return "lifemember";
-
-                    case 'O':
-                        return "ordinarymember";
-                    
-                    default:
-                        # code...
-                        break;
-                }
-                
-            }
-
-            //staff
-
+            
             switch ($userID[0]) {
 
                 case 'A':
@@ -46,13 +23,16 @@
                     return "admin";
 
                 case 'C':
-                    return "cashier";
+                    return "cashier/cashier";
 
                 case 'G':
                     return "generalmanager";
 
                 case 'R':
                     return "restaurantmanager";
+
+                case 'M':
+                    return "clubmember";
                 
                 default:
                     # code...
