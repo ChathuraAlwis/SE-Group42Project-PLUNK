@@ -6,7 +6,7 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="style/addmember.css">
+        <link rel="stylesheet" href="style/adduserforms.css">
 
   </head>
   <body>
@@ -15,22 +15,24 @@
               <div class="submain">
                 <div class="forminputs">
                     <label for="Name"> Name with initials</label><br>
-                    <input type="text" id="Name" name="Name" >
+                    <input type="text" id="Name" name="Name" required>
                 </div><br>
 
                 <div class="forminputs">
-                    <label for="userid"> Member Id</label><br>
-                    <input type="text" id="userid" name="userid" maxlength="5">
+                    <label for="userid"> Staff Id</label><br>
+                    <input type="text" id="userid" name="userid" maxlength="5" required>
                 </div><br>
 
                 <div class="radio">
-                      <p>Select the Member type</p>
-                    <input type="radio" id="Member" name="Member" value="">
-                    <label for="Member"> Ordinary Member</label><br>
-                    <input type="radio" id="Member" name="Member" value="">
-                    <label for="Member"> Life Member</label><br>
-                    <input type="radio" id="Member" name="Member" value="">
-                    <label for="Member"> Hon. Life Member</label>
+                      <label for="positions"> Position</label>
+                      <input list="position" id="positions" name="position" required>
+                        <datalist id="position">
+                          <option value="General Manager">
+                          <option value="Accountant">
+                          <option value="Restaurant Manager">
+                          <option value="Cashier">
+                          <option value="Staff">
+                        </datalist>
                 </div><br>
                 <div class="forminputs">
                     <label for="username"> User Name</label><br>
@@ -43,36 +45,26 @@
 
                 <div class="forminputs">
                     <label for="joined"> Joined date</label><br>
-                    <input type="date" id="joined" name="joined" placeholder="mm/dd/yyyy">
-                </div><br>
-
-                <div class="forminputs">
-                    <label for="signedpeople"> Names of Signed People</label><br>
-                    <input type="text" id="signedpeople" name="signedpeople" placeholder="name 1, name 2">
+                    <input type="date" id="joined" name="joined" placeholder="mm/dd/yyyy" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="Address"> Address</label><br>
-                    <input type="text" id="Address" name="Address" placeholder="no, street, city">
+                    <input type="text" id="Address" name="Address" placeholder="no, street, city" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="NIC"> NIC</label><br>
-                    <input type="text" id="NIC" name="NIC" value="">
-                </div><br>
-
-                <div class="forminputs">
-                    <label for="profession"> Profession</label><br>
-                    <input type="text" id="profession" name="profession" value="">
+                    <input type="text" id="NIC" name="NIC" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="contact"> Contact No</label><br>
-                    <input type=" tel" id="contact" name="contact" pattern="[0-9]{10}" maxlength="10">
+                    <input type=" tel" id="contact" name="contact" pattern="[0-9]{10}" maxlength="10" required>
                 </div><br><br>
 
                 <div class="forminputs">
-                  <button type="submit"  class="add" name="button">Add Member</button>
+                  <button type="submit"  class="add" name="button">Add </button>
                   <button type="reset" id="reset" class="add" name="button">Reset</button>
                 </div>
               </div>
