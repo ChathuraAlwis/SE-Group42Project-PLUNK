@@ -1,48 +1,96 @@
-html,body{
-  background-image:transparent;
+html, body{
+  background-image:transperant;
   width: 100%;
   height: 100%;
   margin: auto;
 
 }
+
 .main{
-  wdith:100%;
-  height:100%;
-  margin:0;
-  padding: 0;
+  width: 50%;
+  height:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 /*  background-color: yellow;*/
 }
 
 .adduser{
-  width: 60%;
-  height: 90%;
-  padding-top: 50px;
+  width: 90%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
-/*   margin-top: 5%;*/
   display: block;
-  color: white;
-  font-size: 2vw;
-/*  background-color: white;
-   border-radius: 20px;
-   box-shadow: 0 3px 15px 5px black;*/
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 20px;
+  background-color: white;
+  color: Black;
+  font-family: sans-serif;
+  font-size: 1.7vw;
+}
+.submain{
+  width: 100%;
+  height:auto;
+  /*background-color: blue;*/
+}
+.forminputs{
+   width: 100%;
+   height: auto;
+}
+.radio{
+  width: 100%;
+  height: auto;
 }
 
 input{
-  border-radius: 10vw;
-  height: 2vw;
-  width: 15vw;
-  font-size: 2vw;
+  width: 100%;
+  font-size: 1.5vw;
+  border-top: 0;
+  border-bottom-width: 2px;
+  border-left: 0;
+  border-right: 0;
+  border-style: solid;
+  border-color: #6c757d;
+  color:#495057;
+}
+ #Member{
+  width:20%;
 }
 
-#joined{
-  width: 20vw;
+.add{
+  background: linear-gradient(to top right, #d9ed92,#99d98c,#76c893,#52b69a,#34a0a4,#00838f,#006064);
+  width: 49%;
+  height:auto;
+  border-radius: 50px;
+  color: #e9ecef;
+  font-size: 2.5vw;
+  transition-duration: 1s;
 }
-#add{
-  border:0;
-  height: 2vw;
-  width: 15vw;
-  font-size: 2vw;
+.add:hover{
+  background: linear-gradient(to bottom left, #d9ed92,#99d98c,#76c893,#52b69a,#34a0a4,#00838f,#006064);
+}
+#reset{
+  float: right;
+}
+@media only screen and (max-width: 720px) {
+  /* For mobile phones: */
+  .main {
+    width: 80%;
+  }
+  .adduser{
+    font-size: 5vw;
+    padding-top: 6%;
+  }
+  input{
+    font-size: 5vw;
+  }
 }
 /* width */
 ::-webkit-scrollbar {
