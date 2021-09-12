@@ -4,42 +4,71 @@
 
         <meta charset="utf-8">
         <title>Bloomfield</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="style/addstaff.css">
+        <link rel="stylesheet" href="style/addmember.css">
 
   </head>
   <body>
         <div class="main" >
-              <form class="adduser" action="index.html" method="post" autocomplete="on">
+            <form class="adduser" action="index.html" method="post" autocomplete="on" >
+              <div class="submain">
+                <div class="forminputs">
+                    <label for="Name"> Name with initials</label><br>
+                    <input type="text" id="Name" name="Name" required>
+                </div><br>
 
-                <label for="Name"> Name with initials:</label>
-                <input type="text" id="Name" name="Name" value=""><br>
+                <div class="forminputs">
+                    <label for="userid"> Staff Id</label><br>
+                    <input type="text" id="userid" name="userid" maxlength="5" required>
+                </div><br>
 
-                <label for="userid"> staff Id:</label>
-                <input type="text" id="userid" name="userid" value=""><br>
+                <div class="radio">
+                      <label for="positions"> Position</label>
+                      <input list="position" id="positions" name="position" required>
+                        <datalist id="position">
+                          <option value="General Manager">
+                          <option value="Accountant">
+                          <option value="Restaurant Manager">
+                          <option value="Cashier">
+                          <option value="Staff">
+                        </datalist>
+                </div><br>
+                <div class="forminputs">
+                    <label for="username"> User Name</label><br>
+                    <input type="text" id="username" name="username"  required>
+                </div><br>
+                <div class="forminputs">
+                    <label for="password"> Password</label><br>
+                    <input type="password" id="password" name="password" maxlength="5" required>
+                </div><br>
 
-                <label for="joined"> Joined date:</label>
-                <input type="date" id="joined" name="joined" value=""><br>
+                <div class="forminputs">
+                    <label for="joined"> Joined date</label><br>
+                    <input type="date" id="joined" name="joined" placeholder="mm/dd/yyyy" required>
+                </div><br>
 
-                <label for="signedpeople"> Name of Signed People:</label>
-                <input type="text" id="signedpeople" name="signedpeople" value=""><br>
+                <div class="forminputs">
+                    <label for="Address"> Address</label><br>
+                    <input type="text" id="Address" name="Address" placeholder="no, street, city" required>
+                </div><br>
 
-                <label for="Address"> Address:</label>
-                <input type="text" id="Address" name="Address" value=""><br>
+                <div class="forminputs">
+                    <label for="NIC"> NIC</label><br>
+                    <input type="text" id="NIC" name="NIC" required>
+                </div><br>
 
-                <label for="NIC"> NIC:</label>
-                <input type="text" id="NIC" name="NIC" value=""><br>
+                <div class="forminputs">
+                    <label for="contact"> Contact No</label><br>
+                    <input type=" tel" id="contact" name="contact" pattern="[0-9]{10}" maxlength="10" required>
+                </div><br><br>
 
-                <label for="profession"> profession:</label>
-                <input type="text" id="profession" name="profession" value=""><br>
-
-                <label for="contact"> Contact No:</label>
-                <input type=" tel" id="contact" name="contact" value=""><br>
-
-                <input type="submit"  id="add" name="Add" value=" Add">
-              </form>
+                <div class="forminputs">
+                  <button type="submit"  class="add" name="button">Add </button>
+                  <button type="reset" id="reset" class="add" name="button">Reset</button>
+                </div>
+              </div>
+            </form>
         </div>
-
   </body>
 </html>
