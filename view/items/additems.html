@@ -1,4 +1,114 @@
 <!DOCTYPE html>
-<html>
-   
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/additem.css">
+        <script type="text/javascript" src="../script/additem.js"></script>
+
+  </head>
+  <body>
+    <div class="form">
+        <h5 class="text-center">Add item</h5>
+                
+                <div class="form-group">
+                <label for="userid">Item Id</label>
+                <input type="text" name="ItemID" required class="form-control"/>
+                </div>
+               
+                <div class="form-group">
+                    <label for="itemname">Item Name</label>
+                    <input type="text" name="name" required class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" required class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="discount">Discount</label>
+                    <input type="number" name="discount" required class="form-control"/>
+                </div>
+                <div class="form-group">
+                <label for="type">Availability</label>
+                <select id="checkedbox" name="type" class="form-control" onchange="changeType(this);">
+                    <option value="available">Yes</option>
+                    <option value="Notavailable">No</option>
+                </select>
+                </div>
+                <div class="form-group">
+                    <label for="discount">Quantity</label>
+                    <input type="number" name="Quantity" required class="form-control"/>
+                </div>
+                <div class="form-group">
+                    <label for="type">Item Type</label>
+                    <select id="type" name="type" class="form-control" onchange="changeType(this);">
+                    <option selected>Choose type...</option>
+                        <option value="kitchenitems">Kitchen Items</option>
+                        <option value="beverageitems">Beverage Items</option>
+                     </select>
+                </div>
+                <div id="kitchenitems">
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <input type="text" name="category" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="portion">Portion</label>
+                        <input type="text" name="portion" class="form-control" />
+                    </div>
+                </div>
+                <div id="beverageitems">
+                    <div class="form-group">
+                        <label for="volume">Volume</label>
+                        <input type="number" name="volume" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="companyname">Company Name</label>
+                        <input type="text" name="companyname" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="reorder">Reorder Quantity</label>
+                        <input type="number" name="reorder" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="staffid">Staff ID</label>
+                    <input type="text" name="staffid" required class="form-control"/>
+                </div>
+                <div>
+                    <button type="submit" name="submit" value="submit" class="button submit">Submit </button>
+                    <button type="reset" name="reset" value="reset" class="button reset">Reset</button>
+                </div>
+                    
+        </div>
+  </body>
+
+  <script>
+     $(document).ready(function() {
+    $('#table_id').DataTable();
+    } );
+
+    function changeType(sel) {
+         var p = document.getElementById('kitchenitems');
+         var b = document.getElementById('beverageitems');
+
+         var choice = sel.value;
+
+         if(choice == 'kitchenitems')
+         {
+            p.style.display = 'block';
+            b.style.display = 'none';
+         }
+         else if(choice == 'beverageitems')
+         {
+             p.style.display = 'none';
+             b.style.display = 'block';
+
+         }
+    };
+  </script>
+  
 </html>
