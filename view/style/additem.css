@@ -12,26 +12,29 @@
     z-index: 1;
     background: rgb(300, 300, 300);
     max-width: 300px;
-    height: 400px;
+    height: auto;
     padding: 35px;
     margin-top: 5%;
     margin-bottom: 10%;
-    margin-left: auto;
+    margin-left: 5%;
     margin-right: auto;
 }
-.formtext_center{
-    text-align:"center";
+.center-text{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+  }
+
+.form-group{
+    margin-top: 5%;
 }
-
-/*.form-group{
-
-}*/
 
 .form-control i {
 	visibility: hidden;
 	position: absolute;
-	top: 20px;
-	right: 10px;
+	top: 10px;
+	right: 5px;
 }
 
 
@@ -50,9 +53,9 @@
     display: block;
     margin-top: 10%;
     margin-left: 3%;
-    margin-right: 5%;
+    margin-right: 3%;
     text-align: left;
-    font-size: 14px;
+    font-size: 30px;
  
  }
  
@@ -62,11 +65,10 @@
     width: 100%;
     border: 0;
     border-color:transparent;
-    margin: 5% 0 5%;
-
-    font-size: 12px;
+    margin: 5% 0% 5%;
+    font-size: 25px;
     color: black;
-    margin-left: 10%;
+    
 
 }
 .button{

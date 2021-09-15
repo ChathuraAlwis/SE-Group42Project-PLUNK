@@ -8,7 +8,7 @@ $(document).ready(function() {
 
          var choice = sel.value;
 
-         if(choice == 'kichenitems')
+         if(choice == 'kitchenitems')
          {
             p.style.display = 'block';
             b.style.display = 'none';
