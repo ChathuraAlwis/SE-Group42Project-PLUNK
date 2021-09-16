@@ -3,12 +3,14 @@
 
     $con = mysqli_connect('localhost', 'root', '',’db_contact’);
 
-    $txtName = $_POST['ItemID'];
-    $txtEmail = $_POST['txtEmail'];
-    $txtPhone = $_POST['txtPhone'];     
-    $txtMessage = $_POST['txtMessage'];
+    $itemid = $_POST['Item_ID'];
+    $name = $_POST['Name'];
+    $price = $_POST['Price'];     
+    $discount = $_POST['Discount'];
+    $quantity = $_POST['Quantity'];
 
-    $sql = "INSERT INTO `tbl_contact` (`Id`, `fldName`, `fldEmail`, `fldPhone`, `fldMessage`) VALUES ('0', '$txtName', '$txtEmail', '$txtPhone', '$txtMessage');"
+    $sql = "INSERT INTO `tbl_contact` (`Item_ID`, `Name`, `Price`, `Discount`, `Quantity`) VALUES ('$itemid', '$name', '$price', '$discount', '$quantity');"
 
     
 ?>
+

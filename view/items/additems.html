@@ -79,10 +79,38 @@
                     <input type="text" name="staffid" required class="form-control" placeholder="Enter the staff id"/>
                 </div>
                 <div>
-                    <button type="submit" name="submit" value="submit" class="button submit">Submit </button>
+                    <button type="submit" name="submit" value="submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="reset" class="button reset">Reset</button>
                 </div>
                     
+        </div>
+
+        <div class="form2">
+            <h2 class="center-text">Kichen items table</h2>
+            <div class="table">
+                <table id="table_id" class="table table-striped" >
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Category</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($kitchen_item as $kitchen_item) { ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($kitchen_item["Item_ID"]);?></td>
+                            <td><?php echo htmlspecialchars($kitchen_item["Name"]);?></td>
+                            <td> <?php echo htmlspecialchars($kitchen_item["Price"]);?></td>
+                            <td><?php echo htmlspecialchars($kitchen_item["Quantity"]);?></td>
+                            <td><?php echo htmlspecialchars($kitchen_item["Category"]);?></td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
   </body>
 
