@@ -4,6 +4,7 @@
   height: 100%;
   /*background-color:#2d7166;*/
 }
+
 .navbar{
   width: 10%;
   height: 100%;
@@ -24,16 +25,24 @@
   border-width:thick;
   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
 }
+
 .dropdown-container {
   display: none;
   background-color: transparent;
   /*padding-left: 10%;*/
 }
+
 .linkbutton{
   color: white;
   text-decoration: none;
   font-size: 14vw;
 }
+.linkbutton:hover{
+  color: rgb(240, 230, 230);
+  
+}
+
+
 .dropdown-container .subbutton{
   display: block;
   background-color:#ffdf45;
@@ -53,7 +62,9 @@
   text-decoration: none;
 }
 
-
+.dropdown-container a:hover{
+  color: #000000;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

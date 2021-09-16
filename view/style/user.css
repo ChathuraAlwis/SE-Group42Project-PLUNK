@@ -75,7 +75,13 @@ html, body{
 
 .menubtn{
   text-decoration: none;
+  opacity: 0.8
 }
+
+.menubtn:hover{
+  opacity: 1;
+}
+
 h2{
 
   color: white;
@@ -169,6 +175,7 @@ h2{
 .linkbutton:hover{
   color: yellow;
 }
+
 @media only screen and (max-width:720px) {
       .header{
         height: 10%;

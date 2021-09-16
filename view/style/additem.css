@@ -1,0 +1,90 @@
+::-webkit-input-placeholder{
+    color: gray;
+}
+.body{
+    background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
+  
+  }
+.form{
+    display: block;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: rgb(300, 300, 300);
+    max-width: 300px;
+    height: auto;
+    padding: 35px;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    margin-right: auto;
+}
+.center-text{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+  }
+
+.form-group{
+    margin-top: 5%;
+}
+
+.form-control i {
+	visibility: hidden;
+	position: absolute;
+	top: 10px;
+	right: 5px;
+}
+
+
+
+.form-control small {
+
+	position: absolute;
+	visibility: hidden;
+}
+
+.form-control.error small {
+	visibility: visible;
+}
+
+.label{
+    display: block;
+    margin-top: 10%;
+    margin-left: 3%;
+    margin-right: 3%;
+    text-align: left;
+    font-size: 30px;
+ 
+ }
+ 
+.input{
+
+    outline: 0;
+    width: 100%;
+    border: 0;
+    border-color:transparent;
+    margin: 5% 0% 5%;
+    font-size: 25px;
+    color: black;
+    
+
+}
+.button{
+    border-radius: 20px;
+    font-size: 14px;
+    width: 100px;
+    height:40px;
+    border:0px;
+    color: white;
+    cursor: pointer;
+    margin-top:10%;
+    background: linear-gradient( to left, #3e9157 ,#03a191 0.5%, #03ae60);
+    opacity: 0.8;
+  
+  }
+
+button:hover{
+    opacity:1;
+}
