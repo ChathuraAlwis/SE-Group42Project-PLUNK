@@ -14,38 +14,39 @@
     
     <div class="form">
         <h2 class="center-text"><b>Add item</b></h2>
-        <form action="../../controller/items/additems.php" method="POST">
+        <form action="../../controller/CRUD.php" method="POST">
+                <input name ="add-item" type="hidden" >
                 <div class="form-group">
                 <label for="userid">Item Id</label>
-                <input type="text" name="ItemID" required class="form-control" placeholder="Enter the item ID"/>
+                <input type="text" id= "item_id" name="ItemID" required class="form-control" placeholder="Enter the item ID"/>
                 </div>
                
                 <div class="form-group">
                     <label for="itemname">Item Name</label>
-                    <input type="text" name="name" required class="form-control" placeholder="Enter the item name"/>
+                    <input type="text" id= "item_name" name="name" required class="form-control" placeholder="Enter the item name"/>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="number" name="price" required class="form-control" placeholder="Enter the price"/>
+                    <input type="number" id="price" name="price" required class="form-control" placeholder="Enter the price"/>
                 </div>
                 <div class="form-group">
                     <label for="discount">Discount</label>
-                    <input type="number" name="discount" required class="form-control" placeholder="Enter the discount"/>
+                    <input type="number" id="discount" name="discount" required class="form-control" placeholder="Enter the discount"/>
                 </div>
                 <div class="form-group">
-                <label for="type">Availability</label>
-                <select id="available" name="type" class="form-control" onchange="changeType(this);">
+                <label for="isavailable">Availability</label>
+                <select id="isavailable" name="type" class="form-control" onchange="changeType(this);">
                     <option value="available">Yes</option>
                     <option value="Notavailable">No</option>
                 </select>
                 </div>
                 <div class="form-group">
-                    <label for="discount">Quantity</label>
-                    <input type="number" name="Quantity" required class="form-control" placeholder="Enter the Quantity"/>
+                    <label for="quantity">Quantity</label>
+                    <input type="number" id= "quantity "name="Quantity" required class="form-control" placeholder="Enter the Quantity"/>
                 </div>
                 <div class="form-group">
-                    <label for="type">Item Type</label>
-                    <select id="type" name="type" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <label for="itemtype">Item Type</label>
+                    <select id="itemtype" name="itemtype" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
                         <option value="kitchenitems">Kitchen Items</option>
                         <option value="beverageitems">Beverage Items</option>
@@ -54,30 +55,30 @@
                 <div id="kitchenitems">
                     <div class="form-group">
                         <label for="category">Category</label>
-                        <input type="text" name="category" class="form-control" placeholder="Enter the category"/>
+                        <input type="text"  id="category" name="category" class="form-control" placeholder="Enter the category"/>
                     </div>
                     <div class="form-group">
                         <label for="portion">Portion</label>
-                        <input type="text" name="portion" class="form-control" placeholder="Enter the portion"/>
+                        <input type="text" id="portion" name="portion" class="form-control" placeholder="Enter the portion"/>
                     </div>
                 </div>
                 <div id="beverageitems">
                     <div class="form-group">
                         <label for="volume">Volume</label>
-                        <input type="number" name="volume" class="form-control" placeholder="Enter the volume"/>
+                        <input type="number" id="volume" name="volume" class="form-control" placeholder="Enter the volume"/>
                     </div>
                     <div class="form-group">
                         <label for="companyname">Company Name</label>
-                        <input type="text" name="companyname" class="form-control" placeholder="Enter the company name"/>
+                        <input type="text" id="companyname" name="companyname" class="form-control" placeholder="Enter the company name"/>
                     </div>
                     <div class="form-group">
                         <label for="reorder">Reorder Quantity</label>
-                        <input type="number" name="reorder" class="form-control" placeholder="Enter the reorder quantity"/>
+                        <input type="number" id ="reorder" name="reorder" class="form-control" placeholder="Enter the reorder quantity"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="staffid">Staff ID</label>
-                    <input type="text" name="staffid" required class="form-control" placeholder="Enter the staff id"/>
+                    <input type="text" id="staffid" name="staffid" required class="form-control" placeholder="Enter the staff id"/>
                 </div>
                 <div>
                     <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
@@ -86,7 +87,7 @@
             </form>        
         </div>
 
-        <form action = "../../controller/items/kitchentable.php">
+    
         </form>
   </body>
 
