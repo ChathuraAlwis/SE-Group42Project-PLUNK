@@ -25,6 +25,7 @@
             if ($this->pdo!==null) {$this->pdo = null;}
         }
 
+        //for SELECT queries
         function select($sql, $cond=null){
             $result = false;
             try{
@@ -39,6 +40,7 @@
             }
         }
 
+        //for any query other than SELECT
         function crud($sql){
             try{
                 $this->stmt = $this->pdo->prepare($sql);
