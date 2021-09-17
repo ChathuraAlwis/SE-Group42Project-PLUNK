@@ -7,11 +7,11 @@
 
         try {
             $sql = "INSERT INTO plunk.order (Order_ID, Order_Place, Quantity, Member_ID, Staff_ID) VALUES ('$_POST[Order_ID]', '$_POST[Order_Place]', '$_POST[Quantity]', '$_POST[Member_ID]', '$_POST[Staff_ID]');";
+            echo $DB->crud($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
-
-        echo $DB->crud($sql);
+        
     }
 
     if(isset($_POST['delete-order'])){
@@ -19,11 +19,11 @@
 
         try {
             $sql = "DELETE FROM plunk.order WHERE Order_ID=\"$_POST[Order_ID]\"";
+            echo $DB->crud($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
-
-        echo $DB->crud($sql);
+        
     }
 
 ?>
