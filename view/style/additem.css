@@ -19,6 +19,7 @@
     margin-left: 5%;
     margin-right: auto;
 }
+
 .center-text{
     text-align: center;
     margin-left: auto;
@@ -87,4 +88,9 @@
 
 button:hover{
     opacity:1;
+}
+
+.table{
+    width: 100%;
+    padding: 10px
 }
