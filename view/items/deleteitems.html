@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/crud.css">
+
+  </head>
+<body>
+    <div class="form">
+        <h2 class="center-text"><b>Delete item</b></h2>
+        <form action="../../controller/CRUD.php" method="POST">
+                <input name ="delete-item" type="hidden" >
+                <div class="form-group">
+                    <label for="itemtype">Item Type</label>
+                    <select id="itemtype" name="itemtype" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <option selected>Choose type...</option>
+                        <option value="kitchenitems">Kitchen Items</option>
+                        <option value="beverageitems">Beverage Items</option>
+                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="userid">Item Id</label>
+                    <input type="text" id= "item_id" name="ItemID" required class="form-control" placeholder="Enter the item ID you want to delete"/>
+                </div>
+                <button type="submit">Delete</button>
+        </form>
+    </div>
+</body>
+</html>
