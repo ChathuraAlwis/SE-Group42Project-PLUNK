@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     if(isset($_POST['UserID']) && isset($_POST['password'])){
 
@@ -9,6 +10,7 @@
         $userType = $user->getLogin($_POST['UserID'], $_POST['password']);
 
         if($userType != "invalid user"){
+            $_SESSION['UserID'] = $_POST['UserID'];
             $page = new Page("../view/" . $userType . ".html");
             $page->show();
         }
