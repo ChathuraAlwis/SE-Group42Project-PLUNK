@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+    <link rel="stylesheet" href="../style/crud.css">
+    <script type="text/javascript" src="#"></script>
+    <title>Bloomfield</title>
+</head>
+<body>
+    <div class="form">
+        <h2 class="center-text"><b>Add Order</b></h2>
+        <form action="../../controller/CRUD.php" method="post">
+            <input name ="add-order" type="hidden" >
+            <div class="form-group">
+                <label for="Order_ID">Order ID</label>
+                <input name ="Order_ID" id="Order_ID" type="text" placeholder="Enter Order ID" >
+            </div>
+            <div class="form-group">
+                <label for="Order_ID">Order Place</label>
+                <input name ="Order_Place" id="Order_Place" type="text" placeholder="Enter Order Place" >
+            </div>
+            <div class="form-group">
+                <label for="Order_ID">Quantity</label>
+                <input name ="Quantity" id="Quantity" type="number" placeholder="Enter Quantity" >
+            </div>
+            <div class="form-group">
+                <label for="Order_ID">Member ID</label>
+                <input name ="Member_ID" id="Member_ID" type="text" placeholder="Enter Member_ID" >
+            </div>
+            <input name ="Staff_ID" id="Staff_ID" type="hidden" value="C0001" >
+            <button type="submit" class="button">Add</button>
+        </form>
+    </div>
+</body>
+</html>
