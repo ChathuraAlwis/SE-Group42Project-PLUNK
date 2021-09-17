@@ -47,7 +47,7 @@
             $record = $this->DB->select($query);
             $pass = $record[0]["Password"];
             
-            if($password==$pass){
+            if($password==$pass && $password){
                 return $this->userType($userID);
             }
 
