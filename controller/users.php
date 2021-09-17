@@ -17,22 +17,22 @@
             switch ($userID[0]) {
 
                 case 'A':
-                    return "accountant";
+                    return "accountant/accountant";
 
                 case 'D':
-                    return "admin";
+                    return "admin/admin";
 
                 case 'C':
                     return "cashier/cashier";
 
                 case 'G':
-                    return "generalmanager";
+                    return "generalmanager/generalmanager";
 
                 case 'R':
-                    return "restaurantmanager";
+                    return "restaurantmanager/restaurantmanager";
 
                 case 'M':
-                    return "clubmember";
+                    return "clubmember/clubmember";
                 
                 default:
                     # code...
