@@ -14,16 +14,17 @@
         <form action="../../controller/CRUD.php" method="post">
             <input name ="update-bill" type="hidden" >
             <div class="form-group">
-                <label for="Order_ID">Order ID</label>
-                <input name ="Order_ID" id="Order_ID" type="text" placeholder="Enter Order ID" >
+                <label for="Bill_ID">Bill ID</label>
+                <input name ="Bill_ID" id="Bill_ID" type="text" placeholder="Enter Bill ID" >
             </div>
             <div class="form-group">
                 <label for="Column">Column</label>
                 <select id="Column" name="Column" class="form-control" onchange="changeType(this);">
-                    <option value="Order_Place">Order Place</option>
-                    <option value="Quantity">Quantity</option>
-                    <option value="Member_ID">Member ID</option>
+                    <option value="Payment_Type">Payment Type</option>
+                    <option value="Discount">Discount</option>
+                    <option value="Steward_Name">Steward Name</option>
                     <option value="Staff_ID">Staff ID</option>
+                    <option value="Order_ID">Order ID</option>
                 </select>
             </div>
             <div class="form-group">
