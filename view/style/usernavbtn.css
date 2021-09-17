@@ -29,6 +29,8 @@
 .dropdown-container {
   display: none;
   background-color: transparent;
+  width: 80%;
+  padding-left: 10%;
   /*padding-left: 10%;*/
 }
 
