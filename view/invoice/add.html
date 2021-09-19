@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/crud.css">
+        <script type="text/javascript" src="../script/additem.js"></script>
+
+  </head>
+  <body>
+    
+    <div class="form">
+        <h2 class="center-text"><b>Add invoice</b></h2>
+        <form action="../../controller/CRUD.php" method="POST">
+                <input name ="add-invoice" type="hidden" >
+                <div class="form-group">
+                <label for="userid">Invoice Id</label>
+                <input type="text" id= "invoice_id" name="InvoiceID" required class="form-control" placeholder="Enter the invoice ID"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="value">Value</label>
+                    <input type="number" id="value" name="value" required class="form-control" placeholder="Enter the value"/>
+                </div>
+               
+                <div class="form-group">
+                    <label for="companyname">Item Name</label>
+                    <input type="text" id= "company_name" name="name" required class="form-control" placeholder="Enter the company name"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <input type="text" id="content" name="content" class="form-control" placeholder="Enter the content"/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="received_date">Received_Date</label>
+                    <input type="date" id="received_date" name="received_date" required class="form-control" placeholder="Enter the received_date"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="due_date">Received_Date</label>
+                    <input type="date" id="due_date" name="due_date" required class="form-control" placeholder="Enter the due_date"/>
+                </div>
+                
+                <div class="form-group">
+                    <label for="staffid">Staff ID</label>
+                    <input type="text" id="staffid" name="staffid" required class="form-control" placeholder="Enter the staff id"/>
+                </div>
+                <div>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
+                    <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
+                </div>
+            </form>        
+        </div>
+
+    
+        </form>
+  </body>
+
+ 
+</html>
