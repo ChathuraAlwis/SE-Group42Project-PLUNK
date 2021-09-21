@@ -1,5 +1,9 @@
 html, body{
-  background-image: url(../images/cricket.png),linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
+/*  background-color: #009966;*/
+/*  background-color: #e0dede;*/
+/*  background-color: #e9e9e9;*/
+  background-color: #dcdcdc;
+  /*linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60)*/
   height: 100%;
   width:100%;
   margin: auto;
@@ -14,6 +18,8 @@ html, body{
   height: 80%;
 }
 .header{
+/*  background-image: url(../images/cricket.png);*/
+    background-color: #006666;
   width: 100%;
   height: 20%;
 /*background-color: #2d7166;*/
@@ -60,7 +66,7 @@ html, body{
 }
  .Menu{
    float: left;
-   background-color:#2d7166;
+   background-color:#006666;
    font-family:'Times New Roaman';
    display: block;
    color: white;
@@ -127,7 +133,7 @@ h2{
   border-style: solid;
   border-radius: 10px;
   border-width:5px;
-  border-color: #0a482a;
+  border-color: #006666;
 
 }
 .page{
