@@ -13,7 +13,7 @@
 }
 .buttongroup #dropbtn{
   display: block;
-  background-color:#2d7166;
+  background-color:#006666;
   font-family:'Times New Roaman';
   font-size: 14vw;
   color: white;
@@ -29,8 +29,8 @@
 .dropdown-container {
   display: none;
   background-color: transparent;
-  width: 80%;
-  padding-left: 10%;
+  width: 100%;
+
   /*padding-left: 10%;*/
 }
 
@@ -41,7 +41,7 @@
 }
 .linkbutton:hover{
   color: rgb(240, 230, 230);
-  
+
 }
 
 
@@ -50,7 +50,7 @@
   background-color:#ffdf45;
   font-family:'Times New Roaman';
   font-size: 12vw;
-  color: #2d7166;
+  color: #006666;
   width: 100%;
   height: 40%;
   padding: 5px;
@@ -60,7 +60,7 @@
   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
 }
 .dropdown-container a{
-  color: #2d7166;
+  color: #006666;
   text-decoration: none;
 }
 
