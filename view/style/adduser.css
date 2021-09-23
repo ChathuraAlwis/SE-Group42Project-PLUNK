@@ -72,7 +72,7 @@ html,body{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #ffdf45;
+  background: #acacac;
   border-radius: 10px;
 }
 
