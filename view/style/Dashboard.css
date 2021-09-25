@@ -8,39 +8,91 @@ html, body{
 .main{
   width:100%;
   height: 100%;
+  /*background-color: red;*/
 
 }
 .upper{
   width: 100%;
-  height: 40%;
-  background-color: blue;
+  height: 45%;
+  padding-top: 15px;
+  /*background-color: blue;*/
 }
 .resbooking{
-  width: 25%;
-  height: 100%;
+  width: 30%;
+  height: 95%;
   float:left;
-  margin-left: 5%;
-  background-color: red;
+  margin-left: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+ /*background-color: red;*/
 }
 .clubbooking{
-  width: 25%;
-  height: 100%;
+  width: 35%;
+  height: 95%;
   float:left;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: green;
+  margin-left: 1%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+/*background-color: green;*/
 }
 .calendar{
   width: 30%;
-  height: 100%;
+  height: 95%;
   float: right;
-  margin-right: 5%;
-  background-color: red;
+  margin-right: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+/* background-color: red;*/
+}
+.bloomcal{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  width: 100%;
+  height: 100%;
+
 }
 .Notifications{
-  width: 90%;
-  height: 60%;
-  margin-left: 5%;
-  margin-right: 5%;
-  background-color: orange;
+  width: 98%;
+  height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+ /*background-color: orange;*/
 }
+.notifictable{
+  width: 100%;
+  height: 83%;
+  margin-top: 0.25%;
+  background-color: red;
+}
+.notifichead{
+  width: 100%;
+  height: 6%;
+}
+h2{
+  font-size: 2vw;
+  text-align: center;
+  margin: none;
+  padding: none;
+  color: #017a7a;
+
+
+}
+/*Admin Dashboard*/
+.Feedback{
+  width: 65%;
+  height: 95%;
+  float:left;
+  margin-left: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+}
+/*End */

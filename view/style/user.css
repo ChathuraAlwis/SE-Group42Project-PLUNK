@@ -164,10 +164,11 @@ h2{
   margin:0;
 }
 .panel{
-  width: 10%;
+  width: 0;
   height: 100%;
   float: left;
   margin-left: 0;
+  
 }
 
 .nav{
