@@ -4,6 +4,7 @@ function myFunction() {
     x.style.display = "block";
     x.style.width = "15%";
     document.getElementById("mainpages").style.marginLeft = "15%";
+    
 
   } else {
     x.style.display = "none";
@@ -12,6 +13,7 @@ function myFunction() {
 
   }
 }
+
 // function openNav() {
 // document.getElementById("panel").style.width = "10%";
 // document.getElementById("main").style.marginLeft = "10%";
