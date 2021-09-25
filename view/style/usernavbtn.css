@@ -13,7 +13,8 @@
 }
 .buttongroup #dropbtn{
   display: block;
-  background-color:#006666;
+/*  background-color:#006666;*/
+    background-color: #017a7a;
   font-family:'Times New Roaman';
   font-size: 14vw;
   color: white;
@@ -47,10 +48,12 @@
 
 .dropdown-container .subbutton{
   display: block;
-  background-color:#ffdf45;
+  background-color: #acacac;
+/*  background-color: #f2cf27;*/
+  /*background-color:#ffdf45;*/
   font-family:'Times New Roaman';
   font-size: 12vw;
-  color: #006666;
+  color: #017a7a;
   width: 100%;
   height: 40%;
   padding: 5px;
@@ -60,7 +63,7 @@
   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
 }
 .dropdown-container a{
-  color: #006666;
+  color: #017a7a;
   text-decoration: none;
 }
 
@@ -80,7 +83,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #ffdf45;
+  background: #acacac;
   border-radius: 10px;
 }
 
