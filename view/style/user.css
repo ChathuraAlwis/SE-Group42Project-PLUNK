@@ -2,7 +2,7 @@ html, body{
 /*  background-color: #009966;*/
 /*  background-color: #e0dede;*/
 /*  background-color: #e9e9e9;*/
-  background-color: #dcdcdc;
+  /*background-color: #dcdcdc;*/
   /*linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60)*/
   height: 100%;
   width:100%;
@@ -16,13 +16,15 @@ html, body{
 .middle{
   width:100%;
   height: 80%;
+  background-color: #dcdcdc;
 }
 .header{
 /*  background-image: url(../images/cricket.png);*/
-    background-color: #006666;
+/* background-color: #006666;*/
+    /*background-color: #009672;*/
   width: 100%;
   height: 20%;
-/*background-color: #2d7166;*/
+background-color: #017a7a;*/
 }
 .leftheader{
   float: left;
@@ -34,7 +36,7 @@ html, body{
   float: left;
   width: 60%;
   height: 100%;
-/*   background-color: blue;*/
+  /* background-color: blue;*/
 }
 .rightheader{
   float: left;
@@ -52,9 +54,8 @@ html, body{
   padding-bottom: 5%;
   padding-right: 0;
 
-
-
 }
+
 .menudiv{
   /*background-color: red;*/
   width: 20%;
@@ -66,33 +67,45 @@ html, body{
 }
  .Menu{
    float: left;
-   background-color:#006666;
+  /* background-color:#006666;*/
+   background-color: #dcdcdc;
    font-family:'Times New Roaman';
    display: block;
-   color: white;
+   color: #017a7a;
    font-size: 2vw;
    width: 100%;
    height: 100%;
    cursor: pointer;
-   border-width:thick;
-   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));
+   border-radius: 10px;
+   border-color:#dcdcdc;
+   /*border-width:thick;
+   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
    padding: 0;
  }
 
 .menubtn{
   text-decoration: none;
-  opacity: 0.8
+  opacity:1;
 }
 
 .menubtn:hover{
-  opacity: 1;
+  opacity: 0.8;
+}
+.Logo{
+  float:left;
+  height: 80%;
+  width: 13%;
+  margin: 0px;
+  margin-left: 5%;
+  margin-right: 3%;
+  margin-top:2%;
 }
 
 h2{
 
   color: white;
-  font-size: 5vw;
-  text-align: center;
+  font-size: 4.5vw;
+  text-align: left;
   vertical-align: baseline;
   line-height:4vw;
   margin-top: 1.5vw;
@@ -101,26 +114,32 @@ h2{
   margin-bottom: 0;
     /*background-color: red;*/
 }
+.subrightheader{
+  width: 70%;
+  height: 100%;
+  float:right;
+}
+.profileicon{
+  width: 30%;
+  height: 40%;
+  margin-top: 10%;
+  margin-right: auto;
+  margin-left:auto;
+  display: block;
+}
  h3{
 
    color: white;
-   font-size: 3vw;
+   font-size: 1.5vw;
    text-align: center;
-   margin-top: auto;
+   margin-top: 5%;
    margin-bottom: auto;
    padding: 0px;
-   line-height:4vw;
-    /* background-color: yellow;*/
+   line-height:2vw;
+
+    /*background-color: yellow;*/
 
 
- }
- .Logo{
-   float:right;
-   height: 80%;
-   width: 30%;
-   margin: 0px;
-   margin-right: 5%;
-   margin-top:2%;
  }
 
 .mainpages{
@@ -133,7 +152,8 @@ h2{
   border-style: solid;
   border-radius: 10px;
   border-width:5px;
-  border-color: #006666;
+  /*border-color: #006666;*/
+  border-color:#017a7a;
 
 }
 .page{
@@ -154,32 +174,6 @@ h2{
   height: 100%;
   border: none;
   margin-left: 0;
-}
-
-.logout{
-  display: block;
-  background-color:transparent;
-  font-family:'Times New Roaman';
-  font-size: 1.1vw;
-  color: white;
-  width: 30%;
-  height: 15%;
-  padding: 0;
-  margin-right: 5%;
-  margin-left: 50%;
-  cursor: pointer;
-  border-radius: 20px;
-  border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));
-  float: right;
-
-}
-
-.linkbutton{
-  color: white;
-  text-decoration: none;
-}
-.linkbutton:hover{
-  color: yellow;
 }
 
 @media only screen and (max-width:720px) {
@@ -241,7 +235,7 @@ h2{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #ffdf45;
+  background: #acacac;
   border-radius: 10px;
 }
 
