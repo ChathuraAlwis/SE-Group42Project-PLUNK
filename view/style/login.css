@@ -7,7 +7,7 @@
     color: gray;
 }
 body{
-  background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
+  background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3ea077 ,#017a7a);
 
 }
 header{
@@ -120,9 +120,14 @@ button{
   cursor: pointer;
   margin-top:10%;
   margin-left: 5%;
-  background: linear-gradient( to left, #3e9157 ,#03a191 0.5%, #03ae60);
+  background: linear-gradient( to bottom right, #3ea077 ,#017a7a);
   opacity: 0.8;
 
+}
+
+a{
+  color: white;
+  text-decoration: none;
 }
 .buttonforgot{
   width: 150px;
@@ -131,4 +136,8 @@ button{
 
 button:hover{
   opacity:1.0;
+}
+
+.buttonsend{
+  margin-left: 13%;
 }
