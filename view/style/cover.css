@@ -1,11 +1,11 @@
 html,body{
-  background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
+  background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3ea077 ,#017a7a);
   height: 100%;
-  wdith:100%;
+  width:100%;
   margin: auto;
 }
 .main{
-  wdith:100%;
+  width:100%;
   height: 100%;
   /*  background-color: red;*/
 }
