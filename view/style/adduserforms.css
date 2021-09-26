@@ -66,16 +66,17 @@ input{
 }
 
 .add{
-  background: linear-gradient(to top right, #d9ed92,#99d98c,#76c893,#52b69a,#34a0a4,#00838f,#006064);
+  background-color: #017a7a;
   width: 49%;
   height:auto;
   border-radius: 50px;
-  color: #e9ecef;
+  color:  #acacac;
   font-size: 2.5vw;
   transition-duration: 1s;
 }
 .add:hover{
-  background: linear-gradient(to bottom left, #d9ed92,#99d98c,#76c893,#52b69a,#34a0a4,#00838f,#006064);
+  background-color: #acacac;
+  color:#017a7a;
 }
 #reset{
   float: right;
@@ -106,7 +107,7 @@ input{
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #ffdf45;
+  background: #acacac;
   border-radius: 10px;
 }
 
