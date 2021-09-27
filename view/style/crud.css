@@ -72,6 +72,10 @@
     
 
 }
+
+.message{
+    height: 20%;
+}
 .button{
     border-radius: 20px;
     font-size: 14px;
