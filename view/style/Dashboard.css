@@ -104,4 +104,14 @@ h2{
   border-style: solid;
   border-color: #017a7a;
 }
+
+.Invoice{
+  width: 65%;
+  height: 95%;
+  float:left;
+  margin-left: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+}
 /*End */
