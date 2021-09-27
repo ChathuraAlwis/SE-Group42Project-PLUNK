@@ -1,5 +1,5 @@
 <?php
-    require_once "E:\Se Project\SE-Group42Project-PLUNK\model\database.php";
+    require_once "../../model/database.php";
 
     class Table{
 

@@ -15,8 +15,12 @@
     <body>
         <div class="main">
           <div class="upper">
-                <div class="Feedback">
-
+                <div class="Order">
+                  <?php
+                    require_once "../../controller/showtable.php";
+                    $orderTable = new Table("order");
+                    $orderTable->show();
+                  ?>
                 </div>
                 
                 <div class="calendar">

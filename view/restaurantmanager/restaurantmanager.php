@@ -1,6 +1,6 @@
 <?php session_start(); 
   if (isset($_SESSION['UserType'])){
-    if ($_SESSION['UserType'] != 'Manager'){
+    if ($_SESSION['UserType'] != 'Restaurant Manager'){
       require_once "../../controller/pages.php";
       $page = new Page('../login.html');
       $page->show();
@@ -33,7 +33,7 @@
                   <div class="leftheader">
                       <img class="plunk" src="../images/projectlogo.png" alt="plunk logo"><br>
                       <div class="menudiv">
-                         <a href="gmnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
+                         <a href="rmnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
                       </div>
                   </div>
 
@@ -49,7 +49,7 @@
 
                       <img class="profileicon"src="../images/profile.png" alt="profile icon">
 
-                      <h3>General Manager</h3>
+                      <h3>Restaurent Manager</h3>
                     </div>
                       <!--<button type="button"  class="logout" name="Log out"><a href="../cover.html" class="linkbutton">Log Out </a></button>-->
 
@@ -64,7 +64,7 @@
                     <div class="mainpages" id="mainpages">
 
 
-                            <iframe src="..\Dashboards\Dashboard.html" class="page" name="Pages"  title="Iframe for pages"></iframe>
+                            <iframe src="..\Dashboards\rmDashboard.html" class="page" name="Pages"  title="Iframe for pages"></iframe>
 
                     </div>
               </div>
