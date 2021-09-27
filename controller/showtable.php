@@ -11,7 +11,7 @@
             $this->tableName = $table;
         }
 
-<<<<<<< HEAD
+ 
         function show($newQuery="", $all=true){
             if($all){
                 $sql = "SELECT * FROM plunk.$this->tableName";
@@ -20,11 +20,7 @@
                 $sql=$newQuery;
             }
             $result = $this->DB->runQuery($sql);
-=======
-        function show(){
-            $sql = "SELECT * FROM plunk.$this->tableName";
-          $result = $this->DB->runQuery($sql);
->>>>>>> a353f1cd88d649064dc3f13b83c3935a47f0a845
+
             $recordCount = count($result);
 
             $heading = false;
