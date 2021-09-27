@@ -38,6 +38,15 @@ html, body{
   border-color: #017a7a;
 /*background-color: green;*/
 }
+.reorder{
+  width: 35%;
+  height: 95%;
+  float:left;
+  margin-left: 1%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+}
 .calendar{
   width: 30%;
   height: 95%;

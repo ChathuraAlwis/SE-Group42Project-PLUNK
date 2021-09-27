@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -29,7 +30,7 @@
 
                       <h2>Bloomfield C. & A.C.</h2>
 
-                      <h3>Cashier</h3>
+                      <h3>Cashier <?php echo $_SESSION['UserID'] ?></h3>
                   </div>
 
                   <div class="rightheader">

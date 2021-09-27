@@ -25,27 +25,14 @@
             if ($this->pdo!==null) {$this->pdo = null;}
         }
 
-        //for SELECT queries
-        function select($sql, $cond=null){
+        //for executing queries
+        function runQuery($sql, $cond=null){
             $result = false;
             try{
                 $this->stmt = $this->pdo->prepare($sql);
                 $this->stmt->execute($cond);
                 $result = $this->stmt->fetchAll();
                 return $result;
-            }
-            catch(Exception $ex){
-                $this->error = $ex->getMessage();
-                return $this->error;
-            }
-        }
-
-        //for any query other than SELECT
-        function crud($sql){
-            try{
-                $this->stmt = $this->pdo->prepare($sql);
-                $this->stmt->execute();
-                return "Success.";
             }
             catch(Exception $ex){
                 $this->error = $ex->getMessage();

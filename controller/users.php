@@ -12,43 +12,43 @@
 
         }
 
-        private function userType($userID){
+        private function userType($userType){
             
-            switch ($userID[0]) {
+            switch ($userType) {
 
-                case 'A':
+                case 'Accountant':
                     return "accountant/accountant";
 
-                case 'D':
+                case 'Admin':
                     return "admin/admin";
 
-                case 'C':
+                case 'Cashier':
                     return "cashier/cashier";
 
-                case 'G':
+                case 'Manager':
                     return "generalmanager/generalmanager";
 
-                case 'R':
+                case 'Restaurant Manager':
                     return "restaurantmanager/restaurantmanager";
 
-                case 'M':
-                    return "clubmember/clubmember";
-                
                 default:
-                    # code...
+                    return "clubmember/clubmember";
                     break;
             }
 
         }
 
-        public function getLogin($userID, $password){
+        public function getLogin($username, $password){
 
-            $query = "SELECT Password from plunk.user_login where User_ID=\"$userID\";";
-            $record = $this->DB->select($query);
+            $query = "SELECT * FROM plunk.user WHERE UserName=\"$username\";";
+            $record = $this->DB->runQuery($query);
+            // print_r($record);
             $pass = $record[0]["Password"];
+            // print_r($pass);
             
-            if($password==$pass && $password){
-                return $this->userType($userID);
+            if(password_verify($password, $pass)){
+                $type = $record[0]["UserType"];
+                return $this->userType($type);
             }
 
             else{
