@@ -127,7 +127,7 @@ CREATE TABLE `deleteinvioce` (
 CREATE TABLE `deleteuser` (
   `UserID` int(11) NOT NULL,
   `Name` text NOT NULL,
-  `UserName` text NOT NULL,
+  `UserName` varchar(50) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `ContactNo` int(11) NOT NULL,
@@ -402,7 +402,7 @@ CREATE TABLE `servicechargestaff` (
 CREATE TABLE `user` (
   `UserID` int(11) NOT NULL,
   `Name` text NOT NULL,
-  `UserName` text NOT NULL,
+  `UserName` varchar(50) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `ContactNo` int(11) NOT NULL,
