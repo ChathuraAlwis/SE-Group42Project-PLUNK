@@ -13,7 +13,7 @@
         }
 
         private function userType($userType){
-            
+
             switch ($userType) {
 
                 case 'Accountant':
@@ -44,7 +44,7 @@
             // print_r($record);
             $pass = $record[0]["Password"];
             // print_r($pass);
-            
+
             if(password_verify($password, $pass)){
                 $type = $record[0]["UserType"];
                 return $this->userType($type);
@@ -52,7 +52,7 @@
             else{
                 return "invalid user";
             }
-            
+
         }
 
     }
