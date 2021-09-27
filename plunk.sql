@@ -242,10 +242,10 @@ CREATE TABLE `leave` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `nortification`
+-- Table structure for table `notification`
 --
 
-CREATE TABLE `nortification` (
+CREATE TABLE `notification` (
   `NotificationID` int(11) NOT NULL,
   `Date` date NOT NULL,
   `EventType` text NOT NULL,
@@ -412,20 +412,6 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`Name`, `UserName`, `Password`, `Email`, `ContactNo`, `JoinedYear`, `DisplayID`, `UserType`) VALUES
-('Shan Dilranga', 'Shan', 'Shan1', 'Shan@gmail.com', 711234567, '2019-06-04', 'AD00001', 'Admin'),
-('Gimhani Rubasinghe', 'Gimhani ', 'Gimhani1', 'gimhani@gmail.com', 700234567, '2019-07-17', 'RM00001', 'Restaurant Manager'),
-('Pavani Marasinghe', 'Pavani', 'Pavani1', 'pavani@gmail.com', 776712345, '2019-08-01', 'AC00001', 'Accountant'),
-('Chathura Alwis ', 'Chathura ', 'Chathura1', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager'),
-('Cashier ', 'Cashier ', 'Cashier1 ', 'cashier@gmail.com', 711154567, '2019-08-31', 'CA00001', 'Cashier'),
-('Member', 'Member', 'Member1', 'member@gmail.com', 722222567, '2020-08-30', 'LM00001', 'Life Member');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `visapayment`
 --
 
@@ -534,9 +520,9 @@ ALTER TABLE `leave`
   ADD KEY `ManagerID` (`ManagerID`);
 
 --
--- Indexes for table `nortification`
+-- Indexes for table `notification`
 --
-ALTER TABLE `nortification`
+ALTER TABLE `notification`
   ADD PRIMARY KEY (`NotificationID`),
   ADD KEY `UserID` (`UserID`);
 
@@ -665,9 +651,9 @@ ALTER TABLE `item`
   MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `nortification`
+-- AUTO_INCREMENT for table `notification`
 --
-ALTER TABLE `nortification`
+ALTER TABLE `notification`
   MODIFY `NotificationID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -704,7 +690,7 @@ ALTER TABLE `servicecharge`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -784,10 +770,10 @@ ALTER TABLE `leave`
   ADD CONSTRAINT `leave_ibfk_2` FOREIGN KEY (`ManagerID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `nortification`
+-- Constraints for table `notification`
 --
-ALTER TABLE `nortification`
-  ADD CONSTRAINT `nortification_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `notification`
+  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `order`
@@ -836,6 +822,20 @@ ALTER TABLE `servicechargestaff`
   ADD CONSTRAINT `servicechargestaff_ibfk_1` FOREIGN KEY (`ServiceChargeID`) REFERENCES `servicecharge` (`ServiceChargeID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `servicechargestaff_ibfk_2` FOREIGN KEY (`StaffID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`Name`, `UserName`, `Password`, `Email`, `ContactNo`, `JoinedYear`, `DisplayID`, `UserType`) VALUES
+('Shan Dilranga', 'Shan', 'Shan1', 'Shan@gmail.com', 711234567, '2019-06-04', 'AD00001', 'Admin'),
+('Gimhani Rubasinghe', 'Gimhani', 'Gimhani1', 'gimhani@gmail.com', 700234567, '2019-07-17', 'RM00001', 'Restaurant Manager'),
+('Pavani Marasinghe', 'Pavani', 'Pavani1', 'pavani@gmail.com', 776712345, '2019-08-01', 'AC00001', 'Accountant'),
+('Chathura Alwis', 'Chathura', 'Chathura1', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager'),
+('Cashier', 'Cashier', 'Cashier1', 'cashier@gmail.com', 711154567, '2019-08-31', 'CA00001', 'Cashier'),
+('Member', 'Member', 'Member1', 'member@gmail.com', 722222567, '2020-08-30', 'LM00001', 'Life Member');
+
+-- --------------------------------------------------------
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
