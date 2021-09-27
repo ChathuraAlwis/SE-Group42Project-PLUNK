@@ -11,7 +11,7 @@
     position: relative;
     z-index: 1;
     background: rgb(300, 300, 300);
-    max-width: 300px;
+    max-width: 350px;
     height: auto;
     padding: 35px;
     margin-top: 5%;
@@ -72,6 +72,10 @@
     
 
 }
+
+.message{
+    height: 20%;
+}
 .button{
     border-radius: 20px;
     font-size: 14px;
@@ -81,7 +85,8 @@
     color: white;
     cursor: pointer;
     margin-top:10%;
-    background: linear-gradient( to left, #3e9157 ,#03a191 0.5%, #03ae60);
+    margin-left:10%;
+    background-color: #017a7a;
     opacity: 0.8;
   
   }
@@ -89,7 +94,10 @@
 button:hover{
     opacity:1;
 }
-
+a{
+    color: white;
+    text-decoration: none;
+  }
 .table{
     width: 100%;
     padding: 10px
