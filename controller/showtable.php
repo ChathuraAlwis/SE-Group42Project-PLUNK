@@ -1,5 +1,5 @@
 <?php
-    require_once "E:\Se Project\SE-Group42Project-PLUNK\model\database.php";
+    require_once "../../model/database.php";
 
     class Table{
 
@@ -11,7 +11,6 @@
             $this->tableName = $table;
         }
 
- 
         function show($newQuery="", $all=true){
             if($all){
                 $sql = "SELECT * FROM plunk.$this->tableName";
@@ -20,7 +19,6 @@
                 $sql=$newQuery;
             }
             $result = $this->DB->runQuery($sql);
-
             $recordCount = count($result);
 
             $heading = false;

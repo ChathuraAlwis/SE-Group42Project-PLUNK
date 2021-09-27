@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once "../model/database.php";
 
     class User{
@@ -13,7 +13,7 @@
         }
 
         private function userType($userType){
-
+            
             switch ($userType) {
 
                 case 'Accountant':
@@ -44,15 +44,16 @@
             // print_r($record);
             $pass = $record[0]["Password"];
             // print_r($pass);
-
+            
             if(password_verify($password, $pass)){
                 $type = $record[0]["UserType"];
+                $_SESSION['UserType']=$type;
                 return $this->userType($type);
             }
             else{
                 return "invalid user";
             }
-
+            
         }
 
     }

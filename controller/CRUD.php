@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once "../model/database.php";
 
     //--------------------------------------------------------order--------------------------------------------------------
@@ -7,8 +7,8 @@
         $DB = new DB;
 
         try {
-            $sql = "INSERT INTO plunk.order (Order_ID, Order_Place, Quantity, Member_ID, Staff_ID) VALUES ('$_POST[Order_ID]', '$_POST[Order_Place]', '$_POST[Quantity]', '$_POST[Member_ID]', '$_POST[Staff_ID]');";
-            echo $DB->crud($sql);
+            $sql = "INSERT INTO plunk.order (Order_ID, Order_Place, Quantity, Member_ID, Staff_ID) VALUES ('$_POST[Order_ID]', '$_POST[Order_Place]', '$_POST[Quantity]', '$_POST[Member_ID]', '$_SESSION[UserID]');";
+            echo $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -20,7 +20,7 @@
 
         try {
             $sql = "DELETE FROM plunk.order WHERE Order_ID=\"$_POST[Order_ID]\"";
-            echo $DB->crud($sql);
+            echo $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -30,9 +30,9 @@
     if(isset($_POST['update-order'])){
         $DB = new DB;
 
-        try {
+        try {;
             $sql = "UPDATE plunk.order SET $_POST[Column]=\"$_POST[Value]\" WHERE Order_ID=\"$_POST[Order_ID]\"";
-            echo $DB->crud($sql);
+            echo $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -44,7 +44,7 @@
 
         try {
             $sql = "SELECT * FROM plunk.order WHERE Order_ID=\"$_POST[Order_ID]\"";
-            $result = $DB->select($sql);
+            $result = $DB->runQuery($sql);
             $rows = count($result, 0);
             if ($rows == 0){
                 echo "Could not find Order: " . $_POST['Order_ID'] . "\n";
@@ -73,19 +73,7 @@
 
         try {
             $sql = "INSERT INTO plunk.bill (Bill_ID, Payment_Type, Discount, Steward_Name, Staff_ID, Order_ID) VALUES ('$_POST[Bill_ID]', '$_POST[Payment_Type]', '$_POST[Discount]', '$_POST[Steward_Name]', '$_POST[Staff_ID]', '$_POST[Order_ID]');";
-            echo $DB->crud($sql);
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-        
-    }
-
-    if(isset($_POST['delete-bill'])){
-        $DB = new DB;
-
-        try {
-            $sql = "DELETE FROM plunk.bill WHERE Bill_ID=\"$_POST[Bill_ID]\"";
-            echo $DB->crud($sql);
+            echo $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -97,7 +85,7 @@
 
         try {
             $sql = "UPDATE plunk.bill SET $_POST[Column]=\"$_POST[Value]\" WHERE Bill_ID=\"$_POST[Bill_ID]\"";
-            echo $DB->crud($sql);
+            echo $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -109,7 +97,7 @@
         
         try {
             $sql = "SELECT * FROM plunk.bill WHERE Bill_ID=\"$_POST[Bill_ID]\"";
-            $result = $DB->select($sql);
+            $result = $DB->runQuery($sql);
             $rows = count($result, 0);
             if ($rows == 0){
                 echo "Could not find Bill: " . $_POST['Bill_ID'] . "\n";
@@ -139,12 +127,12 @@
         try {
             if($_POST['itemtype']=='kitchenitems'){
                 if($_POST['isavailable']=='Yes'){
-                     $sql = "INSERT INTO plunk.kichen_item (Item_ID,'Name',Price,Discount,'Availability',Quantity,Category,Portion,Staff_ID) 
-                        VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','1', '$_POST[quantity]', '$_POST[category]',  '$_POST[portion]''$_POST[staffid]');";
+                     $sql = "INSERT INTO plunk.kichen_item (Item_ID, Item_Name, Price, Discount, Available, Quantity, Category, Portion, Staff_ID) 
+                        VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','1', '$_POST[quantity]', '$_POST[category]',  '$_POST[portion]', '$_POST[staffid]');";
                 }
                else{
                     $sql = "INSERT INTO plunk.kichen_item (Item_ID,'Name',Price,Discount,'Availability',Quantity,Category,Portion,Staff_ID) 
-                        VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','0', '$_POST[quantity]', '$_POST[category]',  '$_POST[portion]''$_POST[staffid]');";
+                        VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','0', '$_POST[quantity]', '$_POST[category]',  '$_POST[portion]', '$_POST[staffid]');";
                }
             }
             else{
@@ -157,12 +145,13 @@
                         VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','0', '$_POST[quantity]', '$_POST[volume]',  '$_POST[companyname]','$_POST[reorder]','$_POST[staffid]');";
               }
             }
+
+            echo $DB->runQuery($sql);
                                                                                         
         } catch (\Throwable $th) {
             throw $th;
         }
 
-        echo $DB->crud($sql);
     }
 
     if(isset($_POST['delete-item'])){
@@ -180,7 +169,7 @@
             throw $th;
         }
 
-        echo $DB->crud($sql);
+        echo $DB->runQuery($sql);
     }
 
 ?>
