@@ -13,7 +13,7 @@
 
         function show(){
             $sql = "SELECT * FROM plunk.$this->tableName";
-            print_r($result = $this->DB->runQuery($sql));
+          $result = $this->DB->runQuery($sql);
             $recordCount = count($result);
 
             $heading = false;

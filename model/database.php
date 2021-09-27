@@ -29,8 +29,8 @@
         function runQuery($sql, $cond=null){
             $result = false;
             try{
-                print_r($this->stmt = $this->pdo->prepare($sql));
-                print_r($this->stmt->execute($cond));
+                $this->stmt = $this->pdo->prepare($sql);
+                $this->stmt->execute($cond);
                 $result = $this->stmt->fetchAll();
                 return $result;
             }
