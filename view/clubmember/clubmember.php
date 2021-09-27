@@ -49,7 +49,7 @@
 
                       <img class="profileicon"src="../images/profile.png" alt="profile icon">
 
-                      <h3><?php $_SESSION['UserType'] ?></h3>
+                      <h3><?php echo $_SESSION['UserType'] ?></h3>
                     </div>
                       <!--<button type="button"  class="logout" name="Log out"><a href="../cover.html" class="linkbutton">Log Out </a></button>-->
 
