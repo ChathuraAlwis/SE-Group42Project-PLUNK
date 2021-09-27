@@ -1,5 +1,5 @@
 <?php
-    require_once "../../model/database.php";
+    require_once "E:\Se Project\SE-Group42Project-PLUNK\model\database.php";
 
     class Table{
 
@@ -13,7 +13,7 @@
 
         function show(){
             $sql = "SELECT * FROM plunk.$this->tableName";
-            $result = $this->DB->runQuery($sql);
+          $result = $this->DB->runQuery($sql);
             $recordCount = count($result);
 
             $heading = false;
