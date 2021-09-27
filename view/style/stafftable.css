@@ -44,9 +44,21 @@ html,body{
   margin-right: auto;
   display: block;
   border-radius: 20px;
-/*  background-color: red;*/
+ /*background-color: red;*/
 }
-
+.detailtable{
+  width: 99%;
+  height: 88%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 20px;
+  border-color: #017a7a; /*#dcdcdc*/
+  background-color: #017a7a;
+/*background-color: blue;*/
+}
 .table{
   width: 90%;
   height: 95%;
@@ -56,8 +68,8 @@ html,body{
   border-style: solid;
   border-width: 3px;
   border-radius: 20px;
-  border-color: white;
- background-color: white;
+  border-color: #017a7a;
+ background-color: #017a7a;
 }
 h2{
   font-size:2.5vw;
@@ -78,7 +90,7 @@ h2{
   border-style: solid;
   border-width: 3px;
   border-radius: 10px;
-  border-color:#017a7a;
+  border-color:#dcdcdc;
   font-size: 1.5vw;
 }
 .addicon{
@@ -113,6 +125,65 @@ h2{
   border-style: solid;
   border-width: 3px;
   border-radius: 10px;
-  border-color:#017a7a;
+  border-color:#dcdcdc;
 
+}
+#membertable{
+  width: 100%;
+  text-align: center;
+   color: #333333;
+}
+th{
+  font-size: 2vw;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #017a7a;
+  background-color: white;
+}
+th:first-child,td:first-child{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+th:last-child,td:last-child{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+td{
+  font-size: 1.5vw;
+  border-collapse: collapse;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #017a7a;
+}
+.staff{
+width: 100%;
+height: 100%;
+border: none;
+/*background-color: red;*/
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #acacac;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #acacac;
 }
