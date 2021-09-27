@@ -829,10 +829,10 @@ COMMIT;
 
 INSERT INTO `user` (`Name`, `UserName`, `Password`, `Email`, `ContactNo`, `JoinedYear`, `DisplayID`, `UserType`) VALUES
 ('Shan Dilranga', 'Shan', 'Shan1', 'Shan@gmail.com', 711234567, '2019-06-04', 'AD00001', 'Admin'),
-('Gimhani Rubasinghe', 'Gimhani ', 'Gimhani1', 'gimhani@gmail.com', 700234567, '2019-07-17', 'RM00001', 'Restaurant Manager'),
+('Gimhani Rubasinghe', 'Gimhani', 'Gimhani1', 'gimhani@gmail.com', 700234567, '2019-07-17', 'RM00001', 'Restaurant Manager'),
 ('Pavani Marasinghe', 'Pavani', 'Pavani1', 'pavani@gmail.com', 776712345, '2019-08-01', 'AC00001', 'Accountant'),
-('Chathura Alwis ', 'Chathura ', 'Chathura1', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager'),
-('Cashier ', 'Cashier ', 'Cashier1 ', 'cashier@gmail.com', 711154567, '2019-08-31', 'CA00001', 'Cashier'),
+('Chathura Alwis', 'Chathura', 'Chathura1', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager'),
+('Cashier', 'Cashier', 'Cashier1', 'cashier@gmail.com', 711154567, '2019-08-31', 'CA00001', 'Cashier'),
 ('Member', 'Member', 'Member1', 'member@gmail.com', 722222567, '2020-08-30', 'LM00001', 'Life Member');
 
 -- --------------------------------------------------------
