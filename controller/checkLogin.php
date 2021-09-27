@@ -1,21 +1,21 @@
 <?php
     session_start();
 
-    if(isset($_POST['UserID']) && isset($_POST['password'])){
+    if(isset($_POST['UserName']) && isset($_POST['Password'])){
 
         require_once 'users.php';
         require_once 'pages.php';
 
         $user = new User;
-        $userType = $user->getLogin($_POST['UserID'], $_POST['password']);
+        $userType = $user->getLogin($_POST['UserName'], $_POST['Password']);
 
         if($userType != "invalid user"){
-            $_SESSION['UserID'] = $_POST['UserID'];
-            $page = new Page("../view/" . $userType . ".html");
+            $_SESSION['UserName'] = $_POST['UserName'];
+            $page = new Page("../view/" . $userType . ".php");
             $page->show();
         }
         else{
-            $page = new Page('../view/login.html');
+            $page = new Page('../view/l.html');
             $page->show();
         }
     }
