@@ -13,9 +13,14 @@
         <div class="main" >
 
                     <div class="detailtable">
+                      <?php
+                          require_once "E:\Se Project\SE-Group42Project-PLUNK\controller\showtable.php";
+                          $orderTable = new Table("user");
+                          $orderTable->show();
+                       ?>
 
-                            <table id="membertable">
-                          
+                          <!--    <table id="membertable">
+
                               <tr class="headerrow">
                                 <th class="Staff_ID">Staff ID</th>
                                 <th class="Name">Name with initials</th>
@@ -38,7 +43,7 @@
                                  </tr>
 
 
-                              <!--   <tr>
+                               <tr>
                                         <td>S0001</td>
                                         <td>S.L.D.S.D.WEERASINGHE</td>
                                         <td>restaurant manager</td>
@@ -172,9 +177,9 @@
                                                             <td>shandilranga61@gmail.com</td>
                                                             <td>893084838V</td>
                                                             <td>0983838333</td>
-                                                          </tr>-->
+                                                          </tr>
 
-                            </table>
+                            </table>-->
                     </div>
 
                 </div>
