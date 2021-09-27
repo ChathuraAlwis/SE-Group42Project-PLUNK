@@ -60,6 +60,5 @@
     define('DB_CHARSET', 'utf8');
     define('DB_USER', 'root');
     define('DB_PASSWORD', 'Serendipity_Agastopia');
-    //define('DB_PASSWORD', '');
 
 ?>
