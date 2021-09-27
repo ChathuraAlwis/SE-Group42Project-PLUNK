@@ -828,12 +828,12 @@ COMMIT;
 --
 
 INSERT INTO `user` (`Name`, `UserName`, `Password`, `Email`, `ContactNo`, `JoinedYear`, `DisplayID`, `UserType`) VALUES
-('Shan Dilranga', 'Shan', 'Shan1', 'Shan@gmail.com', 711234567, '2019-06-04', 'AD00001', 'Admin'),
-('Gimhani Rubasinghe', 'Gimhani', 'Gimhani1', 'gimhani@gmail.com', 700234567, '2019-07-17', 'RM00001', 'Restaurant Manager'),
-('Pavani Marasinghe', 'Pavani', 'Pavani1', 'pavani@gmail.com', 776712345, '2019-08-01', 'AC00001', 'Accountant'),
-('Chathura Alwis', 'Chathura', 'Chathura1', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager'),
-('Cashier', 'Cashier', 'Cashier1', 'cashier@gmail.com', 711154567, '2019-08-31', 'CA00001', 'Cashier'),
-('Member', 'Member', 'Member1', 'member@gmail.com', 722222567, '2020-08-30', 'LM00001', 'Life Member');
+('Shan Dilranga',       'Shan',     '$2y$10$HFG.V/09PPziKI9kDwydHOP256LVXZ8Ax6pgn2CvnXZPTmVdpZp46', 'Shan@gmail.com',     711234567, '2019-06-04', 'AD00001', 'Admin'),
+('Gimhani Rubasinghe',  'Gimhani',  '$2y$10$t5HGheC1t8YV/QvQylEn4eoVfTTqputMd1WeOYTVlIl/2H8vm6WGe', 'gimhani@gmail.com',  700234567, '2019-07-17', 'RM00001', 'Restaurant Manager'),
+('Pavani Marasinghe',   'Pavani',   '$2y$10$FszLxmPf9wZ2HbcmNjUlLuIL4L0p2xOcPhodqVP6rq/dD52t274Xa', 'pavani@gmail.com',   776712345, '2019-08-01', 'AC00001', 'Accountant'),
+('Chathura Alwis',      'Chathura', '$2y$10$32qhL..6B.Q4aVGPxAuRyOEo6jVIf9H6TcMX1uBnW4MQ5bSvH8luC', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager'),
+('Cashier',             'Cashier',  '$2y$10$2EHHzaPcuMijlUIPju/udur6.sUlMskYseSNlGLOX9q4xXLgT6VFy', 'cashier@gmail.com',  711154567, '2019-08-31', 'CA00001', 'Cashier'),
+('Member',              'Member',   '$2y$10$9RaH99CEpIK1ivO.KwhRUOdsalIUeP3vYuzT/2xd8PU4vfgmfF7sG', 'member@gmail.com',   722222567, '2020-08-30', 'LM00001', 'Life Member');
 
 -- --------------------------------------------------------
 
