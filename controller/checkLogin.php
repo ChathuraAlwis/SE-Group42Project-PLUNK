@@ -15,7 +15,7 @@
             $page->show();
         }
         else{
-            $page = new Page('../view/l.html');
+            $page = new Page('../view/login.html');
             $page->show();
         }
     }

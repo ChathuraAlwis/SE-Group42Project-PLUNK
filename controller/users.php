@@ -33,7 +33,6 @@
 
                 default:
                     return "clubmember/clubmember";
-                    break;
             }
 
         }
@@ -50,7 +49,6 @@
                 $type = $record[0]["UserType"];
                 return $this->userType($type);
             }
-
             else{
                 return "invalid user";
             }
