@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/crud.css">
+        <script type="text/javascript" src="../script/additem.js"></script>
+
+  </head>
+  <body>
+    
+    <div class="form">
+        <h2 class="center-text"><b>Add Reservation</b></h2>
+        <form action="../../controller/CRUD.php" method="POST">
+                <input name ="add-reservation" type="hidden" >
+                <div class="form-group">
+                    <label for="ReservationName">Item Name</label>
+                    <input type="text" id= "ReservationName" name="ReservationName" required class="form-control" placeholder="Enter the Reservation Name"/>
+                </div>
+                <div class="form-group">
+                    <label for="type">Reservation Type</label>
+                    <select id="type" name="type" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <option selected>Choose type...</option>
+                        <option value="club">Club</option>
+                        <option value="restaurant">Restaurant</option>
+                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="Cost">Cost</label>
+                    <input type="number" id="Cost" name="Cost" required class="form-control" placeholder="Enter the Cost"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
+                    <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
+                </div>
+        </form>        
+    </div>
+     
+  </body>
+
+ 
+</html>

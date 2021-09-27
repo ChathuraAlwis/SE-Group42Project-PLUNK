@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/crud.css">
+        <script type="text/javascript" src="../script/additem.js"></script>
+
+  </head>
+  <body>
+    
+    <div class="form">
+        <h2 class="center-text"><b>Add Leave</b></h2>
+        <form action="../../controller/CRUD.php" method="POST">
+                <input name ="add-leave" type="hidden" >
+                <div class="form-group">
+                    <label for="Date">Date</label>
+                    <input type="date" id= "Date" name="Date" required class="form-control" placeholder="Enter the Date"/>
+                </div>
+                <div class="form-group">
+                    <label for="message">Date</label>
+                    <input type="text" id= "message" name="message" required class="form-control" placeholder="Enter the Reason"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="submit" value="Submit" class="button submit">Request</button>
+                    <button type="submit" name="cancel" value="cancel" class="button submit"><a href="leavepage.html">Cancel</a></button>
+                </div>
+        </form>        
+    </div>
+     
+  </body>
+
+ 
+</html>
