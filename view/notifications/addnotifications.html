@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/crud.css">
+        <script type="text/javascript" src="../script/additem.js"></script>
+
+  </head>
+  <body>
+    
+    <div class="form">
+        <h2 class="center-text"><b>Add Notifications</b></h2>
+        <form action="../../controller/CRUD.php" method="POST">
+                <input name ="add-notifications" type="hidden" >
+                <div class="form-group">
+                    <label for="Date">Date</label>
+                    <input type="date" id= "Date" name="Date" required class="form-control" placeholder="Enter the Date"/>
+                </div>
+                <div class="form-group">
+                    <label for="itemtype">Event Type</label>
+                    <select id="itemtype" name="itemtype" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <option selected>Choose type...</option>
+                        <option value="Club">Club Event</option>
+                        <option value="Restaurant">Restaurant Event</option>
+                     </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <input type="text" id= "message" name="message" required class="form-control" placeholder="Enter the message"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
+                    <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
+                </div>
+        </form>        
+    </div>
+     
+  </body>
+
+ 
+</html>
