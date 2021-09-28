@@ -12,6 +12,12 @@
 
         }
 
+        private function setSession($userRecord){
+            $_SESSION['UserID'] = $userRecord[0]["UserID"];
+            $_SESSION['UserName'] = $userRecord[0]["UserName"];
+            $_SESSION['UserType'] = $userRecord[0]["UserType"];
+        }
+
         private function userType($userType){
             
             switch ($userType) {
@@ -46,8 +52,8 @@
             // print_r($pass);
             
             if(password_verify($password, $pass)){
-                $type = $record[0]["UserType"];
-                $_SESSION['UserType']=$type;
+                $this->setSession($record);
+                $type = $_SESSION['UserType'];
                 return $this->userType($type);
             }
             else{
