@@ -16,32 +16,25 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>ITEMS</h2>
+                    <h2>GRN</h2>
               </div>
             </div>
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
                         <div class="search">
-                              <input class ="search" placeholder="Enter the item name"/>
+                              <input placeholder="Enter the company name"/>
                               <button type = "Submit" class= "submit">Search</button>
-                        </div>
-                        <div class="selecttype">
-                              <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
-                                    <option selected>Choose item type...</option>
-                                    <option value="fooditems">Food Items</option>
-                                    <option value="beverageitems">Beverage Items</option>
-                              </select>
-                        </div>                  
+                        </div>               
                         <div class="addicon">
-                              <a href="../items/additems.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                              <a href="../grn/addgrn.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>
                     </div>
                     <div >
                     <?php
                         require_once "../../controller/showtable.php";
-                        $itemTable = new Table("item");
-                        $itemTable->show("SELECT * FROM plunk.item", false);
+                        $grnTable = new Table("grn");
+                        $grnTable->show("SELECT * FROM plunk.grn", false);
                       ?>
                     </div>    
 
@@ -54,4 +47,5 @@
 
   </body>
 </html>
+
 

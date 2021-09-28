@@ -13,25 +13,33 @@
   <body>
     
     <div class="form">
-        <h2 class="center-text"><b>Add Reservation</b></h2>
+        <h2 class="center-text"><b>Add Place</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-reservation" type="hidden" >
-                <div class="form-group">
-                    <label for="ReservationName">Item Name</label>
-                    <input type="text" id= "ReservationName" name="ReservationName" required class="form-control" placeholder="Enter the Reservation Name"/>
-                </div>
-                <div class="form-group">
-                    <label for="type">Reservation Type</label>
-                    <select id="type" name="type" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
+            <table>
+                <tr><div class="form-group">
+                        <td><label for="ReservationName">Reservation Name</label></td>
+                        <td><input type="text" id= "ReservationName" name="ReservationName" required class="form-control" placeholder="Enter the Reservation Name"/></td>
+                    </div>
+                </tr>
+                <tr><td><br></td></tr>
+                <tr><div class="form-group">
+                    <td><label for="Type">Reservation Type</label></td>
+                    <td><select id="Type" name="Type" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <option selected> Choose type ...</option>
                         <option value="club">Club</option>
                         <option value="restaurant">Restaurant</option>
-                     </select>
+                     </select></td>
                 </div>
+                </tr>
+                <tr><td><br></td></tr>
+                <tr>
                 <div class="form-group">
-                    <label for="Cost">Cost</label>
-                    <input type="number" id="Cost" name="Cost" required class="form-control" placeholder="Enter the Cost"/>
-                </div>
+                    <td><label for="Cost">Cost</label></td>
+                    <td><input type="number" id="Cost" name="Cost" required class="form-control" placeholder="Enter the Cost"/></td>
+                    </div>
+                </tr>
+            </table>
                 <div class="form-group">
                     <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
