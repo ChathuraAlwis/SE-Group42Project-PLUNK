@@ -19,7 +19,7 @@
                 <h3>Bookings</h3>
                 </div>
                 <div class="reorder">
-                  <h2>Items</h3>
+                  <h3>Items</h3>
                 <?php
                     require_once "../../controller/showtable.php";
                     $reorderTable = new Table("item");
