@@ -16,10 +16,10 @@
         <div class="main">
           <div class="upper">
                 <div class="resbooking">
-                
+                <h3>Bookings</h3>
                 </div>
                 <div class="reorder">
-                  <h3>Items</h3>
+                  <h2>Items</h3>
                 <?php
                     require_once "../../controller/showtable.php";
                     $reorderTable = new Table("item");
@@ -32,6 +32,11 @@
           </div>
           <div class="notifichead">
               <h2>Notifications</h2>
+              <?php
+                    require_once "../../controller/showtable.php";
+                    $notificationTable = new Table("notification");
+                    $notificationTable->show("SELECT Date, EventType, Message FROM plunk.notification", false);
+                  ?>
           </div>
           <div class="Notifications">
 
