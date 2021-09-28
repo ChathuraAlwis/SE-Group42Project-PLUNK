@@ -42,7 +42,7 @@
 
     }
 
-    define('DB_HOST', 'localhost:3308');
+    define('DB_HOST', 'localhost');
     define('DB_NAME', 'plunk');
     define('DB_CHARSET', 'utf8mb4_0900_ai_ci');
     define('DB_USER', 'root');
