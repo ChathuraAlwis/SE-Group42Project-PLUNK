@@ -106,7 +106,8 @@ h2{
   border-color: #017a7a;
 }
 
-.Invoice{
+/*Cashier Dashboard*/
+.Order{
   width: 65%;
   height: 95%;
   float:left;
@@ -115,4 +116,47 @@ h2{
   border-style: solid;
   border-color: #017a7a;
 }
+
+/*Club Member Dashboard*/
+.resbooking{
+  width: 32.5%;
+  height: 95%;
+  float:left;
+  margin-left: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+}
+
+.clubbooking{
+  width: 32.5%;
+  height: 95%;
+  float:left;
+  margin-left: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+}
+
+/*Restaurant Manager Dashboard*/
+.resbooking{
+  width: 32.5%;
+  height: 95%;
+  float:left;
+  margin-left: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+}
+
+.reorder{
+  width: 32.5%;
+  height: 95%;
+  float:left;
+  margin-left: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+}
+
 /*End */
