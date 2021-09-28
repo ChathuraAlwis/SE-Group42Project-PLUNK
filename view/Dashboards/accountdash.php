@@ -14,7 +14,7 @@
   </head>
     <body>
         <div class="main">
-        <div class="upper">
+         <div class="upper">
                 <div class="Feedback">
                   <?php
                     require_once "../../controller/showtable.php";
