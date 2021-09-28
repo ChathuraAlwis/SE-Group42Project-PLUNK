@@ -45,7 +45,7 @@
                   <div class="rightheader">
                     <div class="subrightheader">
                     <img class="profileicon"src="../images/profile.png" alt="profile icon">
-                      <h3>Cashier <?php echo $_SESSION['UserName'] ?> </h3>
+                      <h3>Cashier</h3>
                     </div>
 
                   </div>

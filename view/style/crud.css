@@ -36,6 +36,7 @@
 
 .form-control{
     font-size: 1.5vw;
+    width:100%;
 }
 .form-control i {
 	visibility: hidden;
