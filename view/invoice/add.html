@@ -12,22 +12,26 @@
   <body>
     
     <div class="form">
-        <h2 class="center-text"><b>Add invoice</b></h2>
+        <h2 class="center-text"><b>Add Invoice</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-invoice" type="hidden" >
                 <div class="form-group">
                 <label for="userid">Invoice Id</label>
                 <input type="text" id= "invoice_id" name="InvoiceID" required class="form-control" placeholder="Enter the invoice ID"/>
                 </div>
-
-                <div class="form-group">
-                    <label for="value">Value</label>
-                    <input type="number" id="value" name="value" required class="form-control" placeholder="Enter the value"/>
-                </div>
                
                 <div class="form-group">
                     <label for="companyname">Invoice Name</label>
                     <input type="text" id= "company_name" name="name" required class="form-control" placeholder="Enter the company name"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemtype">Type</label>
+                    <select id="itemtype" name="itemtype" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <option selected>Choose type...</option>
+                        <option value="fooditems">Food Items</option>
+                        <option value="beverageitems">Beverage Items</option>
+                     </select>
                 </div>
 
                 <div class="form-group">
@@ -44,10 +48,36 @@
                     <label for="due_date">Due_Date</label>
                     <input type="date" id="due_date" name="due_date" required class="form-control" placeholder="Enter the due_date"/>
                 </div>
+
+                <div class="form-group">
+                    <table>
+                        <tr>
+                            <th>Item</th>
+                            <th>Quantity</th>
+                        </tr>
+                        <tr> 
+                            <td><input type="text" id= "itemname" name="itemname" required class="form-control" placeholder="Enter the item name"/></td>
+                            <td><input type="number" id= "Quantity" name="Quantity" required class="form-control" placeholder="Enter the Quantity"/></td>
+                        </tr>
+                        <tr> 
+                            <td><input type="text" id= "itemname" name="itemname" required class="form-control" placeholder="Enter the item name"/></td>
+                            <td><input type="number" id= "Quantity" name="Quantity" required class="form-control" placeholder="Enter the Quantity"/></td>
+                        </tr>
+                        <tr> 
+                            <td><input type="text" id= "itemname" name="itemname" required class="form-control" placeholder="Enter the item name"/></td>
+                            <td><input type="number" id= "Quantity" name="Quantity" required class="form-control" placeholder="Enter the Quantity"/></td>
+                        </tr>
+                        <tr> 
+                            <td><input type="text" id= "itemname" name="itemname" required class="form-control" placeholder="Enter the item name"/></td>
+                            <td><input type="number" id= "Quantity" name="Quantity" required class="form-control" placeholder="Enter the Quantity"/></td>
+                        </tr>
+    
+                    </table>
+                    </div>
                 
                 <div class="form-group">
-                    <label for="staffid">Staff ID</label>
-                    <input type="text" id="staffid" name="staffid" required class="form-control" placeholder="Enter the staff id"/>
+                    <label for="staffid">Total Invoice Value</label>
+                    <input type="text" id="totalvalue" name="totalvalue" required class="form-control" placeholder="Enter the total invoice value"/>
                 </div>
                 
                 <div>
