@@ -10,12 +10,11 @@
         $userType = $user->getLogin($_POST['UserName'], $_POST['Password']);
 
         if($userType != "invalid user"){
-            $_SESSION['UserName'] = $_POST['UserName'];
             $page = new Page("../view/" . $userType . ".php");
             $page->show();
         }
         else{
-            $page = new Page('../view/l.html');
+            $page = new Page('../view/login.html');
             $page->show();
         }
     }

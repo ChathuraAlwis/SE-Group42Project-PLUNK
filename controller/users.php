@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     require_once "../model/database.php";
 
     class User{
@@ -33,7 +33,6 @@
 
                 default:
                     return "clubmember/clubmember";
-                    break;
             }
 
         }
@@ -48,9 +47,9 @@
             
             if(password_verify($password, $pass)){
                 $type = $record[0]["UserType"];
+                $_SESSION['UserType']=$type;
                 return $this->userType($type);
             }
-
             else{
                 return "invalid user";
             }

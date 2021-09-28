@@ -1,3 +1,17 @@
+<?php session_start(); 
+  if (isset($_SESSION['UserType'])){
+    if ($_SESSION['UserType'] != 'Accountant'){
+      require_once "../../controller/pages.php";
+      $page = new Page('../login.html');
+      $page->show();
+    }
+  }
+  else{
+    require_once "../../controller/pages.php";
+    $page = new Page('../login.html');
+    $page->show();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -43,7 +57,7 @@
                             </div>
 
                             <div class="mainpages" id="mainpages">
-                                    <iframe  src="..\Dashboards\accountdash.html"class="page" name="Pages"  title="Iframe for pages"></iframe>
+                                    <iframe  src="..\Dashboards\accountdash.php"class="page" name="Pages"  title="Iframe for pages"></iframe>
 
                             </div>
                   </div>

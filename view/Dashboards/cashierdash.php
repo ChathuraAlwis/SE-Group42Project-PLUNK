@@ -15,11 +15,11 @@
     <body>
         <div class="main">
           <div class="upper">
-                <div class="Feedback">
+                <div class="Order">
                   <?php
                     require_once "../../controller/showtable.php";
-                    $feedbackTable = new Table("user");
-                    $feedbackTable->show("SELECT UserID, Name FROM plunk.user", false);
+                    $orderTable = new Table("order");
+                    $orderTable->show();
                   ?>
                 </div>
                 
