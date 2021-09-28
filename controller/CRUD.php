@@ -7,7 +7,7 @@
         $DB = new DB;
 
         try {
-            $sql = "INSERT INTO plunk.order (Order_ID, Order_Place, Quantity, Member_ID, Staff_ID) VALUES ('$_POST[Order_ID]', '$_POST[Order_Place]', '$_POST[Quantity]', '$_POST[Member_ID]', '$_SESSION[UserID]');";
+            $sql = "INSERT INTO plunk.order (OrderDate, OrderTime, OrderPlace, Total, UserID) VALUES ('$_POST[OrderDate]', '$_POST[OrderTime]', '$_POST[OrderPlace]', '$_POST[Total]', '$_SESSION[UserID]');";
             echo $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
