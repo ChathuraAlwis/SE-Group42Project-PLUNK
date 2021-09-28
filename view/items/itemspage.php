@@ -6,7 +6,7 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/tableui.css">
+        <link rel="stylesheet" href="../style/stafftable.css">
 
   </head>
   <body>
@@ -16,25 +16,34 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h1>Items</h1>
+                    <h2>ITEMS</h2>
               </div>
             </div>
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Enter Item Name Here.." >
-                               <div class="addicon">     
-                                    <button type="submit" name="button" class="btnsearch"><b>Search</b></button> 
-                                    <a href="../items/additems.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
-                              </div>
-                   </div>
+                        <div class="search">
+                              <input class ="search" placeholder="Enter the item name"/>
+                              <button type = "Submit" class= "submit">Search</button>
+                        </div>
+                        <div class="selecttype">
+                              <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
+                                    <option selected>Choose item type...</option>
+                                    <option value="fooditems">Food Items</option>
+                                    <option value="beverageitems">Beverage Items</option>
+                              </select>
+                        </div>                  
+                        <div class="addicon">
+                              <a href="../items/additems.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                        </div>
+                    </div>
                     <div >
                     <?php
                         require_once "../../controller/showtable.php";
-                        $reorderTable = new Table("item");
-                        $reorderTable->show("SELECT * FROM plunk.item", false);
+                        $itemTable = new Table("item");
+                        $itemTable->show("SELECT * FROM plunk.item", false);
                       ?>
-                    </div>
+                    </div>    
 
                 </div>
 
@@ -45,3 +54,4 @@
 
   </body>
 </html>
+
