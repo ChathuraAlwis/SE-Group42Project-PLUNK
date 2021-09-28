@@ -64,7 +64,7 @@
                     <div class="mainpages" id="mainpages">
 
 
-                            <iframe src="..\Dashboards\rmDashboard.html" class="page" name="Pages"  title="Iframe for pages"></iframe>
+                            <iframe src="..\Dashboards\rmDashboard.php" class="page" name="Pages"  title="Iframe for pages"></iframe>
 
                     </div>
               </div>
