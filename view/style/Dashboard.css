@@ -88,13 +88,24 @@ html, body{
 }
 h2{
   font-size: 2vw;
-  text-align: center;
+  text-align: center !important;
   margin: none;
   padding: none;
   color: #017a7a;
 
 
 }
+h3{
+  font-size: 0.5vw;
+  text-align: center;
+  margin: none;
+  padding: none;
+  color: #017a7a;
+  margin-top: 0.5%;
+  margin-bottom: 0.;
+
+}
+
 /*Admin Dashboard*/
 .Feedback{
   width: 65%;

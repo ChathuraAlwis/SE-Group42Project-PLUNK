@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2021 at 05:12 PM
+-- Generation Time: Sep 28, 2021 at 11:06 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -38,6 +38,13 @@ CREATE TABLE `bill` (
   `OrderID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `bill`
+--
+
+INSERT INTO `bill` (`BillID`, `CustomerName`, `Price`, `ServiceCharge`, `Discount`, `BillDate`, `UserID`, `OrderID`) VALUES
+(1, 'Customer1', 150, 10, 0, '2021-09-29', 6, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +68,13 @@ CREATE TABLE `booking` (
   `Payment` enum('Yes','No') NOT NULL,
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`BookingID`, `CustomerName`, `BookingType`, `Reservation1`, `Reservation2`, `NoOfPeople`, `ReservedDate`, `ReservedTime`, `EndTime`, `CreatedDate`, `LastModifiedDate`, `ContactNo`, `Total`, `Payment`, `UserID`) VALUES
+(1, 'Customer1', 'Club', 'lounge', NULL, 100, '2021-09-30', '16:00:00', '18:00:00', '2021-09-28', NULL, 788854567, 5000, 'Yes', 6);
 
 -- --------------------------------------------------------
 
@@ -153,6 +167,13 @@ CREATE TABLE `feedback` (
   `ReplyPersonID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`FeedBackID`, `FeedBack`, `FeedBackDate`, `UserID`, `Reply`, `ReplyDate`, `ReplyPersonID`) VALUES
+(2, 'Test feedback', '2021-09-28', 6, NULL, NULL, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -167,6 +188,13 @@ CREATE TABLE `grn` (
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `grn`
+--
+
+INSERT INTO `grn` (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES
+(1, 'Company1', '2021-09-28', 'Food Items', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -178,6 +206,13 @@ CREATE TABLE `grnitem` (
   `ItemID` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `grnitem`
+--
+
+INSERT INTO `grnitem` (`GRNID`, `ItemID`, `Quantity`) VALUES
+(1, 1, 100);
 
 -- --------------------------------------------------------
 
@@ -195,6 +230,13 @@ CREATE TABLE `invoice` (
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `invoice`
+--
+
+INSERT INTO `invoice` (`InvoiceID`, `Company`, `Type`, `ReceivedDate`, `DueDate`, `Total`, `UserID`) VALUES
+(1, 'Company1', 'Beverage items', '2021-09-26', '2021-09-28', 5000, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -206,6 +248,13 @@ CREATE TABLE `invoiceitem` (
   `ItemID` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `invoiceitem`
+--
+
+INSERT INTO `invoiceitem` (`InvoiceID`, `ItemID`, `Quantity`) VALUES
+(1, 2, 1000);
 
 -- --------------------------------------------------------
 
@@ -224,6 +273,14 @@ CREATE TABLE `item` (
   `ReorderQuantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `item`
+--
+
+INSERT INTO `item` (`ItemID`, `ItemType`, `ItemName`, `Price`, `Quantity`, `Discount`, `Availability`, `ReorderQuantity`) VALUES
+(1, 'Food', 'Fried Rice', 300, 100, 0, 'Yes', 0),
+(2, 'Beverage', 'EGB-Elephant House-50ml', 100, 1000, 5, 'Yes', 100);
+
 -- --------------------------------------------------------
 
 --
@@ -239,6 +296,13 @@ CREATE TABLE `leave` (
   `ManagerID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `leave`
+--
+
+INSERT INTO `leave` (`UserID`, `RequestedDate`, `LeaveDate`, `Reason`, `Accepted`, `ManagerID`) VALUES
+(5, '2021-09-28', '2021-09-30', 'I have an appointment to meet my doctor', 'Yes', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -248,10 +312,17 @@ CREATE TABLE `leave` (
 CREATE TABLE `notification` (
   `NotificationID` int(11) NOT NULL,
   `Date` date NOT NULL,
-  `EventType` text NOT NULL,
+  `EventType` enum('Club Event','Restaurant Event') NOT NULL,
   `Message` text NOT NULL,
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`NotificationID`, `Date`, `EventType`, `Message`, `UserID`) VALUES
+(1, '2021-09-28', 'Restaurant Event', 'The restaurant will be closed tomorrow (2021/09/29)', 2);
 
 -- --------------------------------------------------------
 
@@ -268,6 +339,13 @@ CREATE TABLE `order` (
   `UserID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`OrderID`, `OrderDate`, `OrderTime`, `OrderPlace`, `Total`, `UserID`) VALUES
+(1, '2021-09-29', '14:30:00', 'Table1', 1000, 6);
+
 -- --------------------------------------------------------
 
 --
@@ -279,6 +357,14 @@ CREATE TABLE `orderitem` (
   `ItemID` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orderitem`
+--
+
+INSERT INTO `orderitem` (`OrderID`, `ItemID`, `Quantity`) VALUES
+(1, 1, 5),
+(1, 2, 10);
 
 -- --------------------------------------------------------
 
@@ -292,6 +378,13 @@ CREATE TABLE `payment` (
   `UserID` int(11) NOT NULL,
   `BookingID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `payment`
+--
+
+INSERT INTO `payment` (`PaymentID`, `PaymentDate`, `UserID`, `BookingID`) VALUES
+(1, '2021-09-28', 6, 1);
 
 -- --------------------------------------------------------
 
@@ -318,6 +411,15 @@ CREATE TABLE `reservationmenu` (
   `Type` enum('Club','Restaurant') NOT NULL,
   `Cost` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `reservationmenu`
+--
+
+INSERT INTO `reservationmenu` (`ReservationName`, `Type`, `Cost`) VALUES
+('lounge', 'Club', 10000),
+('table1', 'Restaurant', 0),
+('table2', 'Restaurant', 0);
 
 -- --------------------------------------------------------
 
@@ -412,6 +514,20 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`UserID`, `Name`, `UserName`, `Password`, `Email`, `ContactNo`, `JoinedYear`, `DisplayID`, `UserType`) VALUES
+(1, 'Shan Dilranga', 'Shan', '$2y$10$HFG.V/09PPziKI9kDwydHOP256LVXZ8Ax6pgn2CvnXZPTmVdpZp46', 'Shan@gmail.com', 711234567, '2019-06-04', 'AD00001', 'Admin'),
+(2, 'Gimhani Rubasinghe', 'Gimhani', '$2y$10$t5HGheC1t8YV/QvQylEn4eoVfTTqputMd1WeOYTVlIl/2H8vm6WGe', 'gimhani@gmail.com', 700234567, '2019-07-17', 'RM00001', 'Restaurant Manager'),
+(3, 'Pavani Marasinghe', 'Pavani', '$2y$10$FszLxmPf9wZ2HbcmNjUlLuIL4L0p2xOcPhodqVP6rq/dD52t274Xa', 'pavani@gmail.com', 776712345, '2019-08-01', 'AC00001', 'Accountant'),
+(4, 'Chathura Alwis', 'Chathura', '$2y$10$32qhL..6B.Q4aVGPxAuRyOEo6jVIf9H6TcMX1uBnW4MQ5bSvH8luC', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager'),
+(5, 'Cashier', 'Cashier', '$2y$10$2EHHzaPcuMijlUIPju/udur6.sUlMskYseSNlGLOX9q4xXLgT6VFy', 'cashier@gmail.com', 711154567, '2019-08-31', 'CA00001', 'Cashier'),
+(6, 'Member', 'Member', '$2y$10$9RaH99CEpIK1ivO.KwhRUOdsalIUeP3vYuzT/2xd8PU4vfgmfF7sG', 'member@gmail.com', 722222567, '2020-08-30', 'LM00001', 'Life Member');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `visapayment`
 --
 
@@ -419,6 +535,13 @@ CREATE TABLE `visapayment` (
   `PaymentID` int(11) NOT NULL,
   `CardName` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `visapayment`
+--
+
+INSERT INTO `visapayment` (`PaymentID`, `CardName`) VALUES
+(1, 'Master');
 
 --
 -- Indexes for dumped tables
@@ -602,7 +725,7 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`UserID`),
   ADD UNIQUE KEY `DisplayID` (`DisplayID`),
   ADD UNIQUE KEY `Email` (`Email`),
-  ADD UNIQUE KEY `UserName` (`UserName`) USING HASH;
+  ADD UNIQUE KEY `UserName` (`UserName`);
 
 --
 -- Indexes for table `visapayment`
@@ -618,55 +741,55 @@ ALTER TABLE `visapayment`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `BillID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `BillID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `feedback`
 --
 ALTER TABLE `feedback`
-  MODIFY `FeedBackID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `FeedBackID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `grn`
 --
 ALTER TABLE `grn`
-  MODIFY `GRNID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `GRNID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `InvoiceID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `InvoiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `NotificationID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `NotificationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PaymentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -690,7 +813,7 @@ ALTER TABLE `servicecharge`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -821,21 +944,13 @@ ALTER TABLE `salarystaff`
 ALTER TABLE `servicechargestaff`
   ADD CONSTRAINT `servicechargestaff_ibfk_1` FOREIGN KEY (`ServiceChargeID`) REFERENCES `servicecharge` (`ServiceChargeID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `servicechargestaff_ibfk_2` FOREIGN KEY (`StaffID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `visapayment`
+--
+ALTER TABLE `visapayment`
+  ADD CONSTRAINT `visapayment_ibfk_1` FOREIGN KEY (`PaymentID`) REFERENCES `payment` (`PaymentID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`Name`, `UserName`, `Password`, `Email`, `ContactNo`, `JoinedYear`, `DisplayID`, `UserType`) VALUES
-('Shan Dilranga',       'Shan',     '$2y$10$HFG.V/09PPziKI9kDwydHOP256LVXZ8Ax6pgn2CvnXZPTmVdpZp46', 'Shan@gmail.com',     711234567, '2019-06-04', 'AD00001', 'Admin'),
-('Gimhani Rubasinghe',  'Gimhani',  '$2y$10$t5HGheC1t8YV/QvQylEn4eoVfTTqputMd1WeOYTVlIl/2H8vm6WGe', 'gimhani@gmail.com',  700234567, '2019-07-17', 'RM00001', 'Restaurant Manager'),
-('Pavani Marasinghe',   'Pavani',   '$2y$10$FszLxmPf9wZ2HbcmNjUlLuIL4L0p2xOcPhodqVP6rq/dD52t274Xa', 'pavani@gmail.com',   776712345, '2019-08-01', 'AC00001', 'Accountant'),
-('Chathura Alwis',      'Chathura', '$2y$10$32qhL..6B.Q4aVGPxAuRyOEo6jVIf9H6TcMX1uBnW4MQ5bSvH8luC', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager'),
-('Cashier',             'Cashier',  '$2y$10$2EHHzaPcuMijlUIPju/udur6.sUlMskYseSNlGLOX9q4xXLgT6VFy', 'cashier@gmail.com',  711154567, '2019-08-31', 'CA00001', 'Cashier'),
-('Member',              'Member',   '$2y$10$9RaH99CEpIK1ivO.KwhRUOdsalIUeP3vYuzT/2xd8PU4vfgmfF7sG', 'member@gmail.com',   722222567, '2020-08-30', 'LM00001', 'Life Member');
-
--- --------------------------------------------------------
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
