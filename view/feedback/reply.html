@@ -4,29 +4,57 @@
 
         <meta charset="utf-8">
         <title>Bloomfield</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
-        <link rel="stylesheet" href="../style/reply.css">
-
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/feedback.css">
 
   </head>
   <body>
-    <div class="main">
-            <div class="header">
-              <div class="upperhead">
+        <div class="main" >
+            <div class="coverheader">
 
+              <div class="tableheader">
+                    <div class="innerdiv">
+                    </div>
+                    <h2>Feedback</h2>
               </div>
-              <h2>Feedback</h2>
+            </div>
+            <div class="covertable">
+                <div class="table">
+                    <div class="upperbar">
+                          <input type="text" name="search" class="search" placeholder="Search..." >
+
+                    </div>
+                    <div class="detailtable">
+
+                            <iframe src="../feedback/feedbacktable.html"  class="staff"></iframe>
+                    </div>
+
+                </div>
 
             </div>
-            <div class="tablecover">
+            <div class="replyboxcover">
+              <div class="replybox">
+                <form class="feedbackform" action="index.html" method="post">
+
+                <div class="labelbox">
+                    <label for="Message"><b>Message :</b> </label><br>
+                </div>
+                <div class="labelbox">
+                  <label for="Reply"><b>Reply :</b> </label><br>
+                  <input type="text" name="Reply" >
+                </div>
+                <div  class="btnbox">
+                  <button type="submit" name="submit" class="btn"><b>Submit</b> </button>
+                  <button type="reset" name="reset" class="btn"><b>Reset</b> </button>
+                </div>
+              </form>
+              </div>
 
             </div>
-            <div class="replybox">
 
-            </div>
 
         </div>
-    </body>
+
+  </body>
 </html>

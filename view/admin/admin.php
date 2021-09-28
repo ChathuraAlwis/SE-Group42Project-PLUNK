@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
   if (isset($_SESSION['UserType'])){
     if ($_SESSION['UserType'] != 'Admin'){
       require_once "../../controller/pages.php";
