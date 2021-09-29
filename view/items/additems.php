@@ -16,7 +16,7 @@
         <h2 class="center-text"><b>Add item</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-item" type="hidden" >
-                <table>
+                <table class="formtable">
                   <tr>
                     <div class="form-group">
                        <td><label for="ItemName">Item Name</label></td> 
@@ -89,6 +89,16 @@
                 </div>
         </form>        
     </div>
+    <div class="reorder">
+        <h3>Items</h3>
+        <div class=table>
+      <?php
+          require_once "../../controller/showtable.php";
+          $reorderTable = new Table("item");
+          $reorderTable->show("SELECT ItemID, ItemName, Quantity,ReorderQuantity FROM plunk.item", false);
+        ?>
+      </div>
+</div>
      
   </body>
 
