@@ -23,14 +23,14 @@
                 <div class="table">
                     <div class="upperbar">
                         <div class="search">
-                              <input class ="search" placeholder="Enter the item name"/>
+                              <input placeholder="Enter the item name"/>
                               <button type = "Submit" class= "submit">Search</button>
                         </div>
                         <div class="selecttype">
                               <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
                                     <option selected>Choose item type...</option>
-                                    <option value="fooditems">Food Items</option>
-                                    <option value="beverageitems">Beverage Items</option>
+                                    <option value="Food">Food Items</option>
+                                    <option value="Beverage">Beverage Items</option>
                               </select>
                         </div>                  
                         <div class="addicon">

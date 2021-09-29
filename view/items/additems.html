@@ -27,14 +27,14 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="Price">Price</label></td>
-                        <td><input type="number" id="Price" name="Price" required class="form-control" placeholder="Enter the price"/></td>
+                        <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the price"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Discount">Discount</label></td>
-                        <td><input type="number" id="Discount" name="Discount" required class="form-control" placeholder="Enter the discount"/></td>
+                        <td><input type="number" id="Discount" name="Discount" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the discount"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -66,7 +66,7 @@
                     
                     <div class="form-group">
                         <td><label for="Quantity">Quantity</label></td>
-                        <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" placeholder="Enter the Quantity"/></td>
+                        <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Quantity"/></td>
                     </div>
                 </tr>
             
@@ -76,7 +76,7 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="ReorderQuantity">Reorder Quantity</label></td>
-                        <td><input type="number" id ="ReorderQuantity" name="ReorderQuantity" class="form-control" placeholder="Enter the Reorder Quantity"/></td>
+                        <td><input type="number" id ="ReorderQuantity" name="ReorderQuantity" class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Reorder Quantity"/></td>
                     </div>
                 </tr> 
                 </div>
@@ -84,7 +84,7 @@
                 </table>
                 
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
+                    <button type="submit" name="submit" value="Submit" class="button submit" >Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
                 </div>
         </form>        
