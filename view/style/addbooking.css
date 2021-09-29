@@ -1,0 +1,117 @@
+html, body{
+  background-image:transperant;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  background-color: #dcdcdc;
+}
+
+.main{
+  width: 50%;
+  height:auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+/*  background-color: yellow;*/
+}
+
+.adduser{
+  width: 90%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  border-radius: 20px;
+/*  background-color: #cccccc;*/
+   background-color: white;*/
+  color: Black;
+  font-family: sans-serif;
+  font-size: 1.7vw;
+}
+.submain{
+  width: 100%;
+  height:auto;
+  /*background-color: blue;*/
+}
+.forminputs{
+   width: 40%;
+   height: auto;
+}
+.radio{
+  width: 100%;
+  height: auto;
+}
+
+input{
+
+  font-size: 1.5vw;
+  border-top: 0;
+  border-bottom-width: 2px;
+  border-left: 0;
+  border-right: 0;
+  border-style: solid;
+  border-color: #6c757d;
+  color:#495057;
+}
+ #Member{
+  width:20%;
+}
+
+.add{
+  background-color: #017a7a;
+  width: 49%;
+  height:auto;
+  border-radius: 50px;
+  color:  #acacac;
+  font-size: 2.5vw;
+  transition-duration: 1s;
+}
+.add:hover{
+  background-color: #acacac;
+  color:#017a7a;
+}
+#reset{
+  float: right;
+}
+@media only screen and (max-width: 720px) {
+  /* For mobile phones: */
+  .main {
+    width: 80%;
+  }
+  .adduser{
+    font-size: 5vw;
+    padding-top: 6%;
+  }
+  input{
+    font-size: 5vw;
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #acacac;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2d7166;
+}

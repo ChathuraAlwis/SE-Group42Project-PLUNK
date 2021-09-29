@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/addbooking.css">
+
+  </head>
+  <body>
+        <div class="main" >
+            <form class="adduser" action="index.html" method="post" autocomplete="on" >
+              <div class="submain">
+                <div class="forminputs">
+                    <label for="Name"> Name </label><br>
+                    <input type="text" id="Name" name="Name" required>
+                </div>
+                <div class="radio">
+                      <label for="type"> Type</label><br>
+                      <select class="type" name="type">
+                          <option value="Club">Club</option>
+                          <option value="Restaurant">Restaurant</option>
+                      </select>
+                </div><br>
+                <div class="forminputs">
+                    <label for="reservation1"> Reservation 1</label><br>
+                    <select class="reservation1" name="reservation1" required>
+                        <option value="Select Reservation">Select Reservation</option>
+
+                    </select>
+                </div><br>
+                <div class="forminputs">
+                    <label for="reservation2"> Reservation 2</label><br>
+                    <select class="reservation2" name="reservation2">
+                        <option value="Select Reservation">Select Reservation</option>
+
+                    </select>
+                </div><br>
+                <div class="forminputs">
+                    <label for="date">Date</label><br>
+                    <input type="date" id="date" name="dated" placeholder="mm/dd/yyyy" required>
+                </div><br>
+
+                <div class="forminputs">
+                    <label for="time"> Time</label><br>
+                    <input type="time" id="time" name="time" required>
+                </div><br>
+
+                <div class="forminputs">
+                    <label for="contact"> Contact No</label><br>
+                    <input type=" tel" id="contact" name="contact" pattern="[0-9]{10}" maxlength="10" required>
+                </div><br><br>
+
+                <div class="forminputs">
+                  <button type="submit"  class="add" name="button"><b>Add</b> </button>
+                  <button type="reset" id="reset" class="add" name="button"><b>Reset</b></button>
+                </div>
+              </div>
+            </form>
+        </div>
+  </body>
+</html>
