@@ -164,4 +164,18 @@
          $DB->runQuery($sql);
     }
 
+    //---------------------------------------------------Invoice-----------------------------------------------------------------------
+    if(isset($_POST['add-invoice'])){
+        $DB = new DB;
+
+        try {
+            $sql = "INSERT INTO plunk.invoice (InvoiceID, Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ( '' , '$_POST[Companyname]',  '$_POST[Type]','$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
+            $DB->runQuery($sql);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
+
+
 ?>
