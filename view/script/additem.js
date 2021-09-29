@@ -3,20 +3,14 @@ $(document).ready(function() {
     } );
 
     function changeType(sel) {
-         var p = document.getElementById('kitchenitems');
-         var b = document.getElementById('beverageitems');
+         var p = document.getElementById('Quantity');
+         
 
          var choice = sel.value;
 
-         if(choice == 'kitchenitems')
+         if(choice == 'No')
          {
             p.style.display = 'block';
-            b.style.display = 'none';
          }
-         else if(choice == 'beverageitems')
-         {
-             p.style.display = 'none';
-             b.style.display = 'block';
-
-         }
+         
     };

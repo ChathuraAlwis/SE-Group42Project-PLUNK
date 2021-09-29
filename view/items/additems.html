@@ -40,6 +40,17 @@
                 <tr><td><br></td></tr>
                 <tr> 
                     <div class="form-group">
+                        <td><label for="ItemType">Item Type</label></td>
+                        <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                            <option selected>Choose type...</option>
+                            <option value="Food">Food Items</option>
+                            <option value="Beverage">Beverage Items</option>
+                         </select></td>
+                    </div>
+                </tr>
+                <tr><td><br></td></tr>
+                <tr> 
+                    <div class="form-group">
                         <td><label for="Availability">Availability</label></td>
                         <td><select id="Availability" name="Availability" class="form-control" onchange="changeType(this);">
                                 <option value="Yes">Yes</option>
@@ -47,32 +58,28 @@
                             </select>
                         </td>
                     </div>
-                </tr>
+                </tr> 
                 <tr><td><br></td></tr>
+                
+                <div id = Quantity>
                 <tr>
+                    
                     <div class="form-group">
                         <td><label for="Quantity">Quantity</label></td>
                         <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" placeholder="Enter the Quantity"/></td>
                     </div>
                 </tr>
+            
+               
                 <tr><td><br></td></tr>
-                <tr> 
-                    <div class="form-group">
-                        <td><label for="ItemType">Item Type</label></td>
-                        <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
-                            <option selected>Choose type...</option>
-                            <option value="fooditems">Food Items</option>
-                            <option value="beverageitems">Beverage Items</option>
-                         </select></td>
-                    </div>
-                </tr>
-                <tr><td><br></td></tr>
+                
                 <tr>
                     <div class="form-group">
                         <td><label for="ReorderQuantity">Reorder Quantity</label></td>
-                        <td><input type="number" id ="ReorderQuantity" name="ReorderQuantity" class="form-control" placeholder="Enter the reorder quantity"/></td>
+                        <td><input type="number" id ="ReorderQuantity" name="ReorderQuantity" class="form-control" placeholder="Enter the Reorder Quantity"/></td>
                     </div>
-                </tr>  
+                </tr> 
+                </div>
                 <tr><td><br></td></tr> 
                 </table>
                 
