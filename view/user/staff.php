@@ -14,7 +14,7 @@
 
                     <div class="detailtable">
                       <?php
-                          require_once "E:\Se Project\SE-Group42Project-PLUNK\controller\showtable.php";
+                          require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("user");
                           $orderTable->show();
                        ?>

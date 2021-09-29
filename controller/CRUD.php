@@ -12,7 +12,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['delete-order'])){
@@ -24,7 +24,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['update-order'])){
@@ -36,7 +36,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['search-order'])){
@@ -60,11 +60,11 @@
                 echo "Memebr ID\t:" . $row['Member_ID'] . "\n";
                 echo "Staff ID\t:" . $row['Staff_ID'] . "\n";
             }
-            
+
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     //--------------------------------------------------------bill--------------------------------------------------------
@@ -77,7 +77,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['update-bill'])){
@@ -89,12 +89,12 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['search-bill'])){
         $DB = new DB;
-        
+
         try {
             $sql = "SELECT * FROM plunk.bill WHERE Bill_ID=\"$_POST[Bill_ID]\"";
             $result = $DB->runQuery($sql);
@@ -117,9 +117,9 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
-//---------------------------------------------------Item-----------------------------------------------------------------------   
+//---------------------------------------------------Item-----------------------------------------------------------------------
 //---------Add Item------------
 
     if(isset($_POST['add-item'])){
@@ -131,7 +131,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['delete-item'])){
@@ -144,7 +144,7 @@
             if($_POST['itemtype']=='beverageitems'){
                 $sql = "DELETE FROM plunk.beverage_items WHERE Item_ID=\"$_POST[item_id]\"";
             }
-            
+
         } catch (\Throwable $th) {
             throw $th;
         }
