@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
         <link rel="icon" type="icon" href="../images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/Dashboard.css">
+        
 
 
 
@@ -31,6 +32,13 @@
               <h2>Notifications</h2>
           </div>
           <div class="Notifications">
+             <div class="table">
+              <?php
+                    require_once "../../controller/showtable.php";
+                    $notificationTable = new Table("notification");
+                    $notificationTable->show("SELECT Date, EventType, Message FROM plunk.notification", false);
+                  ?>
+              </div>
 
 
           </div>
