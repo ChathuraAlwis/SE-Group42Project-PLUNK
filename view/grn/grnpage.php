@@ -30,13 +30,10 @@
                               <a href="../grn/addgrn.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>
                     </div>
-                    <div >
-                    <?php
-                        require_once "../../controller/showtable.php";
-                        $grnTable = new Table("grn");
-                        $grnTable->show("SELECT * FROM plunk.grn", false);
-                      ?>
-                    </div>    
+                    <div class="detailtable">
+
+                        <iframe src="grntable.php" class="staff"></iframe>
+                  </div>    
 
                 </div>
 
