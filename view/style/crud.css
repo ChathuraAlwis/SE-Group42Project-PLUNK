@@ -3,7 +3,7 @@
 }
 .body{
     background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
-  
+
   }
 .form{
     font-family: sans-serif;
@@ -45,7 +45,7 @@ form{
 	position: absolute;
 	top: 10px;
 	right: 5px;
-   
+
 }
 
 
@@ -66,21 +66,21 @@ form{
     margin-left: 3%;
     margin-right: 3%;
     text-align: left;
-    
- 
+
+
  }
- 
+
 .input{
-    
+
     outline: 0;
-    
+
     width: 100%;
     border: 0;
     border-color:transparent;
     margin: 5% 0% 5%;
     font-size: 1.5vw;
     color: black;
-    
+
 
 }
 
@@ -99,7 +99,7 @@ form{
     margin-left:10%;
     background-color: #017a7a;
     opacity: 0.8;
-  
+
   }
 
 button:hover{
@@ -109,6 +109,3 @@ a{
     color: white;
     text-decoration: none;
   }
-
-
-
