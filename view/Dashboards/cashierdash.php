@@ -15,11 +15,11 @@
     <body>
         <div class="main">
           <div class="upper">
-                <div class="Order">
+                <div class="Table">
                   <?php
-                    require_once "../../controller/showtable.php";
-                    $orderTable = new Table("order");
-                    $orderTable->show();
+                    // require_once "../../controller/showtable.php";
+                    // $orderTable = new Table("order");
+                    // $orderTable->show();
                   ?>
                 </div>
                 

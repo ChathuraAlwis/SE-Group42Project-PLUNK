@@ -16,7 +16,7 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>Report</h2>
+                    <h2>Order</h2>
               </div>
             </div>
             <div class="covertable">
@@ -24,8 +24,12 @@
                     <div class="upperbar">
                           <input type="text" name="search" class="search" placeholder="Search..." >
                           <div class="addicon">
-                                <a href="../invoice/add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                                <a href="add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
+                    </div>
+                    <div class="detailtable">
+
+                            <iframe src="details.php" class="staff"></iframe>
                     </div>
 
                 </div>
