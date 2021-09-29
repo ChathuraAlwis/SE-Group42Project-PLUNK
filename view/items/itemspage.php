@@ -21,12 +21,12 @@
             </div>
             <div class="covertable">
                 <div class="table">
-                    <div class="upperbar">
-                        <div class="search">
+                    <div>
+                    <div class = "search">
                               <input placeholder="Enter the item name"/>
                               <button type = "Submit" class= "submit">Search</button>
                         </div>
-                        <div class="selecttype">
+                        <div class>
                               <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
                                     <option selected>Choose item type...</option>
                                     <option value="Food">Food Items</option>
@@ -34,17 +34,13 @@
                               </select>
                         </div>                  
                         <div class="addicon">
-                              <a href="../items/additems.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                              <a href="../items/additems.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>
                     </div>
-                    <div >
-                    <?php
-                        require_once "../../controller/showtable.php";
-                        $itemTable = new Table("item");
-                        $itemTable->show("SELECT * FROM plunk.item", false);
-                      ?>
-                    </div>    
+                    <div class="detailtable">
 
+                        <iframe src="itemtable.php" class="staff"></iframe>
+                  </div>
                 </div>
 
             </div>

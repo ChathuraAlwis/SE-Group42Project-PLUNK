@@ -8,7 +8,7 @@
 
         try {
             $sql = "INSERT INTO plunk.order (OrderDate, OrderTime, OrderPlace, Total, UserID) VALUES ('$_POST[OrderDate]', '$_POST[OrderTime]', '$_POST[OrderPlace]', '$_POST[Total]', '$_SESSION[UserID]');";
-            echo $DB->runQuery($sql);
+             $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -20,7 +20,7 @@
 
         try {
             $sql = "DELETE FROM plunk.order WHERE Order_ID=\"$_POST[Order_ID]\"";
-            echo $DB->runQuery($sql);
+             $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -32,7 +32,7 @@
 
         try {;
             $sql = "UPDATE plunk.order SET $_POST[Column]=\"$_POST[Value]\" WHERE Order_ID=\"$_POST[Order_ID]\"";
-            echo $DB->runQuery($sql);
+             $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -73,7 +73,7 @@
 
         try {
             $sql = "INSERT INTO plunk.bill (Bill_ID, Payment_Type, Discount, Steward_Name, Staff_ID, Order_ID) VALUES ('$_POST[Bill_ID]', '$_POST[Payment_Type]', '$_POST[Discount]', '$_POST[Steward_Name]', '$_POST[Staff_ID]', '$_POST[Order_ID]');";
-            echo $DB->runQuery($sql);
+             $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -85,7 +85,7 @@
 
         try {
             $sql = "UPDATE plunk.bill SET $_POST[Column]=\"$_POST[Value]\" WHERE Bill_ID=\"$_POST[Bill_ID]\"";
-            echo $DB->runQuery($sql);
+             $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -127,29 +127,41 @@
 
         try {
             $sql = "INSERT INTO plunk.item (ItemID, ItemName, Price, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]',  '$_POST[Price]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
-            echo $DB->runQuery($sql);
+            $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
 
     }
 
-    if(isset($_POST['delete-item'])){
+//----------Search Item--------------
+    if(isset($_POST['search-itemtype'])){
         $DB = new DB;
 
         try {
-            if($_POST['itemtype']=='kitchenitems'){
-                $sql = "DELETE FROM plunk.kitchen_items WHERE Item_ID=\"$_POST[item_id]\"";
-            }
-            if($_POST['itemtype']=='beverageitems'){
-                $sql = "DELETE FROM plunk.beverage_items WHERE Item_ID=\"$_POST[item_id]\"";
-            }
+            $sql = "SELECT * FROM plunk.item WHERE ItemType=\"$_POST[ItemType]\"";
+            $result = $DB->runQuery($sql);
+            $rows = count($result, 0);
+            //result//
 
         } catch (\Throwable $th) {
             throw $th;
         }
 
-        echo $DB->runQuery($sql);
+    }
+
+
+    if(isset($_POST['delete-item'])){
+        $DB = new DB;
+
+        try {
+            //deleteitem
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+         $DB->runQuery($sql);
     }
 
 ?>
