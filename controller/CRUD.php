@@ -119,13 +119,14 @@
         }
 
     }
-
+//---------------------------------------------------Item-----------------------------------------------------------------------
+//---------Add Item------------
 
     if(isset($_POST['add-item'])){
         $DB = new DB;
 
         try {
-            $sql = "INSERT INTO plunk.item (ItemName, Price, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]',  '$_POST[Price]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
+            $sql = "INSERT INTO plunk.item (ItemID, ItemName, Price, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]',  '$_POST[Price]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
             echo $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;

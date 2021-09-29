@@ -66,9 +66,9 @@ html,body{
   margin-right: auto;
   display: block;
   border-style: solid;
-  border-width: 3px;
+  border-width: none;
   border-radius: 20px;
-  border-color: #017a7a;
+  border-color: transparent;
  background-color: #017a7a;
 }
 h2{
@@ -94,7 +94,7 @@ th{
   border-collapse: collapse;
   margin-bottom: 30px;
   border-style: solid;
-  border-width: 1px;
+  border-width: none;
   border-color: #017a7a;
   background-color: #ffffff;
 }
