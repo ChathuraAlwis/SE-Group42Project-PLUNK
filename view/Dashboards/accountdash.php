@@ -31,6 +31,13 @@
               <h2>Notifications</h2>
           </div>
           <div class="Notifications">
+             <div class="table">
+              <?php
+                    require_once "../../controller/showtable.php";
+                    $notificationTable = new Table("notification");
+                    $notificationTable->show("SELECT Date, EventType, Message FROM plunk.notification", false);
+                  ?>
+              </div>
 
 
           </div>
