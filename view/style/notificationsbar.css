@@ -14,7 +14,7 @@ html,body{
 
 .detailtable{
   width: 99%;
-  height: auto;
+  height:auto;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -22,7 +22,8 @@ html,body{
   border-width: 3px;
   border-radius: 20px;
   border-color: #017a7a; /*#dcdcdc*/
- background-color: #017a7a;
+  background-color: #017a7a;
+  margin-top: 1%;
 /*background-color: blue;*/
 }
 
@@ -41,7 +42,8 @@ html,body{
   
 }
 th{
-  font-size: 3.5vw;
+  font-family: sans-serif;
+  font-size: 1.5vw;
   border-collapse: collapse;
   margin-bottom: 30px;
   border-style: solid;
@@ -59,7 +61,8 @@ th:last-child,td:last-child{
   border-bottom-right-radius: 20px;
 }
 td{
-  font-size: 3vw;
+  font-family: sans-serif;
+  font-size: 1.25vw;
   border-collapse: collapse;
   background-color: white;
   padding-top: 5px;

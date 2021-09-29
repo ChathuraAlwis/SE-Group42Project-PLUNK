@@ -90,7 +90,7 @@ html, body{
 }
 h2{
   font-size: 2vw;
-  text-align: center !important;
+  text-align: center ;
   margin: none;
   padding: none;
   color: #017a7a;
@@ -163,7 +163,7 @@ h3{
 }
 
 .reorder{
-  width: 40%;
+  width: 32.5%;
   height: 95%;
   float:left;
   margin-left: 15px;
