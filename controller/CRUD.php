@@ -125,33 +125,12 @@
         $DB = new DB;
 
         try {
-            if($_POST['itemtype']=='kitchenitems'){
-                if($_POST['isavailable']=='Yes'){
-                     $sql = "INSERT INTO plunk.kichen_item (Item_ID, Item_Name, Price, Discount, Available, Quantity, Category, Portion, Staff_ID) 
-                        VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','1', '$_POST[quantity]', '$_POST[category]',  '$_POST[portion]', '$_POST[staffid]');";
-                }
-               else{
-                    $sql = "INSERT INTO plunk.kichen_item (Item_ID,'Name',Price,Discount,'Availability',Quantity,Category,Portion,Staff_ID) 
-                        VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','0', '$_POST[quantity]', '$_POST[category]',  '$_POST[portion]', '$_POST[staffid]');";
-               }
-            }
-            else{
-                if($_POST['isavailable']=='Yes'){
-                    $sql = "INSERT INTO plunk.kitchen_item (Item_ID,'Name',Price,Discount,'Availability',Quantity,Volume,Company_Name,Reorder_Quantity,Staff_ID) 
-                        VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','1', '$_POST[quantity]', '$_POST[volume]',  '$_POST[companyname]','$_POST[reorder]','$_POST[staffid]');";
-               }
-              else{
-                    $sql = "INSERT INTO plunk.kitchen_item (Item_ID,'Name',Price,Discount,'Availability',Quantity,Volume,Company_Name,Reorder_Quantity,Staff_ID) 
-                        VALUES ('$_POST[item_id]', '$_POST[item_name]', '$_POST[price]','$_POST[discount]','0', '$_POST[quantity]', '$_POST[volume]',  '$_POST[companyname]','$_POST[reorder]','$_POST[staffid]');";
-              }
-            }
-
+            $sql = "INSERT INTO plunk.item (ItemName, Price, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]',  '$_POST[Price]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
             echo $DB->runQuery($sql);
-                                                                                        
         } catch (\Throwable $th) {
             throw $th;
         }
-
+        
     }
 
     if(isset($_POST['delete-item'])){
