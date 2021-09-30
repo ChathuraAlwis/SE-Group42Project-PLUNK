@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -32,10 +33,14 @@
                                     <option value="Food">Food Items</option>
                                     <option value="Beverage">Beverage Items</option>
                               </select>
-                        </div>                  
-                        <div class="addicon">
-                              <a href="../items/additems.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
-                        </div>
+                        </div>   
+                        <?php
+                              if ($_SESSION['UserType']=='Restaurant Manager'){
+                                    echo "<div class=\"addicon\">
+                                                <a href=\"../items/additems.php\" class=\"add\"><button type=\"button\" name=\"button\" class=\"addbtn\"><b>+</b></button></a>
+                                          </div>";
+                              }               
+                        ?>
                     </div>
                     <div class="detailtable">
 

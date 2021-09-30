@@ -15,8 +15,8 @@
                     <div class="detailtable">
                       <?php
                           require_once "../../controller/showtable.php";
-                          $orderTable = new Table("order");
-                          $orderTable->show();
+                          $invoiceTable = new Table("invoice");
+                          $invoiceTable->show();
                        ?>
 
                     </div>

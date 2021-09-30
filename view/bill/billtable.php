@@ -16,7 +16,7 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>Invoice</h2>
+                    <h2>Bill</h2>
               </div>
             </div>
             <div class="covertable">
@@ -29,7 +29,7 @@
                     </div>
                     <div class="detailtable">
 
-                            <iframe src="invoicedetails.php" class="staff"></iframe>
+                            <iframe src="details.php" class="staff"></iframe>
                     </div>
 
                 </div>

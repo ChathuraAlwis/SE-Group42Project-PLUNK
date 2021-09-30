@@ -31,7 +31,8 @@
                         echo "<th>$column</th>";
                     }
                     else{
-                        echo "<td>$data</td>";
+                        $record = http_build_query(array('record' => $result[$row]));
+                        echo "<td><a href=\"update.php?data=$record\">$data</a></td>";
                     }
                 }
                 echo "</tr>";

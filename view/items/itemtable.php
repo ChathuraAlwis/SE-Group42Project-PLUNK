@@ -18,7 +18,7 @@
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("item");
                         $itemTable->show("SELECT * FROM plunk.item", false);
-                      ?> 
+                    ?> 
                     </div>
 
                 </div>
