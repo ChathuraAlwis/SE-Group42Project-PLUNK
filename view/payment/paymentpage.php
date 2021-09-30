@@ -23,9 +23,16 @@
                 <div class="table">
                     <div class="upperbar">
                           <input type="text" name="search" class="search" placeholder="Search..." >
-                          <div class="addicon">
-                                <a href="add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
-                          </div>
+                          <div class>
+                              <select id="PaymentType" name="PaymentType" class="search" placeholder="Select payment type" onchange="changeType(this);">
+                                    <option selected>Choose payment type...</option>
+                                    <option value="Cash">Cash Payment</option>
+                                    <option value="Card">Card Payment</option>
+                              </select>
+                        </div>
+                        <div class="addicon">
+                              <a href="../payment/add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                        </div>        
                     </div>
                     <div class="detailtable">
 

@@ -16,7 +16,7 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>LEAVE</h2>
+                    <h2>Leave</h2>
               </div>
             </div>
             <div class="covertable">
