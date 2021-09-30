@@ -22,8 +22,9 @@ html,body{
   border-width: 3px;
   border-radius: 20px;
   border-color: #017a7a; /*#dcdcdc*/
- background-color: #017a7a;
-/*background-color: blue;*/
+  background-color: transparent;
+ /*background-color: #017a7a;
+ background-color: blue;*/
 }
 
 table{
