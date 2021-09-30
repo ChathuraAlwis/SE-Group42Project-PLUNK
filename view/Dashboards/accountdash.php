@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
         <link rel="icon" type="icon" href="../images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/Dashboard.css">
+        <link rel="stylesheet" href="../style/tableui.css">
         
 
 
@@ -16,12 +17,14 @@
     <body>
         <div class="main">
           <div class="upper">
+          
                 <div class="Invoice">
-                  <?php
-                    require_once "../../controller/showtable.php";
-                    $invoicedetailsTable = new Table("user");
-                    $invoicedetailsTable->show("SELECT UserID, Name FROM plunk.user", false);
-                  ?>
+                <h2>Invoice Details</h2>
+                <?php
+                          require_once "../../controller/showtable.php";
+                          $invoiceTable = new Table("invoice");
+                          $invoiceTable->show();
+                       ?>
                 </div>
                 
                 <div class="calendar">
