@@ -83,9 +83,9 @@ background-color: #017a7a;
    border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
    padding: 0;
  }
-a{
-  
+ a{
   text-decoration: none;
+  color:black;
 }
 .menubtn{
   text-decoration: none;
@@ -249,3 +249,5 @@ h2{
 ::-webkit-scrollbar-thumb:hover {
   background: #2d7166;
 }
+
+
