@@ -29,7 +29,7 @@
                     </div>
                     <div class="detailtable">
 
-                            <iframe src="details.php" class="staff"></iframe>
+                            <iframe src="invoicedetails.php" class="staff"></iframe>
                     </div>
 
                 </div>
