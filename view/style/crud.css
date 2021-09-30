@@ -22,7 +22,7 @@
     border-color:white;
 }
 .right{
-    margin-top:5%;
+    margin-top:0%;
     float: right;
     width:50%;
     height: 400px;
@@ -35,17 +35,17 @@
     height: 100%;
     width: 100%;
     border-radius: 20px;
+    
+    background-color: #017a7a;
 }
 h3{
     font-size: 2.5vw;
-    font-size: 1.5vw;
     font-family: sans-serif;
     text-align: center;
     margin: none;
     padding: none;
-    color: #000000;
-    margin-top: 2%;
-    margin-bottom: 5%;
+    color: #ffffff;
+    padding-top: 9%;
   
   }
 .item{
