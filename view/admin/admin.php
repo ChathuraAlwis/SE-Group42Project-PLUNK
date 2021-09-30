@@ -23,6 +23,7 @@
         <link rel="icon" type="icon" href="../images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/user.css">
         <script type="text/javascript" src="../script/user.js"></script>
+        <script type="text/javascript" src="../script/usernavbtn.js"> </script>
 
   </head>
   <body>
@@ -44,8 +45,14 @@
 
                   <div class="rightheader">
                     <div class="subrightheader">
-                    <img class="profileicon"src="../images/profile.png" alt="profile icon">
-                      <h3>Admin</h3>
+                    <div class="dropdown">
+                        <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
+                        <div class="dropdown-content">
+                        <a href="#" class="headerdrop"><b>Profile</b></a>
+                        <a href="#" class="headerdrop"><b>Logout</b></a>
+                        </div>
+                    </div>
+                            <h3>Admin</h3>
                     </div>
 
                   </div>

@@ -45,13 +45,16 @@
 
                   <div class="rightheader">
                     <div class="subrightheader">
-
-
-                      <img class="profileicon"src="../images/profile.png" alt="profile icon">
-
+                      <div class="dropdown">
+                          <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
+                          <div class="dropdown-content">
+                          <a href="#" class="headerdrop"><b>Profile</b></a>
+                          <a href="#" class="headerdrop"><b>Logout</b></a>
+                          </div>
+                      </div>
                       <h3>General Manager</h3>
                     </div>
-                      <!--<button type="button"  class="logout" name="Log out"><a href="../cover.html" class="linkbutton">Log Out </a></button>-->
+                      
 
                   </div>
 
