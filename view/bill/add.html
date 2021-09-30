@@ -14,15 +14,12 @@
         <form action="../../controller/CRUD.php" method="post">
             <input name ="add-bill" type="hidden" >
             <div class="form-group">
-                <label for="Bill_ID">Bill ID</label>
-                <input name ="Bill_ID" id="Bill_ID" type="text" placeholder="Enter Bill ID" >
+                <label for="CustomerName">Customer Name</label>
+                <input name ="CustomerName" id="CustomerName" type="text" placeholder="Enter Customer Name" >
             </div>
             <div class="form-group">
-                <label for="Payment_Type">Payment Type</label>
-                <select id="Payment_Type" name="Payment_Type" class="form-control" onchange="changeType(this);">
-                    <option value="Cash">Cash</option>
-                    <option value="Card">Card</option>
-                </select>
+                <label for="Price">Price</label>
+                <input name ="Price" id="Price" type="text" placeholder="Enter Price" >
             </div>
             <div class="form-group">
                 <label for="Discount">Discount</label>
