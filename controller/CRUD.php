@@ -164,6 +164,40 @@
          $DB->runQuery($sql);
     }
 
+    //---------------------------------------------------leave----------------------------------------------------------
+
+    //filter leave
+    
+
+    /*if(isset($_POST['filter-leave'])){
+        $DB = new DB;
+
+        try {
+            $sql = "SELECT * FROM plunk.leave WHERE UserID=\"$_SESSION[UserID]\"";
+            $result = $DB->runQuery($sql);
+            $rows = count($result, 0);
+            if ($rows == 0){
+                echo "Could not find Order: " . $_POST['Order_ID'] . "\n";
+            }
+            elseif ($rows > 1){
+                echo "Multiple rows found. Please contact Admit to resolve issues.\n";
+            }
+            else{
+                $row = $result[0];
+                echo "Order ID\t:" . $row['Order_ID'] . "\n";
+                echo "Order Place\t:" . $row['Order_Place'] . "\n";
+                echo "Quantity\t:" . $row['Quantity'] . "\n";
+                echo "Memebr ID\t:" . $row['Member_ID'] . "\n";
+                echo "Staff ID\t:" . $row['Staff_ID'] . "\n";
+            }
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }*/
+
+
     //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
         $DB = new DB;
