@@ -11,8 +11,8 @@
 
   </head>
   <body>
-    <div class=main>
-    <div class= left>
+    <div class="main">
+    <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Add item</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
@@ -92,11 +92,12 @@
     </div>
 </div>
     <div class= right>
-        
+        <div class="righttable">
         <div class="itemtable">
             <h3>ITEMS TABLE</h3>
             <iframe src="../restaurantmanager/itemtablerm.php" class="item"></iframe>
         </div>
+</div>
 </div>
 </div>
      

@@ -22,31 +22,40 @@
     border-color:white;
 }
 .right{
-    margin-top:0%;
+    margin-bottom:0%;
     float: right;
     width:50%;
     height: 100%;
     border: 2px;
-    
+    border-radius: 20px;
     border-color:white;
     align-content: center;
 }
 .righttop{
     width:100%;
-    height: 40%;     
+    height: 40%; 
+    border-radius: 20px;    
 }
 
 .rightbottom{
     margin-top: 5%;
     width:100%;
-    height: 40%;     
+    height: 40%; 
+    border-radius: 20px;    
 }
-
-.itemtable{
-    height: 100%;
+.righttable{
+    height: 500px;
+    margin-bottom: 5%;
     width: 100%;
     border-radius: 20px;
-    
+    margin-bottom: 10%;
+    background-color: #017a7a;
+}
+.itemtable{
+    height: 95%;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 5%;
     background-color: #017a7a;
 }
 h4{
