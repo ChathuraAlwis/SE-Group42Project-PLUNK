@@ -27,7 +27,7 @@
                               <button type = "Submit" class= "submit">Search</button>
                         </div>                 
                         <div class="addicon">
-                              <a href="../leave/addleave.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                              <a href="../leave/addleave.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>
                     </div>
                     <div class="detailtable">

@@ -172,3 +172,7 @@ border: none;
 ::-webkit-scrollbar-thumb:hover {
   background: #acacac;
 }
+a{
+  text-decoration: none;
+  
+}
