@@ -61,8 +61,12 @@ input{
   border-color: #6c757d;
   color:#495057;
 }
-select{
+.UserType{
   width: 80%;
+  font-size: 1.5vw;
+  color: black;
+}
+option{
   font-size: 1.5vw;
   color: black;
 }
@@ -122,5 +126,5 @@ select{
 }
 a{
   text-decoration: none;
-  
+
 }
