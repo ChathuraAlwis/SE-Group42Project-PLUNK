@@ -11,7 +11,8 @@
 
   </head>
   <body>
-    
+    <div class=main>
+    <div class= left>
     <div class="form">
         <h2 class="center-text"><b>Add GRN</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
@@ -75,7 +76,23 @@
                 </div>
         </form>        
     </div>
-     
+    </div>
+    <div class= right>
+      <div class = "righttop">
+        <div class="itemtable">
+            <h4>GRN TABLE</h4>
+            <iframe src="grntable.php" class="item"></iframe>
+        </div>
+        
+       </div>
+        <div class = "rightbottom">
+            <div class="itemtable">
+                <h4>ITEMS TABLE</h4>
+                <iframe src="../items/itemtable.php" class="item"></iframe>
+            </div>  
+        </div>
+    </div>
+    </div>
   </body>
 
  

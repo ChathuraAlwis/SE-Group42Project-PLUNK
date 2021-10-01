@@ -72,3 +72,7 @@ td{
   border-color: #017a7a;
   text-align: center;
 }
+a{
+  text-decoration: none;
+  color:black;
+}

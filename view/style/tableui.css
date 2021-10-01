@@ -147,4 +147,7 @@ border: none;
   background: #acacac;
 }
 
-
+a{
+  text-decoration: none;
+  color:black;
+}

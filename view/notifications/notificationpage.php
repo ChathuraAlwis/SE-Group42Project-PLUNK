@@ -16,25 +16,24 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>GRN</h2>
+                    <h2>NOTIFICATIONS</h2>
               </div>
             </div>
             <div class="covertable">
                 <div class="table">
-                    <div class="upperbar">
-                        <div class="search">
-                              <input placeholder="Enter the company name"/>
+                    <div>
+                    <div class = "search">
+                              <input type="date" placeholder="Enter the Date"/>
                               <button type = "Submit" class= "submit">Search</button>
-                        </div>               
+                        </div>                 
                         <div class="addicon">
-                              <a href="../grn/addgrn.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                              <a href="addnotifications.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>
                     </div>
                     <div class="detailtable">
 
-                        <iframe src="grntable.php" class="staff"></iframe>
-                  </div>    
-
+                        <iframe src="notificationtable.php" class="staff"></iframe>
+                  </div>
                 </div>
 
             </div>
@@ -44,5 +43,4 @@
 
   </body>
 </html>
-
 

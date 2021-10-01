@@ -203,6 +203,8 @@ h3{
   border-style: solid;
   border-color: #017a7a;
 }
-
+a{
+  text-decoration: none;
+}
 
 /*End */

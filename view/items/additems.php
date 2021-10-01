@@ -11,7 +11,8 @@
 
   </head>
   <body>
-    
+    <div class="main">
+    <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Add item</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
@@ -89,15 +90,15 @@
                 </div>
         </form>        
     </div>
-    <div class="reorder">
-        <h3>Items</h3>
-        <div class=table>
-      <?php
-          require_once "../../controller/showtable.php";
-          $reorderTable = new Table("item");
-          $reorderTable->show("SELECT ItemID, ItemName, Quantity,ReorderQuantity FROM plunk.item", false);
-        ?>
-      </div>
+</div>
+    <div class= right>
+        <div class="righttable">
+        <div class="itemtable">
+            <h3>ITEMS TABLE</h3>
+            <iframe src="../restaurantmanager/itemtablerm.php" class="item"></iframe>
+        </div>
+</div>
+</div>
 </div>
      
   </body>

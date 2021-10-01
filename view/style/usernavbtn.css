@@ -91,3 +91,7 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #2d7166;
 }
+a{
+  text-decoration: none;
+  color:black;
+}

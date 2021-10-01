@@ -11,7 +11,8 @@
 
   </head>
   <body>
-    
+    <div class="main">
+      <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Add Leave</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
@@ -35,8 +36,17 @@
                     <button type="submit" name="cancel" value="cancel" class="button submit"><a href="leavepage.html">Cancel</a></button>
                 </div>
         </form>        
+      </div>
     </div>
-     
+        <div class= right>
+            <div class="righttable">
+            <div class="itemtable">
+                <h3>LEAVE TABLE</h3>
+                <iframe src="leavetable.php" class="item"></iframe>
+            </div>
+    </div>
+    </div>
+    </div> 
   </body>
 
  
