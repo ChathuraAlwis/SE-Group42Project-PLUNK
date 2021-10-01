@@ -61,6 +61,11 @@ input{
   border-color: #6c757d;
   color:#495057;
 }
+select{
+  width: 80%;
+  font-size: 1.5vw;
+  color: black;
+}
  #Member{
   width:20%;
 }

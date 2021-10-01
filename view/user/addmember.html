@@ -11,7 +11,8 @@
   </head>
   <body>
         <div class="main" >
-            <form class="adduser" action="index.html" method="post" autocomplete="on" >
+            <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
+              <input name ="add-member" type="hidden" >
               <div class="submain">
                 <div class="forminputs">
                     <label for="Name"> Name with initials</label><br>
@@ -19,56 +20,39 @@
                 </div><br>
 
                 <div class="forminputs">
-                    <label for="userid"> Member Id</label><br>
-                    <input type="text" id="userid" name="userid" maxlength="5">
+                    <label for="DisplayID"> Member Id</label><br>
+                    <input type="text" id="DisplayID" name="DisplayID" maxlength="10">
                 </div><br>
 
                 <div class="radio">
-                      <p>Select the Member type</p>
-                    <input type="radio" id="Member" name="Member" value="">
-                    <label for="Member"> Ordinary Member</label><br>
-                    <input type="radio" id="Member" name="Member" value="">
-                    <label for="Member"> Life Member</label><br>
-                    <input type="radio" id="Member" name="Member" value="">
-                    <label for="Member"> Hon. Life Member</label>
+                      <label for="UserType"> Member Type</label><br>
+                      <select class="UserType" name="UserType" required>
+                              <option selected>Select the member type</option>
+                              <option value="Ordinary Member">Ordinary Member</option>
+                              <option value="Life Member">Life Member</option>
+                              <option value="Hon.Life Member">Hon. Life Member</option>
+                      </select>
                 </div><br>
                 <div class="forminputs">
-                    <label for="username"> User Name</label><br>
-                    <input type="text" id="username" name="username"  required>
+                    <label for="UserName"> User Name</label><br>
+                    <input type="text" id="UserName" name="UserName"  required>
                 </div><br>
                 <div class="forminputs">
-                    <label for="password"> Password</label><br>
-                    <input type="password" id="password" name="password" maxlength="5" required>
-                </div><br>
-
-                <div class="forminputs">
-                    <label for="joined"> Joined date</label><br>
-                    <input type="date" id="joined" name="joined" placeholder="mm/dd/yyyy">
+                    <label for="Password"> Password</label><br>
+                    <input type="password" id="Password" name="Password"  required>
                 </div><br>
 
                 <div class="forminputs">
-                    <label for="signedpeople"> Names of Signed People</label><br>
-                    <input type="text" id="signedpeople" name="signedpeople" placeholder="name 1, name 2">
+                    <label for="JoinedYear"> Joined date</label><br>
+                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy">
                 </div><br>
-
                 <div class="forminputs">
-                    <label for="Address"> Address</label><br>
-                    <input type="text" id="Address" name="Address" placeholder="no, street, city">
+                    <label for="Email"> E-mail </label><br>
+                    <input type="email" id="Email" name="Email" placeholder="xxxx@gmail.com">
                 </div><br>
-
                 <div class="forminputs">
-                    <label for="NIC"> NIC</label><br>
-                    <input type="text" id="NIC" name="NIC" value="">
-                </div><br>
-
-                <div class="forminputs">
-                    <label for="profession"> Profession</label><br>
-                    <input type="text" id="profession" name="profession" value="">
-                </div><br>
-
-                <div class="forminputs">
-                    <label for="contact"> Contact No</label><br>
-                    <input type=" tel" id="contact" name="contact" pattern="[0-9]{10}" maxlength="10">
+                    <label for="ContactNo"> Contact No</label><br>
+                    <input type=" tel" id="ContactNo" name="ContactNo" pattern="[0-9]{10}" maxlength="10">
                 </div><br><br>
 
                 <div class="forminputs">

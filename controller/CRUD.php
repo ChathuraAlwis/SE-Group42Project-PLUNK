@@ -12,7 +12,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['delete-order'])){
@@ -24,7 +24,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['update-order'])){
@@ -36,7 +36,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['search-order'])){
@@ -60,11 +60,11 @@
                 echo "Memebr ID\t:" . $row['Member_ID'] . "\n";
                 echo "Staff ID\t:" . $row['Staff_ID'] . "\n";
             }
-            
+
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     //--------------------------------------------------------bill--------------------------------------------------------
@@ -77,7 +77,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['update-bill'])){
@@ -89,12 +89,12 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
     if(isset($_POST['search-bill'])){
         $DB = new DB;
-        
+
         try {
             $sql = "SELECT * FROM plunk.bill WHERE Bill_ID=\"$_POST[Bill_ID]\"";
             $result = $DB->runQuery($sql);
@@ -117,7 +117,7 @@
         } catch (\Throwable $th) {
             throw $th;
         }
-        
+
     }
 
 //---------------------------------------------------Item-----------------------------------------------------------------------
@@ -134,19 +134,34 @@ if(isset($_POST['add-item'])){
     }
 
 }
-    
+
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
         $DB = new DB;
 
         try {
             $sql = "INSERT INTO plunk.invoice (InvoiceID, Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ( '' , '$_POST[Companyname]',  '$_POST[Type]','$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
-            $DB->runQuery($sql);            
+            $DB->runQuery($sql);
         } catch (\Throwable $th) {
             throw $th;
         }
 
         echo $DB->runQuery($sql);
     }
+
+
+//---------------------------------------------------User-----------------------------------------------------------------------
+if(isset($_POST['add-staff' || 'add-member'])){
+    $DB = new DB;
+
+    try {
+          $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$_POST[Password]', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]');";
+        echo $DB->runQuery($sql);
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
 
 ?>
