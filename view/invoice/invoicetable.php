@@ -24,7 +24,7 @@
                     <div class="upperbar">
                           <input type="text" name="search" class="search" placeholder="Search..." >
                           <div class="addicon">
-                                <a href="add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                                <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
                     </div>
                     <div class="detailtable">
