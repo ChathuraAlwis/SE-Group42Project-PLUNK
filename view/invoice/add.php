@@ -10,7 +10,8 @@
         
   </head>
   <body>
-    
+    <div class="main">
+    <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Add Invoice</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
@@ -119,7 +120,18 @@
                     <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
                 </div>
-        </form>        
+        </form> 
+    </div> 
+    </div>
+        
+        <div class= right>
+            <div class="righttable">
+            <div class="itemtable">
+                <h3>INVOICE TABLE</h3>
+                <iframe src="../invoice/invoicedetails.php" class="item"></iframe>
+            </div>
+    </div>
+    </div>
     </div>
      
   </body>
