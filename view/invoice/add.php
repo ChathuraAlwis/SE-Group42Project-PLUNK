@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
+        <script type="text/javascript" src="../script/addrow.js"></script>
+
         
   </head>
   <body>
@@ -66,59 +68,34 @@
                 <tr><td><br></td></tr>
             </table>
             <div class="form-group">
-                <head> 
-                    <script type="text/javascript"> 
-                    function addRow() {         
-                        var myName = document.getElementById("name"); 
-                        var quantity = document.getElementById("quantity"); 
-                        var table = document.getElementById("myTableData"); 
-                        var rowCount = table.rows.length; 
-                    var row = table.insertRow(rowCount); 
-                        row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">'; 
-                        row.insertCell(1).innerHTML= myName.value; 
-                        row.insertCell(2).innerHTML= quantity.value; 
-                    } 
-                     
-                    function deleteRow(obj) {     
-                        var index = obj.parentNode.parentNode.rowIndex; 
-                        var table = document.getElementById("myTableData"); 
-                        table.deleteRow(index);    
-                    } 
-                     
-                    </script> 
-                        <title>HTML dynamic table using JavaScript</title> 
-                    </head> 
-                    <body onload="load()"> 
-                    <div id="myform"> 
-                    <b>Enter item details of the invoice...</b> 
+            <div id="myform" onload="load()"> 
+                    <b>Enter the item details of the invoice...</b> 
                     <br/><br/> 
-                            Item Name:<input type=text id="name"> 
+                            Item Name:<input type=text id="ItemName"> 
                     <br/><br/> 
                             Quantity :&nbsp; 
-                            <input type=number id="quantity"> 
+                            <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
                     <br/> 
                             <input type="submit" id="add" value="Add" onclick="addRow()"> 
                     </div> 
                     <br/><br/> 
                     <div id="mydata"> 
-                    <b>Details...</b> 
-                    <table id="myTableData"  border="1" cellpadding="2"> 
+                    <b>Item Details...</b> 
+                    <table id="myTableData" class="addrowtable" > 
                         <tr> 
                             <td>&nbsp;</td> 
                             <td><b>Item Name</b></td> 
                             <td><b>Quantity</b></td> 
                         </tr> 
                     </table> 
-                    &nbsp; 
                       
                     </div> 
-                    </body>  
                 </div>
             
                 <br>
                 <div class="form-group">
                     <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
-                    <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
+                    <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form> 
     </div> 

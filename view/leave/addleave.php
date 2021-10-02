@@ -17,7 +17,7 @@
         <h2 class="center-text"><b>Add Leave</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
           <input name ="add-leave" type="hidden" >
-          <table>
+          <table class="formtable">
             <tr>
                 <div class="form-group">
                     <td><label for="LeaveDate">Date</label></td>

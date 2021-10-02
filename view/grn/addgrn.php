@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
-        <script type="text/javascript" src="../script/additem.js"></script>
+        <script type="text/javascript" src="../script/addrow.js"></script>
 
   </head>
   <body>
@@ -16,59 +16,57 @@
     <div class="form">
         <h2 class="center-text"><b>Add GRN</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-                <input name ="add-item" type="hidden" >
-                <table>
+                <input name ="add-grn" type="hidden" >
+                <table class="formtable">
                 <tr>
                 <div class="form-group">
-                    <td><label for="itemtype">Item Type</label></td>
-                    <td></td>
-                    <td><select id="itemtype" name="itemtype" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <td><label for="ItemType">Item Type</label></td>
+                    <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
                         <option value="fooditems">Food Items</option>
                         <option value="beverageitems">Beverage Items</option>
                      </select></td>
                     </div>
                 </tr>
-                <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Date">Date</label></td>
-                        <td></td>
                         <td><input type="date" id= "Date" name="Date" required class="form-control" placeholder="Enter the Date"/></td>
                     </div>
                 </tr> 
-                <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Company">Company</label></td>
-                        <td></td>
                         <td><input type="text" id= "Company" name="Company" required class="form-control" placeholder="Enter the Company name"/></td>
                     </div>
                 </tr>
-                <tr><td><br></td></tr>
-            </table>
-                <div class="form-group">
-                <table>
-                    <tr>
-                        <th>Item Name</th>
-                        <th>Quantity</th>
-                    </tr>
-                    <tr> 
-                        <td><input type="text" id= "itemname" name="itemname"  class="form-control" placeholder="Enter the item name"/></td>
-                        <td><input type="number" id= "Quantity" name="Quantity"  class="form-control" placeholder="Enter the Quantity"/></td>
-                    </tr>
-                    <tr> 
-                        <td><input type="text" id= "itemname" name="itemname"  class="form-control" placeholder="Enter the item name"/></td>
-                        <td><input type="number" id= "Quantity" name="Quantity"  class="form-control" placeholder="Enter the Quantity"/></td>
-                    </tr>
-                    <tr> 
-                        <td><input type="text" id= "itemname" name="itemname"  class="form-control" placeholder="Enter the item name"/></td>
-                        <td><input type="number" id= "Quantity" name="Quantity"  class="form-control" placeholder="Enter the Quantity"/></td>
-                    </tr>
-
-                </table>
-                </div>
                 
+             </table>
+            <div class="form-group">
+            <div id="myform" onload="load()"> 
+                    <b>Enter the item details of the GRN...</b> 
+                    <br/><br/> 
+                            Item Name:<input type=text id="ItemName"> 
+                    <br/><br/> 
+                            Quantity :&nbsp; 
+                            <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
+                    <br/> 
+                            <input type="submit" id="add" value="Add" onclick="addRow()" > 
+                    </div> 
+                    <br/>
+                    <div id="mydata"> 
+                    <b>Item Details...</b><br> 
+                    <table id="myTableData"  class="addrowtable" > 
+                        <tr> 
+                            <td>&nbsp;</td> 
+                            <td><b>Item Name</b></td> 
+                            <td><b>Quantity</b></td> 
+                        </tr> 
+                    </table> 
+
+                      
+                    </div> 
+                </div>
             
                 <div class="form-group">
                     <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
