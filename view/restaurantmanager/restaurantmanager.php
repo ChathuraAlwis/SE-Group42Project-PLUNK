@@ -50,7 +50,7 @@
                         <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
                         <div class="dropdown-content">
                         <a href="#" class="headerdrop"><b>Profile</b></a>
-                        <a href="../cover.html" class="headerdrop"><b>Logout</b></a>
+                        <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
                         </div>
                     </div>
                             <h3>Restaurant Manager</h3>
