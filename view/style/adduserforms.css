@@ -61,6 +61,15 @@ input{
   border-color: #6c757d;
   color:#495057;
 }
+.UserType{
+  width: 80%;
+  font-size: 1.5vw;
+  color: black;
+}
+option{
+  font-size: 1.5vw;
+  color: black;
+}
  #Member{
   width:20%;
 }
@@ -117,5 +126,5 @@ input{
 }
 a{
   text-decoration: none;
-  
+
 }
