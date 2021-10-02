@@ -26,7 +26,6 @@
                             <td><input type="text" id= "Companyname" name="Companyname" required class="form-control" placeholder="Enter the company name"/></td>
                         </div>
                     </tr>
-                    <tr><td><br></td></tr>
                 <tr>
                 <div class="form-group">
                     <td><label for="Type">Type</label></td>
@@ -38,7 +37,6 @@
                      </select></td>
                     </div>
                 </tr>
-                <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="ReceivedDate">Received Date</label></td>
@@ -46,7 +44,6 @@
                         <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" placeholder="Enter the received date"/></td>
                     </div>
                 </tr> 
-                <tr><td><br></td></tr>
 
                 <tr>
                     <div class="form-group">
@@ -55,7 +52,6 @@
                         <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date"/></td>
                     </div>
                 </tr> 
-                <tr><td><br></td></tr>
 
                 <br>
                 <tr>
@@ -65,7 +61,6 @@
                         <td><input type="text" id= "Total" name="Total" required class="form-control" placeholder="Enter the total invoice value"/></td>
                     </div>
                 </tr>
-                <tr><td><br></td></tr>
             </table>
             <div class="form-group">
             <div id="myform" onload="load()"> 
