@@ -24,21 +24,18 @@
                         <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" placeholder="Enter the item name"/></td>
                     </div>
                   </tr>
-                  <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Price">Price</label></td>
                         <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the price"/></td>
                     </div>
                 </tr>
-                <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Discount">Discount</label></td>
                         <td><input type="number" id="Discount" name="Discount" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the discount"/></td>
                     </div>
                 </tr>
-                <tr><td><br></td></tr>
                 <tr> 
                     <div class="form-group">
                         <td><label for="ItemType">Item Type</label></td>
@@ -49,7 +46,6 @@
                          </select></td>
                     </div>
                 </tr>
-                <tr><td><br></td></tr>
                 <tr> 
                     <div class="form-group">
                         <td><label for="Availability">Availability</label></td>
@@ -59,9 +55,7 @@
                             </select>
                         </td>
                     </div>
-                </tr> 
-                <tr><td><br></td></tr>
-                
+                </tr>                
                 <div id = Quantity>
                 <tr>
                     
@@ -69,11 +63,7 @@
                         <td><label for="Quantity">Quantity</label></td>
                         <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Quantity"/></td>
                     </div>
-                </tr>
-            
-               
-                <tr><td><br></td></tr>
-                
+                </tr>                
                 <tr>
                     <div class="form-group">
                         <td><label for="ReorderQuantity">Reorder Quantity</label></td>
@@ -81,7 +71,6 @@
                     </div>
                 </tr> 
                 </div>
-                <tr><td><br></td></tr> 
                 </table>
                 
                 <div class="form-group">

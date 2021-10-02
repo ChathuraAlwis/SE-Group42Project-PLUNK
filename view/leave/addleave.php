@@ -17,19 +17,18 @@
         <h2 class="center-text"><b>Add Leave</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
           <input name ="add-leave" type="hidden" >
-          <table>
+          <table class="formtable">
             <tr>
                 <div class="form-group">
                     <td><label for="LeaveDate">Date</label></td>
                     <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" placeholder="Enter the Date"/></td>
                 </div>
             </tr>
-            <tr><td><br></td></tr>
+            
                 <div class="form-group">
                     <td><label for="Reason">Reason</label></td>
                     <td><textarea id= "Reason" name="Reason" required class="form-control" placeholder="Enter the Reason"></textarea></td>
                 </div>
-            <tr><td><br></td></tr>
           </table>
                 <div class="form-group">
                     <button type="submit" name="submit" value="Submit" class="button submit">Request</button>

@@ -107,11 +107,24 @@ h3{
     margin-right: auto;
     display:block;
 }
-.formtable{
-    margin-left: auto;
-    margin-right: auto;
+table.formtable{
+    margin-left: 5%;
+    margin-right: 5%;
     display:block;
+    width: 90%;
+    table-layout: block;
+    
+}
+table.formtable td{
+    vertical-align: top;
+    width:50%;
+    padding-bottom:8%;
+}
+textarea{
     width: 100%;
+    height: 200px;
+    outline: 0;
+    line-height: 20px;
 }
 .center-text{
     text-align: center;
@@ -195,3 +208,6 @@ a{
     color: white;
     text-decoration: none;
   }
+.addrowtable,table.addrowtable th, table.addrowtable td{
+    border: 1px solid black;
+}

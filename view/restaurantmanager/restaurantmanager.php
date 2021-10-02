@@ -23,6 +23,7 @@
         <link rel="icon" type="icon" href="../images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/user.css">
         <script type="text/javascript" src="../script/user.js">  </script>
+        <script type="text/javascript" src="../script/usernavbtn.js"> </script>
 
 
   </head>
@@ -38,36 +39,36 @@
                   </div>
 
                   <div class="middleheader">
-                      <img class="Logo" src="../images/bloomfieldlogo.png" alt="Bloomfield Logo"><br>
+                    <img class="Logo" src="../images/bloomfieldlogo.png" alt="Bloomfield Logo"><br>
                       <h2>Bloomfield C. & A.C.</h2>
 
                   </div>
 
                   <div class="rightheader">
                     <div class="subrightheader">
-
-
-                      <img class="profileicon"src="../images/profile.png" alt="profile icon">
-
-                      <h3>Restaurent Manager</h3>
+                    <div class="dropdown">
+                        <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
+                        <div class="dropdown-content">
+                        <a href="#" class="headerdrop"><b>Profile</b></a>
+                        <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
+                        </div>
                     </div>
-                      <!--<button type="button"  class="logout" name="Log out"><a href="../cover.html" class="linkbutton">Log Out </a></button>-->
+                            <h3>Restaurant Manager</h3>
+                    </div>
 
                   </div>
 
           </div>
               <div class="middle">
-                    <div id="panel" class=" panel">
-                        <iframe id="navv"class="nav" name="navigation" title="iframe for nav"></iframe>
-                    </div>
+                            <div id="panel" class=" panel">
+                                <iframe id="navv"class="nav" name="navigation" title="iframe for nav"></iframe>
+                            </div>
 
-                    <div class="mainpages" id="mainpages">
+                            <div class="mainpages" id="mainpages">
+                                    <iframe  src="..\Dashboards\rmDashboard.php"class="page" name="Pages"  title="Iframe for pages"></iframe>
 
-
-                            <iframe src="..\Dashboards\rmDashboard.php" class="page" name="Pages"  title="Iframe for pages"></iframe>
-
-                    </div>
-              </div>
-        </div>
-    </body>
+                            </div>
+                  </div>
+            </div>
+      </body>
 </html>
