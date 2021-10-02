@@ -26,24 +26,24 @@
 
                 <div class="radio">
                       <label for="UserType"> Position</label><br>
-                      <select class="UserType" name="UserType" required>
+                      <select class="UserType" name="UserType" id="UserType" required>
                         <option selected>Select the position</option>
                         <option value="Admin">Admin</option>
                         <option value="Manager">Manager</option>
                         <option value="Accountant">Accountant</option>
                         <option value="Restaurant Manager">Restaurant Manager</option>
                         <option value="Cashier">Cashier</option>
-                        <option value="Staff">Staff</option>
+                        <option value="Staff Member">Staff</option>
                       </select>
 
                 </div><br>
                 <div class="forminputs">
                     <label for="UserName"> User Name</label><br>
-                    <input type="text" id="UserName" name="UserName"  required>
+                    <input type="text" id="UserName" name="UserName" maxlength="50" required>
                 </div><br>
                 <div class="forminputs">
                     <label for="Password"> Password</label><br>
-                    <input type="password" id="Password" name="Password" min="5"  required>
+                    <input type="password" id="Password" name="Password"  required>
                 </div><br>
 
                 <div class="forminputs">
@@ -58,12 +58,12 @@
 
                 <div class="forminputs">
                     <label for="ContactNo"> Contact No</label><br>
-                    <input type=" tel" id="ContactNo" name="ContactNo" pattern="[0-9]{10}" maxlength="10" required>
+                    <input type=" tel" id="ContactNo" name="ContactNo" pattern="[0-9]{10}"  required>
                 </div><br><br>
 
                 <div class="forminputs">
-                  <button type="submit"  class="add" name="button"><b>Add</b> </button>
-                  <button type="reset" id="reset" class="add" name="button"><b>Reset</b></button>
+                  <button type="submit"  class="add" name="submit" value="submit" formaction="..\..\controller\CRUD.php"><b>Add</b> </button>
+                  <button type="reset" id="reset" class="add" name="reset" value="reset"><b>Reset</b></button>
                 </div>
               </div>
             </form>
