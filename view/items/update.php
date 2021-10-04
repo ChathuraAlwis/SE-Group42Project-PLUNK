@@ -24,32 +24,32 @@
             <tr>
                 <div class="form-group">
                    <td><label for="ItemID">Item ID</label></td> 
-                    <td><input type="number" id= "ItemID" name="ItemID" required class="form-control" placeholder="Enter the item ID"/></td>
+                    <td><input type="number" id= "ItemID" name="ItemID" required class="form-control" value = "<?php echo "$result[ItemID]";?>"/></td>
                 </div>
               </tr>
             
             <tr>
                 <div class="form-group">
                    <td><label for="ItemName">Item Name</label></td> 
-                    <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" placeholder="Enter the item name"/></td>
+                    <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" value = "<?php echo "$result[ItemName]";?>"/></td>
                 </div>
               </tr>
             <tr>
                 <div class="form-group">
                     <td><label for="Price">Price</label></td>
-                    <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the price"/></td>
+                    <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Price]";?>" /></td>
                 </div>
             </tr>
             <tr>
                 <div class="form-group">
                     <td><label for="Discount">Discount</label></td>
-                    <td><input type="number" id="Discount" name="Discount" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the discount"/></td>
+                    <td><input type="number" id="Discount" name="Discount" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Discount]";?>" /></td>
                 </div>
             </tr>
             <tr> 
                 <div class="form-group">
                     <td><label for="ItemType">Item Type</label></td>
-                    <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <td><select id="ItemType" name="ItemType" class="form-control" value = "<?php echo "$result[ItemType]";?>" onchange="changeType(this);">
                         <option selected>Choose type...</option>
                         <option value="Food">Food Items</option>
                         <option value="Beverage">Beverage Items</option>
@@ -59,7 +59,7 @@
             <tr> 
                 <div class="form-group">
                     <td><label for="Availability">Availability</label></td>
-                    <td><select id="Availability" name="Availability" class="form-control" onchange="changeType(this);">
+                    <td><select id="Availability" name="Availability" class="form-control" value = "<?php echo "$result[Availability]";?>" onchange="changeType(this);">
                             <option value="Yes">Yes</option>
                             <option value="No">No</option>
                         </select>
@@ -72,22 +72,22 @@
                 
                 <div class="form-group">
                     <td><label for="Quantity">Quantity</label></td>
-                    <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Quantity"/></td>
+                    <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Quantity]";?>" /></td>
                 </div>
             </tr>
         
             <tr>
                 <div class="form-group">
                     <td><label for="ReorderQuantity">Reorder Quantity</label></td>
-                    <td><input type="number" id ="ReorderQuantity" name="ReorderQuantity" class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Reorder Quantity"/></td>
+                    <td><input type="number" id ="ReorderQuantity" name="ReorderQuantity" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ReorderQuantity]";?>" /></td>
                 </div>
             </tr> 
             </div>
             </table>
             
             <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" >Add</button>
-                <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
+                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="itemtable.php">Cancel</a></button>
             </div>
     </form>                
     </div>
