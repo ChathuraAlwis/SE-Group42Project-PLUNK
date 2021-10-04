@@ -37,6 +37,9 @@
                 case 'Restaurant Manager':
                     return "restaurantmanager/restaurantmanager";
 
+                case 'Staff Member':
+                    return "staffmember/staffmember";
+
                 default:
                     return "clubmember/clubmember";
             }

@@ -12,7 +12,7 @@
   }
     
   
-  .left{
+.left{
     float: left;
 
     width:50%;
@@ -130,14 +130,13 @@ textarea{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3%;
     font-size: 2.5vw;
   }
 
-/*.form-group{
-
-}*/
-
+image.bin {
+    height: 40px;
+    float: right;
+}
 .form-control{
     font-size: 1.5vw;
     width:100%;
