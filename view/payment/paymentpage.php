@@ -31,7 +31,7 @@
                               </select>
                         </div>
                         <div class="addicon">
-                              <a href="../payment/add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                              <a href="../payment/add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>        
                     </div>
                     <div class="detailtable">
