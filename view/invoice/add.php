@@ -32,8 +32,8 @@
                     <td></td>
                     <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="Fooditems">Food Items</option>
-                        <option value="Beverageitems">Beverage Items</option>
+                        <option value="1">Beverage Items</option>
+                        <option value="2">Food Items</option>
                      </select></td>
                     </div>
                 </tr>
@@ -72,7 +72,7 @@
                             Quantity :&nbsp; 
                             <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
                     <br/> 
-                            <input type="submit" id="add" value="Add" onclick="addRow()"> 
+                            <input type="button" id="add" value="Add" onclick="addRow()"> 
                     </div> 
                     <br/><br/> 
                     <div id="mydata"> 
