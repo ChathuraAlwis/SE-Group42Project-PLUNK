@@ -1,3 +1,17 @@
+<?php session_start();
+  if (isset($_SESSION['UserType'])){
+    if ($_SESSION['UserType'] != 'Staff Member'){
+      require_once "../../controller/pages.php";
+      $page = new Page('../login.html');
+      $page->show();
+    }
+  }
+  else{
+    require_once "../../controller/pages.php";
+    $page = new Page('../login.html');
+    $page->show();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

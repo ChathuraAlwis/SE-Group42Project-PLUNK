@@ -5,14 +5,14 @@
     background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
 
   }
-  .main{
+.main{
       
       height:100%;
       width:100%;
   }
     
   
-  .left{
+.left{
     float: left;
 
     width:50%;
@@ -130,14 +130,14 @@ textarea{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 3%;
     font-size: 2.5vw;
   }
 
-/*.form-group{
-
-}*/
-
+image.bin{  
+    float: right;
+    height: 40px;
+    width:auto;
+}
 .form-control{
     font-size: 1.5vw;
     width:100%;
