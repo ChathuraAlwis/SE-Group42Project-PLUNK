@@ -62,6 +62,7 @@
                     </div>
                 </tr>
             </table>
+            <br>
             <div class="form-group">
             <div id="myform" onload="load()"> 
                     <b>Enter the item details of the invoice...</b> 
