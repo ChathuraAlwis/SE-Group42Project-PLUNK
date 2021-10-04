@@ -18,9 +18,9 @@
                 <table>
                     <tr>
                         <div class="form-group">
-                            <td><label for="Companyname">Company Name</label></td>
+                            <td><label for="Paymentname">Payment Name</label></td>
                             <td></td>
-                            <td><input type="text" id= "Companyname" name="Companyname" required class="form-control" placeholder="Enter the company name"/></td>
+                            <td><input type="text" id= "Paymentname" name="Paymentname" required class="form-control" placeholder="Enter the payment name"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -30,66 +30,61 @@
                     <td></td>
                     <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="Fooditems">Food Items</option>
-                        <option value="Beverageitems">Beverage Items</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Card">Card</option>
                      </select></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
-                        <td><label for="ReceivedDate">Received Date</label></td>
+                        <td><label for="Reservation1">Reservation 1</label></td>
                         <td></td>
-                        <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" placeholder="Enter the received date"/></td>
-                    </div>
-                </tr> 
-                <tr><td><br></td></tr>
-
-                <tr>
-                    <div class="form-group">
-                        <td><label for="DueDate">Due Date</label></td>
-                        <td></td>
-                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date"/></td>
-                    </div>
-                </tr> 
-                <tr><td><br></td></tr>
-
-                <table>
-                    <tr>
-                        <th>Item Name</th>
-                        <th>Quantity</th>
-                    </tr>
-                    <tr> 
-                        <td><input type="text" id= "itemname" name="itemname"  class="form-control" placeholder="Enter the item name"/></td>
-                        <td><input type="number" id= "Quantity" name="Quantity"  class="form-control" placeholder="Enter the Quantity"/></td>
-                    </tr>
-                    <tr> 
-                        <td><input type="text" id= "itemname" name="itemname"  class="form-control" placeholder="Enter the item name"/></td>
-                        <td><input type="number" id= "Quantity" name="Quantity"  class="form-control" placeholder="Enter the Quantity"/></td>
-                    </tr>
-                    <tr> 
-                        <td><input type="text" id= "itemname" name="itemname"  class="form-control" placeholder="Enter the item name"/></td>
-                        <td><input type="number" id= "Quantity" name="Quantity"  class="form-control" placeholder="Enter the Quantity"/></td>
-                    </tr>
-                    <tr> 
-                        <td><input type="text" id= "itemname" name="itemname"  class="form-control" placeholder="Enter the item name"/></td>
-                        <td><input type="number" id= "Quantity" name="Quantity"  class="form-control" placeholder="Enter the Quantity"/></td>
-                    </tr>
-                    <tr> 
-                        <td><input type="text" id= "itemname" name="itemname"  class="form-control" placeholder="Enter the item name"/></td>
-                        <td><input type="number" id= "Quantity" name="Quantity"  class="form-control" placeholder="Enter the Quantity"/></td>
-                    </tr>
-
-                </table>
-                <br>
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Total">Total Invoice Value</label></td>
-                        <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" placeholder="Enter the total invoice value"/></td>
+                        <td><input type="text" id= "Reservation1" name="Reservation1" required class="form-control" placeholder="Enter the reservation 1"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
+
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Reservation2">Reservation 2</label></td>
+                        <td></td>
+                        <td><input type="text" id= "Reservation2" name="Reservation2" required class="form-control" placeholder="Enter the reservation 2"/></td>
+                    </div>
+                </tr>
+                <tr><td><br></td></tr>
+
+                <tr>
+                    <div class="form-group">
+                        <td><label for="PaymentDate">Payment Date</label></td>
+                        <td></td>
+                        <td><input type="date" id= "PaymentDate" name="PaymentDate" required class="form-control" placeholder="Enter the payement date"/></td>
+                    </div>
+                </tr> 
+                <tr><td><br></td></tr>
+
+                
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Total">Total Value</label></td>
+                        <td></td>
+                        <td><input type="text" id= "Total" name="Total" required class="form-control" placeholder="Enter the total value"/></td>
+                    </div>
+                </tr>
+                <tr><td><br></td></tr>
+
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Payment">Payment Clear</label></td>
+                        <td></td>
+                        <td><select id="Payment" name="Type" class="form-control" placeholder="Enter the payment clear or not" onchange="changeType(this);">
+                        <option selected>Choose ...</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                         </select></td>
+                        </div>
+                    </tr>
+                    <tr><td><br></td></tr>
             </table>
             
                 
