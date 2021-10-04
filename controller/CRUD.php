@@ -140,13 +140,21 @@ if(isset($_POST['add-item'])){
         $DB = new DB;
 
         try {
-            $sql = "INSERT INTO plunk.invoice (InvoiceID, Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ( '' , '$_POST[Companyname]',  '$_POST[Type]','$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
+            $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
             $DB->runQuery($sql);
+            $sql = "SELECT InvoiceID FROM plunk.invoice;";
+            $InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
+            $itemRow = 1;
+            while(isset($_POST['ItemID' . $itemRow])){
+                $ItemRow = 'ItemID' . $itemRow;
+                $QuanRow = 'Quantity' . $itemRow;
+                $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, Quantity) VALUES ('$InvoiceID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
+                $DB->runQuery($sql);
+                $itemRow++;
+            }      
         } catch (\Throwable $th) {
             throw $th;
         }
-
-        echo $DB->runQuery($sql);
     }
 
 
