@@ -44,8 +44,14 @@
 
                   <div class="rightheader">
                     <div class="subrightheader">
-                    <img class="profileicon"src="../images/profile.png" alt="profile icon">
-                      <h3>Cashier</h3>
+                    <div class="dropdown">
+                        <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
+                        <div class="dropdown-content">
+                        <a href="#" class="headerdrop"><b>Profile</b></a>
+                        <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
+                        </div>
+                    </div>
+                            <h3>Cashier</h3>
                     </div>
 
                   </div>
