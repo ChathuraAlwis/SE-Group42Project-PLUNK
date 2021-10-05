@@ -8,8 +8,8 @@
     var rowCount = table.rows.length; 
     var row = table.insertRow(rowCount); 
     row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">'; 
-    row.insertCell(1).innerHTML= '<input type="text" value = "' + ItemName.value + '" name="ItemID'+ rows +'" style="border:none" readonly >'; 
-    row.insertCell(2).innerHTML= '<input type="text" value = "' + Quantity.value + '" name="Quantity'+ rows +'" style="border:none" readonly >'; 
+    row.insertCell(1).innerHTML= '<input type="text" value = "' + ItemName.value + '" name="ItemID'+ rows +'" style="border:none" size=5 readonly >'; 
+    row.insertCell(2).innerHTML= '<input type="text" value = "' + Quantity.value + '" name="Quantity'+ rows +'" style="border:none" size=5 readonly >'; 
 } 
  
 function deleteRow(obj) {    
