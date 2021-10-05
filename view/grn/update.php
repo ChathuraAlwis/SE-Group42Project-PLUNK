@@ -14,7 +14,7 @@
     <div class=main>
     <div class= left>
     <div class="form">
-        <h2 class="center-text"><b>GRN DETAILS</b><image src = "../images/return.png" class="bin"></image></h2>
+        <h2 class="center-text"><b>GRN DETAILS</b><button link="returngrn.php" class="return"><image src = "../images/return.png" class="bin"></image></button></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="update-grn" type="hidden" >
                 <table class="formtable">
