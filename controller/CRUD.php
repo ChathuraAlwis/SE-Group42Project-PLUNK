@@ -161,7 +161,7 @@ if(isset($_POST['add-item'])){
                 $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, Quantity) VALUES ('$InvoiceID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
                 $DB->runQuery($sql);
                 $itemRow++;
-            }      
+            }
         } catch (\Throwable $th) {
             throw $th;
         }
@@ -169,27 +169,29 @@ if(isset($_POST['add-item'])){
 
 
 //---------------------------------------------------User-----------------------------------------------------------------------
-if(isset($_POST['add-staff'])){
+if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
     $DB = new DB;
 
+    $hashedpassword = Password_hash("$_POST[Password]", PASSWORD_BCRYPT);
+
     try {
-          $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$_POST[Password]', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]')";
+          $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$hashedpassword', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]')";
          $DB->runQuery($sql);
     } catch (\Throwable $th) {
         throw $th;
     }
     echo "Staff member added successfully";
 }
-elseif (isset($_POST['add-member'])){
-    $DB = new DB;
-
-    try {
-          $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$_POST[Password]', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]')";
-         $DB->runQuery($sql);
-    } catch (\Throwable $th) {
-        throw $th;
-    }
-    echo "Club member added successfully";
-}
+// elseif (isset($_POST['add-member'])){
+//     $DB = new DB;
+//
+//     try {
+//           $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$_POST[Password]', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]')";
+//          $DB->runQuery($sql);
+//     } catch (\Throwable $th) {
+//         throw $th;
+//     }
+//     echo "Club member added successfully";
+// }
 
 ?>
