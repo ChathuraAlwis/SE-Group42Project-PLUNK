@@ -17,6 +17,8 @@
                 $QuanRow = 'Quantity' . $itemRow;
                 $sql = "INSERT INTO plunk.orderitem (OrderID, ItemID, Quantity) VALUES ('$OrderID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
                 $DB->runQuery($sql);
+                $sql = "UPDATE plunk.item SET Quantity = Quantity - $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
+                $DB->runQuery($sql);
                 $itemRow++;
             }      
         } catch (\Throwable $th) {
