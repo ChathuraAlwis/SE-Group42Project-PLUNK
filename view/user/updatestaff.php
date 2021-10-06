@@ -10,23 +10,36 @@
 
   </head>
   <body>
+    <script>
+        var ans = getParameterByName('data', window.location.href);
+        var id = ans.slice(-1);
+        document.cookie = 'data='+id;
+    </script>
+    <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $id = $_COOKIE['data'];
+        $query = "SELECT * FROM plunk.user WHERE OrderID=$id";
+        $result = $DB->runQuery($query)[0];
+        // print_r($result);
+    ?>
         <div class="main" >
             <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
               <input name ="add-staff" type="hidden" >
               <div class="submain">
                 <div class="forminputs">
                     <label for="Name"> Name with initials</label><br>
-                    <input type="text" id="Name" name="Name" required>
+                    <input type="text" id="Name" name="Name" value = "<?php echo "$result[Name]";?>" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="DisplayID"> Staff Id</label><br>
-                    <input type="text" id="DisplayID" name="DisplayID" maxlength="10" required>
+                    <input type="text" id="DisplayID" name="DisplayID" maxlength="10" value = "<?php echo "$result[DisplayID]";?>" required>
                 </div><br>
 
                 <div class="radio">
                       <label for="UserType"> Position</label><br>
-                      <select class="UserType" name="UserType" id="UserType" required>
+                      <select class="UserType" name="UserType" id="UserType" value = "<?php echo "$result[UserType]";?>" required>
                         <option selected>Select the position</option>
                         <option value="Admin">Admin</option>
                         <option value="Manager">Manager</option>
@@ -37,28 +50,20 @@
                       </select>
 
                 </div><br>
-                <div class="forminputs">
-                    <label for="UserName"> User Name</label><br>
-                    <input type="text" id="UserName" name="UserName" maxlength="50" required>
-                </div><br>
-                <div class="forminputs">
-                    <label for="Password"> Password</label><br>
-                    <input type="password" id="Password" name="Password"  required>
-                </div><br>
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>
-                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" required>
+                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" value = "<?php echo "$result[JoinedYear]";?>" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="Email"> E-mail</label><br>
-                    <input type="email" id="Email" name="Email" placeholder="XXX@gmail.com" required>
+                    <input type="email" id="Email" name="Email" placeholder="XXX@gmail.com"  value = "<?php echo "$result[Email]";?>" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="ContactNo"> Contact No</label><br>
-                    <input type=" tel" id="ContactNo" name="ContactNo" pattern="[0-9]{10}"  required>
+                    <input type=" tel" id="ContactNo" name="ContactNo" pattern="[0-9]{10}" value = "<?php echo "$result[ContactNo]";?>"  required>
                 </div><br><br>
 
                 <div class="forminputs">
