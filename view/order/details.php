@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -16,7 +17,12 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $orderTable = new Table("order");
-                          $orderTable->show();
+                          if($_SESSION['UserType']=="Cashier"){
+                            $orderTable->show();
+                          }
+                          else{
+                            $orderTable->show("SELECT OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order;", false);
+                          }     
                        ?>
 
                     </div>
