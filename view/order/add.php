@@ -6,9 +6,17 @@
     <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
     <link rel="stylesheet" href="../style/crud.css">
     <script type="text/javascript" src="../script/addrow.js"></script>
+    <script type="text/javascript" src="../script/maxQuantity.js"></script>
     <title>Bloomfield</title>
 </head>
 <body>
+    <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $sql = "SELECT ItemID, Quantity FROM plunk.item;";
+        $result = $DB->runQuery($sql);
+        setcookie("ItemQuantity", json_encode($result));
+    ?>
     <div class="main">
         <div class="left">
             <div class="form">
@@ -60,7 +68,9 @@
                             <table>
                                 <tr>
                                     <td>Item ID</td>
-                                    <td><input type=text id="ItemName"> </td>
+                                    <?php 
+                                        echo "<td><input type=text id=ItemName onchange=maxQuantity(". $_COOKIE['ItemQuantity'] .")></td>";
+                                    ?>
                                 </tr>
                                 <tr>
                                     <td>Quantity</td>
