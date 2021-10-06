@@ -67,7 +67,7 @@
             <div id="myform" onload="load()"> 
                     <b>Enter the item details of the invoice...</b> 
                     <br/><br/> 
-                            Item Name:<input type=text id="ItemName"> 
+                            Item ID:<input type=text id="ItemID"> 
                     <br/><br/> 
                             Quantity :&nbsp; 
                             <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
@@ -80,7 +80,7 @@
                     <table id="myTableData" class="addrowtable" > 
                         <tr> 
                             <td>&nbsp;</td> 
-                            <td><b>Item Name</b></td> 
+                            <td><b>Item ID</b></td> 
                             <td><b>Quantity</b></td> 
                         </tr> 
                     </table> 
