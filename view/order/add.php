@@ -22,7 +22,7 @@
             <div class="form">
                 <h2 class="center-text"><b>Add Order</b></h2>
                 <form action="../../controller/CRUD.php" method="post">
-                    <input id=caller name="add-order" type="hidden" >
+                    <input name ="add-order" type="hidden" >
                     <table>
                         <div class="form-group">
                             <tr>
