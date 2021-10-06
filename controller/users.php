@@ -16,6 +16,7 @@
             $_SESSION['UserID'] = $userRecord[0]["UserID"];
             $_SESSION['UserName'] = $userRecord[0]["UserName"];
             $_SESSION['UserType'] = $userRecord[0]["UserType"];
+            $_SESSION['DisplayID'] = $userRecord[0]["DisplayID"];
         }
 
         private function userType($userType){
