@@ -22,13 +22,28 @@
             <div class="covertable">
                 <div class="table">
                     <div>
-                    <div class = "search">
-                              <input type= "date" placeholder="Enter the leave date"/>
-                              <button type = "Submit" class= "submit">Search</button>
-                        </div>                 
-                        <div class="addicon">
-                              <a href="../report/addleave.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                    <div class>
+                              <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
+                                    <option selected>Choose report type...</option>
+                                    <option value="Salary">Salary report</option>
+                                    <option value="ServiceCharge">Service Charge report</option>
+                                    <option value="Leave">Leave report</option>
+                                    <option value="Item">Item report</option>
+                                    <option value="Invoice">Invoice report</option>
+                              </select>
                         </div>
+
+                        <div class = "search">
+                              <input type= "date" placeholder="Enter the start date"/>
+                              <button type = "Submit" class= "submit">Start Date</button>
+                        </div>  
+
+                        <div class = "search">
+                              <input type= "date" placeholder="Enter the end date"/>
+                              <button type = "Submit" class= "submit">End Date</button>
+                        </div>  
+
+                        
                     </div>
                     <div class="detailtable">
 
