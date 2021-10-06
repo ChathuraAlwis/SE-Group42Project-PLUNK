@@ -100,8 +100,8 @@
         <div class= right>
             <div class="righttable">
             <div class="itemtable">
-                <h3>INVOICE TABLE</h3>
-                <iframe src="../invoice/invoicedetails.php" class="item"></iframe>
+                <h3>ITEM TABLE</h3>
+                <iframe src="../items/itemtable.php" class="item"></iframe>
             </div>
     </div>
     </div>
