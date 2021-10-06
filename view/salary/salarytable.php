@@ -16,7 +16,7 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>Salary</h2>
+                    <h2>Salarys</h2>
               </div>
             </div>
             <div class="covertable">
