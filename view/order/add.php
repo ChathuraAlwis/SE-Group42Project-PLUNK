@@ -65,7 +65,7 @@
                                 <tr>
                                     <td>Item ID</td>
                                     <?php 
-                                        echo "<td><input type=text id=ItemName onchange=maxQuantity(". $_COOKIE['Items'] .")></td>";
+                                        echo "<td><input type=text id=ItemID onchange=maxQuantity(". $_COOKIE['Items'] .")></td>";
                                     ?>
                                 </tr>
                                 <tr>
@@ -78,7 +78,7 @@
                                 </tr>
                             </table>
                             <?php 
-                                echo "<td><input type=button id=add value=Add onclick=addRow(" . $_COOKIE['Items'] . ")></td>";
+                                echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $_COOKIE['Items'] . ")></td>";
                             ?> 
                         </div> 
                         <br>

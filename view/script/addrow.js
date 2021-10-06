@@ -1,16 +1,16 @@
  var rows = 0;
 
- function addRow(itemPrice) {    
+ function addRowOrder(itemPrice) {    
     rows++;     
-    var ItemName = document.getElementById("ItemName"); 
+    var ItemID = document.getElementById("ItemID"); 
     var Quantity = document.getElementById("Quantity");
     var Total = document.getElementById("Total");
-    if (ItemName.value > 0 && Quantity.value > 0) {
+    if (ItemID.value > 0 && Quantity.value > 0) {
         var table = document.getElementById("myTableData"); 
         var rowCount = table.rows.length; 
         var row = table.insertRow(rowCount); 
         row.insertCell(0).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRowOrder(this)">'; 
-        row.insertCell(1).innerHTML= '<input type="text" value = "' + ItemName.value + '" name="ItemID'+ rows +'" style="border:none" size=5 readonly >'; 
+        row.insertCell(1).innerHTML= '<input type="text" value = "' + ItemID.value + '" name="ItemID'+ rows +'" style="border:none" size=5 readonly >'; 
         row.insertCell(2).innerHTML= '<input type="text" value = "' + Quantity.value + '" name="Quantity'+ rows +'" style="border:none" size=5 readonly >';
 
         itemPrice.forEach(element => {
