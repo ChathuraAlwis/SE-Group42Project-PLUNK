@@ -15,7 +15,7 @@
 
         itemPrice.forEach(element => {
             // console.log(element['ItemID'], ItemID);
-            if (element['ItemID'] == ItemName.value) {
+            if (element['ItemID'] == ItemID.value) {
                 var tot = element['Price'] * Quantity.value;
                 var Tot = parseInt(Total.value) + tot;
                 row.insertCell(3).innerHTML= '<input type="text" value = "' + tot + '" id="Price'+ rows +'" style="border:none" size=5 readonly >';
