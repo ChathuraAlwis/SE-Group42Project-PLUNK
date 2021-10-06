@@ -16,13 +16,16 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>Salarys</h2>
+                    <h2>Salary</h2>
               </div>
             </div>
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
                           <input type="text" name="search" class="search" placeholder="Search..." >
+                          <div class="addicon">
+                                <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                          </div>
                     </div>
                     <div class="detailtable">
 
