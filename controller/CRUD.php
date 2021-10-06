@@ -200,5 +200,15 @@ if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
 //     }
 //     echo "Club member added successfully";
 // }
+if(isset($_POST['update-user'])){
+    $DB = new DB;
 
+    try {;
+        $sql = "UPDATE plunk.user SET Name=\"$_POST[Name]\", DisplayID=\"$_POST[DisplayID]\", UserType=\"$_POST[UserType]\", JoinedYear=\"$_POST[JoinedYear]\", Email=\"$_POST[Email]\", ContactNo=\"$_POST[ContactNo]\" WHERE UserID=\"$_POST[UserID]\"";
+        $DB->runQuery($sql);
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
 ?>
