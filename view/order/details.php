@@ -21,7 +21,7 @@
                             $orderTable->show();
                           }
                           else{
-                            $orderTable->show("SELECT OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order;", false);
+                            $orderTable->show("SELECT OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID];", false);
                           }     
                        ?>
 
