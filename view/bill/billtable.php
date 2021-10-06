@@ -22,7 +22,10 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Search..." >
+                        <form method="POST" action="details.php">
+                              <input type="text" name="billsearch" class="search" placeholder="Search..." >
+                              <button type="submit" target="staff">Search</button>
+                        </form>
                           <div class="addicon">
                                 <a href="add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>

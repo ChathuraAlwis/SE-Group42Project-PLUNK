@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -15,8 +16,16 @@
                     <div class="detailtable">
                       <?php
                           require_once "../../controller/showtable.php";
-                          $orderTable = new Table("bill");
-                          $orderTable->show();
+                          $billTable = new Table("bill");
+                          if(isset($_POST['billsearch'])){
+                            $search = $_POST['billsearch'];
+                            $billTable->show("SELECT * FROM plunk.bill WHERE CustomerName LIKE ('%$search%');", false);
+                            // $orderTable->show("SEARCH Cus");
+                          }
+                          else{
+                            $billTable->show();
+                          }
+                          
                        ?>
 
                     </div>
