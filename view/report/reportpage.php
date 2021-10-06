@@ -21,13 +21,19 @@
             </div>
             <div class="covertable">
                 <div class="table">
-                    <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Search..." >
-                          <div class="addicon">
-                                <a href="../invoice/add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
-                          </div>
+                    <div>
+                    <div class = "search">
+                              <input type= "date" placeholder="Enter the leave date"/>
+                              <button type = "Submit" class= "submit">Search</button>
+                        </div>                 
+                        <div class="addicon">
+                              <a href="../report/addleave.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                        </div>
                     </div>
+                    <div class="detailtable">
 
+                        <iframe src="reporttable.php" class="staff"></iframe>
+                  </div>
                 </div>
 
             </div>
@@ -37,3 +43,4 @@
 
   </body>
 </html>
+

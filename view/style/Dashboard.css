@@ -173,8 +173,18 @@ h3{
 }
 
 /*Accountant Dashboard*/
-.Invoice{
-  width: 65%;
+.invoicing{
+  width: 32.5%;
+  height: 95%;
+  float:left;
+  margin-left: 15px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #017a7a;
+}
+
+.iteminvoicing{
+  width: 32.5%;
   height: 95%;
   float:left;
   margin-left: 15px;
