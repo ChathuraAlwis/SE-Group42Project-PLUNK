@@ -1,5 +1,5 @@
 function maxQuantity(itemQuantity){
-    var ItemID = document.getElementById("ItemName").value;
+    var ItemID = document.getElementById("ItemID").value;
     var max = 0;
     itemQuantity.forEach(element => {
         // console.log(element['ItemID'], ItemID);

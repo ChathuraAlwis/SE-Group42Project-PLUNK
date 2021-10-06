@@ -6,6 +6,7 @@
 
         private $DB;
         private $tableName;
+        public $recordCount;
 
         function __construct($table){
             $this->DB = new DB;
@@ -20,7 +21,7 @@
                 $sql=$newQuery;
             }
             $result = $this->DB->runQuery($sql);
-            $recordCount = count($result);
+            $this->recordCount = $recordCount = count($result);
 
             $heading = false;
             echo "<table border=1 width=100% >";

@@ -13,9 +13,9 @@
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $sql = "SELECT ItemID, Quantity FROM plunk.item;";
+        $sql = "SELECT ItemID, Quantity, Price FROM plunk.item;";
         $result = $DB->runQuery($sql);
-        setcookie("ItemQuantity", json_encode($result));
+        setcookie("Items", json_encode($result));
     ?>
     <div class="main">
         <div class="left">
@@ -27,10 +27,10 @@
                         <div class="form-group">
                             <tr>
                                 <td style="text-align: right"><label for="OrderDate">Order Date</label></td>
-                                <td><input name ="OrderDate" id="OrderDate" type="date" value="<?php echo date("Y-m-d") ?>" ></td>
+                                <td><input name ="OrderDate" id="OrderDate" type="date" value="<?php echo date("Y-m-d") ?>" required></td>
                                 <td width=50px>&nbsp;</td>
                                 <td style="text-align: right"><label for="OrderTime">Order Time</label></td>
-                                <td><input name ="OrderTime" id="OrderTime" type="time" value="<?php echo date("h:m") ?>" ></td>
+                                <td><input name ="OrderTime" id="OrderTime" type="time" value="<?php echo date("h:m") ?>" required></td>
                             </tr>
                         </div>
                     </table>
@@ -39,8 +39,8 @@
                             <br>
                             <tr>
                                 <td><label for="OrderPlace">Order Place</label></td>
-                                <td><select id="OrderPlace" name="OrderPlace" onchange="changeType(this);">
-                                <option selected>Choose place...</option>
+                                <td><select id="OrderPlace" name="OrderPlace" onchange="changeType(this);" required>
+                                <!-- <option selected>Choose place...</option> -->
                                 <option value="1">Lounge</option>
                                 <option value="2">Table 1</option>
                                 <option value="3">Table 2</option>
@@ -54,39 +54,42 @@
                                 <option value="11">Table 10</option>
                                 </select></td>
                             </tr>
-                            <tr>
-                                <td><label for="Total">Total</label></td>
-                                <td><input name ="Total" id="Total" type="number" placeholder="Enter Total" style="width:67%"></td>
-                            </tr>
                         </div>
                     </table>
                     <br>
                     <div class="form-group">
                         <div id="myform" onload="load()"> 
-                            <b>Enter the item details of the order...</b> 
+                            <b>Item details of the order:</b> 
                             <br>
                             <table>
                                 <tr>
                                     <td>Item ID</td>
                                     <?php 
-                                        echo "<td><input type=text id=ItemName onchange=maxQuantity(". $_COOKIE['ItemQuantity'] .")></td>";
+                                        echo "<td><input type=text id=ItemID onchange=maxQuantity(". $_COOKIE['Items'] .")></td>";
                                     ?>
                                 </tr>
                                 <tr>
                                     <td>Quantity</td>
                                     <td><input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> </td>
                                 </tr>
+                                <tr>
+                                    <td><label for="Total">Total</label></td>
+                                    <td><input name ="Total" id="Total" type="number" value=0 style="width:67%" readonly></td>
+                                </tr>
                             </table>
-                            <input type="button" id="add" value="Add" onclick="addRow()"> 
+                            <?php 
+                                echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $_COOKIE['Items'] . ")></td>";
+                            ?> 
                         </div> 
                         <br>
                         <div id="mydata"> 
-                            <b>Item Details...</b> 
+                            <b>Added Items:</b> 
                             <table id="myTableData" class="addrowtable"> 
                                 <tr> 
                                     <td>&nbsp;</td> 
                                     <td><b>Item Name</b></td> 
                                     <td><b>Quantity</b></td> 
+                                    <td><b>Price</b></td>
                                 </tr> 
                             </table>
                         </div> 
