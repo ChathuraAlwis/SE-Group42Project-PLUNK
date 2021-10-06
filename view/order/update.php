@@ -21,7 +21,7 @@
         $id = $_COOKIE['data'];
         $query = "SELECT * FROM plunk.order WHERE OrderID=$id";
         $result = $DB->runQuery($query)[0];
-        print_r($result);
+        // print_r($result);
     ?>
 
     <div class="form">
