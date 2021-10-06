@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/adduserforms.css">
+        <script type="text/javascript" src="../script/updatedata.js"></script>
 
   </head>
   <body>
@@ -19,13 +20,13 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = $_COOKIE['data'];
-        $query = "SELECT * FROM plunk.user WHERE OrderID=$id";
+        $query = "SELECT * FROM plunk.user WHERE UserID=$id";
         $result = $DB->runQuery($query)[0];
         // print_r($result);
     ?>
         <div class="main" >
             <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-              <input name ="add-staff" type="hidden" >
+              <input name ="update-user" type="hidden" >
               <div class="submain">
                 <div class="forminputs">
                     <label for="Name"> Name with initials</label><br>
@@ -40,20 +41,23 @@
                 <div class="radio">
                       <label for="UserType"> Position</label><br>
                       <select class="UserType" name="UserType" id="UserType" value = "<?php echo "$result[UserType]";?>" required>
-                        <option selected>Select the position</option>
+
                         <option value="Admin">Admin</option>
                         <option value="Manager">Manager</option>
                         <option value="Accountant">Accountant</option>
                         <option value="Restaurant Manager">Restaurant Manager</option>
                         <option value="Cashier">Cashier</option>
                         <option value="Staff Member">Staff</option>
+                        <option value="Ordinary Member">Ordinary Member</option>
+                        <option value="Life Member">Life Member</option>
+                        <option value="HL Member"> Hon.Life Member</option>
                       </select>
 
                 </div><br>
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>
-                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" value = "<?php echo "$result[JoinedYear]";?>" required>
+                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" value = "<?php echo "$result[JoinedYear]";?>" max="<?php echo date("Y-m-d") ?>" required>
                 </div><br>
 
                 <div class="forminputs">
@@ -67,7 +71,7 @@
                 </div><br><br>
 
                 <div class="forminputs">
-                  <button type="submit"  class="add" name="submit" value="submit" formaction="..\..\controller\CRUD.php"><b>Add</b> </button>
+                  <button type="submit"  class="add" name="submit" value="submit" formaction="..\..\controller\CRUD.php"><b>Update</b> </button>
                   <button type="reset" id="reset" class="add" name="reset" value="reset"><b>Reset</b></button>
                 </div>
               </div>
