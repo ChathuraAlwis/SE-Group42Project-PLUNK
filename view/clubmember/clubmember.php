@@ -47,7 +47,13 @@
                     <div class="subrightheader">
 
 
-                      <img class="profileicon"src="../images/profile.png" alt="profile icon">
+                    <div class="dropdown">
+                        <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
+                        <div class="dropdown-content">
+                        <a href="#" class="headerdrop"><b>Profile</b></a>
+                        <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
+                        </div>
+                    </div>
 
                       <h3><?php echo $_SESSION['UserType'] ?></h3>
                     </div>
