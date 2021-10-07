@@ -33,7 +33,7 @@
                     }
                     else{
                         $record = http_build_query(array('record' => $result[$row]));
-                        echo "<td><a href=\"update.php?data=$record\">$data</a></td>";
+                        echo "<td><a href=\"update.php?data=$record\" target=\"Pages\">$data</a></td>";
                     }
                 }
                 echo "</tr>";
