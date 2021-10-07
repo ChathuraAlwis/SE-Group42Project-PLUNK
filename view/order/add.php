@@ -14,7 +14,7 @@
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $sql = "SELECT ItemID, Quantity, Price FROM plunk.item;";
+        $sql = "SELECT ItemID, Quantity, Price, Discount FROM plunk.item;";
         $result = $DB->runQuery($sql);
         setcookie("Items", json_encode($result));
     ?>
