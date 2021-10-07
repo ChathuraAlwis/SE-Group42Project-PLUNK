@@ -8,9 +8,23 @@
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
         <script type="text/javascript" src="../script/additem.js"></script>
+        <script type="text/javascript" src="../script/updatedata.js"></script>
 
   </head>
   <body>
+  <script>
+        var ans = getParameterByName('data', window.location.href);
+        var id = ans.slice(-1);
+        document.cookie = 'data='+id;
+    </script>
+    <?php 
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $id = $_COOKIE['data'];
+        $query = "SELECT * FROM plunk.notification WHERE NotificationID=$id";
+        $result = $DB->runQuery($query)[0];
+        //print_r($result);
+    ?>
     <div class="main">
     <div class= "left">
     <div class="form">
@@ -21,19 +35,19 @@
                <tr>
                     <div class="form-group">
                         <td> <label for="NotificationID">Date</label></td>
-                        <td><input type="number" id= "NotificationID" name="NotificationID" required class="form-control" /></td>
+                        <td><input type="number" id= "NotificationID" name="NotificationID" required class="form-control" value = "<?php echo "$result[NotificationID]";?>"/></td>
                     </div>
                 </tr>
                <tr>
                     <div class="form-group">
                         <td> <label for="Date">Date</label></td>
-                        <td><input type="date" id= "Date" name="Date" required class="form-control" /></td>
+                        <td><input type="date" id= "Date" name="Date" required class="form-control" value = "<?php echo "$result[Date]";?>"/></td>
                     </div>
                 </tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="EventType">Event Type</label></td>
-                        <td><select id="EventType" name="EventType" class="form-control"  onchange="changeType(this);">
+                        <td><select id="EventType" name="EventType" class="form-control"  value = "<?php echo "$result[EventType]";?>" onchange="changeType(this);">
                             <option selected>Choose type...</option>
                             <option value="Club">Club Event</option>
                             <option value="Restaurant">Restaurant Event</option>
@@ -44,14 +58,14 @@
                 <tr>
                 <div class="form-group">
                     <td><label for="Message">Message</label></td>
-                    <td><textarea  id= "Message" name="Message" required class="form-control" ></textarea></td>
+                    <td><textarea  id= "Message" name="Message" required class="form-control" value = "<?php echo "$result[Message]";?>"></textarea></td>
                 </div>
                 </tr>
             </table>
         </div>
                 <div class="form-group">
                     <button type="submit" name="submit" value="Submit" class="button submit">Update</button>
-                    <button type="submit" name="cancel" value="cancel" class="button submit"><a href="notificationtable.php">Cancel</a></button>
+                    <button type="submit" name="cancel" value="cancel" class="button submit"><a href="notificationpage.php">Cancel</a></button>
                 </div>
         </form>        
     </div>
