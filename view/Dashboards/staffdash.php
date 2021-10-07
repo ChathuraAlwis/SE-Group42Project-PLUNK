@@ -17,7 +17,7 @@
         <div class="main">
           <div class="upper">
                 <div class="resbooking">
-                <h3>Bookings</h3>
+                <h3>Restaurant Bookings</h3>
                 <div class="detailtable">
 
                     <iframe src="../staffmember/books.php" class="staff"></iframe>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="reorder">
-                  <h3>Items</h3>
+                  <h3>Club Bookings</h3>
                   <div class="detailtable">
 
                     <iframe src="../staffmember/books.php" class="staff"></iframe>
