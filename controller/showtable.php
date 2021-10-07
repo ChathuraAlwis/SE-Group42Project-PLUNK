@@ -15,15 +15,22 @@
 
         function show($newQuery="", $all=true){
             if($all){
+                //default query to show all detail of the table
                 $sql = "SELECT * FROM plunk.$this->tableName";
             }
             else{
-                $sql=$newQuery;
+                //custom query
+                $sql = $newQuery;
             }
+            //get the returned array with data from database
             $result = $this->DB->runQuery($sql);
+
+            //row count of the returned table
             $this->recordCount = $recordCount = count($result);
 
-            $heading = false;
+            $heading = false; //if table heading has been printed
+
+            //start echoing the table
             echo "<table border=1 width=100% >";
             for ($row=0; $row<$recordCount; $row++) {
                 echo "<tr>";
