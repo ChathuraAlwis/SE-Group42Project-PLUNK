@@ -101,7 +101,7 @@
             
             <div class="form-group">
                 <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="itemtable.php">Cancel</a></button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="itemspage.php">Cancel</a></button>
             </div>
     </form>                
     </div>
