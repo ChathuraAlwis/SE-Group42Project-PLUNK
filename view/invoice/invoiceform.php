@@ -13,12 +13,12 @@
         <div class="main" >
 
                     <div class="detailtable">
-                    
-                    <?php
-                        require_once "../../controller/showtable.php";
-                        $itemTable = new Table("notification");
-                        $itemTable->show("SELECT NotificationID,Date,EventType,Message FROM plunk.notification", false);
-                      ?> 
+                      <?php
+                          require_once "../../controller/showtable.php";
+                          $invoiceTable = new Table("invoice");
+                          $invoiceTable->show();
+                       ?>
+
                     </div>
 
                 </div>

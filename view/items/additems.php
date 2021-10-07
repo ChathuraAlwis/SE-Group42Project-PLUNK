@@ -84,7 +84,7 @@
         <div class="righttable">
         <div class="itemtable">
             <h3>ITEMS TABLE</h3>
-            <iframe src="../restaurantmanager/itemtablerm.php" class="item"></iframe>
+            <iframe src="itemtable.php" class="item"></iframe>
         </div>
 </div>
 </div>

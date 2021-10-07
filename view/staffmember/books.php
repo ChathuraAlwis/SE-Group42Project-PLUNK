@@ -6,7 +6,7 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/tablehome.css">
+        <link rel="stylesheet" href="../style/itemtable.css">
 
   </head>
   <body>
@@ -16,8 +16,8 @@
                     
                     <?php
                         require_once "../../controller/showtable.php";
-                        $itemTable = new Table("notification");
-                        $itemTable->show("SELECT NotificationID,Date,EventType,Message FROM plunk.notification", false);
+                        $reorderTable = new Table("booking");
+                        $reorderTable->show("SELECT CustomerName,Reservation1,Reservation2,ReservedDate,NoOfPeople,ReservedTime,EndTime FROM plunk.booking", false);
                       ?> 
                     </div>
 

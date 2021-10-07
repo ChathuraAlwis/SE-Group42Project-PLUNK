@@ -34,13 +34,13 @@ html,body{
 }
 .covertable{
   width: 100%;
-  height: 47%;
+  height: 85%;
   padding-top: 20px;
   /*background-color: grey;*/
 }
 .upperbar{
   width: 100%;
-  height: 15%;
+  height: 12%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -49,7 +49,7 @@ html,body{
 }
 .detailtable{
   width: 99%;
-  height: 80%;
+  height: 83%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -104,9 +104,9 @@ border: none;
 }
 .replyboxcover{
   width: 100%;
-  height: 34%;
+  height: 70%;
   padding-top: 20px;
-  /*background-color: green;*/
+/* background-color: green;*/
 }
 .replybox{
   width: 94%;
@@ -130,27 +130,32 @@ border: none;
 label{
   color: #333333;
   font-size: 2vw;
+  float: left;
+
 }
-input{
+textarea{
+  float: right;
   font-size: 1.5vw;
-  width: 90%;
+  width: 87%;
   margin-left: auto;
   margin-right: auto;
   display: block;
-  border:0;
-  border-bottom: 2px;
+  border:2px;
+  border-radius: 10px;
   border-style: solid;
   border-color: black;
+  padding-top: 5px;
 }
 .labelbox{
   width: 100%;
   height: 30%;
+  padding-bottom: 4%;
 }
 .btnbox{
   width: 65%;
-  height: 30%;
+  height: 10%;
   padding-left: 35%;
-  padding-top: 15px;
+
 }
 .btn{
   margin-top: 10px;
