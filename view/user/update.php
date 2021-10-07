@@ -11,16 +11,16 @@
 
   </head>
   <body>
-    <script>
+     <script>
         var ans = getParameterByName('data', window.location.href);
         var id = ans.slice(-1);
-        document.cookie = 'data='+id;
+        //document.cookie = 'data='+id;
     </script>
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = $_COOKIE['data'];
-        $query = "SELECT * FROM plunk.user WHERE UserID=$id";
+        // $id = $_COOKIE['data'];
+        $query = "SELECT * FROM plunk.user";
         $result = $DB->runQuery($query)[0];
         // print_r($result);
     ?>
