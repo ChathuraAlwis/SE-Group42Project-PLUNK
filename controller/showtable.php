@@ -32,23 +32,36 @@
 
             //start echoing the table
             echo "<table border=1 width=100% >";
+
+            //loop for each record
             for ($row=0; $row<$recordCount; $row++) {
-                echo "<tr>";
+                //new row
+                echo "<tr>"; 
+                //for each column and data inside the row in the record
                 foreach ($result[$row] as $column=>$data){
+                    //check if heading has been printed
                     if (!$heading){
+                        //heading of the table
                         echo "<th>$column</th>";
                     }
                     else{
+                        //prepare data to send through get method for update forms
                         $record = http_build_query(array('record' => $result[$row]));
+                        //link each data in the table with the update form
                         echo "<td><a href=\"update.php?data=$record\" target=\"Pages\">$data</a></td>";
                     }
                 }
+                //end row
                 echo "</tr>";
+                //in the first loop heading is printed
                 if (!$heading){
+                    //go back to the first row in the record
                     $row--;
+                    //heading is printed
                     $heading = true;
                 }
             }
+            //end table
             echo "</table>";
         }
 
