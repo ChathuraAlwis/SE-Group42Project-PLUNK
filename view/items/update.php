@@ -8,9 +8,23 @@
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
         <script type="text/javascript" src="../script/additem.js"></script>
+        <script type="text/javascript" src="../script/updatedata.js"></script>
 
   </head>
   <body>
+    <script>
+        var ans = getParameterByName('data', window.location.href);
+        var id = ans.slice(-1);
+        document.cookie = 'data='+id;
+    </script>
+    <?php 
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $id = $_COOKIE['data'];
+        $query = "SELECT * FROM plunk.item WHERE ItemID=$id";
+        $result = $DB->runQuery($query)[0];
+        //print_r($result);
+    ?>
     <div class=main>
     <div class= left>
     <div class="form">
@@ -92,12 +106,13 @@
     </form>                
     </div>
 </div>
-    <div class= right>
-        
+<div class= right>
+        <div class="righttable">
         <div class="itemtable">
             <h3>ITEMS TABLE</h3>
-            <iframe src="../restaurantmanager/itemtablerm.php" class="item"></iframe>
+            <iframe src="itemtable.php" class="item"></iframe>
         </div>
+</div>
 </div>
 </div>
      
