@@ -16,9 +16,9 @@
                     
                     <?php
                         require_once "../../controller/showtable.php";
-                        $itemTable = new Table("item");
-                        $itemTable->show("SELECT * FROM plunk.item", false);
-                    ?> 
+                        $reorderTable = new Table("booking");
+                        $reorderTable->show("SELECT CustomerName,Reservation1,Reservation2,ReservedDate,NoOfPeople,ReservedTime,EndTime FROM plunk.booking", false);
+                      ?> 
                     </div>
 
                 </div>

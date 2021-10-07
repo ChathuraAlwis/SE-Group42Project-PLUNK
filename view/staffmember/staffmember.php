@@ -23,6 +23,8 @@
         <link rel="icon" type="icon" href="../images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/user.css">
         <script type="text/javascript" src="../script/user.js"></script>
+        <script type="text/javascript" src="../script/usernavbtn.js"> </script>
+
 
   </head>
   <body>
@@ -32,7 +34,7 @@
                   <div class="leftheader">
                       <img class="plunk" src="../images/projectlogo.png" alt="plunk logo"><br>
                       <div class="menudiv">
-                         <a href="staffnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
+                         <a href="stmembernavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
                       </div>
                   </div>
 
@@ -44,8 +46,14 @@
 
                   <div class="rightheader">
                     <div class="subrightheader">
-                    <img class="profileicon"src="../images/profile.png" alt="profile icon">
-                      <h3>Staff Member</h3>
+                    <div class="dropdown">
+                        <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
+                        <div class="dropdown-content">
+                        <a href="#" class="headerdrop"><b>Profile</b></a>
+                        <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
+                        </div>
+                    </div>
+                            <h3>Staff Member</h3>
                     </div>
 
                   </div>
@@ -57,7 +65,7 @@
                             </div>
 
                             <div class="mainpages" id="mainpages">
-                                    <iframe  src="..\Dashboards\staffdash.html"class="page" name="Pages"  title="Iframe for pages"></iframe>
+                                    <iframe  src="..\Dashboards\staffdash.php"class="page" name="Pages"  title="Iframe for pages"></iframe>
 
                             </div>
                   </div>
