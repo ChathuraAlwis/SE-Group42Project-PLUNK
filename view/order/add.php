@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../style/crud.css">
     <script type="text/javascript" src="../script/addrow.js"></script>
     <script type="text/javascript" src="../script/maxQuantity.js"></script>
+    <script type="text/javascript" src="../script/rowCount.js"></script>
     <title>Bloomfield</title>
 </head>
 <body>
@@ -78,25 +79,26 @@
                                 </tr>
                             </table>
                             <?php 
-                                echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $_COOKIE['Items'] . ")></td>";
+                                echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $_COOKIE['Items'] . ") disabled></td>";
                             ?> 
                         </div> 
                         <br>
                         <div id="mydata"> 
                             <b>Added Items:</b> 
                             <table id="myTableData" class="addrowtable"> 
-                                <tr> 
-                                    <td>&nbsp;</td> 
-                                    <td><b>Item Name</b></td> 
+                                <tr>
+                                    <td><b>Item ID</b></td> 
                                     <td><b>Quantity</b></td> 
                                     <td><b>Price</b></td>
+                                    <td>&nbsp;</td> 
                                 </tr> 
                             </table>
                         </div> 
                     </div>
                     <br>
+                    <input type="hidden" id="rowCount" name="rowCount" value=0>
                     <div class="form-group">
-                        <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
+                        <button type="submit" name="submit" value="Submit" class="button submit" onclick="tableRowCount('myTableData')">Add</button>
                         <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                     </div>
                 </form>
