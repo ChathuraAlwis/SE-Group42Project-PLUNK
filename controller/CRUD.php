@@ -5,20 +5,24 @@
     //--------------------------------------------------------order--------------------------------------------------------
     if(isset($_POST['add-order'])){
         $DB = new DB;
-        if($_POST['Total']!=0){
+        if($_POST['rowCount']!=0){
             try {
                 $sql = "INSERT INTO plunk.order (OrderDate, OrderTime, OrderPlace, Total, UserID) VALUES ('$_POST[OrderDate]', '$_POST[OrderTime]', '$_POST[OrderPlace]', '$_POST[Total]', '$_SESSION[UserID]');";
                 $DB->runQuery($sql);
                 $sql = "SELECT OrderID FROM plunk.order;";
                 $OrderID = end($DB->runQuery($sql))['OrderID'];
                 $itemRow = 1;
-                while(isset($_POST['ItemID' . $itemRow])){
-                    $ItemRow = 'ItemID' . $itemRow;
-                    $QuanRow = 'Quantity' . $itemRow;
-                    $sql = "INSERT INTO plunk.orderitem (OrderID, ItemID, Quantity) VALUES ('$OrderID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
-                    $DB->runQuery($sql);
-                    $sql = "UPDATE plunk.item SET Quantity = Quantity - $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
-                    $DB->runQuery($sql);
+                $rowCount = $_POST['rowCount'];
+                while($rowCount > 0){
+                    if(isset($_POST['ItemID' . $itemRow])){
+                        $rowCount--;
+                        $ItemRow = 'ItemID' . $itemRow;
+                        $QuanRow = 'Quantity' . $itemRow;
+                        $sql = "INSERT INTO plunk.orderitem (OrderID, ItemID, Quantity) VALUES ('$OrderID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
+                        $DB->runQuery($sql);
+                        $sql = "UPDATE plunk.item SET Quantity = Quantity - $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
+                        $DB->runQuery($sql);
+                    }
                     $itemRow++;
                 }      
             } catch (\Throwable $th) {
@@ -27,6 +31,7 @@
         }
         else{
             echo "<script>alert('Order was Incomplete. Please check again before Adding order.')</script>";
+            // print_r($_COOKIE);
         }
     }
 

@@ -6,22 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
     <link rel="stylesheet" href="../style/crud.css">
-    <script type="text/javascript" src="../script/updatedata.js"></script>
     <title>Bloomfield</title>
 </head>
 <body>
-    <script>
-        var ans = getParameterByName('data', window.location.href);
-        var id = ans.slice(-1);
-        document.cookie = 'data='+id;
-    </script>
     <?php 
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = $_COOKIE['data'];
+        $id = explode("=", $_GET['data'])[1];
         $query = "SELECT * FROM plunk.order WHERE OrderID=$id";
         $result = $DB->runQuery($query)[0];
-        // print_r($result);
     ?>
 
     <div class="form">
