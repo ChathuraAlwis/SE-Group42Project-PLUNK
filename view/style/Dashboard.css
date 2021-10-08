@@ -117,12 +117,18 @@ h3{
   border-width: 2px;
   border-style: solid;
   border-color: #017a7a;
+  background-color: transparent;
+  display: block;
 
 }
-.feedbackbox{
+
+.feedtable{
   height: 100%;
   width: 100%;
   border: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 /*Cashier Dashboard*/
