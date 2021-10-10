@@ -15,7 +15,7 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.user WHERE DisplayID=$id";
+        $query = "SELECT * FROM plunk.user WHERE UserID=$id";
         $result = $DB->runQuery($query)[0];
     ?>
         <div class="main" >
