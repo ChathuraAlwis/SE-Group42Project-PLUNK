@@ -20,27 +20,30 @@
     <?php 
         require_once "../../model/database.php";
         $DB = new DB;
-        $name = $_COOKIE['data'];
-        $query = "SELECT * FROM plunk.resevationmenu WHERE ReservationName=$name";
+        $id = $_COOKIE['data'];
+        $query = "SELECT * FROM plunk.reservationmenu WHERE ReservationName=$id";
         $result = $DB->runQuery($query)[0];
-        //print_r($result);
     ?>
     <div class=main>
     <div class= left>
     <div class="form">
-        <h2 class="center-text"><b>Place Details</b><image src = "../images/bin.png" class="bin"></image></h2></h2>
+        <h2 class="center-text"><b>Place Details</b>
+            <image src = "../images/bin.png" class="bin"></image></h2>
+
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="update-reservation" type="hidden" >
             <table>
-                <tr><div class="form-group">
+                <tr>
+                    <div class="form-group">
                         <td><label for="ReservationName">Reservation Name</label></td>
-                        <td><input type="text" id= "ReservationName" name="ReservationName" required class="form-control" value = "<?php echo "$result[ReservstionName]";?>"/></td>
+                        <td><input type="text" id= "ReservationName" name="ReservationName" required class="form-control" value = "<?php echo "$result[ReservationName]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
-                <tr><div class="form-group">
+                <tr>
+                    <div class="form-group">
                     <td><label for="Type">Reservation Type</label></td>
-                    <td><select id="Type" name="Type" class="form-control" placeholder="Enter the item type" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
+                    <td><select id="Type" name="Type" class="form-control" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
                     <option selected> Choose type ...</option>
                         <option value="club">Club</option>
                         <option value="restaurant">Restaurant</option>
@@ -51,14 +54,14 @@
                 <tr>
                 <div class="form-group">
                     <td><label for="Cost">Cost</label></td>
-                    <td><input type="number" id="Cost" name="Cost" required class="form-control" value = "<?php echo "$result[Cost]";?>"/></td>
+                    <td><input type="number" id="Cost" name="Cost" required class="form-control"  min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Cost]";?>"/></td>
                     </div>
                 </tr>
             </table>
-                <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit">update</button>
-                    <button type="submit" name="cancel" value="cancel" class="button submit"><a href="Reservationmenupage.php">Cancel</a></button>
-                </div>
+            <div class="form-group">
+                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="reservationmenupage.php">Cancel</a></button>
+            </div>
         </form> 
     </div>       
     </div>
