@@ -60,8 +60,8 @@
             </tr>
             <tr>
             <div class="form-group">
-                <label for="OrderTime">Order Time</label>
-                <input name ="OrderTime" id="OrderTime" type="time" value = "<?php echo "$result[OrderTime]"; ?>" >
+                <label for="ReceivedDate">Received Date</label>
+                <input name ="ReceivedDate" id="RecivedDate" type="date" value = "<?php echo "$result[ReceivedDate]";?>" >
             </div>
             </tr>
             <tr>
