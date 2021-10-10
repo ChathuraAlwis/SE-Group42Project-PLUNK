@@ -58,7 +58,7 @@
                     <div class="form-group">
                         <td><label for="Total">Total Invoice Value</label></td>
                         <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" placeholder="Enter the total invoice value"/></td>
+                        <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total "/></td>
                     </div>
                 </tr>
             </table>
