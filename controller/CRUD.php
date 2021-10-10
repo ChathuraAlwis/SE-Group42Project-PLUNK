@@ -204,6 +204,34 @@ if(isset($_POST['update-invoice'])){
 
 }
 
+if(isset($_POST['search-invoice'])){
+    $DB = new DB;
+
+    try {
+        $sql = "SELECT * FROM plunk.invoice WHERE InvoiceID=\"$_POST[InvoiceID]\"";
+        $result = $DB->runQuery($sql);
+        $rows = count($result, 0);
+        if ($rows == 0){
+            echo "Could not find Invoice: " . $_POST['InvoiceID'] . "\n";
+        }
+        elseif ($rows > 1){
+            echo "Multiple rows found. Please contact Admit to resolve issues.\n";
+        }
+        else{
+            $row = $result[0];
+            echo "Invoice ID\t:" . $row['InvoiceID'] . "\n";
+            echo "Company\t:" . $row['Companyname'] . "\n";
+            echo "Type\t:" . $row['Type'] . "\n";
+            echo "Received Date\t:" . $row['ReceivedDate'] . "\n";
+            echo "Due Date\t:" . $row['Duedate'] . "\n";
+            echo "Total\t:" . $row['Total'] . "\n";
+        }
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
 //---------------------------------------------------User-----------------------------------------------------------------------
 if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
     $DB = new DB;
