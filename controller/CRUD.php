@@ -190,7 +190,19 @@ if(isset($_POST['update-item'])){
             throw $th;
         }
     }
+//---------Update Invoice------------
 
+if(isset($_POST['update-invoice'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE `plunk.invoice` SET `Company`='$_POST[Companyname]',`Type`='$_POST[Type]',`ReceivedDate`='$_POST[ReceivedDate]',`DueDate`='$_POST[DueDate]',`Total`='$_POST[Total]'  WHERE InvoiceID = '$_POST[InvoiceID]'";
+        $DB->runQuery($sql);
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
 
 //---------------------------------------------------User-----------------------------------------------------------------------
 if(isset($_POST['add-staff'])||isset($_POST['add-member'])){

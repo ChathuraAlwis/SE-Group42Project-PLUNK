@@ -35,83 +35,55 @@
         <form action="../../controller/CRUD.php" method="POST">
             <input name ="update-invoice" type="hidden" >
             <table class="formtable">
-            <tr>
-                <div class="form-group">
-                   <td><label for="InvoiceID">Invoice ID</label></td> 
-                    <td><input type="number" id= "InvoiceID" name="InvoiceID" required class="form-control" value = "<?php echo "$result[InvoiceID]";?>"/></td>
-                </div>
-              </tr>
             
             <tr>
+                        <div class="form-group">
+                            <td><label for="Companyname">Company Name</label></td>
+                            <td></td>
+                            <td><input type="text" id= "Companyname" name="Companyname" required class="form-control" value = "<?php echo "$result[Companyname]";?>"/></td>
+                        </div>
+                    </tr>
+                <tr>
                 <div class="form-group">
-                   <td><label for="Company">Company Name</label></td> 
-                    <td><input type="text" id= "Company" name="Company" required class="form-control" value = "<?php echo "$result[Company]";?>"/></td>
-                </div>
-              </tr>
-              <tr> 
-                <div class="form-group">
-                    <td><label for="ItemType">Item Type</label></td>
-                    <td><select id="ItemType" name="ItemType" class="form-control" value = "<?php echo "$result[ItemType]";?>" onchange="changeType(this);">
-                        <option selected>Choose type...</option>
-                        <option value="Food">Food Items</option>
-                        <option value="Beverage">Beverage Items</option>
+                    <td><label for="Type">Type</label></td>
+                    <td></td>
+                    <td><select id="Type" name="Type" class="form-control" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
+                    <option selected>Choose type...</option>
+                        <option value="1">Beverage Items</option>
+                        <option value="2">Food Items</option>
                      </select></td>
-                </div>
-            </tr>
-            <tr>
-            <div class="form-group">
-                <label for="ReceivedDate">Received Date</label>
-                <input name ="ReceivedDate" id="RecivedDate" type="date" value = "<?php echo "$result[ReceivedDate]";?>" >
-            </div>
-            </tr>
-            <tr>
-                <div class="form-group">
-                    <td><label for="Discount">Discount</label></td>
-                    <td><input type="number" id="Discount" name="Discount" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Discount]";?>" /></td>
-                </div>
-            </tr>
-            <tr> 
-                <div class="form-group">
-                    <td><label for="ItemType">Item Type</label></td>
-                    <td><select id="ItemType" name="ItemType" class="form-control" value = "<?php echo "$result[ItemType]";?>" onchange="changeType(this);">
-                        <option selected>Choose type...</option>
-                        <option value="Food">Food Items</option>
-                        <option value="Beverage">Beverage Items</option>
-                     </select></td>
-                </div>
-            </tr>
-            <tr> 
-                <div class="form-group">
-                    <td><label for="Availability">Availability</label></td>
-                    <td><select id="Availability" name="Availability" class="form-control" value = "<?php echo "$result[Availability]";?>" onchange="changeType(this);">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </td>
-                </div>
-            </tr> 
-            
-            <div id = Quantity>
-            <tr>
-                
-                <div class="form-group">
-                    <td><label for="Quantity">Quantity</label></td>
-                    <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Quantity]";?>" /></td>
-                </div>
-            </tr>
-        
-            <tr>
-                <div class="form-group">
-                    <td><label for="ReorderQuantity">Reorder Quantity</label></td>
-                    <td><input type="number" id ="ReorderQuantity" name="ReorderQuantity" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ReorderQuantity]";?>" /></td>
-                </div>
-            </tr> 
-            </div>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="ReceivedDate">Received Date</label></td>
+                        <td></td>
+                        <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" value = "<?php echo "$result[ReceivedDate]";?>"/></td>
+                    </div>
+                </tr> 
+
+                <tr>
+                    <div class="form-group">
+                        <td><label for="DueDate">Due Date</label></td>
+                        <td></td>
+                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" value = "<?php echo "$result[DueDate]";?>"/></td>
+                    </div>
+                </tr> 
+
+                <br>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Total">Total Invoice Value</label></td>
+                        <td></td>
+                        <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Total]";?>"/></td>
+                    </div>
+                </tr>
             </table>
             
-            <div class="form-group">
+                <br>
+                <div class="form-group">
                 <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="itemspage.php">Cancel</a></button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="invoicetable.php">Cancel</a></button>
             </div>
     </form>                
     </div>
@@ -120,7 +92,7 @@
         <div class="righttable">
         <div class="itemtable">
             <h3>ITEMS TABLE</h3>
-            <iframe src="itemtable.php" class="item"></iframe>
+            <iframe src="../items/itemtable.php" class="item"></iframe>
         </div>
 </div>
 </div>
