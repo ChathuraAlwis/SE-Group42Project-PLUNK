@@ -9,7 +9,7 @@
     <title>Bloomfield</title>
 </head>
 <body>
-    <?php 
+    <?php
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
@@ -42,6 +42,6 @@
             <button type="submit" class="button">Update</button>
         </form>
     </div>
-    
+
 </body>
 </html>
