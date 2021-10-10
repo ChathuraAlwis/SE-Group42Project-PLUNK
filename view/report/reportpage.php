@@ -33,16 +33,18 @@
                               </select>
                         </div>
 
-                        <div class = "search">
-                              <input type= "date" placeholder="Enter the start date"/>
-                              <button type = "Submit" class= "submit">Start Date</button>
-                        </div>  
-
-                        <div class = "search">
-                              <input type= "date" placeholder="Enter the end date"/>
-                              <button type = "Submit" class= "submit">End Date</button>
-                        </div>  
-
+                        <div >
+                              <input type = date class = "search" />
+                        </div>
+                        <div >
+                              <button type = "submit" class = "reportsearch" ><b>Start Date</b></button>
+                        </div>
+                        <div >
+                              <input type = date class = "search" />
+                        </div>
+                        <div >
+                              <button type = "submit" class = "reportsearch" ><b>End Date</b></button>
+                        </div>
                         
                     </div>
                     <div class="detailtable">

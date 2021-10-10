@@ -22,9 +22,11 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                        <div class="search">
-                              <input placeholder="Enter the company name"/>
-                              <button type = "Submit" class= "submit">Search</button>
+                    <div >
+                              <input type = "text" class = "search"placeholder="Enter the Company name"/>
+                  </div>
+                    <div >
+                              <button type = "submit" class = "search" ><b>Search</b></button>
                         </div>               
                         <div class="addicon">
                               <a href="../grn/addgrn.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>

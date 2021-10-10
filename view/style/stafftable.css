@@ -85,9 +85,24 @@ h2{
 .search{
   float: left;
   margin-left: 1%;
-  margin-top: 0.75vw;
+  margin-top: 2%;
   width: 20vw;
-  height:2vw;
+  border-style: solid;
+  border-radius: 10px;
+  border-color:#dcdcdc;
+  font-size: 1.5vw;
+}
+button.search{ 
+  width: 10vw !important;
+  background-color: #acacac ;
+  margin-right: 5%;
+}
+button.reportsearch{ 
+  width: 10vw !important;
+  background-color: #acacac ;
+  float: left;
+  margin-left: 1%;
+  margin-top: 2%;
   border-style: solid;
   border-radius: 10px;
   border-color:#dcdcdc;
