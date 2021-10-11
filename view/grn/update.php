@@ -11,6 +11,15 @@
 
   </head>
   <body>
+  <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $id = explode("=", $_GET['data'])[1];
+        $query = "SELECT GRNID, ItemType,AddDate,CompanyName FROM plunk.grn WHERE GRNID=$id";
+        $result = $DB->runQuery($query)[0];
+        
+    ?>
+
     <div class=main>
     <div class= left>
     <div class="form">
@@ -19,9 +28,15 @@
                 <input name ="update-grn" type="hidden" >
                 <table class="formtable">
                 <tr>
+                    <div class="form-group">
+                        <td><label for="GRNID">GRNID</label></td>
+                        <td><input type="text" id= "GRNID" name="GRNID" required class="form-control" value = "<?php echo "$result[GRNID]";?>"/></td>
+                    </div>
+                </tr>     
+                <tr>
                 <div class="form-group">
                     <td><label for="ItemType">Item Type</label></td>
-                    <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <td><select id="ItemType" name="ItemType" class="form-control" value = "<?php echo "$result[ItemType]";?>" onchange="changeType(this);">
                     <option selected>Choose type...</option>
                         <option value="fooditems">Food Items</option>
                         <option value="beverageitems">Beverage Items</option>
@@ -30,14 +45,14 @@
                 </tr>
                 <tr>
                     <div class="form-group">
-                        <td><label for="Date">Date</label></td>
-                        <td><input type="date" id= "Date" name="Date" required class="form-control" placeholder="Enter the Date"/></td>
+                        <td><label for="AddDate">Date</label></td>
+                        <td><input type="date" id= "AddDate" name="AddDate" required class="form-control" value = "<?php echo "$result[AddDate]";?>"/></td>
                     </div>
                 </tr> 
                 <tr>
                     <div class="form-group">
-                        <td><label for="Company">Company</label></td>
-                        <td><input type="text" id= "Company" name="Company" required class="form-control" placeholder="Enter the Company name"/></td>
+                        <td><label for="CompanyName">Company</label></td>
+                        <td><input type="text" id= "CompanyName" name="CompanyName" required class="form-control" value = "<?php echo "$result[CompanyName]";?>"/></td>
                     </div>
                 </tr>
                 

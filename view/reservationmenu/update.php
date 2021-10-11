@@ -12,17 +12,14 @@
 
   </head>
   <body>
-  <script>
-        var ans = getParameterByName('data', window.location.href);
-        var id = ans.slice(-1);
-        document.cookie = 'data='+id;
-    </script>
+  
     <?php 
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = $_COOKIE['data'];
-        $query = "SELECT * FROM plunk.reservationmenu WHERE ReservationName=$id";
+        $id = explode("=", $_GET['data'])[1];
+        $query = "SELECT * FROM plunk.reservationmenu WHERE ReservationName = '$id' ";
         $result = $DB->runQuery($query)[0];
+        
     ?>
     <div class=main>
     <div class= left>
