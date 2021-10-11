@@ -16,7 +16,7 @@
                       <?php
                           require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("booking");
-                          $orderTable->show();
+                          $orderTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name, BookingType as 'Booking Type',ReservedDate as 'Reserved Date',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking", false);
                        ?>
 
 

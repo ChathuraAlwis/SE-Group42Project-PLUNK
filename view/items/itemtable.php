@@ -14,7 +14,7 @@
         <div class="main" >
 
                     <div class="detailtable">
-                    
+
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("item");
@@ -24,11 +24,27 @@
                         elseif ($_SESSION['UserType'] = 'Cashier') {
                           $itemTable->show("SELECT * FROM plunk.item", '../order/add');
                         }
+                        elseif ($_SESSION['UserType'] = 'Accountant') {
+                          $itemTable->show("SELECT * FROM plunk.item", '../order/update');
+                        }
                         else{
                           $itemTable->show("SELECT * FROM plunk.item", 'update');
+                          echo $_SESSION['UserType'];
                         }
+
+
+
+                        // $itemTable->show("SELECT * FROM plunk.item", 'update');
+
+                    ?>
+
                           
+<<<<<<< HEAD
                     ?> 
+=======
+                    
+
+>>>>>>> 88eb72cfe44ab26df7acc5de624a8286502e6119
                     </div>
 
                 </div>

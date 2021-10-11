@@ -11,7 +11,7 @@
 
   </head>
   <body>
-    <!-- <?php
+    <?php
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
@@ -19,7 +19,8 @@
 
         $result = $DB->runQuery($query)[0];
 
-    ?> -->
+
+    ?>
         <div class="main" >
             <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
               <input name ="update-user" type="hidden" >
@@ -27,33 +28,33 @@
               <div class="submain">
                 <div class="forminputs">
                     <label for="Name"> Name with initials</label><br>
-                    <input type="text" id="Name" name="Name"  readonly>
+                    <input type="text" id="Name" name="Name" value = "<?php echo "$result[Name]";?>" readonly>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="DisplayID"> Staff Id</label><br>
-                    <input type="text" id="DisplayID" name="DisplayID" maxlength="10"  readonly>
+                    <input type="text" id="DisplayID" name="DisplayID" maxlength="10" value = "<?php echo "$result[DisplayID]";?>" readonly>
                 </div><br>
 
                 <div class="radio">
                       <label for="UserType"> Position</label><br>
-                        <input type="text" id="UserType" name="UserType"  readonly>
+                        <input type="text" id="UserType" name="UserType" value = "<?php echo "$result[UserType]";?>"  readonly>
 
                 </div><br>
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>
-                    <input type="date" id="JoinedYear" name="JoinedYear"  readonly>
+                    <input type="date" id="JoinedYear" name="JoinedYear" value = "<?php echo "$result[JoinedYear]";?>" readonly>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="Email"> E-mail</label><br>
-                    <input type="email" id="Email" name="Email"   readonly>
+                    <input type="email" id="Email" name="Email"  value = "<?php echo "$result[Email]";?>"  readonly>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="ContactNo"> Contact No</label><br>
-                    <input type=" tel" id="ContactNo" name="ContactNo" pattern="[0-9]{10}"  readonly>
+                    <input type=" tel" id="ContactNo" name="ContactNo" pattern="[0-9]{10}" value = "<?php echo "$result[ContactNo]";?>" readonly>
                 </div><br>
                 <div class="forminputs">
                     <label for="Reason"> Reason</label><br>

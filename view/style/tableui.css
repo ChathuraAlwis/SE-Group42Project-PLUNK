@@ -48,7 +48,7 @@ html,body{
 }
 .detailtable{
   width: 99%;
-  height: 88%;
+  height: 98%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -57,8 +57,6 @@ html,body{
   border-radius: 20px;
   border-color: #017a7a; /*#dcdcdc*/
   background-color: #017a7a;
-  margin-top: 0.75%;
-  margin-bottom: 2%;
 /*background-color: blue;*/
 }
 .table{
@@ -117,7 +115,7 @@ td{
   border-style: solid;
   border-width: 1px;
   border-color: #017a7a;
-  
+
 }
 iframe{
 width: 100%;

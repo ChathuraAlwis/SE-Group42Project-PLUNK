@@ -8,10 +8,19 @@
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
         <script type="text/javascript" src="../script/addrow.js"></script>
+        <script type="text/javascript" src="../script/maxQuantity.js"></script>
+        <script type="text/javascript" src="../script/rowCount.js"></script>
 
         
   </head>
   <body>
+  <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $sql = "SELECT ItemID, Quantity, Price, Discount FROM plunk.item;";
+        $result = $DB->runQuery($sql);
+        setcookie("Items", json_encode($result));
+    ?>
     <div class="main">
     <div class= "left">
     <div class="form">
@@ -58,7 +67,7 @@
                     <div class="form-group">
                         <td><label for="Total">Total Invoice Value</label></td>
                         <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total "/></td>
+                        <td><input type="text" id= "Total" name="Total" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the total " readonly/></td>
                     </div>
                 </tr>
             </table>
@@ -67,30 +76,39 @@
             <div id="myform" onload="load()"> 
                     <b>Enter the item details of the invoice...</b> 
                     <br/><br/> 
-                            Item ID:<input type=text id="ItemID"> 
+                            Item ID:
+                            <?php 
+                                echo "<td><input type=text id=ItemID onchange=maxQuantity(". $_COOKIE['Items'] .",0".")></td>";
+                                    
+                            ?> 
                     <br/><br/> 
                             Quantity :&nbsp; 
                             <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
                     <br/> 
-                            <input type="button" id="add" value="Add" onclick="addRow()"> 
+                    <?php 
+                        echo "<td><input type=button id=add value=Add onclick=addRowInvoice(" . $_COOKIE['Items'] . ") disabled></td>";
+                    ?> 
                     </div> 
                     <br/><br/> 
                     <div id="mydata"> 
                     <b>Item Details...</b> 
                     <table id="myTableData" class="addrowtable" > 
                         <tr> 
-                            <td>&nbsp;</td> 
                             <td><b>Item ID</b></td> 
                             <td><b>Quantity</b></td> 
+                            <td><b>Price</b></td> 
+                            <td>&nbsp;</td> 
+
                         </tr> 
                     </table> 
                       
                     </div> 
                 </div>
+                <input type="hidden" id="rowCount" name="rowCount" value=0>
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
+                    <button type="submit" name="submit" value="Submit" class="button submit" onclick="tableRowCount('myTableData')">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form> 

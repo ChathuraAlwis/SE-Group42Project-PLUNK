@@ -178,24 +178,30 @@ if(isset($_POST['update-item'])){
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
         $DB = new DB;
+        if($_POST['rowCount']!=0){
 
-        try {
-            $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
-            $DB->runQuery($sql);
-            $sql = "SELECT InvoiceID FROM plunk.invoice;";
-            $InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
-            $itemRow = 1;
-            while(isset($_POST['ItemID' . $itemRow])){
-                $ItemRow = 'ItemID' . $itemRow;
-                $QuanRow = 'Quantity' . $itemRow;
-                $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, Quantity) VALUES ('$InvoiceID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
+            try {
+                $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
                 $DB->runQuery($sql);
-                $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
-                $DB->runQuery($sql);
-                $itemRow++;
+                $sql = "SELECT InvoiceID FROM plunk.invoice;";
+                $InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
+                $itemRow = 1;
+                $rowCount = $_POST['rowCount'];
+                while($rowCount > 0){
+                    if(isset($_POST['ItemID' . $itemRow])){
+                        $rowCount--;
+                        $ItemRow = 'ItemID' . $itemRow;
+                        $QuanRow = 'Quantity' . $itemRow;
+                        $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, Quantity) VALUES ('$InvoiceID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
+                        $DB->runQuery($sql);
+                        $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
+                        $DB->runQuery($sql);
+                    }
+                    $itemRow++;
+                }
+            } catch (\Throwable $th) {
+                throw $th;
             }
-        } catch (\Throwable $th) {
-            throw $th;
         }
     }
 //---------Update Invoice------------
@@ -268,7 +274,7 @@ if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
 if(isset($_POST['update-user'])){
     $DB = new DB;
 
-    try {;
+    try {
         $sql = "UPDATE plunk.user SET Name=\"$_POST[Name]\", DisplayID=\"$_POST[DisplayID]\", UserType=\"$_POST[UserType]\", JoinedYear=\"$_POST[JoinedYear]\", Email=\"$_POST[Email]\", ContactNo=\"$_POST[ContactNo]\" WHERE UserID=\"$_POST[UserID]\"";
         $DB->runQuery($sql);
     } catch (\Throwable $th) {
