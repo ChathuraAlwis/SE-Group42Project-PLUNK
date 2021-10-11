@@ -75,8 +75,16 @@ html, body{
   border-style: solid;
   border-color: #017a7a;
   margin-top: 1%;
-
+  background-color: #017a7a;
  /*background-color: orange;*/
+}
+.notificationtable{
+  height: 98.5%;
+  width: 99.5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: none;
 }
 .notifictable{
   width: 100%;
@@ -121,7 +129,7 @@ h3{
   border-width: 2px;
   border-style: solid;
   border-color: #017a7a;
-  background-color: transparent;
+  background-color: #017a7a;
   display: block;
 
 }

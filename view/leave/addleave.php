@@ -21,7 +21,7 @@
             <tr>
                 <div class="form-group">
                     <td><label for="LeaveDate">Date</label></td>
-                    <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" placeholder="Enter the Date"/></td>
+                    <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" max="<?php echo date("Y-m-d") ?>" placeholder="Enter the Date"/></td>
                 </div>
             </tr>
             
