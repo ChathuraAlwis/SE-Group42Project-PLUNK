@@ -1,6 +1,6 @@
 <?php
     require_once "../../model/database.php";
-    
+
 
     class Table{
 
@@ -24,7 +24,7 @@
             }
             //get the returned array with data from database
             $result = $this->DB->runQuery($sql);
-
+            
             //row count of the returned table
             $this->recordCount = $recordCount = count($result);
 
@@ -36,7 +36,7 @@
             //loop for each record
             for ($row=0; $row<$recordCount; $row++) {
                 //new row
-                echo "<tr>"; 
+                echo "<tr>";
                 //for each column and data inside the row in the record
                 foreach ($result[$row] as $column=>$data){
                     //check if heading has been printed
