@@ -16,8 +16,9 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT LeaveDate,Reason FROM plunk.leave WHERE LeaveDate=$id";
+        $query = "SELECT * FROM plunk.leave WHERE LeaveDate= '$id'";
         $result = $DB->runQuery($query)[0];
+
     ?>
     <div class="main">
       <div class= "left">
@@ -30,16 +31,18 @@
             <tr>
                 <div class="form-group">
                     <td><label for="LeaveDate">Date</label></td>
-                    <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" value = "<?php echo "$result[LeaveDate]";?>"/></td>
+                    <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" max="<?php echo date("Y-m-d") ?>" value = "<?php echo "$result[LeaveDate]";?>"/></td>
                 </div>
             </tr>
-            
+            <tr>
                 <div class="form-group">
                     <td><label for="Reason">Reason</label></td>
-                    <td><textarea id= "Reason" name="Reason" required class="form-control" value = "<?php echo "$result[Reason]";?>"></textarea></td>
+                    <td><textarea id= "Reason" name="Reason" required class="form-control"><?php echo "$result[Reason]";?></textarea></td>
                 </div>
+            </tr>
           </table>
                 <div class="form-group">
+                   
                     <button type="submit" name="cancel" value="cancel" class="button submit"><a href="leavepage.php">Cancel</a></button>
                 </div>
         </form>        

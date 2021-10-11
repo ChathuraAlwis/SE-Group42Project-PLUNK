@@ -17,7 +17,7 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $grnTable = new Table("grn");
-                        $grnTable->show("SELECT * FROM plunk.grn", false);
+                        $grnTable->show("SELECT * FROM plunk.grn", 'update');
                       ?>
 
                 </div>

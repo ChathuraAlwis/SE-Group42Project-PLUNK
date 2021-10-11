@@ -17,7 +17,7 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("reservationmenu");
-                        $itemTable->show("SELECT * FROM plunk.reservationmenu", false);
+                        $itemTable->show("SELECT * FROM plunk.reservationmenu", 'update');
                       ?> 
                     </div>
 
