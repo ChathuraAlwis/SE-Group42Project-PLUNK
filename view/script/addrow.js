@@ -34,7 +34,7 @@ function deleteRowOrder(obj) {
     Table.deleteRow(index);
 } 
 
-function addRowInvoice() {    
+function addRowInvoice(itemPrice) {    
     var ItemID = document.getElementById("ItemID"); 
     var Quantity = document.getElementById("Quantity");
     var Total = document.getElementById("Total");
