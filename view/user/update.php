@@ -25,7 +25,7 @@
               <input name ="update-user" type="hidden" >
               <div class="headerrow">
                 <div class="bin">
-                  <a href="delete.php"><img src="..\images\bin.png" alt="Delete Icon" class="binicon"></a>
+                  <a href="delete.php?data=<?php echo $_GET['data'];?>" ><img src="..\images\bin.png" alt="Delete Icon" class="binicon"></a>
                 </div>
               </div>
               <div class="submain">

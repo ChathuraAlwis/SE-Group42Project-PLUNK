@@ -14,10 +14,11 @@
         <div class="main" >
 
                     <div class="detailtable">
-                    
+
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("item");
+
                         if($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'Hon.Life Member'){
                           $itemTable->show("SELECT ItemID, ItemName as Name, ItemType as Type, Price, Discount FROM plunk.item WHERE Availability=1", '../order/add');
                         }
@@ -32,8 +33,15 @@
                           echo $_SESSION['UserType'];
                         }
 
+
+
+                        // $itemTable->show("SELECT * FROM plunk.item", 'update');
+
+                    ?>
+
                           
-                    ?> 
+                    
+
                     </div>
 
                 </div>

@@ -16,9 +16,9 @@
                       <?php
                           require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("feedback");
-                          $orderTable->show();
+                          $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback", 'update');
                        ?>
-                      
+
                     </div>
 
                 </div>
