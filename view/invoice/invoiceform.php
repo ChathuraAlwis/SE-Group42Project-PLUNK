@@ -16,8 +16,8 @@
                     <?php
                           require_once "../../controller/showtable.php";
                           $invoiceTable = new Table("invoice");
-                          if(isset($_POST['invoicesearch'])){
-                            $search = $_POST['invoicesearch'];
+                          if(isset($_POST['search-invoice'])){
+                            $search = $_POST['search-invoice'];
                             $invoiceTable->show("SELECT * FROM plunk.invoice WHERE Company LIKE ('%$search%');", false);
                             // $orderTable->show("SEARCH Cus");
                           }
