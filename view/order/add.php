@@ -17,6 +17,12 @@
         $sql = "SELECT ItemID, Quantity, Price, Discount FROM plunk.item;";
         $result = $DB->runQuery($sql);
         setcookie("Items", json_encode($result));
+
+        if(isset($_GET['data'])){
+            $id = explode("=", $_GET['data'])[1];
+        }else{
+            $id = -1;
+        }
     ?>
     <div class="main">
         <div class="left">
@@ -66,7 +72,7 @@
                                 <tr>
                                     <td>Item ID</td>
                                     <?php 
-                                        echo "<td><input type=text id=ItemID onchange=maxQuantity(". $_COOKIE['Items'] .")></td>";
+                                        echo "<td><input value=$id type=text id=ItemID onchange=maxQuantity(". $_COOKIE['Items']  .")></td>";
                                     ?>
                                 </tr>
                                 <tr>
@@ -114,4 +120,5 @@
         </div>
     </div>
 </body>
+<?php echo "<script>maxQuantity(". $_COOKIE['Items'] .")</script>"; ?>
 </html>
