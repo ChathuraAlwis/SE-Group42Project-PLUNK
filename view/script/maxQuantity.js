@@ -1,15 +1,17 @@
-function maxQuantity(itemQuantity){
+function maxQuantity(itemQuantity, setMax=1){
     var ItemID = document.getElementById("ItemID");
     var max = 0;
     var canAdd = false;
 
-    itemQuantity.forEach(element => {
-        // console.log(element['ItemID'], ItemID);
-        if (element['ItemID'] == ItemID.value) {
-            max = element['Quantity'];
-            canAdd = true;
-        }
-    });
+    if(setMax==1){
+        itemQuantity.forEach(element => {
+            // console.log(element['ItemID'], ItemID);
+            if (element['ItemID'] == ItemID.value) {
+                max = element['Quantity'];
+                canAdd = true;
+            }
+        });
+    }
 
     var Table = document.getElementById("myTableData");
 
