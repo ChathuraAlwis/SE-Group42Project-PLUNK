@@ -22,7 +22,12 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Search..." >
+                    <div >
+                              <input type = "text" class = "search" placeholder="Enter the payment"/>
+                  </div>
+                    <div >
+                              <button type = "submit" class = "search" ><b>Search</b></button>
+                        </div>
                           <div class>
                               <select id="PaymentType" name="PaymentType" class="search" placeholder="Select payment type" onchange="changeType(this);">
                                     <option selected>Choose payment type...</option>

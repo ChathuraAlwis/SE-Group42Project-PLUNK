@@ -17,7 +17,7 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $orderTable = new Table("servicecharge");
-                          $orderTable->show();
+                          $orderTable->show("SELECT * FROM plunk.servicecharge",'update');
                        ?>
 
                     </div>
