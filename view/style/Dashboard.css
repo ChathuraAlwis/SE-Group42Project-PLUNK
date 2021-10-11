@@ -103,9 +103,13 @@ h3{
   margin: none;
   padding: none;
   color: #017a7a;
-  margin-top: 0.5%;
+  margin-top: 0%;
   margin-bottom: 0%;
 
+}
+.staff{
+  height:100%;
+  width:100%;
 }
 
 /*Admin Dashboard*/
@@ -140,6 +144,7 @@ h3{
   border-width: 2px;
   border-style: solid;
   border-color: #017a7a;
+  padding-bottom: 1%;
 }
 
 /*Club Member Dashboard*/
