@@ -1,6 +1,7 @@
 <?php
     session_start();
     require_once "../model/database.php";
+    require_once "pages.php";
 
     //--------------------------------------------------------order--------------------------------------------------------
     if(isset($_POST['add-order'])){
@@ -9,7 +10,7 @@
             try {
                 $sql = "INSERT INTO plunk.order (OrderDate, OrderTime, OrderPlace, Total, UserID) VALUES ('$_POST[OrderDate]', '$_POST[OrderTime]', '$_POST[OrderPlace]', '$_POST[Total]', '$_SESSION[UserID]');";
                 $DB->runQuery($sql);
-                $sql = "SELECT OrderID FROM plunk.order;";
+                $sql = "SELECT OrderID FROM plunk.order ORDER BY OrderID ASC;";
                 $OrderID = end($DB->runQuery($sql))['OrderID'];
                 $itemRow = 1;
                 $rowCount = $_POST['rowCount'];
@@ -24,7 +25,14 @@
                         $DB->runQuery($sql);
                     }
                     $itemRow++;
-                }      
+                }
+                $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_SESSION[UserName]', '$_POST[Total]', 0, '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
+                $DB->runQuery($sql);
+                $sql = "SELECT * FROM plunk.bill ORDER BY BillID DESC LIMIT 1;";
+                $BillData = $DB->runQuery($sql);
+                $record = http_build_query(array('record' => $BillData));
+                $newPage = new Page("../view/bill/add.php?data=$record");
+                $newPage->show();
             } catch (\Throwable $th) {
                 throw $th;
             }
