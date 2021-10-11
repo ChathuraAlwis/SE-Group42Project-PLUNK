@@ -15,8 +15,9 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT GRNID, ItemType,Date,Company FROM plunk.grn WHERE GRNID=$id";
+        $query = "SELECT GRNID, ItemType,AddDate,CompanyName FROM plunk.grn WHERE GRNID=$id";
         $result = $DB->runQuery($query)[0];
+        
     ?>
 
     <div class=main>
@@ -44,14 +45,14 @@
                 </tr>
                 <tr>
                     <div class="form-group">
-                        <td><label for="Date">Date</label></td>
-                        <td><input type="date" id= "Date" name="Date" required class="form-control" value = "<?php echo "$result[Date]";?>"/></td>
+                        <td><label for="AddDate">Date</label></td>
+                        <td><input type="date" id= "AddDate" name="AddDate" required class="form-control" value = "<?php echo "$result[AddDate]";?>"/></td>
                     </div>
                 </tr> 
                 <tr>
                     <div class="form-group">
-                        <td><label for="Company">Company</label></td>
-                        <td><input type="text" id= "Company" name="Company" required class="form-control" value = "<?php echo "$result[Company]";?>"/></td>
+                        <td><label for="CompanyName">Company</label></td>
+                        <td><input type="text" id= "CompanyName" name="CompanyName" required class="form-control" value = "<?php echo "$result[CompanyName]";?>"/></td>
                     </div>
                 </tr>
                 
