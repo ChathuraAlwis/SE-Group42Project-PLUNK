@@ -37,7 +37,7 @@
                 <tr>
                 <div class="form-group">
                     <td><label for="Cost">Cost</label></td>
-                    <td><input type="number" id="Cost" name="Cost" required class="form-control" placeholder="Enter the Cost"/></td>
+                    <td><input type="number" id="Cost" name="Cost" required class="form-control"  min=0 oninput="validity.valid||(value='');" placeholder="Enter the Cost"/></td>
                     </div>
                 </tr>
             </table>

@@ -23,11 +23,13 @@
             <div class="covertable">
                 <div class="table">
                     <div>
-                    <div class = "search">
-                              <input placeholder="Enter the item name"/>
-                              <button type = "Submit" class= "submit">Search</button>
+                    <div >
+                              <input type = "text" class = "search" placeholder="Enter the item name"/>
+                  </div>
+                    <div >
+                              <button type = "submit" class = "search" ><b>Search</b></button>
                         </div>
-                        <div class>
+                        <div >
                               <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
                                     <option selected>Choose item type...</option>
                                     <option value="Food">Food Items</option>
