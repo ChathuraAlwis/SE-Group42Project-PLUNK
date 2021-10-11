@@ -25,14 +25,23 @@
                         elseif ($_SESSION['UserType'] = 'Cashier') {
                           $itemTable->show("SELECT * FROM plunk.item", '../order/add');
                         }
+                        elseif ($_SESSION['UserType'] = 'Accountant') {
+                          $itemTable->show("SELECT * FROM plunk.item", '../order/update');
+                        }
                         else{
                           $itemTable->show("SELECT * FROM plunk.item", 'update');
+                          echo $_SESSION['UserType'];
                         }
+
 
 
                         // $itemTable->show("SELECT * FROM plunk.item", 'update');
 
                     ?>
+
+                          
+                    
+
                     </div>
 
                 </div>
