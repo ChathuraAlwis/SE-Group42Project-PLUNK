@@ -41,7 +41,7 @@
                     <label for="Message"><b>Message :</b> </label>
                     <textarea name="Reply" rows="5" cols="80" value = "<?php echo "$result[FeedBack]";?>" readonly></textarea>
                 </div>
-                <div class="labelbox">
+                <div class="labelbox2">
                   <label for="Reply"><b>Reply :</b> </label>
                   <textarea name="Reply" rows="5" cols="80" ></textarea>
                 </div>

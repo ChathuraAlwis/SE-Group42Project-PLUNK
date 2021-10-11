@@ -151,6 +151,11 @@ textarea{
   height: 30%;
   padding-bottom: 4%;
 }
+.labelbox2{
+  width: 100%;
+  height: 30%;
+  padding-bottom: 2%;
+}
 .btnbox{
   width: 65%;
   height: 10%;
@@ -164,7 +169,7 @@ textarea{
   height:auto;
   border-radius: 50px;
   color:  #acacac;
-  font-size: 2vw;
+  font-size: 1.5vw;
   transition-duration: 1s;
 
 
