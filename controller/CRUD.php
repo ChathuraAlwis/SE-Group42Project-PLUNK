@@ -196,7 +196,7 @@ if(isset($_POST['update-invoice'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE `plunk.invoice` SET `Company`='$_POST[Companyname]',`Type`='$_POST[Type]',`ReceivedDate`='$_POST[ReceivedDate]',`DueDate`='$_POST[DueDate]',`Total`='$_POST[Total]'  WHERE InvoiceID = '$_POST[InvoiceID]'";
+        $sql = "UPDATE `plunk.invoice` SET `InvoiceID`='$_POST[InvoiceID]',`Company`='$_POST[Company]',`Type`='$_POST[Type]',`ReceivedDate`='$_POST[ReceivedDate]',`DueDate`='$_POST[DueDate]',`Total`='$_POST[Total]'  WHERE InvoiceID = '$_POST[InvoiceID]'";
         $DB->runQuery($sql);
     } catch (\Throwable $th) {
         throw $th;
@@ -220,7 +220,7 @@ if(isset($_POST['search-invoice'])){
         else{
             $row = $result[0];
             echo "Invoice ID\t:" . $row['InvoiceID'] . "\n";
-            echo "Company\t:" . $row['Companyname'] . "\n";
+            echo "Company\t:" . $row['Company'] . "\n";
             echo "Type\t:" . $row['Type'] . "\n";
             echo "Received Date\t:" . $row['ReceivedDate'] . "\n";
             echo "Due Date\t:" . $row['DueDate'] . "\n";

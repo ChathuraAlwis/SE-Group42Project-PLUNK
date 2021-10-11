@@ -35,12 +35,19 @@
         <form action="../../controller/CRUD.php" method="POST">
             <input name ="update-invoice" type="hidden" >
             <table class="formtable">
+            <tr>
+                <div class="form-group">
+                   <td><label for="InvoiceID">Invoice ID</label></td> 
+                   <td></td>
+                    <td><input type="number" id= "InvoiceID" name="ItemID" required class="form-control" value = "<?php echo "$result[InvoiceID]";?>"/></td>
+                </div>
+              </tr>
             
             <tr>
                         <div class="form-group">
-                            <td><label for="Companyname">Company Name</label></td>
+                            <td><label for="Company">Company Name</label></td>
                             <td></td>
-                            <td><input type="text" id= "Companyname" name="Companyname" required class="form-control" value = "<?php echo "$result[Companyname]";?>"/></td>
+                            <td><input type="text" id= "Company" name="Company" required class="form-control" value = "<?php echo "$result[Company]";?>"/></td>
                         </div>
                     </tr>
                 <tr>
