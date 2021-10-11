@@ -1,10 +1,10 @@
 <?php
     session_start();
 
+    require_once 'pages.php';
     if(isset($_POST['UserName']) && isset($_POST['Password'])){
 
         require_once 'users.php';
-        require_once 'pages.php';
 
         $user = new User;
         $userType = $user->getLogin($_POST['UserName'], $_POST['Password']);
@@ -14,12 +14,14 @@
             $page->show();
         }
         else{
-            $page = new Page('../view/login.html');
+            $page = new Page('../view/login.php?result="Invaild User"');
             $page->show();
+            echo '<script>alert("Invalid Username or Password")</script>';
         }
     }
     else{
-        echo "not set";
+        $page = new Page('../view/login.php');
+        $page->show();
     }
 
     

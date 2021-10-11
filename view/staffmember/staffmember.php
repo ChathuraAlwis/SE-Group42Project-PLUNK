@@ -2,13 +2,13 @@
   if (isset($_SESSION['UserType'])){
     if ($_SESSION['UserType'] != 'Staff Member'){
       require_once "../../controller/pages.php";
-      $page = new Page('../login.html');
+      $page = new Page('../login.php');
       $page->show();
     }
   }
   else{
     require_once "../../controller/pages.php";
-    $page = new Page('../login.html');
+    $page = new Page('../login.php');
     $page->show();
   }
 ?>

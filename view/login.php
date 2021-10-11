@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,6 +9,15 @@
           <link rel="stylesheet" href="style/login.css">
   </head>
   <body>
+    <?php
+      if(isset($_GET['result'])){
+        if(!isset($_SESSION['UserName'])){
+          echo '<script>alert("Invail Username or Password")</script>';
+        }else{
+          session_unset();;
+        }
+      }
+    ?>
 
     <header>
           <img class="plunk" src="images/projectlogo.png" alt="plunk logo">
@@ -22,7 +32,7 @@
 
           <div class="form-control">
                 <label for="UserName"><b>User Name</b></label>
-                <input name ="UserName" id="UserName" type="text" placeholder="Enter Your username" >
+                <input name ="UserName" id="UserName" type="text" placeholder="Enter Your username" <?php if(isset($_SESSION['UserName'])){echo "value=$_SESSION[UserName]";}?>>
                 <hr>
                 <small>Error message</small>
           </div>
