@@ -12,19 +12,14 @@
 
   </head>
   <body>
-    <script>
-        var ans = getParameterByName('data', window.location.href);
-        var id = ans.slice(-1);
-        document.cookie = 'data='+id;
-    </script>
-    <?php 
+  <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = $_COOKIE['data'];
+        $id = explode("=", $_GET['data'])[1];
         $query = "SELECT * FROM plunk.item WHERE ItemID=$id";
         $result = $DB->runQuery($query)[0];
-        //print_r($result);
     ?>
+
     <div class=main>
     <div class= left>
     <div class="form">

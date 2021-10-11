@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+        <meta charset="utf-8">
+        <title>Bloomfield</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1">
+        <link rel="icon" type="icon" href="../images/bloomfieldlogo.png" sizes="32*32">
+        <link rel="stylesheet" href="../style/profile.css">
+
+
+
+  </head>
+  <body>
+    <div class="main">
+        <div class="profformbox">
+          <form class="profform" action="index.html" method="post">
+          <div class="imagebox">
+            <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+
+            <img id="output" >
+            <label for="file" class="upload"><b>Upload Image</b> </label>
+
+            <script>
+            var loadFile = function(event) {
+            	var image = document.getElementById('output');
+            	image.src = URL.createObjectURL(event.target.files[0]);
+            };
+            </script>
+
+          </div><br>
+          <div class="forminputs">
+            <label for="">Name with initials :</label>
+            <input type="text" name="" value="">
+          </div><br>
+          <div class="forminputs">
+            <label for="">User ID :</label>
+            <input type="text" name="" value="" readonly>
+          </div><br>
+          <div class="forminputs">
+            <label for="">User Type :</label>
+            <input type="text" name="" value="" readonly>
+          </div><br>
+          <div class="forminputs">
+            <label for="">Joined Date :</label>
+            <input type="text" name="" value="" readonly>
+          </div><br>
+          <div class="forminputs">
+            <label for="">Contact No :</label>
+            <input type="text" name="" value="" >
+          </div><br>
+          <div class="forminputs">
+            <label for="">E-mail :</label>
+            <input type="text" name="" value="" readonly>
+          </div><br>
+          <div class="forminputbtn">
+            <button type="submit" name="button" class="save"><b>Save</b> </button>
+          </div>
+          </form>
+
+        </div>
+
+        </div>
+    </body>
+</html>
