@@ -17,15 +17,15 @@
         <div class="main">
           <div class="upper">
                 <div class="resbooking">
-                <h3>Invoice</h3>
+                <h3>Items</h3>
                 <div class="detailtable">
 
-                    <iframe src="../invoice/invoicedetails.php" class="staff"></iframe>
+                    <iframe src="../items/itemtable.php" class="staff"></iframe>
                     </div>
                 </div>
 
                 <div class="reorder">
-                  <h3>Items Invoice</h3>
+                  <h3>Item Details with Invoice</h3>
                   <div class="detailtable">
 
                     <iframe src="../invoice/invoiceitem.php" class="staff"></iframe>

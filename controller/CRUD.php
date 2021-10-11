@@ -220,7 +220,7 @@ if(isset($_POST['search-invoice'])){
         else{
             $row = $result[0];
             echo "Invoice ID\t:" . $row['InvoiceID'] . "\n";
-            echo "Company\t:" . $row['Company'] . "\n";
+            echo "Company\t:" . $row['Companyname'] . "\n";
             echo "Type\t:" . $row['Type'] . "\n";
             echo "Received Date\t:" . $row['ReceivedDate'] . "\n";
             echo "Due Date\t:" . $row['DueDate'] . "\n";
