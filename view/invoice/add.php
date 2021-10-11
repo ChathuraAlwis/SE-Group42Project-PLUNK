@@ -41,7 +41,7 @@
                     <div class="form-group">
                         <td><label for="ReceivedDate">Received Date</label></td>
                         <td></td>
-                        <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" placeholder="Enter the received date"/></td>
+                        <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" placeholder="Enter the received date" max="<?php echo date("Y-m-d") ?>"/></td>
                     </div>
                 </tr> 
 
@@ -49,7 +49,7 @@
                     <div class="form-group">
                         <td><label for="DueDate">Due Date</label></td>
                         <td></td>
-                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date"/></td>
+                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date" max="<?php echo date("Y-m-d") ?>"/></td>
                     </div>
                 </tr> 
 
