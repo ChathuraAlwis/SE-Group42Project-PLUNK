@@ -292,4 +292,6 @@ h2{
   background: #2d7166;
 }
 
-
+.open{
+  background-color:darkred;
+}

@@ -40,7 +40,7 @@
                               if ($_SESSION['UserType']=='Restaurant Manager'){
                                     echo "<div class=\"addicon\">
                                                 <a href=\"../items/additems.php\" class=\"add\"><button type=\"button\" name=\"button\" class=\"addbtn\"><b>+</b></button></a>
-                                          </div>;";
+                                          </div>";
                               }               
                         ?>
                     </div>
