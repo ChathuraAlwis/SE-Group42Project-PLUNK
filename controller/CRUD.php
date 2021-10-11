@@ -223,7 +223,7 @@ if(isset($_POST['search-invoice'])){
             echo "Company\t:" . $row['Companyname'] . "\n";
             echo "Type\t:" . $row['Type'] . "\n";
             echo "Received Date\t:" . $row['ReceivedDate'] . "\n";
-            echo "Due Date\t:" . $row['Duedate'] . "\n";
+            echo "Due Date\t:" . $row['DueDate'] . "\n";
             echo "Total\t:" . $row['Total'] . "\n";
         }
     } catch (\Throwable $th) {
