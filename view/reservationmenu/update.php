@@ -16,9 +16,10 @@
     <?php 
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = explode("=", $_GET['data'])[0];
-        $query = "SELECT * FROM plunk.reservationmenu WHERE ReservationName=$id";
+        $id = explode("=", $_GET['data'])[1];
+        $query = "SELECT * FROM plunk.reservationmenu WHERE ReservationName = '$id' ";
         $result = $DB->runQuery($query)[0];
+        
     ?>
     <div class=main>
     <div class= left>

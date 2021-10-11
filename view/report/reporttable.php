@@ -18,8 +18,8 @@ session_start();?>
                     
                     <?php
                         require_once "../../controller/showtable.php";
-                        $itemTable = new Table("leave");
-                        $itemTable->show("SELECT LeaveDate,Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]';", false);
+                        $itemTable = new Table("report");
+                        $itemTable->show("SELECT * FROM plunk.report ", false);
                       ?> 
                     </div>
 
