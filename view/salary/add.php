@@ -15,78 +15,45 @@
     <div class="main">
     <div class= "left">
     <div class="form">
-        <h2 class="center-text"><b>Add Invoice</b></h2>
+        <h2 class="center-text"><b>Add Salary Details</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-                <input name ="add-invoice" type="hidden" >
+                <input name ="add-salary" type="hidden" >
                 <table>
                     <tr>
                         <div class="form-group">
-                            <td><label for="Companyname">Company Name</label></td>
+                            <td><label for="Name">Name</label></td>
                             <td></td>
-                            <td><input type="text" id= "Companyname" name="Companyname" required class="form-control" placeholder="Enter the company name"/></td>
+                            <td><input type="text" id= "Name" name="Name" required class="form-control" placeholder="Enter the staff member name"/></td>
                         </div>
                     </tr>
-                <tr>
-                <div class="form-group">
-                    <td><label for="Type">Type</label></td>
-                    <td></td>
-                    <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
-                        <option value="1">Beverage Items</option>
-                        <option value="2">Food Items</option>
-                     </select></td>
+                    <br>
+                    <tr>
+                    <div class="form-group">
+                        <td><label for="Basic">Basic Salary</label></td>
+                        <td></td>
+                        <td><input type="number" id="Basic" name="Basic" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the basic salary"/></td>
                     </div>
                 </tr>
-                <tr>
-                    <div class="form-group">
-                        <td><label for="ReceivedDate">Received Date</label></td>
-                        <td></td>
-                        <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" placeholder="Enter the received date"/></td>
-                    </div>
-                </tr> 
-
-                <tr>
-                    <div class="form-group">
-                        <td><label for="DueDate">Due Date</label></td>
-                        <td></td>
-                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date"/></td>
-                    </div>
-                </tr> 
-
                 <br>
-                <tr>
+                    <tr>
                     <div class="form-group">
-                        <td><label for="Total">Total Invoice Value</label></td>
+                        <td><label for="ETF">ETF Value</label></td>
                         <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" placeholder="Enter the total invoice value"/></td>
+                        <td><input type="number" id="ETF" name="ETF" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the ETF value"/></td>
                     </div>
                 </tr>
+                <br>
+                    <tr>
+                    <div class="form-group">
+                        <td><label for="EPF">EPF Value</label></td>
+                        <td></td>
+                        <td><input type="number" id="EPF" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the EPF Value"/></td>
+                    </div>
+                </tr>
+                
             </table>
             <br>
-            <div class="form-group">
-            <div id="myform" onload="load()"> 
-                    <b>Enter the item details of the invoice...</b> 
-                    <br/><br/> 
-                            Item ID:<input type=text id="ItemID"> 
-                    <br/><br/> 
-                            Quantity :&nbsp; 
-                            <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
-                    <br/> 
-                            <input type="button" id="add" value="Add" onclick="addRow()"> 
-                    </div> 
-                    <br/><br/> 
-                    <div id="mydata"> 
-                    <b>Item Details...</b> 
-                    <table id="myTableData" class="addrowtable" > 
-                        <tr> 
-                            <td>&nbsp;</td> 
-                            <td><b>Item ID</b></td> 
-                            <td><b>Quantity</b></td> 
-                        </tr> 
-                    </table> 
-                      
-                    </div> 
-                </div>
+            
             
                 <br>
                 <div class="form-group">
@@ -100,8 +67,8 @@
         <div class= right>
             <div class="righttable">
             <div class="itemtable">
-                <h3>ITEM TABLE</h3>
-                <iframe src="../items/itemtable.php" class="item"></iframe>
+                <h3>Salary Details Table</h3>
+                <iframe src="details.php" class="item"></iframe>
             </div>
     </div>
     </div>
