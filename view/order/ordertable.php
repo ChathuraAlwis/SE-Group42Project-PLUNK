@@ -23,13 +23,16 @@
             <div class="covertable">
                 <div class="table">
                     <div>
-                    <div >
+                        <div >
                               <input type = "text" class = "search" placeholder="Enter the item name"/>
-                  </div>
+                        </div>
                     <div >
-                              <button type = "submit" class = "search" ><b>Search</b></button>
-                        </div> 
+                        <button type = "submit" class = "search" ><b>Search</b></button>
                     </div>
+                    <div class="addicon">
+                        <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                    </div> 
+                 </div>
                     <div class="detailtable">
 
                         <iframe src="details.php" class="staff"></iframe>
