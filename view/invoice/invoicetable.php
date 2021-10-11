@@ -23,6 +23,7 @@
                 <div class="table">
                     <div class="upperbar">
                           <input type="text" name="search" class="search" placeholder="Search..." >
+                          <button type="submit" target="staff">Search</button>
                           <div class="addicon">
                                 <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>

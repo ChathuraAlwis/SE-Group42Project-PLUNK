@@ -22,9 +22,11 @@
             <div class="covertable">
                 <div class="table">
                     <div>
-                    <div class = "search">
-                              <input placeholder="Enter the name"/>
-                              <button type = "Submit" class= "submit">Search</button>
+                    <div >
+                              <input type = text class = "search" placeholder="Enter the reservation name"/>
+                  </div>
+                    <div >
+                              <button type = "submit" class = "search" ><b>Search</b></button>
                         </div>                
                         <div class="addicon">
                               <a href="addreservation.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>

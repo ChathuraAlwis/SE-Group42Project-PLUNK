@@ -22,19 +22,17 @@
             <div class="covertable">
                 <div class="table">
                     <div>
-                    <div >
-                              <input type = date class = "search" />
-                        </div>
-                        <div >
-                              <button type = "submit" class = "search" ><b>Leave Date</b></button>
-                        </div>                
+                    <div class = "search">
+                              <input type= "date" placeholder="Enter the leave date"/>
+                              <button type = "Submit" class= "submit">Search</button>
+                        </div>                 
                         <div class="addicon">
                               <a href="../leave/addleave.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>
                     </div>
                     <div class="detailtable">
 
-                        <iframe src="leavetable.php" class="staff"></iframe>
+                        <iframe src="../leave/allleave.php" class="staff"></iframe>
                   </div>
                 </div>
 
@@ -45,4 +43,3 @@
 
   </body>
 </html>
-
