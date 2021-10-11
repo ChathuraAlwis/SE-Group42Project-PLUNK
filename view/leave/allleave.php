@@ -1,3 +1,5 @@
+<?php
+session_start();?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -6,7 +8,7 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/itemtable.css">
+        <link rel="stylesheet" href="../style/tablehome.css">
 
   </head>
   <body>
@@ -16,8 +18,8 @@
                     
                     <?php
                         require_once "../../controller/showtable.php";
-                        $reorderTable = new Table("booking");
-                        $reorderTable->show("SELECT CustomerName,Reservation1,Reservation2,ReservedDate,NoOfPeople,ReservedTime,EndTime FROM plunk.booking WHERE BookingType = 'Restaurant'", false);
+                        $itemTable = new Table("leave");
+                        $itemTable->show();
                       ?> 
                     </div>
 

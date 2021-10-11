@@ -13,10 +13,18 @@
         <div class="main" >
 
                     <div class="detailtable">
-                      <?php
+                    <?php
                           require_once "../../controller/showtable.php";
                           $invoiceTable = new Table("invoice");
-                          $invoiceTable->show();
+                          if(isset($_POST['invoicesearch'])){
+                            $search = $_POST['invoicesearch'];
+                            $invoiceTable->show("SELECT * FROM plunk.invoice WHERE Company LIKE ('%$search%');", false);
+                            // $orderTable->show("SEARCH Cus");
+                          }
+                          else{
+                            $invoiceTable->show();
+                          }
+                          
                        ?>
 
                     </div>

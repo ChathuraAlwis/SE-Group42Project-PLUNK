@@ -28,7 +28,7 @@
                   <h3>Club Bookings</h3>
                   <div class="detailtable">
 
-                    <iframe src="../staffmember/books.php" class="staff"></iframe>
+                    <iframe src="../staffmember/clubbook.php" class="staff"></iframe>
                     </div>
                     </div>
                 <div class="calendar">
