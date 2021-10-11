@@ -18,11 +18,11 @@
                           $invoiceTable = new Table("invoice");
                           if(isset($_POST['search-invoice'])){
                             $search = $_POST['search-invoice'];
-                            $invoiceTable->show("SELECT * FROM plunk.invoice WHERE Company LIKE ('%$search%');", false);
+                            $invoiceTable->show("SELECT * FROM plunk.invoice WHERE Company LIKE ('%$search%');", );
                             // $orderTable->show("SEARCH Cus");
                           }
                           else{
-                            $invoiceTable->show();
+                            $invoiceTable->show("SELECT * FROM plunk.invoice",'update');
                           }
                           
                        ?>
