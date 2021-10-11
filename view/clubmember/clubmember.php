@@ -1,6 +1,6 @@
 <?php session_start(); 
   if (isset($_SESSION['UserType'])){
-    if ($_SESSION['UserType'] != 'Life Member'){
+    if ($_SESSION['UserType'] != 'Life Member' && $_SESSION['UserType'] != 'Ordinary Member' && $_SESSION['UserType'] != 'Hon.Life Member'){
       require_once "../../controller/pages.php";
       $page = new Page('../login.php');
       $page->show();
