@@ -1,4 +1,5 @@
 function maxQuantity(itemQuantity, setMax=1){
+    console.log(setMax);
     var ItemID = document.getElementById("ItemID");
     var max = 0;
     var canAdd = false;
@@ -11,6 +12,9 @@ function maxQuantity(itemQuantity, setMax=1){
                 canAdd = true;
             }
         });
+    }
+    else{
+        canAdd = true;
     }
 
     var Table = document.getElementById("myTableData");
@@ -28,7 +32,10 @@ function maxQuantity(itemQuantity, setMax=1){
     else{
         document.getElementById("add").disabled=true;
     }
-    var Quantity = document.getElementById("Quantity");
-    Quantity.setAttribute("max", max);
+
+    if(setMax==1){
+        var Quantity = document.getElementById("Quantity");
+        Quantity.setAttribute("max", max);
+    }
     // console.log(max);
 }
