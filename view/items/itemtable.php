@@ -25,7 +25,7 @@
                           $itemTable->show("SELECT * FROM plunk.item", '../order/add');
                         }
                         elseif ($_SESSION['UserType'] = 'Accountant') {
-                          $itemTable->show("SELECT * FROM plunk.item", '../order/update');
+                          $itemTable->show("SELECT * FROM plunk.item");
                         }
                         else{
                           $itemTable->show("SELECT * FROM plunk.item", 'update');
@@ -39,12 +39,8 @@
                     ?>
 
                           
-<<<<<<< HEAD
-                    ?> 
-=======
                     
 
->>>>>>> 88eb72cfe44ab26df7acc5de624a8286502e6119
                     </div>
 
                 </div>
