@@ -17,7 +17,7 @@
         <div class="main">
           <div class="upper">
                 <div class="resbooking">
-                <h3>Bookings</h3>
+                <h3>Restaurant Bookings List</h3>
                 <div class="detailtable">
 
                     <iframe src="../restaurantmanager/bookingrm.php" class="staff"></iframe>
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="reorder">
-                  <h3>Items</h3>
+                  <h3>Reorder Items List</h3>
                   <div class="detailtable">
 
                     <iframe src="../restaurantmanager/itemtablerm.php" class="staff"></iframe>
