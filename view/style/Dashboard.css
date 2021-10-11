@@ -26,7 +26,7 @@ html, body{
   border-width: 2px;
   border-style: solid;
   border-color: #017a7a;
- /*background-color: red;*/
+ background-color: #017a7a;
 }
 .clubbooking{
   width: 35%;
@@ -36,7 +36,7 @@ html, body{
   border-width: 2px;
   border-style: solid;
   border-color: #017a7a;
-/*background-color: green;*/
+background-color:#017a7a;
 }
 .reorder{
   width: 35%;
@@ -110,14 +110,15 @@ h3{
   text-align: center;
   margin: none;
   padding: none;
-  color: #017a7a;
+  color: black;
   margin-top: 0%;
   margin-bottom: 0%;
 
 }
 .staff{
-  height:100%;
+  height:90%;
   width:100%;
+  border: none;
 }
 
 /*Admin Dashboard*/
@@ -195,6 +196,7 @@ h3{
   border-width: 2px;
   border-style: solid;
   border-color: #017a7a;
+  background-color:#017a7a;
 }
 
 /*Accountant Dashboard*/
