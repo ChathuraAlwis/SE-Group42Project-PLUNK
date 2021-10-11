@@ -44,7 +44,7 @@
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>
-                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" required>
+                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" max="<?php echo date("Y-m-d") ?>" required>
                 </div><br>
                 <div class="forminputs">
                     <label for="Email"> E-mail </label><br>
