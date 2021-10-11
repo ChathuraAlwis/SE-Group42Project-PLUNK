@@ -10,19 +10,15 @@
 
   </head>
   <body>
-    <script>
-       var ans = getParameterByName('data', window.location.href);
-       var id = ans.slice(-1);
-      document.cookie = 'data='+id;
-   </script>
-   <?php
-       require_once "../../model/database.php";
-       $DB = new DB;
-        $id = $_COOKIE['data'];
-       $query = "SELECT * FROM plunk.feedback";
-       $result = $DB->runQuery($query)[0];
-        print_r($result);
-   ?>
+    <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $id = explode("=", $_GET['data'])[1];
+        $query = "SELECT * FROM plunk.feedback WHERE FeedBackID='$id'";
+
+        $result = $DB->runQuery($query)[0];
+
+    ?>
         <div class="main" >
             <div class="coverheader">
 
@@ -38,8 +34,9 @@
                 <form class="feedbackform" action="..\..\controller\CRUD.php" method="post">
                   <input name ="reply-feedback" type="hidden" >
                 <div class="labelbox">
-                    <label for="Message"><b>Message :</b> </label>
-                    <textarea name="Reply" rows="5" cols="80" value = "<?php echo "$result[FeedBack]";?>" readonly></textarea>
+                    <label for="FeedBack"><b>Message :</b> </label>
+                    
+                    <textarea name="FeedBack" rows="5" cols="80"  readonly><?php echo "$result[FeedBack]";?></textarea>
                 </div>
                 <div class="labelbox2">
                   <label for="Reply"><b>Reply :</b> </label>

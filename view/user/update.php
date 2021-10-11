@@ -15,12 +15,19 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.user WHERE UserID=$id";
+        $query = "SELECT * FROM plunk.user WHERE DisplayID='$id'";
+
         $result = $DB->runQuery($query)[0];
+
     ?>
         <div class="main" >
             <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
               <input name ="update-user" type="hidden" >
+              <div class="headerrow">
+                <div class="bin">
+                  <a href="delete.php"><img src="..\images\bin.png" alt="Delete Icon" class="binicon"></a>
+                </div>
+              </div>
               <div class="submain">
                 <div class="forminputs">
                     <label for="Name"> Name with initials</label><br>
