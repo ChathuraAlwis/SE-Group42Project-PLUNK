@@ -19,7 +19,7 @@ session_start();?>
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("leave");
-                        $itemTable->show();
+                        $itemTable->show("SELECT * FROM plunk.leave",'update');
                       ?> 
                     </div>
 

@@ -16,8 +16,8 @@
                     <div class="detailtable">
                       <?php
                           require_once "../../controller/showtable.php";
-                          $orderTable = new Table("salary");
-                          $orderTable->show();
+                          $salaryTable = new Table("salary");
+                          $salaryTable->show("SELECT * FROM plunk.salary",'update');
                        ?>
 
                     </div>

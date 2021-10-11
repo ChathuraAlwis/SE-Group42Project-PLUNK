@@ -22,10 +22,12 @@
             <div class="covertable">
                 <div class="table">
                     <div>
-                    <div class = "search">
-                              <input type= "date" placeholder="Enter the leave date"/>
-                              <button type = "Submit" class= "submit">Search</button>
-                        </div>                 
+                    <div >
+                              <input type = "date" class = "search" placeholder="Enter the leave date"/>
+                  </div>
+                    <div >
+                              <button type = "submit" class = "search" ><b>Search</b></button>
+                        </div>              
                         <div class="addicon">
                               <a href="../leave/addleave.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>

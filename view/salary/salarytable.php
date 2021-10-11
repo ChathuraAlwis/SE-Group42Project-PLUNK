@@ -22,7 +22,12 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Search..." >
+                    <div >
+                              <input type = "text" class = "search" placeholder="Enter the salary"/>
+                  </div>
+                    <div >
+                              <button type = "submit" class = "search" ><b>Search</b></button>
+                        </div>
                           <div class="addicon">
                                 <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
