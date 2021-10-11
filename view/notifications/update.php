@@ -29,7 +29,7 @@
                <div class="t"> <table class="formtable">
                <tr>
                     <div class="form-group">
-                        <td> <label for="NotificationID">Date</label></td>
+                        <td> <label for="NotificationID">Notification ID</label></td>
                         <td><input type="number" id= "NotificationID" name="NotificationID" required class="form-control" value = "<?php echo "$result[NotificationID]";?>"/></td>
                     </div>
                 </tr>
