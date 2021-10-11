@@ -16,7 +16,7 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $paymentTable = new Table("payment");
-                          $paymentTable->show();
+                          $paymentTable->show("SELECT * FROM plunk.payment",'update');
                        ?>
 
                     </div>
