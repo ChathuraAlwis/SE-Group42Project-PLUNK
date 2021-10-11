@@ -19,11 +19,11 @@
                           $billTable = new Table("bill");
                           if(isset($_POST['billsearch'])){
                             $search = $_POST['billsearch'];
-                            $billTable->show("SELECT * FROM plunk.bill WHERE CustomerName LIKE ('%$search%');", false);
+                            $billTable->show("SELECT * FROM plunk.bill WHERE CustomerName LIKE ('%$search%');", '../payment/add');
                             // $orderTable->show("SEARCH Cus");
                           }
                           else{
-                            $billTable->show();
+                            $billTable->show("SELECT * FROM plunk.bill", 'update');
                           }
                           
                        ?>
