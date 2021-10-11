@@ -67,7 +67,7 @@
         <div class= right>
             <div class="righttable">
             <div class="itemtable">
-                <h3>Salary Details TABLE</h3>
+                <h3>Salary Details Table</h3>
                 <iframe src="details.php" class="item"></iframe>
             </div>
     </div>
