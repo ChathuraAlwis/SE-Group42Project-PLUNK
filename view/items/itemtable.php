@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,7 +18,16 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("item");
-                        $itemTable->show("SELECT * FROM plunk.item", false);
+                        if($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'Hon.Life Member'){
+                          $itemTable->show("SELECT ItemID, ItemName as Name, ItemType as Type, Price, Discount FROM plunk.item WHERE Availability=1", '../order/add');
+                        }
+                        elseif ($_SESSION['UserType'] = 'Cashier') {
+                          $itemTable->show("SELECT * FROM plunk.item", '../order/add');
+                        }
+                        else{
+                          $itemTable->show("SELECT * FROM plunk.item", 'update');
+                        }
+                          
                     ?> 
                     </div>
 
