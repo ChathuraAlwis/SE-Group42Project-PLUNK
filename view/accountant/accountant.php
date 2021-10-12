@@ -32,7 +32,7 @@
                   <div class="leftheader">
                       <img class="plunk" src="../images/projectlogo.png" alt="plunk logo"><br>
                       <div class="menudiv">
-                         <a href="accountantnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
+                         <a href="acconavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
                       </div>
                   </div>
 
@@ -47,7 +47,7 @@
                     <div class="dropdown">
                         <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
                         <div class="dropdown-content">
-                        <a href="#" class="headerdrop"><b>Profile</b></a>
+                        <a href="../profile/prfileui.html" class="headerdrop" target="Pages"><b>Profile</b></a>
                         <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
                         </div>
                     </div>
