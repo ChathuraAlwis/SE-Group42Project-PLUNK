@@ -17,17 +17,17 @@
         <div class="main">
           <div class="upper">
                 <div class="resbooking">
-                <h3>Restaurant Bookings</h3>
-                <div class="detailtable">
 
+                <div class="detailtable">
+                          <h3>Restaurant Bookings</h3>
                     <iframe src="../staffmember/books.php" class="staff"></iframe>
                     </div>
                 </div>
 
                 <div class="reorder">
-                  <h3>Club Bookings</h3>
-                  <div class="detailtable">
 
+                  <div class="detailtable">
+                      <h3>Club Bookings</h3>
                     <iframe src="../staffmember/clubbook.php" class="staff"></iframe>
                     </div>
                     </div>
@@ -39,10 +39,10 @@
               <h2>Notifications</h2>
           </div>
           <div class="Notifications">
-          
+
           <div class="detailtable">
             <iframe src="../restaurantmanager/notificationrm.php" class="staff"></iframe>
-          
+
           </div>
           </div>
 
