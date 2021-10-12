@@ -64,11 +64,7 @@
 
                 <br>
                 <tr>
-                    <div class="form-group">
-                        <td><label for="Total">Total Invoice Value</label></td>
-                        <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the total " readonly/></td>
-                    </div>
+                    
                 </tr>
             </table>
             <br>
@@ -85,6 +81,7 @@
                             Quantity :&nbsp; 
                             <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
                     <br/> 
+                    
                     <?php 
                         echo "<td><input type=button id=add value=Add onclick=addRowInvoice(" . $_COOKIE['Items'] . ") disabled></td>";
                     ?> 
@@ -100,11 +97,18 @@
                             <td>&nbsp;</td> 
 
                         </tr> 
+                        
                     </table> 
                       
                     </div> 
                 </div>
+                <br>
                 <input type="hidden" id="rowCount" name="rowCount" value=0>
+                <div class="form-group">
+                        <td><label for="Total">Total Invoice Value</label></td>
+                    
+                        <td><input type="text" id= "Total" name="Total" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the total " readonly/></td>
+                    </div>
             
                 <br>
                 <div class="form-group">

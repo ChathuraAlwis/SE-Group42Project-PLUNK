@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,13 +13,12 @@
         <div class="main" >
 
                     <div class="detailtable">
-                      <?php
-                          require_once "../../controller/showtable.php";
-                          $orderTable = new Table("servicecharge");
-                          $orderTable->show("SELECT * FROM plunk.servicecharge",'allservicecharge');
-                       ?>
-
-                    </div>
+                    
+                    <?php
+                        require_once "../../controller/showtable.php";
+                        $cashTable = new Table("cashpayment");
+                        $cashTable->show("SELECT * FROM plunk.cashpayment", 'update');
+                      ?>
 
                 </div>
 

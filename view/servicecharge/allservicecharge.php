@@ -16,8 +16,8 @@
                     <div class="detailtable">
                       <?php
                           require_once "../../controller/showtable.php";
-                          $orderTable = new Table("servicecharge");
-                          $orderTable->show("SELECT * FROM plunk.servicecharge",'allservicecharge');
+                          $salarystaffTable = new Table("salarystaff");
+                          $salarystaffTable->show("SELECT * FROM plunk.servicechargestaff");
                        ?>
 
                     </div>
