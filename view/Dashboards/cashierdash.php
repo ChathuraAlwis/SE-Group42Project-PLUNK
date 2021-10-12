@@ -17,11 +17,11 @@
         <div class="main">
           <div class="upper">
                 <div class="Table">
-                <h3>Orders</h3>
-                <div class="detailtable">
-            <iframe src="../order/details.php" class="staff"></iframe>
+                  <div class="detailtable">
+                    <h3>Orders</h3>
+                    <iframe src="../order/details.php" class="staff"></iframe>
           
-          </div>
+                  </div>
                 </div>
                 
                 <div class="calendar">
