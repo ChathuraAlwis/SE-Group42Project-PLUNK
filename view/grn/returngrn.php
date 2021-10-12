@@ -30,6 +30,15 @@
         </form>        
       </div>
     </div>
+    <div class= right>
+      <div class = "righttable">
+        <div class="itemtable">
+            <h4>GRN TABLE</h4>
+            <iframe src="grntable.php" class="item"></iframe>
+        </div>
+        
+       </div>
+    </div>
     </div> 
   </body>
 

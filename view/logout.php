@@ -2,5 +2,5 @@
     session_start();
     session_unset();
     session_destroy();
-    header('Location: cover.html');
+    header('Location: cover.php');
 ?>
