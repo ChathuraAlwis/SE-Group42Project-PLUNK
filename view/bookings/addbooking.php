@@ -10,6 +10,7 @@
 
   </head>
   <body>
+    <?php date_default_timezone_set("Asia/Kolkata"); ?>
         <div class="main" >
             <div class="header">
               <div class="upperrow"></div>
