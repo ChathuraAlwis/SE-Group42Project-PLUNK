@@ -22,33 +22,33 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.invoice WHERE InvoiceID=$id";
+        $query = "SELECT * FROM plunk.payment WHERE PaymentID=$id";
         $result = $DB->runQuery($query)[0];
     ?>
 
     <div class=main>
     <div class= left>
     <div class="form">
-			<h2 class="center-text"><b>INVOICE DETAILS</b>
+			<h2 class="center-text"><b>Payment Details</b>
                 <image src = "../images/bin.png" class="bin"></image></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
-            <input name ="update-invoice" type="hidden" >
+            <input name ="update-payment" type="hidden" >
             <table class="formtable">
             <tr>
                 <div class="form-group">
-                   <td><label for="InvoiceID">Invoice ID</label></td> 
+                   <td><label for="PaymentID">Payment ID</label></td> 
                    <td></td>
-                    <td><input type="number" id= "InvoiceID" name="ItemID" required class="form-control" value = "<?php echo "$result[InvoiceID]";?>"/></td>
+                    <td><input type="number" id= "PaymentID" name="PaymentID" required class="form-control" value = "<?php echo "$result[PaymentID]";?>"/></td>
                 </div>
               </tr>
             
             <tr>
                         <div class="form-group">
-                            <td><label for="Company">Company Name</label></td>
+                            <td><label for="PaymentDate">Payment Date</label></td>
                             <td></td>
-                            <td><input type="text" id= "Company" name="Company" required class="form-control" value = "<?php echo "$result[Company]";?>"/></td>
+                            <td><input type="date" id= "PaymentDate" name="PaymentDate" required class="form-control" value = "<?php echo "$result[PaymentDate]";?>"/></td>
                         </div>
                     </tr>
                 <tr>
@@ -57,35 +57,25 @@
                     <td></td>
                     <td><select id="Type" name="Type" class="form-control" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="1">Beverage Items</option>
-                        <option value="2">Food Items</option>
+                        <option value="1">Cash</option>
+                        <option value="2">Visa</option>
                      </select></td>
                     </div>
                 </tr>
                 <tr>
-                    <div class="form-group">
-                        <td><label for="ReceivedDate">Received Date</label></td>
-                        <td></td>
-                        <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" value = "<?php echo "$result[ReceivedDate]";?>"/></td>
-                    </div>
-                </tr> 
-
-                <tr>
-                    <div class="form-group">
-                        <td><label for="DueDate">Due Date</label></td>
-                        <td></td>
-                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" value = "<?php echo "$result[DueDate]";?>"/></td>
-                    </div>
-                </tr> 
-
-                <br>
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Total">Total Invoice Value</label></td>
-                        <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Total]";?>"/></td>
-                    </div>
-                </tr>
+                <div class="form-group">
+                   <td><label for="UserID">User ID</label></td> 
+                   <td></td>
+                    <td><input type="number" id= "UserID" name="UserID" required class="form-control" value = "<?php echo "$result[UserID]";?>"/></td>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">
+                   <td><label for="BookingID">Booking ID</label></td> 
+                   <td></td>
+                    <td><input type="number" id= "BookingID" name="BookingID" required class="form-control" value = "<?php echo "$result[BookingID]";?>"/></td>
+                </div>
+              </tr>
             </table>
             
                 <br>
@@ -99,15 +89,15 @@
 <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>ITEM TABLE</h4>
-            <iframe src="../items/itemtable.php" class="item"></iframe>
+            <h4>CASH PAYMENT TABLE</h4>
+            <iframe src="cash.php" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
-                <h4>ITEMS DETAILS WITH INVOICE TABLE</h4>
-                <iframe src="invoiceitem.php" class="item"></iframe>
+                <h4>VISA PAYMENT TABLE</h4>
+                <iframe src="visa.php" class="item"></iframe>
             </div>  
         </div>
     </div>
