@@ -17,7 +17,7 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $salarystaffTable = new Table("salarystaff");
-                          $salarystaffTable->show("SELECT * FROM plunk.salarystaff");
+                          $salarystaffTable->show("SELECT * FROM plunk.salarystaff", 'update');
                        ?>
 
                     </div>
