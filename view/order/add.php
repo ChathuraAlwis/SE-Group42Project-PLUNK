@@ -23,6 +23,7 @@
         }else{
             $id = -1;
         }
+        date_default_timezone_set("Asia/Kolkata");
     ?>
     <div class="main">
         <div class="left">
@@ -34,10 +35,10 @@
                         <div class="form-group">
                             <tr>
                                 <td style="text-align: right"><label for="OrderDate">Order Date</label></td>
-                                <td><input name ="OrderDate" id="OrderDate" type="date" value="<?php echo date("Y-m-d") ?>" required></td>
+                                <td><input name ="OrderDate" id="OrderDate" type="date" value="<?php echo date("Y-m-d") ?>" readonly></td>
                                 <td width=50px>&nbsp;</td>
                                 <td style="text-align: right"><label for="OrderTime">Order Time</label></td>
-                                <td><input name ="OrderTime" id="OrderTime" type="time" value="<?php echo date("h:m") ?>" required></td>
+                                <td><input name ="OrderTime" id="OrderTime" type="time" value="<?php echo date("H:i") ?>" readonly></td>
                             </tr>
                         </div>
                     </table>
