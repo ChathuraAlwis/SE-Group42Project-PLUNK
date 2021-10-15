@@ -168,13 +168,18 @@ if(isset($_POST['update-item'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE `plunk.  item` SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`Price`='$_POST[Price]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE ItemID = '$_POST[ItemID]'";
+        $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`Price`='$_POST[Price]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
         $DB->runQuery($sql);
     } catch (\Throwable $th) {
         throw $th;
     }
+    
+    echo "Item updated successfully";
 
 }
+
+//-----------Search Item---------------------
+
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
         $DB = new DB;

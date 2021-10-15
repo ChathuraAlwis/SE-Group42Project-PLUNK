@@ -23,11 +23,12 @@
             <div class="covertable">
                 <div class="table">
                     <div>
+                    <input type = "hidden" class = "search" value="search-item"/>
                     <div >
-                              <input type = "text" class = "search" placeholder="Enter the item name"/>
+                              <input type = "text" id= "ItemID" name= "ItemID" class = "search" placeholder="Enter the item name" />
                   </div>
                     <div >
-                              <button type = "submit" class = "search" ><b>Search</b></button>
+                              <button type = "submit" class = "search" ><a href= "#" ><b>Search</b></a></button>
                         </div>
                         <div >
                               <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
