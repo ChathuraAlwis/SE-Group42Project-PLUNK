@@ -11,13 +11,14 @@
 
   </head>
   <body>
+    
         <div class="main" >
 
                     <div class="detailtable">
                       <?php
                           require_once "../../controller/showtable.php";
                           $salaryTable = new Table("salary");
-                          $salaryTable->show("SELECT * FROM plunk.salary",'allsalary');
+                          $salaryTable->show("SELECT * FROM plunk.salary",'alltable');
                        ?>
 
                     </div>

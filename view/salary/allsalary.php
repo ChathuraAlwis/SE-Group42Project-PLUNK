@@ -11,6 +11,7 @@
 
   </head>
   <body>
+
         <div class="main" >
           
 
@@ -18,13 +19,12 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $salarystaffTable = new Table("salarystaff");
-                          $salarystaffTable->show("SELECT * FROM plunk.salarystaff", 'update');
+                          $salarystaffTable->show("SELECT * FROM plunk.salarystaff WHERE SalaryID=$_GET[id]", 'update');
                        ?>
 
                     </div>
 
                 </div>
-
 
   </body>
 </html>
