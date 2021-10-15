@@ -25,7 +25,7 @@
                           $itemTable->show("SELECT * FROM plunk.item", '../order/add');
                         }
                         elseif ($_SESSION['UserType'] == 'Accountant') {
-                          $itemTable->show("SELECT * FROM plunk.item");
+                          $itemTable->show("SELECT ItemID,ItemType,ItemName,Price,Quantity,ReorderQuantity FROM plunk.item");
                         }
                         elseif ($_SESSION['UserType'] == 'Restaurant Manager'){
                           $itemTable->show("SELECT * FROM plunk.item", 'update');;
