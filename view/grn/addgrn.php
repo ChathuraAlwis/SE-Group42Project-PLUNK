@@ -8,6 +8,7 @@
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
         <script type="text/javascript" src="../script/addrow.js"></script>
+        <script type="text/javascript" src="../script/maxQuantity.js"></script>
 
   </head>
   <body>
@@ -46,21 +47,26 @@
             <div id="myform" onload="load()"> 
                     <b>Enter the item details of the GRN...</b> 
                     <br/><br/> 
-                            Item Name:<input type=text id="ItemName"> 
+                            Item ID:
+                            <?php 
+                                echo "<td><input type=text id=ItemID onchange=maxQuantity(1,0)></td>";
+                            ?>
                     <br/><br/> 
                             Quantity :&nbsp; 
                             <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
                     <br/> 
-                            <input type="submit" id="add" value="Add" onclick="addRow()" > 
+                    <?php
+                        echo "<td><input type=button id=add value=Add onclick=addRowGRN() disabled></td>";
+                    ?>
                     </div> 
                     <br/>
                     <div id="mydata"> 
                     <b>Item Details...</b><br> 
                     <table id="myTableData"  class="addrowtable" > 
                         <tr> 
-                            <td>&nbsp;</td> 
                             <td><b>Item Name</b></td> 
                             <td><b>Quantity</b></td> 
+                            <td>&nbsp;</td> 
                         </tr> 
                     </table> 
 
@@ -92,6 +98,7 @@
     </div>
     </div>
   </body>
+  <?php echo "<script>maxQuantity(1,0)</script>"; ?>
 
  
 </html>
