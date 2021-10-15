@@ -12,6 +12,7 @@
   </head>
   <body>
         <div class="main" >
+          
 
                     <div class="detailtable">
                       <?php

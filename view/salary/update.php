@@ -22,14 +22,14 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.payment WHERE PaymentID=$id";
+        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$id";
         $result = $DB->runQuery($query)[0];
     ?>
 
     <div class=main>
     <div class= left>
     <div class="form">
-			<h2 class="center-text"><b>Payment Details</b>
+			<h2 class="center-text"><b>Salary Details</b>
                 <image src = "../images/bin.png" class="bin"></image></h2>
 			
         
@@ -38,42 +38,58 @@
             <table class="formtable">
             <tr>
                 <div class="form-group">
-                   <td><label for="PaymentID">Payment ID</label></td> 
+                   <td><label for="SalaryID">Salary ID</label></td> 
                    <td></td>
-                    <td><input type="number" id= "PaymentID" name="PaymentID" required class="form-control" value = "<?php echo "$result[PaymentID]";?>"/></td>
-                </div>
-              </tr>
-            
-            <tr>
-                        <div class="form-group">
-                            <td><label for="PaymentDate">Payment Date</label></td>
-                            <td></td>
-                            <td><input type="date" id= "PaymentDate" name="PaymentDate" required class="form-control" value = "<?php echo "$result[PaymentDate]";?>"/></td>
-                        </div>
-                    </tr>
-                <tr>
-                <div class="form-group">
-                    <td><label for="Type">Type</label></td>
-                    <td></td>
-                    <td><select id="Type" name="Type" class="form-control" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
-                        <option value="1">Cash</option>
-                        <option value="2">Visa</option>
-                     </select></td>
-                    </div>
-                </tr>
-                <tr>
-                <div class="form-group">
-                   <td><label for="UserID">User ID</label></td> 
-                   <td></td>
-                    <td><input type="number" id= "UserID" name="UserID" required class="form-control" value = "<?php echo "$result[UserID]";?>"/></td>
+                    <td><input type="number" id= "SalaryID" name="SalaryID" required class="form-control" value = "<?php echo "$result[SalaryID]";?>"/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
-                   <td><label for="BookingID">Booking ID</label></td> 
+                   <td><label for="StaffID">Staff ID</label></td> 
                    <td></td>
-                    <td><input type="number" id= "BookingID" name="BookingID" required class="form-control" value = "<?php echo "$result[BookingID]";?>"/></td>
+                    <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                </div>
+              </tr>
+              <tr>
+                    <div class="form-group">
+                        <td><label for="Basic">Basic Value</label></td>
+                        <td></td>
+                        <td><input type="text" id= "Basic" name="Basic" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Basic]";?>"/></td>
+                    </div>
+                </tr>
+              <tr>
+                    <div class="form-group">
+                        <td><label for="Bonus">Bonus Value</label></td>
+                        <td></td>
+                        <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>"/></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Bonus">Bonus Value</label></td>
+                        <td></td>
+                        <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>"/></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="ETF">ETF Value</label></td>
+                        <td></td>
+                        <td><input type="text" id= "ETF" name="ETF" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ETF]";?>"/></td>
+                    </div>
+                </tr>
+                <tr>
+                <div class="form-group">
+                   <td><label for="EPF">EPF Value</label></td> 
+                   <td></td>
+                    <td><input type="text" id= "EPF" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[EPF]";?>"/></td>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">
+                   <td><label for="Total">Total Salary</label></td> 
+                   <td></td>
+                    <td><input type="number" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Total]";?>"/></td>
                 </div>
               </tr>
             </table>
@@ -81,7 +97,7 @@
                 <br>
                 <div class="form-group">
                 <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="invoicetable.php">Cancel</a></button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="allsalary.php">Cancel</a></button>
             </div>
     </form>                
     </div>
@@ -89,17 +105,12 @@
 <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>CASH PAYMENT TABLE</h4>
-            <iframe src="cash.php" class="item"></iframe>
+            <h4>SALARY DETAILS TABLE</h4>
+            <iframe src="allsalary.php" class="item"></iframe>
         </div>
         
        </div>
-        <div class = "rightbottom">
-            <div class="itemtable">
-                <h4>VISA PAYMENT TABLE</h4>
-                <iframe src="visa.php" class="item"></iframe>
-            </div>  
-        </div>
+        
     </div>
 
 </div>
