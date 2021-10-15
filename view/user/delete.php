@@ -23,7 +23,7 @@
     ?>
         <div class="main" >
             <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-              <input name ="update-user" type="hidden" >
+              <input name ="delete-user" type="hidden" >
 
               <div class="submain">
                 <div class="forminputs">
