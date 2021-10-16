@@ -27,27 +27,27 @@
             </div><br>
             <form class="addbooking" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
               <input name ="update-booking" type="hidden" >
-              <div class="headerrow">
-                <div class="bin">
-                  <a href="delete.php?data=<?php echo $_GET['data'];?>" ><img src="..\images\bin.png" alt="Delete Icon" class="binicon"></a>
-                </div>
-              </div>
+
               <div class="submain">
                 <div class="bookingiddiv">
                     <label for="BookingID">Booking ID :</label>
                     <input type="text" name="BookingID" class="bookingid" value = "<?php echo "$result[BookingID]";?>" readonly>
                 </div>
                 <div class="questions">
-                      <label for="LastModifiedDate">Date :</label>
-                      <input type="date" name="LastModifiedDate" class="bookingid" value="<?php echo date("Y-m-d") ?>" readonly>
+                      <label for="DeleteDate">Date :</label>
+                      <input type="date" name="DeleteDate" class="bookingid" value="<?php echo date("Y-m-d") ?>" readonly>
+                </div><br>
+                <div class="questions">
+                      <label for="LastModifiedDate">Last Modified Date :</label>
+                      <input type="date" name="LastModifiedDate" class="bookingid" value="<?php echo "$result[LastModifiedDate]";?>" readonly>
                 </div><br>
                   <div class="questions">
                       <label for="CustomerName">Name :</label>
-                      <input type="text" name="CustomerName"class="qtype1" value = "<?php echo "$result[CustomerName]";?>" required>
+                      <input type="text" name="CustomerName"class="qtype4" value = "<?php echo "$result[CustomerName]";?>" readonly>
                   </div><br>
                   <div class="questions">
                     <label for="type">Booking Type   :</label>
-                    <select class="type" name="BookingType"  required>
+                    <select class="type" name="BookingType" readonly>
                             <?php echo "$result[BookingType]";?>
                             <option value="Club">Club</option>
                             <option value="Restaurant">Restaurant</option>
@@ -56,43 +56,46 @@
                   </div><br>
                   <div class="questions">
                       <label for="reservation1">Reservation 1 :</label>
-                      <select class="" name="" required>
+                      <select class="" name="" readonly>
 
                       </select>
                   </div><br>
                   <div class="questions">
                         <label for="reservation2">Reservation 2 :</label>
-                        <select class="" name="">
+                        <select class="" name="" readonly>
 
                         </select>
                   </div><br>
                   <div class="questions">
                         <label for="NoOfPeople">No of People:</label>
-                        <input type="number" name="NoOfPeople" class="qtype1" min="1" value = "<?php echo "$result[NoOfPeople]";?>" required>
+                        <input type="number" name="NoOfPeople" class="qtype4" min="1" value = "<?php echo "$result[NoOfPeople]";?>" readonly>
                   </div><br>
                   <div class="questions">
                         <label for="date">Reserved Date :</label>
-                        <input type="date" name="ReservedDate" class="qtype1" min="<?php echo date("Y-m-d") ?>" value = "<?php echo "$result[ReservedDate]";?>" required>
+                        <input type="date" name="ReservedDate" class="qtype4" min="<?php echo date("Y-m-d") ?>" value = "<?php echo "$result[ReservedDate]";?>" readonly>
                   </div><br>
                   <div class="reservedtime">
                         <label for="time">Reserved Time:</label>
-                        <input type="time" name="ReservedTime" class="qtype3" value = "<?php echo "$result[ReservedTime]";?>" required>
+                        <input type="time" name="ReservedTime" class="qtype6" value = "<?php echo "$result[ReservedTime]";?>" readonly>
                   </div>
                   <div class="questions">
                         <label for="EndTime">End Time :</label>
-                        <input type="time" name="EndTime" class="qtype2" value="<?php echo "$result[EndTime]";?>" required>
+                        <input type="time" name="EndTime" class="qtype5" value="<?php echo "$result[EndTime]";?>" readonly>
 
                   </div><br>
                   <div class="questions">
                         <label for="contactno">Contact No :</label>
-                        <input type="tel" name="ContactNo" class="qtype1" value = "<?php echo "$result[ContactNo]";?>" required>
+                        <input type="tel" name="ContactNo" class="qtype4" value = "<?php echo "$result[ContactNo]";?>" readonly>
+                  </div><br>
+                  <div class="questions">
+                      <label for="Reason">Reason :</label>
+                      <input type="text" name="Reason"class="qtype1"  required>
                   </div><br>
 
                 </div>
                 <div class="line3">
-                  <button type="submit" name="button" class="add"><b>Update</b> </button>
-                  <button type="reset" name="button" class="add"><b>Reset</b> </button><br>
-                  <button type="reset" name="button" class="Payment"><b>Payment</b> </button>
+                  <button type="submit" name="button" class="add"><b>Delete</b> </button>
+                  <button type="reset" name="button" class="add"><b>Cancel</b> </button><br>
 
                 </div>
 

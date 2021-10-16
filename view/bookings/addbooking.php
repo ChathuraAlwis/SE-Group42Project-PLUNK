@@ -10,15 +10,21 @@
 
   </head>
   <body>
+    <?php date_default_timezone_set("Asia/Kolkata"); ?>
         <div class="main" >
             <div class="header">
               <div class="upperrow"></div>
               <h2>Bookings</h2>
 
-            </div>
+            </div><br>
             <form class="addbooking" action="index.html" method="post" autocomplete="on" >
               <div class="submain">
+                <div class="questions">
 
+                        <label for="CreatedDate">Date :</label>
+                        <input type="date" name="CreatedDate" id="today" value="<?php echo date("Y-m-d") ?>" readonly>
+
+                </div><br>
                   <div class="questions">
                       <label for="name">Name :</label>
                       <input type="text" name="CustomerName" required>
@@ -44,12 +50,22 @@
                         </select>
                   </div><br>
                   <div class="questions">
-                        <label for="date">Reserved Date :</label>
-                        <input type="date" name="ReservedDate" required>
+                        <label for="NoOfPeaople">No of People:</label>
+                        <input type="number" name="NoOfPeaople" min="1" value="1" required>
                   </div><br>
                   <div class="questions">
-                        <label for="time">Reserved Time :</label>
-                        <input type="time" name="ReservedTime" required>
+                        <label for="date">Reserved Date :</label>
+                        <input type="date" name="ReservedDate" min="<?php echo date("Y-m-d") ?>" value="<?php echo date("Y-m-d") ?>" required>
+                  </div><br>
+                  <div class="questions">
+                        <label for="time">Reserved Time:</label>
+                        <input type="time" name="ReservedTime" value="<?php echo date("H:i") ?>" required>
+
+                  </div><br>
+                  <div class="questions">
+                        <label for="EndTime">End Time :</label>
+                        <input type="time" name="EndTime" value="<?php echo date("H:i") ?>" required>
+
                   </div><br>
                   <div class="questions">
                         <label for="contactno">Contact No :</label>

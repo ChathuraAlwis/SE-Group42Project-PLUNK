@@ -35,7 +35,7 @@ h2{
   line-height: 2.5vw;
 }
 .addbooking{
-  width: 60%;
+  width: 65%;
   height: auto;
   margin-left: auto;
   margin-right: auto;
@@ -83,12 +83,13 @@ h2{
   /*background-color: red;*/
 
 }
-#today{
-  width: 90%;
-  border:none;
+.specialquestions{
+  width: 50%;
+  height: 20%;
+  margin-left: auto;
+  margin-right:auto;
 }
-input{
-  float: right;
+.qtype1,.qtype2,.qtype3{
   width: 74%;
   font-size: 1.5vw;
   border-top: 0;
@@ -100,6 +101,33 @@ input{
   color:#495057;
   background-color: transparent;
 }
+
+.bookingid{
+  width: 30%;
+  font-size: 1.5vw;
+  border: none;
+  background-color: transparent;
+}
+.qtype1{
+  float: right;
+}
+.qtype2{
+  width: 25%;
+  float: right;
+}
+.qtype3{
+  width: 48%;
+}
+.bookingiddiv{
+  float: left;
+  width: 50%;
+  height: 20%;
+}
+.reservedtime{
+  float: left;
+  width: 55%;
+  height: 20%;
+}
 select{
   width: 74%;
   font-size: 1.5vw;
@@ -108,7 +136,7 @@ select{
 }
 .line3{
   width: 50%;
-  height: 15%;
+  height: 20%;
 
   margin-left: auto;
   margin-right: auto;
@@ -123,6 +151,7 @@ select{
   color:  #acacac;
   font-size: 2vw;
   transition-duration: 1s;
+  cursor: pointer;
 }
 .add:hover{
   background-color: #acacac;
@@ -130,6 +159,47 @@ select{
 }
 #reset{
   float: right;
+}
+.Payment{
+  background-color: #ce0047;
+  opacity: 0.8;
+  width: 100%;
+  height:auto;
+  margin-top: 5px;
+  border-radius: 50px;
+  color:  #acacac;
+  font-size: 2vw;
+  transition-duration: 0.5s;
+  cursor: pointer;
+}
+.Payment:hover{
+  opacity: 1;
+
+}
+/* For delete.php file */
+.qtype4,.qtype5,.qtype6{
+  width: 74%;
+  font-size: 1.5vw;
+  border: none;
+  color:#495057;
+  background-color: transparent;
+}
+
+.bookingid{
+  width: 30%;
+  font-size: 1.5vw;
+  border: none;
+  background-color: transparent;
+}
+.qtype4{
+  float: right;
+}
+.qtype5{
+  width: 25%;
+  float: right;
+}
+.qtype6{
+  width: 48%;
 }
 @media only screen and (max-width: 720px) {
   /* For mobile phones: */

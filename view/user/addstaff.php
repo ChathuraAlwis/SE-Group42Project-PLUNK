@@ -11,7 +11,7 @@
   </head>
   <body>
         <div class="main" >
-            <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
+            <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" target="_self">
               <input name ="add-staff" type="hidden" >
               <div class="submain">
                 <div class="forminputs">
@@ -48,7 +48,7 @@
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>
-                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" max="<?php echo date("Y-m-d") ?>" required>
+                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" max="<?php echo date("Y-m-d") ?>" value="<?php echo date("Y-m-d") ?>" required>
                 </div><br>
 
                 <div class="forminputs">
