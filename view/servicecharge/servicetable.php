@@ -29,7 +29,7 @@
                               <button type = "submit" class = "search" ><b>Search</b></button>
                         </div>
                           <div class="addicon">
-                                <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                                <a href="addservice.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
                     </div>
                     <div class="detailtable">
