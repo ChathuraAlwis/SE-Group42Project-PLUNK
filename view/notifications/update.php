@@ -42,10 +42,10 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="EventType">Event Type</label></td>
-                        <td><select id="EventType" name="EventType" class="form-control" value = "Club Event"  onchange="changeType(this);">
+                        <td><select id="EventType" name="EventType" class="form-control" onchange="changeType(this);">
                             <option >Choose type...</option>
-                            <option value="Club Event">Club Event</option>
-                            <option value="Restaurant Event">Restaurant Event</option>
+                            <option value="Club Event"  <?php if("$result[EventType]"=="Club Event") echo 'selected="selected"'; ?>>Club Event</option>
+                            <option value="Restaurant Event" <?php if("$result[EventType]"=="Restaurant Event") echo 'selected="selected"'; ?>>Restaurant Event</option>
                             </select>
                         </td>
                     </div>

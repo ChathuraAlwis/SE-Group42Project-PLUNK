@@ -24,8 +24,8 @@
                     <td><label for="ItemType">Item Type</label></td>
                     <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="fooditems">Food Items</option>
-                        <option value="beverageitems">Beverage Items</option>
+                        <option value="Food">Food Items</option>
+                        <option value="Beverage">Beverage Items</option>
                      </select></td>
                     </div>
                 </tr>

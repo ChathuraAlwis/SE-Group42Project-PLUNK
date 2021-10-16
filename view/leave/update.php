@@ -16,9 +16,9 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.leave WHERE LeaveDate= '$id'";
+        $query = "SELECT * FROM plunk.leave WHERE LeaveDate= '$id' || UserID = '$id' ";
         $result = $DB->runQuery($query)[0];
-
+        //print_r($query);
     ?>
     <div class="main">
       <div class= "left">
@@ -31,7 +31,7 @@
             <tr>
                 <div class="form-group">
                     <td><label for="LeaveDate">Date</label></td>
-                    <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" max="<?php echo date("Y-m-d") ?>" value = "<?php echo "$result[LeaveDate]";?>"/></td>
+                    <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" min="<?php echo date("Y-m-d") ?>" value = "<?php echo "$result[LeaveDate]";?>"/></td>
                 </div>
             </tr>
             <tr>
