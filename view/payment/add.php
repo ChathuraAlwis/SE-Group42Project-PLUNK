@@ -91,8 +91,8 @@
             
                 
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
-                    <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
+                    <button type="cash" name="cash" value="cash" class="button cash">Cash</button>
+                    <button type="visa" name="visa" value="visa" class="button visa">Visa Card</button>
                 </div>
         </form>        
     </div>
