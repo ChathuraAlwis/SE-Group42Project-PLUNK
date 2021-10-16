@@ -36,12 +36,12 @@
                 <tr>
                 <div class="form-group">
                     <td><label for="ItemType">Item Type</label></td>
-                    <td><select id="ItemType" name="ItemType" class="form-control" value = "<?php echo "$result[ItemType]";?>" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
-                        <option value="fooditems">Food Items</option>
-                        <option value="beverageitems">Beverage Items</option>
+                    <td><select id="ItemType" name="ItemType" class="form-control"  onchange="changeType(this);">
+                        <option selected>Choose type...</option>
+                        <option value="Food"  <?php if("$result[ItemType]"=="Food") echo 'selected="selected"'; ?> >Food Items</option>
+                        <option value="Beverage"  <?php if("$result[ItemType]"=="Beverage") echo 'selected="selected"'; ?> >Beverage Items</option>
                      </select></td>
-                    </div>
+                </div>
                 </tr>
                 <tr>
                     <div class="form-group">
