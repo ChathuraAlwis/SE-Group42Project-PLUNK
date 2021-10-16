@@ -91,8 +91,8 @@
             
                 
                 <div class="form-group">
-                    <button type="cash" name="cash" value="cash" class="button cash">Cash</button>
-                    <button type="visa" name="visa" value="visa" class="button visa">Visa Card</button>
+                    <button type="submit" name="cash" value="cash" class="button submit"><a href="addcash.php">Cash</a></button>
+                    <button type="submit" name="visa" value="visa" class="button submit"><a href="addvisa.php">Visa Card</a></button>
                 </div>
         </form>        
     </div>
