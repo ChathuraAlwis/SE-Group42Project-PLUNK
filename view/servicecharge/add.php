@@ -15,34 +15,35 @@
     <div class="main">
     <div class= "left">
     <div class="form">
-        <h2 class="center-text"><b>Add Service Charge Details</b></h2>
+        <h2 class="center-text"><b>Add Salary Details</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-                <input name ="add-servicecharge" type="hidden" >
+                <input name ="add-salary" type="hidden" >
                 <table>
                     <tr>
                         <div class="form-group">
-                            <td><label for="Name">Name</label></td>
+                            <td><label for="StaffID">Staff ID</label></td>
                             <td></td>
-                            <td><input type="text" id= "Name" name="Name" required class="form-control" placeholder="Enter the staff member name"/></td>
+                            <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" placeholder="Enter the staff ID"/></td>
                         </div>
                     </tr>
-                    <br>
+                    <tr><td><br></td></tr>
                     <tr>
                     <div class="form-group">
-                        <td><label for="Basic">Basic Salary</label></td>
+                        <td><label for="Percentage">Percentage</label></td>
                         <td></td>
-                        <td><input type="number" id="Basic" name="Basic" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the basic salary"/></td>
+                        <td><input type="number" id="Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the percentage"/></td>
                     </div>
                 </tr>
-                <br>
-                    <tr>
+                <tr><td><br></td></tr>
+                <tr>
                     <div class="form-group">
-                        <td><label for="percentage">Percentage Value</label></td>
+                        <td><label for="Amount">Total Amount</label></td>
                         <td></td>
-                        <td><input type="number" id="percentage" name="percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the percentage value"/></td>
+                        <td><input type="number" id="Amount" name="Amount" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Total Amount"/></td>
                     </div>
                 </tr>
-                
+                <tr><td><br></td></tr>
+               
                 
             </table>
             <br>
@@ -56,15 +57,22 @@
         </form> 
     </div> 
     </div>
+    <div class= right>
+      <div class = "righttop">
+        <div class="itemtable">
+            <h4>Service Charge Details Table</h4>
+            <iframe src="servicedetail.php" class="item"></iframe>
+        </div>
         
-        <div class= right>
-            <div class="righttable">
+       </div>
+        <div class = "rightbottom">
             <div class="itemtable">
-                <h3>Service Charge Details Table</h3>
-                <iframe src="details.php" class="item"></iframe>
-            </div>
+            <h3>Leave Details Table</h3>
+                <iframe src="../leave/alldetails.php" class="item"></iframe>
+            </div>  
+        </div>
     </div>
-    </div>
+        
     </div>
      
   </body>
