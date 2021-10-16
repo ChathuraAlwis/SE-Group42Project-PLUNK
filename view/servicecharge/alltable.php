@@ -10,6 +10,11 @@
 
   </head>
   <body>
+  <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $id = explode("=", $_GET['data'])[1];
+    ?>
         <div class="main" >
             <div class="coverheader">
 
@@ -34,7 +39,7 @@
                     </div>
                     <div class="detailtable">
 
-                            <iframe src="allservicecharge.php" class="staff"></iframe>
+                            <iframe src="allservicecharge.php?id=<?php echo $id;?>" class="staff"></iframe>
                     </div>
 
                 </div>

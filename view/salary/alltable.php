@@ -21,7 +21,7 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>SALARY SHEET</h2>
+                    <h2>Salary Sheet</h2>
               </div>
             </div>
             <div class="covertable">
