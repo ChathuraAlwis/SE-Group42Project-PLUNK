@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="../style/user.css">
         <script type="text/javascript" src="../script/user.js">  </script>
         <script type="text/javascript" src="../script/usernavbtn.js"> </script>
-
+       
 
   </head>
   <body>
@@ -35,13 +35,32 @@
                       <img class="plunk" src="../images/projectlogo.png" alt="plunk logo"><br>
                       <div class="menudiv">
                          <a href="rmnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
-                      </div>
+                     </div>
+                     
+                      
                   </div>
+                 
 
                   <div class="middleheader">
                     <img class="Logo" src="../images/bloomfieldlogo.png" alt="Bloomfield Logo"><br>
                       <h2>Bloomfield C. & A.C.</h2>
-
+                      
+                      <?php 
+                        // if(isset($_COOKIE["msgid"])){
+                        //   require_once "../../model/database.php";
+                        //   $DB = new DB;
+                        //   $sql = "Select message from plunk.restaurantmessage where No = $_COOKIE[msgid]";
+                        //   $msg = $DB->runQuery($sql)[0]["message"] ;
+                        // }
+                        // else{
+                        //   $msg = "Bloomfield Restaurant";
+                        // }
+                        
+                     ?> 
+                         
+            
+                        <marquee class="msg" ><h4 class="classmsg" id ="idmsg" name="dismsg">Bloomfield</h4></marquee>
+                  
                   </div>
 
                   <div class="rightheader">
@@ -50,6 +69,7 @@
                         <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
                         <div class="dropdown-content">
                         <a href="../profile/prfileui.html" class="headerdrop" target="Pages"><b>Profile</b></a>
+                         <a type="button"  id="open" name="open" onclick="colorchange()" >Open</a>
                         <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
                         </div>
                     </div>
