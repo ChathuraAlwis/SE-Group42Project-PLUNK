@@ -23,18 +23,16 @@
                 <div class="table">
                     <div class="upperbar">
                     <div >
-                              <input type = "text" class = "search" placeholder="Enter the payment"/>
-                  </div>
-                    <div >
-                              <button type = "submit" class = "search" ><b>Search</b></button>
-                        </div>
-                          <div class>
                               <select id="PaymentType" name="PaymentType" class="search" placeholder="Select payment type" onchange="changeType(this);">
                                     <option selected>Choose payment type...</option>
                                     <option value="Cash">Cash Payment</option>
                                     <option value="Card">Card Payment</option>
                               </select>
+                  </div>
+                    <div >
+                              <button type = "submit" class = "search" ><b>Search</b></button>
                         </div>
+                          
                         <div class="addicon">
                               <a href="../payment/add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>        
