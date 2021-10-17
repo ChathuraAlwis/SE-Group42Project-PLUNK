@@ -16,12 +16,12 @@
               <div class="submain">
                 <div class="forminputs">
                     <label for="Name"> Name with initials</label><br>
-                    <input type="text" id="Name" name="Name"  required>
+                    <input type="text" id="Name" class="input" name="Name"  required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="DisplayID"> Member Id</label><br>
-                    <input type="text" id="DisplayID" name="DisplayID" maxlength="10" required>
+                    <input type="text"  class="input" name="DisplayID" maxlength="10" required>
                 </div><br>
 
                 <div class="radio">
@@ -35,24 +35,24 @@
                 </div><br>
                 <div class="forminputs">
                     <label for="UserName"> User Name</label><br>
-                    <input type="text" id="UserName" name="UserName" maxlength="50" required>
+                    <input type="text" id="UserName" class="input" name="UserName" maxlength="50" required>
                 </div><br>
                 <div class="forminputs">
                     <label for="Password"> Password</label><br>
-                    <input type="password" id="Password" name="Password"  required>
+                    <input type="password" id="Password" class="input" name="Password"  required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>
-                    <input type="date" id="JoinedYear" name="JoinedYear" placeholder="mm/dd/yyyy" max="<?php echo date("Y-m-d") ?>" required>
+                    <input type="date" id="JoinedYear" class="input" name="JoinedYear" placeholder="mm/dd/yyyy" max="<?php echo date("Y-m-d") ?>" required>
                 </div><br>
                 <div class="forminputs">
                     <label for="Email"> E-mail </label><br>
-                    <input type="email" id="Email" name="Email" placeholder="xxxx@gmail.com" required>
+                    <input type="email" id="Email" class="input" name="Email" placeholder="xxxx@gmail.com" required>
                 </div><br>
                 <div class="forminputs">
                     <label for="ContactNo"> Contact No</label><br>
-                    <input type=" tel" id="ContactNo" name="ContactNo" pattern="[0-9]{10}" required>
+                    <input type=" tel" id="ContactNo" class="input" name="ContactNo" pattern="[0-9]{10}" required>
                 </div><br><br>
 
                 <div class="forminputs">
