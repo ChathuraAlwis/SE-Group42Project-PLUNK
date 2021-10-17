@@ -21,7 +21,7 @@ html, body{
 
 .adduser{
   width: 90%;
-  height: auto;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -43,12 +43,30 @@ html, body{
 }
 .forminputs{
    width: 100%;
-   height: auto;
+   height: 15%;
+   margin-bottom: 10px;
 }
-.radio{
+.newforminputs,.newforminputs1{
+  width: 45%;
+  height: 10%;
+  margin-bottom: 5px;
+}
+.newforminputs1,.forminputs{
+  float: left;
+}
+.newforminputs{
+  float: right;
+}
+#DisplayID, #UserID{
+  width: 40%;
+  font-size: 1.5vw;
+  border: none;
+}
+.formbtn{
   width: 100%;
-  height: auto;
+  height: 50px;
 }
+
 .headerrow{
   width: 100%;
   height:50px;
@@ -67,16 +85,20 @@ html, body{
   display:block;
 
 }
-input{
-  width: 100%;
+.input{
+  width: 70%;
   font-size: 1.5vw;
-  border-top: 0;
-  border-bottom-width: 2px;
-  border-left: 0;
-  border-right: 0;
-  border-style: solid;
-  border-color: #6c757d;
+  border: none;
   color:#495057;
+}
+#Reason{
+  width: 100%;
+  border-bottom: 2PX;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-color: black;
+  border-style: solid;
 }
 .UserType{
   width: 80%;
@@ -97,7 +119,7 @@ option{
   height:auto;
   border-radius: 50px;
   color:  #acacac;
-  font-size: 2.5vw;
+  font-size: 2vw;
   transition-duration: 1s;
 }
 .add:hover{
@@ -146,6 +168,6 @@ a{
   color: #acacac;
 }
 a:hover{
-  
+
   color:#017a7a;
 }

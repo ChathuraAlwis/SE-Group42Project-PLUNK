@@ -45,6 +45,23 @@ html, body{
    width: 100%;
    height: auto;
 }
+.newforminputs,.newforminputs1{
+  width: 45%;
+  height: 10%;
+  margin-bottom: 5px;
+}
+.newforminputs1{
+  float: left;
+}
+.newforminputs{
+  float: right;
+}
+#DisplayID, #UserID{
+  width: 40%;
+  font-size: 1.5vw;
+  border: none;
+}
+
 .radio{
   width: 100%;
   height: auto;
@@ -52,7 +69,7 @@ html, body{
 .headerrow{
   width: 100%;
   height:50px;
-  
+
 }
 .bin{
   width: 7%;
@@ -67,7 +84,7 @@ html, body{
   display:block;
 
 }
-input{
+.input{
   width: 100%;
   font-size: 1.5vw;
   border-top: 0;

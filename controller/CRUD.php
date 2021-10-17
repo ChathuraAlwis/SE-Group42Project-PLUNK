@@ -173,7 +173,7 @@ if(isset($_POST['update-item'])){
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
     echo "Item updated successfully";
 
 }
@@ -260,28 +260,66 @@ if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
     try {
           $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$hashedpassword', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]')";
          $DB->runQuery($sql);
+         $type="$_POST[UserType]";
+         if($type=='Manager'||$type=='Admin'||$type=='Accountant'||$type=='Restaurant Manager'||$type=='Cashier'||$type=='Staff Member'){
+           $newPage = new Page('..\view\user\success.html');
+           $newPage->show();
+         }
+         elseif ($type=='Life Member'||$type=='Ordinary Member'||$type=='HL Member') {
+           $newPage = new Page('..\view\user\Addmembersuccess.html');
+           $newPage->show();
+         }
+         else {
+
+               $sql = "DELETE FROM plunk.user WHERE DisplayID='$_POST[DisplayID]'";
+               $DB->runQuery($sql);
+               $newPage = new Page('..\view\user\Errormg.html');
+               $newPage->show();
+
+         }
+
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    echo "Staff member added successfully";
 }
-// elseif (isset($_POST['add-member'])){
-//     $DB = new DB;
-//
-//     try {
-//           $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$_POST[Password]', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]')";
-//          $DB->runQuery($sql);
-//     } catch (\Throwable $th) {
-//         throw $th;
-//     }
-//     echo "Club member added successfully";
-// }
+
 if(isset($_POST['update-user'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE plunk.user SET Name=\"$_POST[Name]\", DisplayID=\"$_POST[DisplayID]\", UserType=\"$_POST[UserType]\", JoinedYear=\"$_POST[JoinedYear]\", Email=\"$_POST[Email]\", ContactNo=\"$_POST[ContactNo]\" WHERE UserID=\"$_POST[UserID]\"";
+        $sql = "UPDATE plunk.user SET Name='$_POST[Name]', DisplayID='$_POST[DisplayID]',UserID='$_POST[UserID]', UserType='$_POST[UserType]', JoinedYear='$_POST[JoinedYear]', Email='$_POST[Email]', ContactNo='$_POST[ContactNo]' WHERE UserID='$_POST[UserID]'";
         $DB->runQuery($sql);
+        if($type=='Manager'||$type=='Admin'||$type=='Accountant'||$type=='Restaurant Manager'||$type=='Cashier'||$type=='Staff Member'){
+          $newPage = new Page('..\view\user\updatestaffsuccess.html');
+          $newPage->show();
+        }
+        elseif ($type=='Life Member'||$type=='Ordinary Member'||$type=='HL Member') {
+          $newPage = new Page('..\view\user\updatemembersuccess.html.html');
+          $newPage->show();
+        }
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+if(isset($_POST['delete-user'])){
+    $DB = new DB;
+
+
+
+    try {
+          $sql = "INSERT INTO plunk.deleteuser (UserID, Name,  Email, ContactNo, JoinedYear, DisplayID,UserType,Reason) VALUES ( '$_POST[UserID]' , '$_POST[Name]',  '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]','$_POST[Reason]')";
+         $DB->runQuery($sql);echo "user added to the bin";
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+    try {
+        $sql = "DELETE FROM plunk.user WHERE UserID='$_POST[UserID]'";
+        $DB->runQuery($sql);
+        echo "user deleted successfully";
     } catch (\Throwable $th) {
         throw $th;
     }
