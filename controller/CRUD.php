@@ -157,6 +157,8 @@ if(isset($_POST['add-item'])){
     try {
         $sql = "INSERT INTO plunk.item (ItemID, ItemName, Price, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]',  '$_POST[Price]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
         $DB->runQuery($sql);
+        $newPage = new Page('../view/items/additemsuccess.html');
+        $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -170,6 +172,8 @@ if(isset($_POST['update-item'])){
     try {
         $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`Price`='$_POST[Price]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
         $DB->runQuery($sql);
+        $newPage = new Page('../view/items/updateitemsuccess.html');
+        $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -290,12 +294,13 @@ if(isset($_POST['update-user'])){
     try {
         $sql = "UPDATE plunk.user SET Name='$_POST[Name]', DisplayID='$_POST[DisplayID]',UserID='$_POST[UserID]', UserType='$_POST[UserType]', JoinedYear='$_POST[JoinedYear]', Email='$_POST[Email]', ContactNo='$_POST[ContactNo]' WHERE UserID='$_POST[UserID]'";
         $DB->runQuery($sql);
+        $type="$_POST[UserType]";
         if($type=='Manager'||$type=='Admin'||$type=='Accountant'||$type=='Restaurant Manager'||$type=='Cashier'||$type=='Staff Member'){
           $newPage = new Page('..\view\user\updatestaffsuccess.html');
           $newPage->show();
         }
         elseif ($type=='Life Member'||$type=='Ordinary Member'||$type=='HL Member') {
-          $newPage = new Page('..\view\user\updatemembersuccess.html.html');
+          $newPage = new Page('..\view\user\updatemembersuccess.html');
           $newPage->show();
         }
     } catch (\Throwable $th) {
