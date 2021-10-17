@@ -14,3 +14,20 @@ function drop(){
     });
   }
 }
+
+function colorchange() {
+  var btn = document.getElementById("open");
+  var msg = document.getElementById("idmsg");
+  
+	if(msg.innerHTML == "The restaurant is closed now."){
+      btn.innerHTML = "Close";
+  	  msg.innerHTML = "The restaurant is opened now.";
+      btn.style.backgroundColor =  "#cc0000";
+		}
+  else{
+      btn.innerHTML = "Open";
+      msg.innerHTML = "The restaurant is closed now.";
+      btn.style.backgroundColor =  "#000000";
+    }
+  }
+       

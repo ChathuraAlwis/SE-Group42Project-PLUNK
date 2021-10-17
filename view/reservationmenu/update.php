@@ -40,10 +40,10 @@
                 <tr>
                     <div class="form-group">
                     <td><label for="Type">Reservation Type</label></td>
-                    <td><select id="Type" name="Type" class="form-control" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
+                    <td><select id="Type" name="Type" class="form-control"  onchange="changeType(this);">
                     <option selected> Choose type ...</option>
-                        <option value="club">Club</option>
-                        <option value="restaurant">Restaurant</option>
+                        <option value="Club" <?php if("$result[Type]"=="Club") echo 'selected="selected"'; ?>>Club</option>
+                        <option value="Restaurant"  <?php if("$result[Type]"=="Restaurant") echo 'selected="selected"'; ?>>Restaurant</option>
                      </select></td>
                 </div>
                 </tr>

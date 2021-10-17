@@ -73,7 +73,7 @@
                 <br>
                 <div class="form-group">
                 <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="allservicecharge.php">Cancel</a></button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="servicetable.php">Cancel</a></button>
             </div>
     </form>                
     </div>
@@ -82,7 +82,7 @@
       <div class = "righttop">
         <div class="itemtable">
             <h4>Service Charge TABLE</h4>
-            <iframe src="allservicecharge.php" class="item"></iframe>
+            <iframe src="servicedetail.php" class="item"></iframe>
         </div>
         
        </div>

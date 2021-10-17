@@ -97,7 +97,7 @@
                 <br>
                 <div class="form-group">
                 <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="allsalary.php">Cancel</a></button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="salarytable.php">Cancel</a></button>
             </div>
     </form>                
     </div>
@@ -106,7 +106,7 @@
       <div class = "righttop">
         <div class="itemtable">
             <h4>SALARY DETAILS TABLE</h4>
-            <iframe src="allsalary.php" class="item"></iframe>
+            <iframe src="saldetail.php" class="item"></iframe>
         </div>
         
        </div>

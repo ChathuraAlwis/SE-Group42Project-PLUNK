@@ -11,19 +11,20 @@
 
   </head>
   <body>
+
         <div class="main" >
+          
 
                     <div class="detailtable">
                       <?php
                           require_once "../../controller/showtable.php";
                           $salarystaffTable = new Table("salarystaff");
-                          $salarystaffTable->show("SELECT * FROM plunk.servicechargestaff WHERE ServiceChargeID=$_GET[id]", 'update');
+                          $salarystaffTable->show("SELECT * FROM plunk.servicechargestaff");
                        ?>
 
                     </div>
 
                 </div>
-
 
   </body>
 </html>

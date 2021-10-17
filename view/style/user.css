@@ -292,6 +292,21 @@ h2{
   background: #2d7166;
 }
 
-.open{
-  background-color:darkred;
+marquee.msg{
+  font-family: sans-serif;
+
+}
+h4{
+  color:rgb(175, 207, 245);
+  margin-top: 0%;
+}
+
+#open{
+    background-color: #000000;
+
+    font-family: sans-serif; 
+    color: white;
+    cursor: pointer;
+    padding: 12px ;
+    display: block;
 }

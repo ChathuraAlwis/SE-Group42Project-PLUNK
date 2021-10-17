@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php
+session_start();?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,12 +15,12 @@
         <div class="main" >
 
                     <div class="detailtable">
-                      <?php
-                          require_once "../../controller/showtable.php";
-                          $salarystaffTable = new Table("salarystaff");
-                          $salarystaffTable->show("SELECT * FROM plunk.servicechargestaff WHERE ServiceChargeID=$_GET[id]", 'update');
-                       ?>
-
+                    
+                    <?php
+                        require_once "../../controller/showtable.php";
+                        $itemTable = new Table("leave");
+                        $itemTable->show("SELECT * FROM plunk.leave");
+                      ?> 
                     </div>
 
                 </div>
