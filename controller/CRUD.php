@@ -320,7 +320,7 @@ if(isset($_POST['delete-user'])){
 
     try {
           $sql = "INSERT INTO plunk.deleteuser (UserID, Name,  Email, ContactNo, JoinedYear, DisplayID,UserType,Reason) VALUES ( '$_POST[UserID]' , '$_POST[Name]',  '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]','$_POST[Reason]')";
-         $DB->runQuery($sql);echo "user added to the bin";
+         $DB->runQuery($sql);
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -328,7 +328,8 @@ if(isset($_POST['delete-user'])){
     try {
         $sql = "DELETE FROM plunk.user WHERE UserID='$_POST[UserID]'";
         $DB->runQuery($sql);
-        echo "user deleted successfully";
+        $newPage = new Page('..\view\user\deleteusersuccess.html');
+        $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }
