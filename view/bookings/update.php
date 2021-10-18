@@ -56,13 +56,25 @@
                   </div><br>
                   <div class="questions">
                       <label for="reservation1">Reservation 1 :</label>
-                      <select class="" name="" required>
+                      <select class="reservation1" name="reservation1" id="reservation1" required>
+
+                        <option >Lotus lounge</option>
+                        <option >Board Room</option>
+                        <option >Center Wicket</option>
+                        <option >Practice wicket 1</option>
 
                       </select>
+
+
                   </div><br>
                   <div class="questions">
                         <label for="reservation2">Reservation 2 :</label>
-                        <select class="" name="">
+                        <select class="reservation1" name="reservation1" id="reservation1" required>
+
+
+                          <option >Board Room</option>
+                          <option >Center Wicket</option>
+                          <option >Practice wicket 1</option>
 
                         </select>
                   </div><br>
@@ -90,9 +102,9 @@
 
                 </div>
                 <div class="line3">
-                  <button type="submit" name="button" class="add"><b>Update</b> </button>
+                  <button type="submit" name="button" class="add" formaction="bookingupdatesuccess.html"><b>Update</b> </button>
                   <button type="reset" name="button" class="add"><b>Reset</b> </button><br>
-                  <button type="reset" name="button" class="Payment"><b>Payment</b> </button>
+                  <button type="submit" name="button" class="Payment" formaction="..\payment\paymentgm.php"><b>Payment</b> </button>
 
                 </div>
 

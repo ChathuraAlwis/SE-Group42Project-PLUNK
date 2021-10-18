@@ -94,7 +94,7 @@
 
                 </div>
                 <div class="line3">
-                  <button type="submit" name="button" class="add"><b>Delete</b> </button>
+                  <button type="submit" name="button" class="add" formaction="bookingdeleted.html"><b>Delete</b> </button>
                   <button type="reset" name="button" class="add"><b>Cancel</b> </button><br>
 
                 </div>

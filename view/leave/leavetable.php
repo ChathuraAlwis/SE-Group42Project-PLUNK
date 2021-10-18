@@ -15,20 +15,20 @@ session_start();?>
         <div class="main" >
 
                     <div class="detailtable">
-                    
+
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("leave");
 
                         if($_SESSION['UserType'] == 'Manager'){
 
-                          $itemTable->show("SELECT * FROM plunk.leave ;", 'update');
+                          $itemTable->show("SELECT * FROM plunk.leave ;", 'givepermission');
                         }
                         else{
                           $itemTable->show("SELECT LeaveDate,Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]';", 'update');
                         }
-                        
-                      ?> 
+
+                      ?>
                     </div>
 
                 </div>

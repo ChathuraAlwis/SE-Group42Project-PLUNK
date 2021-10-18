@@ -61,8 +61,8 @@
                 </div><br>
 
                 <div class="forminputs">
-                  <button type="submit"  class="add" name="submit" value="submit" formaction="..\..\controller\CRUD.php"><input type="hidden" name="Accepted" value="Yes"> <b>Accept</b> </button>
-                  <button type="submit"  class="add" name="submit" value="submit" formaction="..\..\controller\CRUD.php"><input type="hidden" name="Accepted" value="No"> <b>Denied</b> </button>
+                  <button type="submit"  class="add" name="submit" value="submit" formaction="requestacceptmg.html"><input type="hidden" name="Accepted" value="Yes"> <b>Accept</b> </button>
+                  <button type="submit"  class="add" name="submit" value="submit" formaction="requestdenied.html"><input type="hidden" name="Accepted" value="No"> <b>Denied</b> </button>
                 </div>
               </div>
             </form>
