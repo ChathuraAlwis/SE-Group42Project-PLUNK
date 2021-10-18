@@ -79,7 +79,6 @@
                     </div>
                 </tr> 
 
-                <br>
                 <tr>
                     <div class="form-group">
                         <td><label for="Total">Total Invoice Value</label></td>
@@ -96,11 +95,16 @@
               </tr>
             
             </table>
-            
-                <br>
+            <div class="forminputs">
+                  <?php
+                      require_once "..\..\controller\showtable.php";
+                      $orderTable = new Table("grnitem");
+                      $orderTable->show("SELECT * FROM plunk.invoiceitem WHERE InvoiceID in ('$result[InvoiceID]')", 'update');
+                   ?>
+                </div>
                 <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="invoicetable.php">Cancel</a></button>
+                <button type="submit" name="submit" value="Submit" class="button submit"  >Update</button>
+                <button type="back" name="cancel" value="cancel" class="button submit" ><a class="cancel" href="invoicetable.php">Cancel</a></button>
             </div>
     </form>                
     </div>

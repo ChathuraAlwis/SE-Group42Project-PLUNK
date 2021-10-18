@@ -209,9 +209,14 @@ button:hover{
     opacity:1;
 }
 a{
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
   }
 .addrowtable,table.addrowtable th, table.addrowtable td{
     border: 1px solid black;
+}
+
+a.cancel{
+    color: white;
+    text-decoration: none;
 }
