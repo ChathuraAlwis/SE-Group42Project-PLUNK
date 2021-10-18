@@ -19,7 +19,9 @@ session_start();?>
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("leave");
+
                         if($_SESSION['UserType'] == 'Manager'){
+
                           $itemTable->show("SELECT * FROM plunk.leave ;", 'update');
                         }
                         else{

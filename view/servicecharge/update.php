@@ -46,7 +46,7 @@
             <tr>
                         <div class="form-group">
                             <td><label for="StaffID">Staff ID</label></td>
-                            <td><input type="number" id= "" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                            <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                         </div>
                     </tr>
 

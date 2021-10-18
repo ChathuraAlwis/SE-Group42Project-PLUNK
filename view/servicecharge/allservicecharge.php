@@ -16,8 +16,8 @@
                     <div class="detailtable">
                       <?php
                           require_once "../../controller/showtable.php";
-                          $salarystaffTable = new Table("salarystaff");
-                          $salarystaffTable->show("SELECT * FROM plunk.servicechargestaff WHERE ServiceChargeID=$_GET[id]", 'update');
+                          $salarystaffTable = new Table("servicestaff");
+                          $salarystaffTable->show("SELECT ServiceChargeID as 'Service Charge ID', StaffID as 'Staff ID', Percentage, Amount FROM plunk.servicechargestaff WHERE ServiceChargeID=$_GET[id]", 'update');
                        ?>
 
                     </div>

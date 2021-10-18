@@ -17,7 +17,7 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $visaTable = new Table("visapayment");
-                        $visaTable->show("SELECT * FROM plunk.visapayment", 'update');
+                        $visaTable->show("SELECT PaymentID as 'Payment ID', CardName as 'Card Name' FROM plunk.visapayment", 'update');
                       ?>
 
                 </div>

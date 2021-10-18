@@ -19,7 +19,7 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $salarystaffTable = new Table("salarystaff");
-                          $salarystaffTable->show("SELECT * FROM plunk.salarystaff WHERE SalaryID=$_GET[id]", 'update');
+                          $salarystaffTable->show("SELECT StaffID as 'Staff ID', Basic as 'Basic Salary', Bonus as 'Bonus Value', EPF as 'EPF Value', ETF as 'ETF Value', Total as 'Total Salary' FROM plunk.salarystaff WHERE SalaryID=$_GET[id]", 'update');
                        ?>
 
                     </div>
