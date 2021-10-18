@@ -24,15 +24,13 @@
                     <div class="upperbar">
                         <form method="POST" action="details.php">
                               <input type="text" name="billsearch" class="search" placeholder="Search..." >
-                              <button type="submit" target="staff">Search</button>
+                              <button type = "submit" class = "search"><a href="#"><b>Search</b></a></button>
                         </form>
-                          <div class="addicon">
-                                <a href="add.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
-                          </div>
+                          
                     </div>
-                    <div class="detailtable">
+                    <div class="detailtable" >
 
-                            <iframe src="details.php" class="staff"></iframe>
+                            <iframe src="details.php" name="searchinfo" class="staff"></iframe>
                     </div>
 
                 </div>
