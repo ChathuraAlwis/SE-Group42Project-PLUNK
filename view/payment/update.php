@@ -53,12 +53,12 @@
                     </tr>
                 <tr>
                 <div class="form-group">
-                    <td><label for="Type">Type</label></td>
+                    <td><label for="PaymentType">Type</label></td>
                     <td></td>
-                    <td><select id="Type" name="Type" class="form-control" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
+                    <td><select id="PaymentType" name="PaymentType" class="form-control" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="1">Cash</option>
-                        <option value="2">Visa</option>
+                        <option value="Cash" <?php if("$result[PaymentType]"=="Cash") echo 'selected="selected"'; ?> >Cash</option>
+                        <option value="Visa" <?php if("$result[PaymentType]"=="Visa") echo 'selected="selected"'; ?>>Visa</option>
                      </select></td>
                     </div>
                 </tr>

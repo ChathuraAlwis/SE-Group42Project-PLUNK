@@ -38,8 +38,7 @@
             <table class="formtable">
             <tr>
                 <div class="form-group">
-                   <td><label for="ServiceChargeID">Service Charge ID</label></td> 
-                   <td></td>
+                   <td><label for="ServiceChargeID">Service Charge ID</label></td>    
                     <td><input type="number" id= "ServiceChargeID" name="ServiceChargeID" required class="form-control" value = "<?php echo "$result[ServiceChargeID]";?>"/></td>
                 </div>
               </tr>
@@ -47,7 +46,6 @@
             <tr>
                         <div class="form-group">
                             <td><label for="StaffID">Staff ID</label></td>
-                            <td></td>
                             <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                         </div>
                     </tr>
@@ -55,7 +53,6 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="Percentage">Percentage</label></td>
-                        <td></td>
                         <td><input type="text" id= "Percentage" name="Percentage" required class="form-control" value = "<?php echo "$result[Percentage]";?>"/></td>
                     </div>
                 </tr> 
@@ -64,7 +61,6 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="Amount">Amount</label></td>
-                        <td></td>
                         <td><input type="text" id= "Amount" name="Amountant" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Amount]";?>"/></td>
                     </div>
                 </tr>

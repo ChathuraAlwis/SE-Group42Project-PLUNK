@@ -19,10 +19,9 @@ session_start();?>
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("leave");
-                        if($_SESSION['UserType'] == 'Accountant'){
-                          $itemTable->show("SELECT UserID as 'User ID',	RequestedDate as 'Requested Date',	LeaveDate as 'Leave Date', Accepted,	ManagerID as 'Manager ID' FROM plunk.leave ;", 'update');
-                        }
-                        else if($_SESSION['UserType'] == 'Manager'){
+
+                        if($_SESSION['UserType'] == 'Manager'){
+
                           $itemTable->show("SELECT * FROM plunk.leave ;", 'update');
                         }
                         else{
