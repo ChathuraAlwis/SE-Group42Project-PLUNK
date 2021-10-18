@@ -35,15 +35,15 @@
                   <input name ="reply-feedback" type="hidden" >
                 <div class="labelbox">
                     <label for="FeedBack"><b>Message :</b> </label>
-                    
+
                     <textarea name="FeedBack" rows="5" cols="80"  readonly><?php echo "$result[FeedBack]";?></textarea>
                 </div>
                 <div class="labelbox2">
                   <label for="Reply"><b>Reply :</b> </label>
-                  <textarea name="Reply" rows="5" cols="80" ></textarea>
+                  <textarea name="Reply" rows="5" cols="80" required></textarea>
                 </div>
                 <div  class="btnbox">
-                  <button type="submit" name="submit" class="btn"><b>Submit</b> </button>
+                  <button type="submit" name="submit" class="btn" formaction="..\feedback\replysuccess.html"><b>Submit</b> </button>
                   <button type="reset" name="reset" class="btn"><b>Reset</b> </button>
                 </div>
               </form>
