@@ -31,13 +31,13 @@
             <tr>
                 <div class="form-group">
                     <td><label for="LeaveDate">Date</label></td>
-                    <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" min="<?php echo date("Y-m-d") ?>" value = "<?php echo "$result[LeaveDate]";?>"/></td>
+                    <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" min="<?php echo date("Y-m-d") ?>" value = "<?php echo "$result[LeaveDate]";?>" readonly/></td>
                 </div>
             </tr>
             <tr>
                 <div class="form-group">
                     <td><label for="Reason">Reason</label></td>
-                    <td><textarea id= "Reason" name="Reason" required class="form-control"><?php echo "$result[Reason]";?></textarea></td>
+                    <td><textarea id= "Reason" name="Reason" required class="form-control" readonly><?php echo "$result[Reason]";?></textarea></td>
                 </div>
             </tr>
           </table>
