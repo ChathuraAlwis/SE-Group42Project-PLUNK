@@ -39,7 +39,7 @@
 
 
                 <div  class="btnbox">
-                  <button type="submit" name="submit" class="btn"><b>Submit</b> </button>
+                  <button type="submit" name="submit" class="btn" formaction="..\feedback\feebacksuccess.html"><b>Submit</b> </button>
                   <button type="reset" name="reset" class="btn"><b>Reset</b> </button>
                 </div>
               </form>
