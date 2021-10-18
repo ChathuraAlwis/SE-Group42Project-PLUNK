@@ -19,11 +19,11 @@
                           $billTable = new Table("bill");
                           if(isset($_POST['billsearch'])){
                             $search = $_POST['billsearch'];
-                            $billTable->show("SELECT * FROM plunk.bill WHERE CustomerName LIKE ('%$search%');", '../payment/add');
+                            $billTable->show("SELECT * FROM plunk.bill WHERE CustomerName LIKE ('%$search%') ORDER BY BillID DESC;", "../order/billdetails");
                             // $orderTable->show("SEARCH Cus");
                           }
                           else{
-                            $billTable->show("SELECT * FROM plunk.bill");
+                            $billTable->show("SELECT * FROM plunk.bill ORDER BY BillID DESC", "../order/billdetails");
                           }
                           
                        ?>
