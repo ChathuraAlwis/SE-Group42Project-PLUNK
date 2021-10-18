@@ -51,14 +51,15 @@
                             <td><input type="text" id= "Company" name="Company" required class="form-control" value = "<?php echo "$result[Company]";?>"/></td>
                         </div>
                     </tr>
+                    
                 <tr>
                 <div class="form-group">
-                    <td><label for="Type">Type</label></td>
+                    <td><label for="Type">Item Type</label></td>
                     <td></td>
-                    <td><select id="Type" name="Type" class="form-control" value = "<?php echo "$result[Type]";?>" onchange="changeType(this);">
+                    <td><select id="Type" name="Type" class="form-control" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="1">Beverage Items</option>
-                        <option value="2">Food Items</option>
+                        <option value="1" <?php if("$result[Type]"=="1") echo 'selected="selected"'; ?> >Beverage Items</option>
+                        <option value="2"<?php if("$result[Type]"=="2") echo 'selected="selected"'; ?> >Food Items</option>
                      </select></td>
                     </div>
                 </tr>

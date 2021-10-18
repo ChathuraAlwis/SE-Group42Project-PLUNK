@@ -203,6 +203,8 @@ if(isset($_POST['update-item'])){
                         $QuanRow = 'Quantity' . $itemRow;
                         $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, Quantity) VALUES ('$InvoiceID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
                         $DB->runQuery($sql);
+                        $newPage = new Page('../view/invoice/addinvoicesuccess.html');
+                        $newPage->show();
                         $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
                         $DB->runQuery($sql);
                     }
@@ -221,6 +223,8 @@ if(isset($_POST['update-invoice'])){
     try {
         $sql = "UPDATE `plunk.invoice` SET `InvoiceID`='$_POST[InvoiceID]',`Company`='$_POST[Company]',`Type`='$_POST[Type]',`ReceivedDate`='$_POST[ReceivedDate]',`DueDate`='$_POST[DueDate]',`Total`='$_POST[Total]'  WHERE InvoiceID = '$_POST[InvoiceID]'";
         $DB->runQuery($sql);
+        $newPage = new Page('../view/invoice/updateinvoicesuccess.html');
+        $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }

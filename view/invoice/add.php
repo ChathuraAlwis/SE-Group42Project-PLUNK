@@ -37,7 +37,7 @@
                     </tr>
                 <tr>
                 <div class="form-group">
-                    <td><label for="Type">Type</label></td>
+                    <td><label for="Type">Item Type</label></td>
                     <td></td>
                     <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
