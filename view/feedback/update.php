@@ -40,7 +40,7 @@
                 </div>
                 <div class="labelbox2">
                   <label for="Reply"><b>Reply :</b> </label>
-                  <textarea name="Reply" rows="5" cols="80" ></textarea>
+                  <textarea name="Reply" rows="5" cols="80" required></textarea>
                 </div>
                 <div  class="btnbox">
                   <button type="submit" name="submit" class="btn" formaction="..\feedback\replysuccess.html"><b>Submit</b> </button>
