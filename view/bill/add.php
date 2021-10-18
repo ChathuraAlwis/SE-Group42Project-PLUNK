@@ -59,8 +59,8 @@
             </table>
             
             <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit">Cash</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit">Card</button>
+                <button type="button" name="submit" value="Submit" class="button submit">Cash</button>
+                <button type="button" name="cancel" value="cancel" class="button submit">Card</button>
             </div>
     </form>                
     </div>
