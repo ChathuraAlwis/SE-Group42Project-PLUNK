@@ -41,8 +41,8 @@
                     <td></td>
                     <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="1">Beverage Items</option>
-                        <option value="2">Food Items</option>
+                        <option value="Beverage">Beverage Items</option>
+                        <option value="Food">Food Items</option>
                      </select></td>
                     </div>
                 </tr>

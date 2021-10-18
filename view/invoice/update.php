@@ -40,7 +40,7 @@
                 <div class="form-group">
                    <td><label for="InvoiceID">Invoice ID</label></td> 
                    <td></td>
-                    <td><input type="number" id= "InvoiceID" name="ItemID" required class="form-control" value = "<?php echo "$result[InvoiceID]";?>"/></td>
+                    <td><input type="number" id= "InvoiceID" name="InvoiceID" required class="form-control" value = "<?php echo "$result[InvoiceID]";?>"/></td>
                 </div>
               </tr>
             
@@ -58,8 +58,8 @@
                     <td></td>
                     <td><select id="Type" name="Type" class="form-control" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="1" <?php if("$result[Type]"=="1") echo 'selected="selected"'; ?> >Beverage Items</option>
-                        <option value="2"<?php if("$result[Type]"=="2") echo 'selected="selected"'; ?> >Food Items</option>
+                        <option value="Beverage" <?php if("$result[Type]"=="Beverage") echo 'selected="selected"'; ?> >Beverage Items</option>
+                        <option value="Food"<?php if("$result[Type]"=="Food") echo 'selected="selected"'; ?> >Food Items</option>
                      </select></td>
                     </div>
                 </tr>

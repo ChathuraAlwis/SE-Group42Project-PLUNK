@@ -13,16 +13,11 @@
 
   </head>
   <body>
-    <script>
-        var ans = getParameterByName('data', window.location.href);
-        var id = ans.slice(-1);
-        document.cookie = 'data='+id;
-    </script>
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$id";
+        $personid = explode("=", $_GET['data'])[1];
+        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$personid";
         $result = $DB->runQuery($query)[0];
     ?>
 
@@ -39,56 +34,48 @@
             <tr>
                 <div class="form-group">
                    <td><label for="SalaryID">Salary ID</label></td> 
-                   <td></td>
                     <td><input type="number" id= "SalaryID" name="SalaryID" required class="form-control" value = "<?php echo "$result[SalaryID]";?>"/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
                    <td><label for="StaffID">Staff ID</label></td> 
-                   <td></td>
                     <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                 </div>
               </tr>
               <tr>
                     <div class="form-group">
                         <td><label for="Basic">Basic Value</label></td>
-                        <td></td>
                         <td><input type="text" id= "Basic" name="Basic" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Basic]";?>"/></td>
                     </div>
                 </tr>
               <tr>
                     <div class="form-group">
                         <td><label for="Bonus">Bonus Value</label></td>
-                        <td></td>
                         <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>"/></td>
                     </div>
                 </tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Bonus">Bonus Value</label></td>
-                        <td></td>
                         <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>"/></td>
                     </div>
                 </tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="ETF">ETF Value</label></td>
-                        <td></td>
                         <td><input type="text" id= "ETF" name="ETF" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ETF]";?>"/></td>
                     </div>
                 </tr>
                 <tr>
                 <div class="form-group">
                    <td><label for="EPF">EPF Value</label></td> 
-                   <td></td>
                     <td><input type="text" id= "EPF" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[EPF]";?>"/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
                    <td><label for="Total">Total Salary</label></td> 
-                   <td></td>
                     <td><input type="number" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Total]";?>"/></td>
                 </div>
               </tr>
@@ -103,13 +90,12 @@
     </div>
 </div>
 <div class= right>
-      <div class = "righttop">
+      
         <div class="itemtable">
             <h4>SALARY DETAILS TABLE</h4>
-            <iframe src="saldetail.php" class="item"></iframe>
+            <iframe src="allsalary.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
         </div>
         
-       </div>
         
     </div>
 
