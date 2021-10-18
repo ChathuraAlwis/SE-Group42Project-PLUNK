@@ -11,6 +11,14 @@
 
   </head>
   <body>
+    <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $sql = "SELECT ItemID, ItemName FROM plunk.item;";
+        $result = json_encode($DB->runQuery($sql));
+        // print_r($result);
+        // setcookie("Items", json_encode($result));
+    ?>
     <div class="main">
     <div class= "left">
     <div class="form">
@@ -21,7 +29,7 @@
                   <tr>
                     <div class="form-group">
                        <td><label for="ItemName">Item Name</label></td> 
-                        <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" placeholder="Enter the item name"/></td>
+                       <?php echo "<td><input onchange=itemNameCheck(". $result .") type=text id=ItemName name=ItemName required class=form-control placeholder=\"Enter the item name\" ></td>"; ?>
                     </div>
                   </tr>
                 <tr>
@@ -74,7 +82,7 @@
                 </table>
                 
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit" >Add</button>
+                    <button type="submit" id="add" name="submit" value="Submit" class="button submit" disabled>Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
                 </div>
         </form>        
