@@ -43,7 +43,7 @@
           </table>
                 <div class="form-group">
                    
-                    <button type="submit" name="cancel" value="cancel" class="button submit"><a href="leavepage.php">Cancel</a></button>
+                    <button type="back" name="cancel" value="cancel" class="button submit"><a class="cancel" href="leavepage.php">Cancel</a></button>
                 </div>
         </form>        
       </div>

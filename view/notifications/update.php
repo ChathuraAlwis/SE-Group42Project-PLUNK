@@ -23,7 +23,7 @@
     <div class="main">
     <div class= "left">
     <div class="form">
-        <h2 class="center-text"><b>Notifications details</b><image src = "../images/bin.png" class="bin"></image></h2>
+        <h2 class="center-text"><b>Notifications details</b><a href="deletenotifysuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="update-notifications" type="hidden" >
                <div class="t"> <table class="formtable">
@@ -59,8 +59,8 @@
             </table>
         </div>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit">Update</button>
-                    <button type="submit" name="cancel" value="cancel" class="button submit"><a href="notificationpage.php">Cancel</a></button>
+                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="updatenotifysuccess.html">Update</a></button>
+                    <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="notificationpage.php">Cancel</a></button>
                 </div>
         </form>        
     </div>

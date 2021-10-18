@@ -25,7 +25,7 @@
     <div class= left>
     <div class="form">
         <h2 class="center-text"><b>Place Details</b>
-            <image src = "../images/bin.png" class="bin"></image></h2>
+            <a href="#"><image src = "../images/bin.png" class="bin"></image></a></h2>
 
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="update-reservation" type="hidden" >
@@ -56,8 +56,8 @@
                 </tr>
             </table>
             <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="reservationmenupage.php">Cancel</a></button>
+                <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="updateresrvationsuccesssuccess.html">Update</button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="reservationmenupage.php">Cancel</a></button>
             </div>
         </form> 
     </div>       

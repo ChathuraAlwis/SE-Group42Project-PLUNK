@@ -24,7 +24,7 @@
     <div class= left>
     <div class="form">
 			<h2 class="center-text"><b>ITEM DETAILS</b>
-                <image src = "../images/bin.png" class="bin"></image></h2>
+                <a href="deleteitemsuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
@@ -96,7 +96,7 @@
             
             <div class="form-group">
                 <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
-                <button type="submit" name="cancel" value="cancel" class="button submit"><a href="itemspage.php">Cancel</a></button>
+                <button type="back" name="cancel" value="cancel" class="button submit"><a class="cancel" href="itemspage.php">Cancel</a></button>
             </div>
     </form>                
     </div>
