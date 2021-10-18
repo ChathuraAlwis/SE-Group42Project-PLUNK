@@ -8,8 +8,7 @@ html,body{
 }
 .main{
   width:100%;
-  height:100%;
-  font-family: sans-serif;
+  height:98%;
 /*  background-color: yellow;*/
 }
 .coverheader{
@@ -34,22 +33,22 @@ html,body{
 }
 .covertable{
   width: 100%;
-  height: 85%;
+  height: 87%;
   padding-top: 20px;
   /*background-color: grey;*/
 }
 .upperbar{
   width: 100%;
-  height: 12%;
+  height: 10%;
   margin-left: auto;
   margin-right: auto;
   display: block;
   border-radius: 20px;
-/*background-color: yellow;*/
+ /*background-color: red;*/
 }
 .detailtable{
   width: 99%;
-  height: 83%;
+  height: 88%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -57,12 +56,11 @@ html,body{
   border-width: 3px;
   border-radius: 20px;
   border-color: #017a7a; /*#dcdcdc*/
-  background-color: transparent;
-  /* background-color: #017a7a;*/
- /*background-color: blue;*/
+  background-color: #017a7a;
+/*background-color: blue;*/
 }
 .table{
-  width: 95%;
+  width: 90%;
   height: 95%;
   margin-left: auto;
   margin-right: auto;
@@ -74,6 +72,7 @@ html,body{
  background-color: #017a7a;
 }
 h2{
+  font-family: sans-serif;
   font-size:2.5vw;
   color: #017a7a;
   text-align:center;
@@ -86,107 +85,80 @@ h2{
 .search{
   float: left;
   margin-left: 1%;
-  margin-top:0.5%;
+  margin-top: 2%;
   width: 20vw;
-  height:2vw;
   border-style: solid;
-  border-width: 3px;
   border-radius: 10px;
   border-color:#dcdcdc;
   font-size: 1.5vw;
 }
+button.search{
+  width: 10vw !important;
+  background-color: #acacac ;
+  margin-right: 5%;
+}
+button.reportsearch{
+  width: 10vw !important;
+  background-color: #acacac ;
+  float: left;
+  margin-left: 1%;
+  margin-top: 2%;
+  border-style: solid;
+  border-radius: 10px;
+  border-color:#dcdcdc;
+  font-size: 1.5vw;
+}
+.selecttype{
 
+  align-items:  center;
+  margin-top: 0.75vw;
+  width: 20vw;
+  height:2vw;
+  border-style: solid;
+  border-radius: 10px;
+  border-color:#dcdcdc;
+  font-size: 1.5vw;
+
+}
+
+#membertable{
+  width: 100%;
+  text-align: center;
+   color: #333333;
+}
+th{
+  font-size: 2vw;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #017a7a;
+  background-color: white;
+}
+th:first-child,td:first-child{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+th:last-child,td:last-child{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+td{
+  font-size: 1.5vw;
+  border-collapse: collapse;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #017a7a;
+
+}
 iframe{
 width: 100%;
 height: 100%;
 border: none;
-  /*background-color: red;*/
-}
-.replyboxcover{
-  width: 100%;
-  height: 70%;
-  padding-top: 20px;
-/* background-color: green;*/
-}
-.replybox,.replybox2 {
-  width: 94%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  border-style: solid;
-  border-width: 5px;
-  border-radius: 20px;
-  border-color: #017a7a;
- background-color: white;
- padding-left:10px;
- padding-right: 10px;
- padding-top: 10px;
-}
-.replybox{
-height: 93%;
-}
-.replybox2{
-  height: 90%;
-}
-.feedbackform{
-  width: 100%;
-  height: 100%;
-}
-label{
-  color: #333333;
-  font-size: 2vw;
-  float: left;
-
-}
-#today{
-  font-size: 1.5vw;
-  border: none;
-}
-textarea{
-  float: right;
-  font-size: 1.5vw;
-  width: 87%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  border:2px;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: black;
-  padding-top: 5px;
-}
-
-.labelbox{
-  width: 100%;
-  height: 30%;
-  padding-bottom: 3%;
-}
-.labelbox2{
-  width: 100%;
-  height: 30%;
-  padding-bottom: 4%;
-}
-.btnbox{
-  width: 65%;
-  height: 10%;
-  padding-left: 35%;
-
-}
-.btn{
-  margin-top: 10px;
-  background-color: #017a7a;
-  width: 20%;
-  height:auto;
-  border-radius: 50px;
-  color:  #acacac;
-  font-size: 1.5vw;
-  transition-duration: 1s;
-
-
-}
-.btn:hover{
-  background-color: #acacac;
-  color:#017a7a;
+/*background-color: red;*/
 }
 /* width */
 ::-webkit-scrollbar {
@@ -209,6 +181,7 @@ textarea{
 ::-webkit-scrollbar-thumb:hover {
   background: #acacac;
 }
+
 a{
   text-decoration: none;
   color:black;
