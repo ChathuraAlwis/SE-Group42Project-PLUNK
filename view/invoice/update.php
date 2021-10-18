@@ -30,7 +30,7 @@
     <div class= left>
     <div class="form">
 			<h2 class="center-text"><b>INVOICE DETAILS</b>
-                <image src = "../images/bin.png" class="bin"></image></h2>
+                <a href="deleteinvoicesuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
