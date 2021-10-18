@@ -204,8 +204,8 @@ if(isset($_POST['update-item'])){
                         $DB->runQuery($sql);
                         $newPage = new Page('../view/invoice/addinvoicesuccess.html');
                         $newPage->show();
-                        $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
-                        $DB->runQuery($sql);
+                        // $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
+                        // $DB->runQuery($sql);
                     }
                     $itemRow++;
                 }

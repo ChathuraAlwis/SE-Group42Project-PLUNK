@@ -14,7 +14,7 @@
     <div class="main">
     <div class= "left">
     <div class="form">
-        <h2 class="center-text"><b>New Salary Sheet</b></h2>
+        <h2 class="center-text"><b>New Service Charge Sheet</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-salary" type="hidden" >
                 <table>

@@ -67,18 +67,7 @@
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
-                <tr>
-                <div class="form-group">
-                    <td><label for="Type">Type</label></td>
-                    <td></td>
-                    <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
-                        <option value="Cash">Cash</option>
-                        <option value="Card">Card</option>
-                     </select></td>
-                    </div>
-                </tr>
-                <tr><td><br></td></tr>
+            
                 <tr>
                     <div class="form-group">
                         <td><label for="Reservation1">Reservation 1</label></td>
