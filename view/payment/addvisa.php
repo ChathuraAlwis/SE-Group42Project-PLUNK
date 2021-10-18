@@ -118,13 +118,21 @@
             </div>
         </div>
         <div class= right>
-            <div class="righttable">
-                <div class="itemtable">
-                    <h3>VISA PAYMENTS TABLE</h3>
-                    <iframe src="visa.php" class="item"></iframe>
-                </div>
+            <div class="righttop">
+            <div class="itemtable">
+                <h3>CRICKET CLUB PROPERTY BOOKING TABLE</h3>
+                <iframe src="../bookings/bookingtable.php" class="item"></iframe>
             </div>
-        </div>
+    </div>
+    </div>
+    <div class= right>
+            <div class="rightbottom">
+            <div class="itemtable">
+                <h3>VISA CARD PAYMENT DETAILS TABLE</h3>
+                <iframe src="visa.php" class="item"></iframe>
+            </div>
+    </div>
+    </div>
     </div>
 </body>
 </html>

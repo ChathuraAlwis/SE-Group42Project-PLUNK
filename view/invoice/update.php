@@ -87,6 +87,14 @@
                         <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Total]";?>"/></td>
                     </div>
                 </tr>
+                <tr>
+                <div class="form-group">
+                   <td><label for="UserID">User ID</label></td> 
+                   <td></td>
+                    <td><input type="number" id= "UserID" name="UserD" required class="form-control" value = "<?php echo "$result[UserID]";?>"/></td>
+                </div>
+              </tr>
+            
             </table>
             
                 <br>

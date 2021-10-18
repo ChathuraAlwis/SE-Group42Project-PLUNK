@@ -128,10 +128,18 @@
     </div>
 </div>
 <div class= right>
-            <div class="righttable">
+            <div class="righttop">
             <div class="itemtable">
-                <h3>Payment TABLE</h3>
+                <h3>CRICKET CLUB PROPERTY BOOKING TABLE</h3>
                 <iframe src="../bookings/bookingtable.php" class="item"></iframe>
+            </div>
+    </div>
+    </div>
+    <div class= right>
+            <div class="rightbottom">
+            <div class="itemtable">
+                <h3>PAYMENT DETAILS TABLE</h3>
+                <iframe src="paymenttable.php" class="item"></iframe>
             </div>
     </div>
     </div>
