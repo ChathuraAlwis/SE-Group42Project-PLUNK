@@ -17,7 +17,7 @@
               <h2>Bookings</h2>
 
             </div><br>
-            <form class="addbooking" action="index.html" method="post" autocomplete="on" >
+            <form class="addbooking" action="#" method="post" autocomplete="on" >
               <div class="submain">
                 <div class="questions">
 
@@ -39,13 +39,21 @@
                   </div><br>
                   <div class="questions">
                       <label for="reservation1">Reservation 1 :</label>
-                      <select class="" name="" required>
+                      <select class="reservation1" name="reservation1" required>
+                        <option  selected> Select Resevation 1</option>
+                        <option value="">Lotus Lounge</option>
+                        <option value="">Board Room</option>
+                        <option value="">Center wicket</option>
 
                       </select>
                   </div><br>
                   <div class="questions">
                         <label for="reservation2">Reservation 2 :</label>
-                        <select class="" name="">
+                        <select class="reservation1" name="reservation1" required>
+                          <option  selected> Select Resevation 2</option>
+                          <option value="">Board Room</option>
+                          <option value="">Lotus Lounge</option>
+                          <option value="">Center wicket</option>
 
                         </select>
                   </div><br>
@@ -74,7 +82,7 @@
 
                 </div>
                 <div class="line3">
-                  <button type="submit" name="button" class="add"><b>Add</b> </button>
+                  <button type="submit" name="button" class="add" formaction="addbookingsuccess.html"><b>Add</b> </button>
                   <button type="reset" name="button" class="add"><b>Reset</b> </button>
 
                 </div>
