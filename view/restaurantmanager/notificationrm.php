@@ -18,7 +18,7 @@
               <?php
                     require_once "../../controller/showtable.php";
                     $notificationTable = new Table("notification");
-                    $notificationTable->show("SELECT Date, EventType, Message FROM plunk.notification");
+                    $notificationTable->show("SELECT Date, EventType as 'Event Type', Message FROM plunk.notification");
             ?>
                 
              </div>

@@ -18,8 +18,8 @@
                     <div class="detailtable">
                       <?php
                           require_once "../../controller/showtable.php";
-                          $salarystaffTable = new Table("salarystaff");
-                          $salarystaffTable->show("SELECT * FROM plunk.servicechargestaff");
+                          $salarystaffTable = new Table("servicestaff");
+                          $salarystaffTable->show("SELECT StaffID as 'Staff ID', Percentage, Amount FROM plunk.servicechargestaff");
                        ?>
 
                     </div>

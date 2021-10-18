@@ -13,7 +13,7 @@
             $this->tableName = $table;
         }
 
-        function show($sql, $linkPage="none"){
+        function show($sql, $linkPage="none", $getdata="none"){
 
             //get the returned array with data from database
             $result = $this->DB->runQuery($sql);
@@ -42,7 +42,11 @@
                         $record = http_build_query(array('record' => $result[$row]));
                         //link each data in the table with the update form
                         if($linkPage!="none") {
-                            echo "<td><a href=\"" . $linkPage . ".php?data=$record\" target=\"Pages\">$data</a></td>";
+                            if($getdata!="none"){
+                                echo "<td><a href=\"" . $linkPage . ".php?data=$record&getdata=$getdata\" target=\"Pages\">$data</a></td>";
+                            }else{
+                                echo "<td><a href=\"" . $linkPage . ".php?data=$record\" target=\"Pages\">$data</a></td>";
+                            }
                         } else {
                             echo "<td>$data</td>";
                         }

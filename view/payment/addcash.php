@@ -84,7 +84,15 @@
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
-                    </table>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Sign">Signed Person Name</label></td>
+                        <td></td>
+                        <td><input type="text" id= "Sign" name="Sign" required class="form-control" placeholder="Enter the Sign person name"/></td>
+                    </div>
+                </tr>
+                <tr><td><br></td></tr>
+                </table>
                     
                     <div class="form-group">
                         <button type="submit" name="submit" value="Submit" class="button submit" >Pay</button>
@@ -94,13 +102,21 @@
             </div>
         </div>
         <div class= right>
-            <div class="righttable">
-                <div class="itemtable">
-                    <h3>ITEM TABLE</h3>
-                    <iframe src="cash.php" class="item"></iframe>
-                </div>
+            <div class="righttop">
+            <div class="itemtable">
+                <h3>CRICKET CLUB PROPERTY BOOKING TABLE</h3>
+                <iframe src="../bookings/bookingtable.php" class="item"></iframe>
             </div>
-        </div>
+    </div>
+    </div>
+    <div class= right>
+            <div class="rightbottom">
+            <div class="itemtable">
+                <h3>CASH PAYMENT DETAILS TABLE</h3>
+                <iframe src="cash.php" class="item"></iframe>
+            </div>
+    </div>
+    </div>
     </div>
 </body>
 </html>
