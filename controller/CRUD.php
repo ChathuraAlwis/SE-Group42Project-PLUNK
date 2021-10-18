@@ -203,6 +203,8 @@ if(isset($_POST['update-item'])){
                         $QuanRow = 'Quantity' . $itemRow;
                         $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, Quantity) VALUES ('$InvoiceID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
                         $DB->runQuery($sql);
+                        $newPage = new Page('../view/invoice/addinvoicesuccess.html');
+                        $newPage->show();
                         $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
                         $DB->runQuery($sql);
                     }
