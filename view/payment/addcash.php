@@ -34,6 +34,15 @@
                         </div>
                     </table>
                     <table>
+                    <tr><td><br></td></tr>
+                    <tr>
+                        <div class="form-group">
+                            <td><label for="BookingID">Booking ID</label></td>
+                            <td></td>
+                            <td><input type="text" id= "BookingID" name="BookingID" required class="form-control" placeholder="Enter the Booking ID"/></td>
+                        </div>
+                    </tr>
+                    <tr><td><br></td></tr>
                     <tr>
                         <div class="form-group">
                             <td><label for="Customername">Customer Name</label></td>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,13 +16,14 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $sql = "SELECT ItemID, Quantity, Price, Discount FROM plunk.item;";
-        $result = $DB->runQuery($sql);
-        setcookie("Items", json_encode($result));
+        $result = json_encode($DB->runQuery($sql));
+        print_r($result);
+        // setcookie("Items", json_encode($result));
 
         if(isset($_GET['data'])){
             $id = explode("=", $_GET['data'])[1];
         }else{
-            $id = -1;
+            $id = 0;
         }
         date_default_timezone_set("Asia/Kolkata");
     ?>
@@ -73,7 +75,7 @@
                                 <tr>
                                     <td>Item ID</td>
                                     <?php 
-                                        echo "<td><input value=$id type=text id=ItemID onchange=maxQuantity(". $_COOKIE['Items']  .")></td>";
+                                        echo "<td><input value=$id type=text id=ItemID onchange=maxQuantity(". $result  .")></td>";
                                     ?>
                                 </tr>
                                 <tr>
@@ -100,13 +102,28 @@
                                     <td>&nbsp;</td> 
                                 </tr> 
                             </table>
-                        </div> 
+                        </div>
+                        <br> 
+                        <table>
+                            <tr>
+                                <td>Service charges</td>
+                                <td><input type=number id="ServiceCharge" value=10 min=10 max=10 oninput="validity.valid||(value='');"> </td>
+                            </tr>
+                            <?php 
+                            if ($_SESSION['UserType'] == 'Cashier') {
+                                echo "<tr><td>Discount</td><td><input type=number name=Discount id=Discount value=0 min=0 max=15 oninput=validity.valid||(value='');> </td></tr> ";
+                            }
+                            else{
+                                echo "<input type=hidden name=Discount value=0>";
+                            }
+                            ?>
+                        </table>
                     </div>
                     <br>
                     <input type="hidden" id="rowCount" name="rowCount" value=0>
                     <div class="form-group">
                         <button type="submit" name="submit" value="Submit" class="button submit" onclick="tableRowCount('myTableData')">Add</button>
-                        <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
+                        <!-- <button type="button" name="reset" value="Reset" class="button reset" >Reset</button> -->
                     </div>
                 </form>
             </div>

@@ -26,7 +26,9 @@
                     }
                     $itemRow++;
                 }
-                $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_SESSION[UserName]', '$_POST[Total]', 0, '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
+                $billPrice = $_POST['Total']*(110-$_POST['Discount'])/100;
+                echo $billPrice;
+                $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_SESSION[UserName]', '$billPrice', $_POST[Discount], '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
                 $DB->runQuery($sql);
                 $sql = "SELECT * FROM plunk.bill ORDER BY BillID DESC LIMIT 1;";
                 $BillData = $DB->runQuery($sql);
@@ -204,8 +206,8 @@ if(isset($_POST['update-item'])){
                         $DB->runQuery($sql);
                         $newPage = new Page('../view/invoice/addinvoicesuccess.html');
                         $newPage->show();
-                        $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
-                        $DB->runQuery($sql);
+                        // $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
+                        // $DB->runQuery($sql);
                     }
                     $itemRow++;
                 }

@@ -1,16 +1,19 @@
-$(document).ready(function() {
-    $('#table_id').DataTable();
-    } );
+function itemNameCheck(itemNames) {
+   var ItemName = document.getElementById("ItemName");
+   console.log(itemNames);
+   var canAdd = true;
 
-    function changeType(sel) {
-         var p = document.getElementById('Quantity');
-         
+   itemNames.forEach(element => {
+      if (element['ItemName'] == ItemName.value) {
+         alert("Duplicate Item Name..");
+         canAdd = false;
+      }
+  });
 
-         var choice = sel.value;
-
-         if(choice == 'No')
-         {
-            p.style.display = 'block';
-         }
-         
-    };
+   if(canAdd){
+      document.getElementById("add").disabled=false;
+   }
+   else{
+      document.getElementById("add").disabled=true;
+   }
+};

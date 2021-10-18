@@ -24,8 +24,8 @@
     <div class=main>
     <div class= left>
     <div class="form">
-			<h2 class="center-text"><b>PAY BILL</b>
-                <image src = "../images/bin.png" class="bin"></image></h2>
+			<h2 class="center-text"><b>Order/Bill Details</b></h2>
+                <!-- <image src = "../images/bin.png" class="bin"></image></h2> -->
 			
         
         <form>
@@ -58,10 +58,10 @@
             
             </table>
             
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <button type="button" name="submit" value="Submit" class="button submit">Cash</button>
-                <button type="button" name="cancel" value="cancel" class="button submit">Card</button>
-            </div>
+                <button type="burron" name="cancel" value="cancel" class="button submit">Card</button>
+            </div> -->
     </form>                
     </div>
 </div>
