@@ -223,6 +223,8 @@ if(isset($_POST['update-invoice'])){
     try {
         $sql = "UPDATE `plunk.invoice` SET `InvoiceID`='$_POST[InvoiceID]',`Company`='$_POST[Company]',`Type`='$_POST[Type]',`ReceivedDate`='$_POST[ReceivedDate]',`DueDate`='$_POST[DueDate]',`Total`='$_POST[Total]'  WHERE InvoiceID = '$_POST[InvoiceID]'";
         $DB->runQuery($sql);
+        $newPage = new Page('../view/invoice/updateinvoicesuccess.html');
+        $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }
