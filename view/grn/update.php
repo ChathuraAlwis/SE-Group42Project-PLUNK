@@ -15,7 +15,7 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT GRNID, ItemType,AddDate,CompanyName FROM plunk.grn WHERE GRNID=$id";
+        $query = "SELECT * FROM plunk.grn WHERE GRNID=$id";
         $result = $DB->runQuery($query)[0];
         
     ?>
@@ -57,35 +57,17 @@
                 </tr>
                 
              </table>
-            <div class="form-group">
-            <div id="myform" onload="load()"> 
-                    <b>Enter the item details of the GRN...</b> 
-                    <br/><br/> 
-                            Item Name:<input type=text id="ItemName"> 
-                    <br/><br/> 
-                            Quantity :&nbsp; 
-                            <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
-                    <br/> 
-                            <input type="submit" id="add" value="Add" onclick="addRow()" > 
-                    </div> 
-                    <br/>
-                    <div id="mydata"> 
-                    <b>Item Details...</b><br> 
-                    <table id="myTableData"  class="addrowtable" > 
-                        <tr> 
-                            <td>&nbsp;</td> 
-                            <td><b>Item Name</b></td> 
-                            <td><b>Quantity</b></td> 
-                        </tr> 
-                    </table> 
-
-                      
-                    </div> 
-                </div>
+             <div class="forminputs">
+                  <?php
+                      require_once "..\..\controller\showtable.php";
+                      $orderTable = new Table("grnitem");
+                      $orderTable->show("SELECT * FROM plunk.grnitem WHERE GRNID in ('$result[GRNID]')", 'update');
+                   ?>
+                </div><br>
             
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit">Update</button>
-                    <button type="submit" name="cancel" value="cancel" class="button submit"><a href="grntable.php">Cancel</a></button>
+                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="updategrnsuccess.html">Update</a></button>
+                    <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="grnpage.php">Cancel</a></button>
                 </div>
         </form>        
     </div>
