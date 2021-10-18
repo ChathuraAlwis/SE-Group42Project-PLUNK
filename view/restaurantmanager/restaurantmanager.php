@@ -59,7 +59,7 @@
                      ?> 
                          
             
-                        <marquee class="msg" ><h4 class="classmsg" id ="idmsg" name="dismsg">Bloomfield</h4></marquee>
+                        <marquee class="msg" ><h4 class="classmsg" id ="idmsg" name="dismsg">The restaurant is closed now.</h4></marquee>
                   
                   </div>
 

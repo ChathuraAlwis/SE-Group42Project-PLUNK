@@ -162,7 +162,7 @@ if(isset($_POST['add-item'])){
     } catch (\Throwable $th) {
         throw $th;
     }
-    echo "Item added successfully";
+    
 }
 //---------Update Item------------
 
@@ -178,7 +178,6 @@ if(isset($_POST['update-item'])){
         throw $th;
     }
 
-    echo "Item updated successfully";
 
 }
 

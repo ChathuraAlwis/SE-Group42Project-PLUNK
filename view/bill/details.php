@@ -23,7 +23,7 @@
                             // $orderTable->show("SEARCH Cus");
                           }
                           else{
-                            $billTable->show("SELECT * FROM plunk.bill", 'update');
+                            $billTable->show("SELECT * FROM plunk.bill");
                           }
                           
                        ?>
