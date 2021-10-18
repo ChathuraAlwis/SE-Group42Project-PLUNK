@@ -22,7 +22,7 @@
                             // $orderTable->show("SEARCH Cus");
                           }
                           else{
-                            $invoiceTable->show("SELECT * FROM plunk.invoice",'update');
+                            $invoiceTable->show("SELECT InvoiceID as 'Invoice ID', Company, Type as 'Item Type', ReceivedDate as 'Received Date', DueDate as 'Due Date', Total as 'Total value', UserID as 'User ID' FROM plunk.invoice",'update');
                           }
                           
                        ?>

@@ -17,7 +17,7 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $cashTable = new Table("cashpayment");
-                        $cashTable->show("SELECT * FROM plunk.cashpayment", 'update');
+                        $cashTable->show("SELECT PaymentID as 'Payment ID', ReceiptNo as 'Receipt No', SignedPerson as 'Signed Person Name' FROM plunk.cashpayment", 'update');
                       ?>
 
                 </div>
