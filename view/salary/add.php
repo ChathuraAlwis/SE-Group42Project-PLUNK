@@ -85,14 +85,14 @@
     <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>Salary Details Table</h4>
+            <h3>SALARY DETAILS TABLE</h3>
             <iframe src="allsalary.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
-            <h3>Leave Details Table</h3>
+            <h3>LEAVE DETAILS TABLE</h3>
                 <iframe src="../leave/allleave.php" class="item"></iframe>
             </div>  
         </div>
