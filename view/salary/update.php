@@ -16,8 +16,9 @@
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $personid = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$personid";
+        // $personid = explode("=", $_GET['data'])[1];
+        // $personid=$_GET['getdata'];
+        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$_GET[getdata]";
         $result = $DB->runQuery($query)[0];
     ?>
 
@@ -93,7 +94,7 @@
       
         <div class="itemtable">
             <h4>SALARY DETAILS TABLE</h4>
-            <iframe src="allsalary.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
+            <iframe src="allsalary.php?id=<?php echo $_GET['getdata'];?>" class="item"></iframe>
         </div>
         
         

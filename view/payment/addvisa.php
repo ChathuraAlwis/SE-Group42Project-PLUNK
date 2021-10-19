@@ -9,11 +9,14 @@
 </head>
 <body>
     <?php
-        if(isset($_GET['data'])){
-            $id = explode("=", $_GET['data'])[1];
-        }else{
-            $id = -1;
+        if(isset($_GET['id'])){
+            require_once "../../model/database.php";
+            $DB = new DB;
+            $sql = "SELECT * FROM plunk.booking WHERE BookingID=$_GET[id]";
+            $result = $DB->runQuery($sql)[0];
         }
+
+            
         date_default_timezone_set("Asia/Kolkata");
     ?>
     <div class="main">
@@ -39,7 +42,7 @@
                         <div class="form-group">
                             <td><label for="BookingID">Booking ID</label></td>
                             <td></td>
-                            <td><input type="text" id= "BookingID" name="BookingID" required class="form-control" placeholder="Enter the Booking ID"/></td>
+                            <td><input type="text" id= "BookingID" name="BookingID" required class="form-control" placeholder="Enter the Booking ID" value = "<?php echo "$result[BookingID]";?>"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -47,7 +50,7 @@
                         <div class="form-group">
                             <td><label for="Customername">Customer Name</label></td>
                             <td></td>
-                            <td><input type="text" id= "Customername" name="Customername" required class="form-control" placeholder="Enter the Customer name"/></td>
+                            <td><input type="text" id= "Customername" name="Customername" required class="form-control" placeholder="Enter the Customer name"  value = "<?php echo "$result[CustomerName]";?>"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -55,7 +58,7 @@
                         <div class="form-group">
                             <td><label for="ContactNo">Contact No</label></td>
                             <td></td>
-                            <td><input type="text" id= "ContactNo" name="ContactNo" required class="form-control" placeholder="Enter the contact no"/></td>
+                            <td><input type="text" id= "ContactNo" name="ContactNo" required class="form-control" placeholder="Enter the contact no"  value = "<?php echo "$result[ContactNo]";?>"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -64,7 +67,7 @@
                     <div class="form-group">
                         <td><label for="Reservation1">Reservation 1</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation1" name="Reservation1" required class="form-control" placeholder="Enter the reservation 1"/></td>
+                        <td><input type="text" id= "Reservation1" name="Reservation1" required class="form-control" placeholder="Enter the reservation 1"  value = "<?php echo "$result[Reservation1]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -73,7 +76,7 @@
                     <div class="form-group">
                         <td><label for="Reservation2">Reservation 2</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation2" name="Reservation2" required class="form-control" placeholder="Enter the reservation 2"/></td>
+                        <td><input type="text" id= "Reservation2" name="Reservation2" required class="form-control" placeholder="Enter the reservation 2" value = "<?php echo "$result[Reservation2]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -81,7 +84,7 @@
                     <div class="form-group">
                         <td><label for="Total">Total Value</label></td>
                         <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" placeholder="Enter the total value"/></td>
+                        <td><input type="text" id= "Total" name="Total" required class="form-control" placeholder="Enter the total value" value = "<?php echo "$result[Total]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>

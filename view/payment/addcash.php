@@ -9,15 +9,13 @@
 </head>
 <body>
     <?php
-        if(isset($_GET['data'])){
+        if(isset($_GET['id'])){
             require_once "../../model/database.php";
             $DB = new DB;
-            $id = explode("=", $_GET['data'])[1];
-            $query = "SELECT * FROM plunk.booking WHERE BookingID=$id";
-            $result = json_encode($DB->runQuery($sql));
-        }else{
-            $id = -1;
+            $sql = "SELECT * FROM plunk.booking WHERE BookingID=$_GET[id]";
+            $result = $DB->runQuery($sql)[0];
         }
+    
         date_default_timezone_set("Asia/Kolkata");
     ?>
     <div class="main">

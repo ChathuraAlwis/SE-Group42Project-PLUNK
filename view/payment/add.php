@@ -30,8 +30,7 @@
     <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Add Payment</b></h2>
-        <form action="../../controller/CRUD.php" method="POST">
-                <input name ="add-invoice" type="hidden" >
+        <form>
                 <table>
                 <div class="form-group">
                             <tr>
@@ -47,7 +46,7 @@
                      <div class="form-group">
                    <td><label for="BookingID">Booking ID</label></td> 
                    <td></td>
-                    <td><input type="number" id= "BookingID" name="BookingID"  class="form-control" value = "<?php echo "$result[BookingID]";?>" readonly/></td>
+                    <td><input type="number" id= "BookingID" name="BookingID"  class="form-control" <?php if(isset($result)){echo "value=$result[BookingID]";}?> readonly/></td>
                 </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -56,7 +55,7 @@
                     <div class="form-group">
                    <td><label for="CustomerName">Customer Name</label></td> 
                    <td></td>
-                    <td><input type="text" id= "CustomerName" name="CustomerName"  class="form-control" value = "<?php echo "$result[CustomerName]";?>" readonly/></td>
+                    <td><input type="text" id= "CustomerName" name="CustomerName"  class="form-control" <?php if(isset($result)){echo "value=$result[CustomerName]";}?> readonly/></td>
                 </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -64,7 +63,7 @@
                         <div class="form-group">
                             <td><label for="ContactNo">Contact No</label></td>
                             <td></td>
-                            <td><input type="text" id= "ContactNo" name="ContactNo"  class="form-control" value = "<?php echo "$result[ContactNo]";?>" readonly/></td>
+                            <td><input type="text" id= "ContactNo" name="ContactNo"  class="form-control" <?php if(isset($result)){echo "value=$result[ContactNo]";}?> readonly/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -73,7 +72,7 @@
                     <div class="form-group">
                         <td><label for="Reservation1">Reservation 1</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation1" name="Reservation1"  class="form-control" value = "<?php echo "$result[Reservation1]";?>" readonly/></td>
+                        <td><input type="text" id= "Reservation1" name="Reservation1"  class="form-control" <?php if(isset($result)){echo "value=$result[Reservation1]";}?> readonly/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -82,7 +81,7 @@
                     <div class="form-group">
                         <td><label for="Reservation2">Reservation 2</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation2" name="Reservation2" class="form-control" value = "<?php echo "$result[Reservation2]";?>" readonly/></td>
+                        <td><input type="text" id= "Reservation2" name="Reservation2" class="form-control" <?php if(isset($result["Reservation2"])){echo "value=$result[Reservation2]";}?> readonly/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -90,7 +89,7 @@
                     <div class="form-group">
                         <td><label for="Total">Total Value</label></td>
                         <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" value = "<?php echo "$result[Total]";?>" readonly/></td>
+                        <td><input type="text" id= "Total" name="Total" required class="form-control" <?php if(isset($result)){echo "value=$result[Total]";}?> readonly/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -111,8 +110,8 @@
             
                 
                 <div class="form-group">
-                    <button type="submit" name="cash" value="cash" class="button submit"><a class= "cancecl" href="addcash.php">Cash</a></button>
-                    <button type="submit" name="visa" value="visa" class="button submit"><a class= "cancecl" href="addvisa.php">Visa Card</a></button>
+                    <button type="submit" name="cash" value="cash" class="button submit"><a class= "cancecl" href="addcash.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Cash</a></button>
+                    <button type="submit" name="visa" value="visa" class="button submit"><a class= "cancecl" href="addvisa.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Visa Card</a></button>
                 </div>
         </form>        
     </div>
