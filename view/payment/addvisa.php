@@ -19,7 +19,7 @@
     <div class="main">
         <div class="left">
             <div class="form">
-                <h2 class="center-text"><b>Cash Payment</b></h2>
+                <h2 class="center-text"><b>Visa Card Payment</b></h2>
                 <form action="../../controller/CRUD.php" method="post">
                     <input name ="add-cash" type="hidden" >
                     <table>
@@ -105,7 +105,7 @@
                     <div class="form-group">
                         <td><label for="ExpDate">Exp-Date</label></td>
                         <td></td>
-                        <td><input type="date" id= "ExpDate" name="ExpDate" required class="form-control" placeholder="Enter the Exp-Date"/></td>
+                        <td><input type="date" id= "ExpDate" name="ExpDate" required class="form-control" placeholder="Enter the Exp-Date" min="<?php echo date("Y-m-d") ?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -130,7 +130,7 @@
             <div class="righttop">
             <div class="itemtable">
                 <h3>CRICKET CLUB PROPERTY BOOKING TABLE</h3>
-                <iframe src="../bookings/bookingtable.php" class="item"></iframe>
+                <iframe src="paymentbooking.php" class="item"></iframe>
             </div>
     </div>
     </div>

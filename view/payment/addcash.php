@@ -114,7 +114,7 @@
             <div class="righttop">
             <div class="itemtable">
                 <h3>CRICKET CLUB PROPERTY BOOKING TABLE</h3>
-                <iframe src="../bookings/bookingtable.php" class="item"></iframe>
+                <iframe src="paymentbooking.php" class="item"></iframe>
             </div>
     </div>
     </div>

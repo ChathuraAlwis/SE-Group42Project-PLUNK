@@ -61,14 +61,14 @@
       <div class = "righttop">
         <div class="itemtable">
             <h4>Service Charge Details Table</h4>
-            <iframe src="servicedetail.php" class="item"></iframe>
+            <iframe src="allservicecharge.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
             <h3>Leave Details Table</h3>
-                <iframe src="../leave/alldetails.php" class="item"></iframe>
+                <iframe src="../leave/allleave.php" class="item"></iframe>
             </div>  
         </div>
     </div>
