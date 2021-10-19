@@ -68,7 +68,14 @@
             <div class="form-group">
                 <?php 
                     if($_SESSION['UserType']!='Cashier'){
-                        echo "Pay the amount through Cashier to receive items.";
+                        echo "
+                        <table>
+                            <tr>
+                                <td>Pay the amount through Cashier to receive items.</td>
+                                <td><button type=back class=\"button submit\"><a class=cancel href=../items/itemspage.php>OK</a></button></td>
+                            </tr>
+                        </table>
+                        ";
                     }else{
                         echo "
                         <center><button type=button name=submit value=Submit class=\"button submit\">Paid</button></center>

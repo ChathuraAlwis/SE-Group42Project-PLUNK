@@ -23,6 +23,8 @@
                         $DB->runQuery($sql);
                         $sql = "UPDATE plunk.item SET Quantity = Quantity - $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
                         $DB->runQuery($sql);
+                        $sql = "UPDATE plunk.item SET Availability = IF(Quantity<=0, 'No', 'Yes') WHERE ItemID = $_POST[$ItemRow];";
+                        $DB->runQuery($sql);
                     }
                     $itemRow++;
                 }
