@@ -43,8 +43,8 @@
                         //link each data in the table with the update form
                         if($linkPage!="none") {
                             if($getdata!="none"){
-                                $send = $result[$row][$getdata];
-                                echo "<td><a href=\"" . $linkPage . ".php?data=$record&getdata=$send\" target=\"Pages\">$data</a></td>";
+                                // $send = $result[$row][$getdata];
+                                echo "<td><a href=\"" . $linkPage . ".php?data=$record&getdata=$getdata\" target=\"Pages\">$data</a></td>";
                             }else{
                                 echo "<td><a href=\"" . $linkPage . ".php?data=$record\" target=\"Pages\">$data</a></td>";
                             }
