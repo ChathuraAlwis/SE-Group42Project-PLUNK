@@ -23,6 +23,8 @@
                         $DB->runQuery($sql);
                         $sql = "UPDATE plunk.item SET Quantity = Quantity - $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
                         $DB->runQuery($sql);
+                        $sql = "UPDATE plunk.item SET Availability = IF(Quantity<=0, 'No', 'Yes') WHERE ItemID = $_POST[$ItemRow];";
+                        $DB->runQuery($sql);
                     }
                     $itemRow++;
                 }
@@ -173,6 +175,8 @@ if(isset($_POST['update-item'])){
 
     try {
         $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`Price`='$_POST[Price]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
+        $DB->runQuery($sql);
+        $sql = "UPDATE plunk.item SET Availability = IF(Quantity<=0, 'No', 'Yes') WHERE ItemID = $_POST[ItemID];";
         $DB->runQuery($sql);
         $newPage = new Page('../view/items/updateitemsuccess.html');
         $newPage->show();
