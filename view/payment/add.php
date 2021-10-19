@@ -12,12 +12,16 @@
   <body>
   <?php
         if(isset($_GET['data'])){
+            require_once "../../model/database.php";
+            $DB = new DB;
             $id = explode("=", $_GET['data'])[1];
+            $query = "SELECT * FROM plunk.booking WHERE BookingID=$id";
+            $result = $DB->runQuery($query)[0];
         }else{
             $id = -1;
         }
         date_default_timezone_set("Asia/Kolkata");
-
+        
 
         
     ?>
@@ -32,6 +36,7 @@
                 <div class="form-group">
                             <tr>
                                 <td style="text-align: right"><label for="PaymentDate">Payment Date</label></td>
+                                <td></td>
                                 <td><input name ="PaymentDate" id="PaymentDate" type="date" value="<?php echo date("Y-m-d") ?>" readonly></td>
                             </tr>
                         </div>
@@ -39,27 +44,27 @@
                 <tr><td><br></td></tr>
                 <table>
                      <tr>
-                        <div class="form-group">
-                            <td><label for="BookingID">Booking ID</label></td>
-                            <td></td>
-                            <td><input type="text" id= "BookingID" name="BookingID" required class="form-control" value = "<?php echo "$result[BookingID]";?>"/></td>
-                        </div>
+                     <div class="form-group">
+                   <td><label for="BookingID">Booking ID</label></td> 
+                   <td></td>
+                    <td><input type="number" id= "BookingID" name="BookingID"  class="form-control" value = "<?php echo "$result[BookingID]";?>" readonly/></td>
+                </div>
                     </tr>
                     <tr><td><br></td></tr>
                    
                     <tr>
-                        <div class="form-group">
-                            <td><label for="CustomerName">Customer Name</label></td>
-                            <td></td>
-                            <td><input type="text" id= "CustomerName" name="CustomerName" required class="form-control" value = "<?php echo "$result[CustomerName]";?>"/></td>
-                        </div>
+                    <div class="form-group">
+                   <td><label for="CustomerName">Customer Name</label></td> 
+                   <td></td>
+                    <td><input type="text" id= "CustomerName" name="CustomerName"  class="form-control" value = "<?php echo "$result[CustomerName]";?>" readonly/></td>
+                </div>
                     </tr>
                     <tr><td><br></td></tr>
                     <tr>
                         <div class="form-group">
                             <td><label for="ContactNo">Contact No</label></td>
                             <td></td>
-                            <td><input type="text" id= "ContactNo" name="ContactNo" required class="form-control" value = "<?php echo "$result[ContactNo]";?>"/></td>
+                            <td><input type="text" id= "ContactNo" name="ContactNo"  class="form-control" value = "<?php echo "$result[ContactNo]";?>" readonly/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -68,7 +73,7 @@
                     <div class="form-group">
                         <td><label for="Reservation1">Reservation 1</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation1" name="Reservation1" required class="form-control" value = "<?php echo "$result[Reservation1]";?>"/></td>
+                        <td><input type="text" id= "Reservation1" name="Reservation1"  class="form-control" value = "<?php echo "$result[Reservation1]";?>" readonly/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -77,7 +82,7 @@
                     <div class="form-group">
                         <td><label for="Reservation2">Reservation 2</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation2" name="Reservation2" required class="form-control" value = "<?php echo "$result[Reservation2]";?>"/></td>
+                        <td><input type="text" id= "Reservation2" name="Reservation2" class="form-control" value = "<?php echo "$result[Reservation2]";?>" readonly/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -85,7 +90,7 @@
                     <div class="form-group">
                         <td><label for="Total">Total Value</label></td>
                         <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" value = "<?php echo "$result[Total]";?>"/></td>
+                        <td><input type="text" id= "Total" name="Total" required class="form-control" value = "<?php echo "$result[Total]";?>" readonly/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -106,8 +111,8 @@
             
                 
                 <div class="form-group">
-                    <button type="submit" name="cash" value="cash" class="button submit"><a href="addcash.php">Cash</a></button>
-                    <button type="submit" name="visa" value="visa" class="button submit"><a href="addvisa.php">Visa Card</a></button>
+                    <button type="submit" name="cash" value="cash" class="button submit"><a class= "cancecl" href="addcash.php">Cash</a></button>
+                    <button type="submit" name="visa" value="visa" class="button submit"><a class= "cancecl" href="addvisa.php">Visa Card</a></button>
                 </div>
         </form>        
     </div>
