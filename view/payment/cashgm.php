@@ -96,7 +96,7 @@
 
                     <div class="form-group">
                         <button type="submit" name="submit" value="Submit" class="button submit" >Pay</button>
-                        <button type="reset" name="reset" value="Reset" class="button reset" >Cancle</button>
+                        <button type="reset" name="reset" value="Reset" class="button reset" onclick="history.back()" >Cancle</button>
                     </div>
                 </form>
             </div>
