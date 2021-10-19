@@ -75,12 +75,12 @@
                                 <tr>
                                     <td>Item ID</td>
                                     <?php 
-                                        echo "<td><input value=$id type=text id=ItemID onchange=maxQuantity(". $result  .")></td>";
+                                        echo "<td><input style=width:67% value=$id type=text id=ItemID onchange=maxQuantity(". $result  .")></td>";
                                     ?>
                                 </tr>
                                 <tr>
                                     <td>Quantity</td>
-                                    <td><input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> </td>
+                                    <td><input style="width:67%" type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> </td>
                                 </tr>
                                 <tr>
                                     <td><label for="Total">Total</label></td>
@@ -88,7 +88,7 @@
                                 </tr>
                             </table>
                             <?php 
-                                echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $_COOKIE['Items'] . ") disabled></td>";
+                                echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $result . ") disabled></td>";
                             ?> 
                         </div> 
                         <br>
@@ -123,7 +123,7 @@
                     <input type="hidden" id="rowCount" name="rowCount" value=0>
                     <div class="form-group">
                         <button type="submit" name="submit" value="Submit" class="button submit" onclick="tableRowCount('myTableData')">Add</button>
-                        <!-- <button type="button" name="reset" value="Reset" class="button reset" >Reset</button> -->
+                        <input type="button" onclick="history.back();" value="Cancel" class="button submit">
                     </div>
                 </form>
             </div>
@@ -138,5 +138,5 @@
         </div>
     </div>
 </body>
-<?php echo "<script>maxQuantity(". $_COOKIE['Items'] .")</script>"; ?>
+<?php echo "<script>maxQuantity(". $result .")</script>"; ?>
 </html>

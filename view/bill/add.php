@@ -25,7 +25,8 @@
     <div class= left>
     <div class="form">
 			<h2 class="center-text"><b>PAY BILL</b>
-                <image src = "../images/bin.png" class="bin"></image></h2>
+                <!-- <image src = "../images/bin.png" class="bin"></image> -->
+            </h2>
 			
         
         <form>
@@ -49,18 +50,31 @@
                     <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Price]";?>" disabled/></td>
                 </div>
             </tr>
-            <tr>
-                <div class="form-group">
-                    <td><label for="Discount">Discount</label></td>
-                    <td><input type="number" id="Discount" name="Discount" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Discount]";?>" disabled/></td>
-                </div>
-            </tr>
+            <?php 
+                if($_SESSION['UserType']=='Cashier'){
+                    echo "
+                    <tr>
+                        <div class=form-group>
+                            <td><label for=Discount>Discount</label></td>
+                            <td><input type=number id=Discount name=Discount required class=form-control min=0 oninput=validity.valid||(value=''); value = $result[Discount] disabled/></td>
+                        </div>
+                    </tr>
+                    ";
+                }
+            ?>
             
             </table>
             
             <div class="form-group">
-                <button type="button" name="submit" value="Submit" class="button submit">Cash</button>
-                <button type="button" name="cancel" value="cancel" class="button submit">Card</button>
+                <?php 
+                    if($_SESSION['UserType']!='Cashier'){
+                        echo "Pay the amount through Cashier to receive items.";
+                    }else{
+                        echo "
+                        <center><button type=button name=submit value=Submit class=\"button submit\">Paid</button></center>
+                        ";
+                    }
+                ?>
             </div>
     </form>                
     </div>

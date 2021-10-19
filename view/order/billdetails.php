@@ -44,7 +44,7 @@
             <tr>
                 <div class="form-group">
                    <td><label for="ItemName">Customer Name</label></td> 
-                    <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" value = "<?php echo "$result[CustomerName]";?>" <?php if($_SESSION['UserType'] != 'Cashier'){echo "disabled";}?>/></td>
+                    <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" value = "<?php echo "$result[CustomerName]";?>" disabled/></td>
                 </div>
             </tr>
             <tr>
@@ -62,10 +62,17 @@
             
             </table>
             
-            <!-- <div class="form-group">
-                <button type="button" name="submit" value="Submit" class="button submit">Cash</button>
-                <button type="burron" name="cancel" value="cancel" class="button submit">Card</button>
-            </div> -->
+            <div class="form-group">
+                <?php
+                    if($_SESSION['UserType']=='Cashier'){
+                        echo "
+                        <center><button type=button name=submit value=Submit class=\"button submit\">Paid</button></center>
+                        ";
+                    }
+                ?>
+                <!-- <button type="button" name="submit" value="Submit" class="button submit">Cash</button>
+                <button type="burron" name="cancel" value="cancel" class="button submit">Card</button> -->
+            </div>
     </form>                
     </div>
 </div>
