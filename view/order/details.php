@@ -21,7 +21,7 @@
                             $orderTable->show("SELECT * FROM plunk.order ORDER BY OrderID DESC");
                           }
                           else{
-                            $orderTable->show("SELECT OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID] ORDER BY OrderID DESC;");
+                            $orderTable->show("SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID] ORDER BY OrderID DESC;", "billdetails");
                           }     
                        ?>
 

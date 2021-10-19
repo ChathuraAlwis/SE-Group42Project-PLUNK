@@ -16,8 +16,12 @@
   <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.bill WHERE BillID=$id";
+        $data = explode("=", $_GET['data']);
+        $id = $data[1];
+        // $col = explode("[", json_encode( $data[0]))[1];
+        $col = $data[0];
+        $col = substr($col, 7, -1);
+        $query = "SELECT * FROM plunk.bill WHERE $col=$id";
         $result = $DB->runQuery($query)[0];
     ?>
 
