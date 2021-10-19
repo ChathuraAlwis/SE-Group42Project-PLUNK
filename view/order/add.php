@@ -17,7 +17,7 @@
         $DB = new DB;
         $sql = "SELECT ItemID, Quantity, Price, Discount FROM plunk.item;";
         $result = json_encode($DB->runQuery($sql));
-        print_r($result);
+        // print_r($result);
         // setcookie("Items", json_encode($result));
 
         if(isset($_GET['data'])){
