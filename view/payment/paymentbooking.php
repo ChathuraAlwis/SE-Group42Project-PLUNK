@@ -16,12 +16,9 @@
                       <?php
                           require_once "..\..\controller\showtable.php";
                           $itemTable = new Table("booking");
-                          if($_SESSION['UserType'] == 'Accountant'){
-                            $itemTable->show("SELECT BookingID as 'Booking ID',CustomerName as 'Customer Name', ContactNo as 'Contact No',Reservation1 as 'Reservation 1',Reservation2 as 'Reservation 2', Total as 'Total Payment' FROM plunk.booking");
-                          }
-                          else{
-                            $itemTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name, BookingType as 'Booking Type',ReservedDate as 'Reserved Date',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking", 'update');
-                          }
+                        
+                          $itemTable->show("SELECT BookingID as 'Booking ID',CustomerName as 'Customer Name', ContactNo as 'Contact No',Reservation1 as 'Reservation 1',Reservation2 as 'Reservation 2', Total as 'Total Payment' FROM plunk.booking",'add');
+                          
                        ?>
 
 
