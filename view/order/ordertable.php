@@ -24,7 +24,7 @@
                 <div class="table">
                     <div>
                         <div >
-                              <input type = "text" class = "search" placeholder="Enter the item name"/>
+                              <input type = "text" class = "search" placeholder="Enter order date"/>
                         </div>
                     <div >
                         <button type = "submit" class = "search" ><b>Search</b></button>
