@@ -13,16 +13,15 @@
 
   </head>
   <body>
-    <script>
+    <!-- <script>
         var ans = getParameterByName('data', window.location.href);
         var id = ans.slice(-1);
         document.cookie = 'data='+id;
-    </script>
+    </script> -->
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.servicechargestaff WHERE ServiceChargeID=$id";
+        $query = "SELECT * FROM plunk.servicechargestaff WHERE ServiceChargeID=$_GET[getdata]";
         $result = $DB->runQuery($query)[0];
     ?>
 
@@ -78,7 +77,7 @@
       <div class = "righttop">
         <div class="itemtable">
             <h4>Service Charge TABLE</h4>
-            <iframe src="servicedetail.php" class="item"></iframe>
+            <iframe src="allservicecharge.php?id=<?php echo $_GET['getdata'];?>" class="item"></iframe>
         </div>
         
        </div>
