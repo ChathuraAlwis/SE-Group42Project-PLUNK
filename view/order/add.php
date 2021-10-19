@@ -36,11 +36,11 @@
                     <table>
                         <div class="form-group">
                             <tr>
-                                <td style="text-align: right"><label for="OrderDate">Order Date</label></td>
-                                <td><input name ="OrderDate" id="OrderDate" type="date" value="<?php echo date("Y-m-d") ?>" readonly></td>
+                                <td style="text-align: right"><label for="OrderDate">Order Date: </label></td>
+                                <td><input name ="OrderDate" id="OrderDate" type="date" value="<?php echo date("Y-m-d") ?>" style="width:130" readonly></td>
                                 <td width=50px>&nbsp;</td>
-                                <td style="text-align: right"><label for="OrderTime">Order Time</label></td>
-                                <td><input name ="OrderTime" id="OrderTime" type="time" value="<?php echo date("H:i") ?>" readonly></td>
+                                <td style="text-align: right"><label for="OrderTime">Order Time: </label></td>
+                                <td><input name ="OrderTime" id="OrderTime" type="time" value="<?php echo date("H:i") ?>" style="width:100" readonly></td>
                             </tr>
                         </div>
                     </table>
@@ -48,7 +48,7 @@
                         <div class="form-group">
                             <br>
                             <tr>
-                                <td><label for="OrderPlace">Order Place</label></td>
+                                <td><label for="OrderPlace">Order Place: </label></td>
                                 <td><select id="OrderPlace" name="OrderPlace" onchange="changeType(this);" required>
                                 <!-- <option selected>Choose place...</option> -->
                                 <option value="1">Lounge</option>
@@ -71,25 +71,28 @@
                         <div id="myform" onload="load()"> 
                             <b>Item details of the order:</b> 
                             <br>
-                            <table>
+                            <table width=200>
                                 <tr>
                                     <td>Item ID</td>
                                     <?php 
-                                        echo "<td><input style=width:67% value=$id type=text id=ItemID onchange=maxQuantity(". $result  .")></td>";
+                                        echo "<td><input style=width:100% value=$id type=text id=ItemID onchange=maxQuantity(". $result  .")></td>";
                                     ?>
                                 </tr>
                                 <tr>
                                     <td>Quantity</td>
-                                    <td><input style="width:67%" type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> </td>
+                                    <td><input style="width:100%" type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <?php 
+                                        echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $result . ") style=width:50% style=align:right disabled></td>";
+                                    ?> 
                                 </tr>
                                 <tr>
                                     <td><label for="Total">Total</label></td>
-                                    <td><input name ="Total" id="Total" type="number" value=0 style="width:67%" readonly></td>
+                                    <td><input name ="Total" id="Total" type="number" value=0 style="width:100%" readonly></td>
                                 </tr>
                             </table>
-                            <?php 
-                                echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $result . ") disabled></td>";
-                            ?> 
                         </div> 
                         <br>
                         <div id="mydata"> 
