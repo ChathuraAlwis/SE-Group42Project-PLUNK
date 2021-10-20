@@ -21,6 +21,10 @@
         
         row.insertCell(3).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRowOrder(this)">'; 
         document.getElementById("add").setAttribute("disabled", true);
+
+        var BillTotal = document.getElementById("BillTotal");
+        var Discount = document.getElementById("Discount");
+        BillTotal.value = Total.value * (110 - Discount.value) / 100;
     }
 } 
  

@@ -89,7 +89,7 @@
                                     ?> 
                                 </tr>
                                 <tr>
-                                    <td><label for="Total">Total</label></td>
+                                    <td><label for="Total">Order Total</label></td>
                                     <td><input name ="Total" id="Total" type="number" value=0 style="width:100%" readonly></td>
                                 </tr>
                             </table>
@@ -117,9 +117,13 @@
                                 echo "<tr><td>Discount</td><td><input type=number name=Discount id=Discount value=0 min=0 max=15 oninput=validity.valid||(value='');> </td></tr> ";
                             }
                             else{
-                                echo "<input type=hidden name=Discount value=0>";
+                                echo "<input type=hidden id=Discount name=Discount value=0>";
                             }
                             ?>
+                            <tr>
+                                <td>Total Payable</td>
+                                <td><input type=number id="BillTotal" value=0 min=0 readonly> </td>
+                            </tr>
                         </table>
                     </div>
                     <br>
