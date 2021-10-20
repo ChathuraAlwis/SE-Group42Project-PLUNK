@@ -210,6 +210,7 @@ if(isset($_POST['update-item'])){
         if($_POST['rowCount']!=0){
 
             try {
+                if($_POST['ItemType'] != "Choose type..."){
                 $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
                 $DB->runQuery($sql);
                 $sql = "SELECT InvoiceID FROM plunk.invoice;";
@@ -225,11 +226,18 @@ if(isset($_POST['update-item'])){
                         $DB->runQuery($sql);
                         $newPage = new Page('../view/invoice/addinvoicesuccess.html');
                         $newPage->show();
+                    
                         // $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
                         // $DB->runQuery($sql);
                     }
                     $itemRow++;
                 }
+            }
+            else{
+                $newPage = new Page('../view/invoice/Invoicetypeerror.html');
+                $newPage->show();
+            }
+           
             } catch (\Throwable $th) {
                 throw $th;
             }

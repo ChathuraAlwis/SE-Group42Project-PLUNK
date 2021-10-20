@@ -19,16 +19,16 @@
                 <div class="resbooking">
 
                 <div class="detailtable">
-                          <h3>Items</h3>
-                    <iframe src="../items/itemtable.php" class="staff"></iframe>
+                          <h3>Items Details List</h3>
+                    <iframe src="../accountant/itemtableacc.php" class="staff"></iframe>
                     </div>
                 </div>
 
                 <div class="reorder">
 
                   <div class="detailtable">
-                      <h3>Booking details for payment</h3>
-                    <iframe src="../payment/paymentbooking.php" class="staff"></iframe>
+                      <h3>Booking List For Payment</h3>
+                    <iframe src="../accountant/bookingacc.php" class="staff"></iframe>
                     </div>
                     </div>
                 <div class="calendar">
