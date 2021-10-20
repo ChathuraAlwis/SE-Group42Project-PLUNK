@@ -52,7 +52,7 @@
             <tr>
                 <div class="form-group">
                     <td><label for="Price">Price</label></td>
-                    <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Price]";?>" /></td>
+                    <td><input type="number" id="Price" name="Price" required class="form-control" min=1 oninput="validity.valid||(value='');" value = "<?php echo "$result[Price]";?>" /></td>
                 </div>
             </tr>
             <tr>

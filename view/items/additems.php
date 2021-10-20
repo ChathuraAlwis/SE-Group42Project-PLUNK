@@ -41,7 +41,7 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="Price">Price</label></td>
-                        <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the price"/></td>
+                        <td><input type="number" id="Price" name="Price" required class="form-control" min=1 oninput="validity.valid||(value='');" placeholder="Enter the price"/></td>
                     </div>
                 </tr>
                 <tr>
