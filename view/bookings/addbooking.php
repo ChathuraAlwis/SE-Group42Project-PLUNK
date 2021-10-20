@@ -41,8 +41,9 @@
                       <label for="reservation1">Reservation 1 :</label>
                       <select class="reservation1" name="reservation1" required>
                         <option  selected> Select Resevation 1</option>
-                        <option value="">Lotus Lounge</option>
-                        <option value="">Board Room</option>
+                        <option value="">Lounge</option>
+                        <option value="">Practice Net1</option>
+                        <option value="">Practice Net2</option>
                         <option value="">Center wicket</option>
 
                       </select>
@@ -51,9 +52,10 @@
                         <label for="reservation2">Reservation 2 :</label>
                         <select class="reservation1" name="reservation1" required>
                           <option  selected> Select Resevation 2</option>
-                          <option value="">Board Room</option>
-                          <option value="">Lotus Lounge</option>
-                          <option value="">Center wicket</option>
+                          <option value="">Lounge</option>
+                        <option value="">Practice Net1</option>
+                        <option value="">Practice Net2</option>
+                        <option value="">Center wicket</option>
 
                         </select>
                   </div><br>
