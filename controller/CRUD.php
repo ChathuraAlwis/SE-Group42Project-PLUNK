@@ -161,10 +161,17 @@ if(isset($_POST['add-item'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.item (ItemID, ItemName, ItemCost,Price, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]', '$_POST[ItemCost]',  '$_POST[Price]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
-        $DB->runQuery($sql);
-        $newPage = new Page('../view/items/additemsuccess.html');
-        $newPage->show();
+        if($_POST['ItemType'] != "Choose type..."){
+            $sql = "INSERT INTO plunk.item (ItemID, ItemName, ItemCost,Price, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]', '$_POST[ItemCost]',  '$_POST[Price]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
+            $DB->runQuery($sql);
+            $newPage = new Page('../view/items/additemsuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/items/Itemtypeerror.html');
+            $newPage->show();
+        }
+       
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -176,10 +183,16 @@ if(isset($_POST['update-item'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`ItemCost`='$_POST[ItemCost]',`Price`='$_POST[Price]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
-        $DB->runQuery($sql);
-        $newPage = new Page('../view/items/updateitemsuccess.html');
-        $newPage->show();
+        if($_POST['ItemType'] != "Choose type..."){
+            $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`ItemCost`='$_POST[ItemCost]',`Price`='$_POST[Price]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
+            $DB->runQuery($sql);
+            $newPage = new Page('../view/items/updateitemsuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/items/Itemtypeerror.html');
+            $newPage->show();
+        }
     } catch (\Throwable $th) {
         throw $th;
     }
