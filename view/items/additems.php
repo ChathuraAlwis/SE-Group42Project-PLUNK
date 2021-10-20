@@ -47,7 +47,7 @@
                 <tr> 
                     <div class="form-group">
                         <td><label for="ItemType">Item Type</label></td>
-                        <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                        <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" >
                             <option selected>Choose type...</option>
                             <option value="Food">Food Items</option>
                             <option value="Beverage">Beverage Items</option>
@@ -57,7 +57,7 @@
                 <tr> 
                     <div class="form-group">
                         <td><label for="Availability">Availability</label></td>
-                        <td><select id="Availability" name="Availability" class="form-control" onchange="changeType(this);">
+                        <td><select id="Availability" name="Availability" class="form-control" >
                                 <option value="Yes">Yes</option>
                                 <option value="No">No</option>
                             </select>

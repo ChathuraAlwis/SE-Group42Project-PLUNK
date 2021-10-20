@@ -26,7 +26,7 @@
     <div class= left>
     <div class="form">
 			<h2 class="center-text"><b>Salary Details</b>
-                <image src = "../images/bin.png" class="bin"></image></h2>
+            <a href="deletesalarysuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
@@ -65,13 +65,13 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="ETF">ETF Value</label></td>
-                        <td><input type="text" id= "ETF" name="ETF" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ETF]";?>"/></td>
+                        <td><input type="text" id= "ETF" name="ETF" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ETF]";?>"/></td>
                     </div>
                 </tr>
                 <tr>
                 <div class="form-group">
                    <td><label for="EPF">EPF Value</label></td> 
-                    <td><input type="text" id= "EPF" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[EPF]";?>"/></td>
+                    <td><input type="text" id= "EPF" name="EPF" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[EPF]";?>"/></td>
                 </div>
               </tr>
               <tr>
@@ -84,7 +84,7 @@
             
                 <br>
                 <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
+                <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="updatesalarysuccess.html">Update</a></button>
                 <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="salarytable.php">Cancel</a></button>
             </div>
     </form>                

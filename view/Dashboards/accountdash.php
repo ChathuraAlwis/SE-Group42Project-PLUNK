@@ -28,7 +28,7 @@
 
                   <div class="detailtable">
                       <h3>Item details with Invoice</h3>
-                    <iframe src="../invoice/invoiceitem.php" class="staff"></iframe>
+                    <iframe src="../payment/paymentbooking.php" class="staff"></iframe>
                     </div>
                     </div>
                 <div class="calendar">
