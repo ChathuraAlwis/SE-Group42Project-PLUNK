@@ -29,7 +29,7 @@
     <div class= left>
     <div class="form">
 			<h2 class="center-text"><b>Service Charge DETAILS</b>
-                <image src = "../images/bin.png" class="bin"></image></h2>
+            <a href="deleteservicesuccess.html"><image src = "../images/bin.png" class="bin"></image></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
@@ -67,7 +67,7 @@
             
                 <br>
                 <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
+                <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="updateservicesuccess.html">Update</a></button>
                 <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="servicetable.php">Cancel</a></button>
             </div>
     </form>                
