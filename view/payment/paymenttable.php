@@ -16,7 +16,7 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $paymentTable = new Table("payment");
-                          $paymentTable->show("SELECT PaymentID as 'Payment ID', PaymentDate as 'Payment Date', BookingID as 'Booking ID', UserID as 'User ID' FROM plunk.payment ORDER BY PaymentID DESC");
+                          $paymentTable->show("SELECT PaymentID as 'Payment ID', PaymentDate as 'Payment Date', PaymentType as 'Payment Type', BookingID as 'Booking ID', UserID as 'User ID' FROM plunk.payment ORDER BY PaymentID DESC");
                        ?>
 
                     </div>

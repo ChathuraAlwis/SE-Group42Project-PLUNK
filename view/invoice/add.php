@@ -18,7 +18,7 @@
   <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $sql = "SELECT ItemID, ItemName, Quantity, Price FROM plunk.item;";
+        $sql = "SELECT ItemID, ItemName, Quantity, ItemCost FROM plunk.item;";
         $result = json_encode($DB->runQuery($sql));
         // setcookie("Items", json_encode($result));
     ?>
@@ -95,7 +95,7 @@
                             <td><b>Item ID</b></td>
                             <td><b>Item Name</b></td> 
                             <td><b>Quantity</b></td> 
-                            <td><b>Price</b></td> 
+                            <td><b>Total Cost</b></td> 
                             <td>&nbsp;</td> 
 
                         </tr> 
