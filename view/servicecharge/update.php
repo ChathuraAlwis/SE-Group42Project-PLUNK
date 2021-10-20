@@ -28,7 +28,7 @@
     <div class=main>
     <div class= left>
     <div class="form">
-			<h2 class="center-text"><b>Service Charge DETAILS</b>
+			<h2 class="center-text"><b>Service Charge Details</b>
             <a href="deleteservicesuccess.html"><image src = "../images/bin.png" class="bin"></image></h2>
 			
         
