@@ -27,7 +27,7 @@
                 <div class="reorder">
 
                   <div class="detailtable">
-                      <h3>Item details with Invoice</h3>
+                      <h3>Booking details for payment</h3>
                     <iframe src="../payment/paymentbooking.php" class="staff"></iframe>
                     </div>
                     </div>
