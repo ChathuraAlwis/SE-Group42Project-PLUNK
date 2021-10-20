@@ -43,6 +43,12 @@
                     <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" value = "<?php echo "$result[ItemName]";?>"/></td>
                 </div>
               </tr>
+              <tr>
+                <div class="form-group">
+                    <td><label for="ItemCost">Item Cost</label></td>
+                    <td><input type="number" id="ItemCost" name="ItemCost" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ItemCost]";?>" /></td>
+                </div>
+            </tr>
             <tr>
                 <div class="form-group">
                     <td><label for="Price">Price</label></td>

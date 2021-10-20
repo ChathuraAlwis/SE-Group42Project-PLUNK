@@ -15,7 +15,7 @@
             $sql = "SELECT * FROM plunk.booking WHERE BookingID=$_GET[id]";
             $result = $DB->runQuery($sql)[0];
         }
-    
+
         date_default_timezone_set("Asia/Kolkata");
     ?>
     <div class="main">
@@ -61,7 +61,7 @@
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
-        
+
                 <tr>
                     <div class="form-group">
                         <td><label for="Reservation1">Reservation 1</label></td>
@@ -104,9 +104,9 @@
                 </tr>
                 <tr><td><br></td></tr>
                 </table>
-                    
+
                     <div class="form-group">
-                        <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="addcashsuccess.html">Pay</button>
+                        <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="addcashsuccess.html">Pay</a></button>
                         <button type="reset" name="reset" value="Reset" class="button reset" ><a class="cancel" href="add.php">Cancel</a></button>
                     </div>
                 </form>

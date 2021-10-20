@@ -8,6 +8,7 @@
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
         <script type="text/javascript" src="../script/addrow.js"></script>
+        <script type="text/javascript" src="../script/addTax.js"></script>
         <script type="text/javascript" src="../script/maxQuantity.js"></script>
         <script type="text/javascript" src="../script/rowCount.js"></script>
 
@@ -17,9 +18,9 @@
   <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $sql = "SELECT ItemID, Quantity, Price, Discount FROM plunk.item;";
-        $result = $DB->runQuery($sql);
-        setcookie("Items", json_encode($result));
+        $sql = "SELECT ItemID, ItemName, Quantity, Price FROM plunk.item;";
+        $result = json_encode($DB->runQuery($sql));
+        // setcookie("Items", json_encode($result));
     ?>
     <div class="main">
     <div class= "left">
@@ -74,7 +75,7 @@
                     <br/><br/> 
                             Item ID:
                             <?php 
-                                echo "<td><input type=text id=ItemID onchange=maxQuantity(". $_COOKIE['Items'] .",0".")></td>";
+                                echo "<td><input type=text id=ItemID onchange=maxQuantity(". $result .",0".")></td>";
                                     
                             ?> 
                     <br/><br/> 
@@ -83,7 +84,7 @@
                     <br/> 
                     
                     <?php 
-                        echo "<td><input type=button id=add value=Add onclick=addRowInvoice(" . $_COOKIE['Items'] . ") disabled></td>";
+                        echo "<td><input type=button id=add value=Add onclick=addRowInvoice(" . $result . ") disabled></td>";
                     ?> 
                     </div> 
                     <br/><br/> 
@@ -91,7 +92,8 @@
                     <b>Item Details...</b> 
                     <table id="myTableData" class="addrowtable" > 
                         <tr> 
-                            <td><b>Item ID</b></td> 
+                            <td><b>Item ID</b></td>
+                            <td><b>Item Name</b></td> 
                             <td><b>Quantity</b></td> 
                             <td><b>Price</b></td> 
                             <td>&nbsp;</td> 
@@ -105,10 +107,18 @@
                 <br>
                 <input type="hidden" id="rowCount" name="rowCount" value=0>
                 <div class="form-group">
-                        <td><label for="Total">Total Invoice Value</label></td>
-                    
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the total " readonly/></td>
-                    </div>
+                    <table>
+                        <tr>
+                            <td><label for="Total">Tax</label></td>
+                            <td><input type="text" id= "Tax" name="Tax" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the tax price" onchange="addTax()"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Total">Total</label></td>
+                            <td><input type="text" id= "Total" name="Total" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the total" readonly/></td>
+                        </tr>
+                    </table>
+                        
+                </div>
             
                 <br>
                 <div class="form-group">

@@ -24,7 +24,7 @@
       <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Leave Details</b>
-        <image src = "../images/bin.png" class="bin"></image></h2>
+        <a href="deleteleavesuccess.html"><image src = "../images/bin.png" class="bin"></image></h2>
         <form action="../../controller/CRUD.php" method="POST">
           <input name ="delete-leave" type="hidden" >
           <table class="formtable">

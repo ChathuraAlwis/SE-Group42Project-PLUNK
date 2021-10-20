@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
-        
+
   </head>
   <body>
   <?php
@@ -21,9 +21,9 @@
             $id = -1;
         }
         date_default_timezone_set("Asia/Kolkata");
-        
 
-        
+
+
     ?>
 
     <div class="main">
@@ -44,16 +44,16 @@
                 <table>
                      <tr>
                      <div class="form-group">
-                   <td><label for="BookingID">Booking ID</label></td> 
+                   <td><label for="BookingID">Booking ID</label></td>
                    <td></td>
                     <td><input type="number" id= "BookingID" name="BookingID"  class="form-control" <?php if(isset($result)){echo "value=$result[BookingID]";}?> readonly/></td>
                 </div>
                     </tr>
                     <tr><td><br></td></tr>
-                   
+
                     <tr>
                     <div class="form-group">
-                   <td><label for="CustomerName">Customer Name</label></td> 
+                   <td><label for="CustomerName">Customer Name</label></td>
                    <td></td>
                     <td><input type="text" id= "CustomerName" name="CustomerName"  class="form-control" <?php if(isset($result)){echo "value=$result[CustomerName]";}?> readonly/></td>
                 </div>
@@ -67,7 +67,7 @@
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
-            
+
                 <tr>
                     <div class="form-group">
                         <td><label for="Reservation1">Reservation 1</label></td>
@@ -107,13 +107,13 @@
                     </tr>
                     <tr><td><br></td></tr>
             </table>
-            
-                
+
+
                 <div class="form-group">
                     <button type="submit" name="cash" value="cash" class="button submit"><a class= "cancel" href="addcash.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Cash</a></button>
                     <button type="submit" name="visa" value="visa" class="button submit"><a class= "cancel" href="addvisa.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Visa Card</a></button>
                 </div>
-        </form>        
+        </form>
     </div>
 </div>
 <div class= right>
@@ -133,8 +133,8 @@
     </div>
     </div>
     </div>
-     
+
   </body>
 
- 
+
 </html>
