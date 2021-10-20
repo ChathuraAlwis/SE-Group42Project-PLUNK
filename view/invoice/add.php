@@ -59,7 +59,7 @@
                     <div class="form-group">
                         <td><label for="DueDate">Due Date</label></td>
                         <td></td>
-                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date" max="<?php echo date("Y-m-d") ?>"/></td>
+                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date" min="<?php echo date("Y-m-d") ?>"/></td>
                     </div>
                 </tr> 
 
