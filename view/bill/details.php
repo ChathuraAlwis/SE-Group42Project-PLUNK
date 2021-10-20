@@ -23,7 +23,7 @@
                             // $orderTable->show("SEARCH Cus");
                           }
                           else{
-                            $billTable->show("SELECT * FROM plunk.bill ORDER BY BillID DESC", "../order/billdetails");
+                            $billTable->show("SELECT * FROM plunk.bill WHERE Paid=1 ORDER BY BillID DESC", "../order/billdetails");
                           }
                           
                        ?>
