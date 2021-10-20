@@ -17,7 +17,7 @@
                       <?php
                           require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("booking");
-                          $orderTable->show("SELECT ReservedDate as 'Reserved Date',Total as 'Total Payment',Payment as Paid FROM plunk.booking WHERE BookingType=2");
+                          $orderTable->show("SELECT ReservedDate as 'Reserved Date',Total as 'Total Payment',Payment as Paid FROM plunk.booking WHERE BookingType=2 AND UserID=$_SESSION[UserID]");
                        ?>
 
 
