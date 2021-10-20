@@ -28,7 +28,7 @@
                     }
                     $itemRow++;
                 }
-                $billPrice = $_POST['Total']*(110-$_POST['Discount'])/100;
+                $billPrice = $_POST['BillTotal'];
                 echo $billPrice;
                 $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_SESSION[UserName]', '$billPrice', $_POST[Discount], '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
                 $DB->runQuery($sql);

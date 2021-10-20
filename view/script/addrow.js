@@ -36,6 +36,10 @@ function deleteRowOrder(obj) {
     var Tot = Total.value - Price;
     Total.setAttribute("value", Tot);
     Table.deleteRow(index);
+
+    var BillTotal = document.getElementById("BillTotal");
+    var Discount = document.getElementById("Discount");
+    BillTotal.value = Total.value * (110 - Discount.value) / 100;
 } 
 
 function addRowGRN() {       

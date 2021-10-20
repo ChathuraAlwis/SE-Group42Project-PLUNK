@@ -9,6 +9,7 @@
     <script type="text/javascript" src="../script/addrow.js"></script>
     <script type="text/javascript" src="../script/maxQuantity.js"></script>
     <script type="text/javascript" src="../script/rowCount.js"></script>
+    <script type="text/javascript" src="../script/billtotal.js"></script>
     <title>Bloomfield</title>
 </head>
 <body>
@@ -114,7 +115,7 @@
                             </tr>
                             <?php 
                             if ($_SESSION['UserType'] == 'Cashier') {
-                                echo "<tr><td>Discount</td><td><input type=number name=Discount id=Discount value=0 min=0 max=15 oninput=validity.valid||(value='');> </td></tr> ";
+                                echo "<tr><td>Discount</td><td><input type=number name=Discount id=Discount value=0 min=0 max=15 oninput=validity.valid||(value=''); onchange=setBillTotal()> </td></tr> ";
                             }
                             else{
                                 echo "<input type=hidden id=Discount name=Discount value=0>";
@@ -122,7 +123,7 @@
                             ?>
                             <tr>
                                 <td>Total Payable</td>
-                                <td><input type=number id="BillTotal" value=0 min=0 readonly> </td>
+                                <td><input type=number name="BillTotal" id="BillTotal" value=0 min=0 readonly> </td>
                             </tr>
                         </table>
                     </div>
