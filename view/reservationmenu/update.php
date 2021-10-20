@@ -25,7 +25,7 @@
     <div class= left>
     <div class="form">
         <h2 class="center-text"><b>Place Details</b>
-            <a href="#"><image src = "../images/bin.png" class="bin"></image></a></h2>
+            <a href="deleteressuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
 
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="update-reservation" type="hidden" >
