@@ -32,6 +32,12 @@
                        <?php echo "<td><input onchange=itemNameCheck(". $result .") type=text id=ItemName name=ItemName required class=form-control placeholder=\"Enter the item name\" ></td>"; ?>
                     </div>
                   </tr>
+                  <tr>
+                    <div class="form-group">
+                        <td><label for="ItemCost">Item Cost</label></td>
+                        <td><input type="number" id="ItemCost" name="ItemCost"  class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the price"/></td>
+                    </div>
+                </tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Price">Price</label></td>
