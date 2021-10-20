@@ -110,8 +110,8 @@
 
 
                 <div class="form-group">
-                    <button type="submit" name="cash" value="cash" class="button submit"><a class= "cancecl" href="addcash.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Cash</a></button>
-                    <button type="submit" name="visa" value="visa" class="button submit"><a class= "cancecl" href="addvisa.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Visa Card</a></button>
+                    <button type="submit" name="cash" value="cash" class="button submit"><a class= "cancel" href="addcash.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Cash</a></button>
+                    <button type="submit" name="visa" value="visa" class="button submit"><a class= "cancel" href="addvisa.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Visa Card</a></button>
                 </div>
         </form>
     </div>

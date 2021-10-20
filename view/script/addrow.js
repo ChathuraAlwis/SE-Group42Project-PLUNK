@@ -91,7 +91,7 @@ function addRowInvoice(itemPrice) {
         itemPrice.forEach(element => {
             // console.log(element['ItemID'], ItemID);
             if (element['ItemID'] == ItemID.value) {
-                var tot = element['Price'] * Quantity.value;
+                var tot = element['ItemCost'] * Quantity.value;
                 row.insertCell(3).innerHTML= '<input type="text" class="Price" value = "' + tot + '" id="Price'+ rowCount +'" style="border:none" size=5 readonly >';
                 var Tot = parseInt(Total.value) + tot;
                 Total.setAttribute("value", Tot); 
