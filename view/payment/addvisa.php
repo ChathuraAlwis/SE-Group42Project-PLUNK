@@ -76,7 +76,7 @@
                     <div class="form-group">
                         <td><label for="Reservation2">Reservation 2</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation2" name="Reservation2" required class="form-control" placeholder="Enter the reservation 2" value = "<?php echo "$result[Reservation2]";?>"/></td>
+                        <td><input type="text" id= "Reservation2" name="Reservation2" required class="form-control" placeholder="No reservation 2" value = "<?php echo "$result[Reservation2]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -123,8 +123,8 @@
                     </table>
                     
                     <div class="form-group">
-                        <button type="submit" name="submit" value="Submit" class="button submit" >Pay</button>
-                        <button type="reset" name="reset" value="Reset" class="button reset" >Cancle</button>
+                        <button type="submit" name="submit" value="Submit" class="button submit" > <a class="cancel" href="addcardsuccess.html">Pay</button>
+                        <button type="reset" name="reset" value="Reset" class="button reset" ><a class="cancel" href="add.php">Cancel</a></button>
                     </div>
                 </form>
             </div>
