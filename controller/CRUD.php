@@ -100,12 +100,14 @@
     }
 
     //--------------------------------------------------------bill--------------------------------------------------------
-    if(isset($_POST['add-bill'])){
+    if(isset($_POST['pay-bill'])){
         $DB = new DB;
-
+        print_r($_POST);
         try {
-            $sql = "INSERT INTO plunk.bill (Bill_ID, Payment_Type, Discount, Steward_Name, Staff_ID, Order_ID) VALUES ('$_POST[Bill_ID]', '$_POST[Payment_Type]', '$_POST[Discount]', '$_POST[Steward_Name]', '$_POST[Staff_ID]', '$_POST[Order_ID]');";
+            $sql = "UPDATE plunk.bill SET Paid=2 WHERE BillID=$_POST[BillID];";
             $DB->runQuery($sql);
+            $newPage = new Page("../view/bill/billtable.php");
+            $newPage->show();
         } catch (\Throwable $th) {
             throw $th;
         }

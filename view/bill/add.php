@@ -29,25 +29,26 @@
             </h2>
 			
         
-        <form>
+        <form action="../../controller/CRUD.php" method="POST">
+        <input type="hidden" name="pay-bill">
             <table class="formtable">
             <tr>
                 <div class="form-group">
-                   <td><label for="ItemID">Bill ID</label></td> 
-                    <td><input type="number" id= "ItemID" name="ItemID" required class="form-control" value = "<?php echo "$result[BillID]";?>" disabled/></td>
+                   <td><label for="BillID">Bill ID</label></td> 
+                    <td><input type="number" id= "BillID" name="BillID" required class="form-control" value = "<?php echo "$result[BillID]";?>" readonly/></td>
                 </div>
             </tr>
             
             <tr>
                 <div class="form-group">
-                   <td><label for="ItemName">Customer Name</label></td> 
-                    <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" value = "<?php echo "$result[CustomerName]";?>" <?php if($_SESSION['UserType'] != 'Cashier'){echo "disabled";}?>/></td>
+                   <td><label for="CustomerName">Customer Name</label></td> 
+                    <td><input type="text" id= "CustomerName" name="CustomerName" required class="form-control" value = "<?php echo "$result[CustomerName]";?>" <?php if($_SESSION['UserType'] != 'Cashier'){echo "readonly";}?>/></td>
                 </div>
             </tr>
             <tr>
                 <div class="form-group">
                     <td><label for="Price">Price</label></td>
-                    <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Price]";?>" disabled/></td>
+                    <td><input type="number" id="Price" name="Price" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Price]";?>" readonly/></td>
                 </div>
             </tr>
             <?php 
@@ -56,7 +57,7 @@
                     <tr>
                         <div class=form-group>
                             <td><label for=Discount>Discount</label></td>
-                            <td><input type=number id=Discount name=Discount required class=form-control min=0 oninput=validity.valid||(value=''); value = $result[Discount] disabled/></td>
+                            <td><input type=number id=Discount name=Discount required class=form-control min=0 oninput=validity.valid||(value=''); value = $result[Discount] readonly/></td>
                         </div>
                     </tr>
                     ";
@@ -78,7 +79,7 @@
                         ";
                     }else{
                         echo "
-                        <center><button type=button name=submit value=Submit class=\"button submit\">Paid</button></center>
+                        <center><button type=submit name=submit value=Submit class=\"button submit\">Paid</button></center>
                         ";
                     }
                 ?>
