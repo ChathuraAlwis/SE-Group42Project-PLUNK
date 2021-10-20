@@ -16,7 +16,7 @@
                       <?php session_start();
 
                           if (isset($_SESSION['UserType'])){
-                          if ($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'Hon.Life Member'){
+                          if ($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'HL Member'){
                             require_once "..\..\controller\showtable.php";
                             $orderTable = new Table("feedback");
                             $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback");

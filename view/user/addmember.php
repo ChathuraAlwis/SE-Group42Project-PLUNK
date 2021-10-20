@@ -30,7 +30,7 @@
                               <option selected>Select the member type</option>
                               <option value="Ordinary Member">Ordinary Member</option>
                               <option value="Life Member">Life Member</option>
-                              <option value="HL Member"> Hon.Life Member</option>
+                              <option value="HL Member"> HL Member</option>
                       </select>
                 </div><br>
                 <div class="forminputs">

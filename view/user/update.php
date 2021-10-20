@@ -56,7 +56,7 @@
                         <option value="Staff Member" <?php if("$result[UserType]"=="Staff Member") echo 'selected="selected"'; ?>>Staff</option>
                         <option value="Ordinary Member" <?php if("$result[UserType]"=="Ordinary Member") echo 'selected="selected"'; ?>>Ordinary Member</option>
                         <option value="Life Member" <?php if("$result[UserType]"=="Life Member") echo 'selected="selected"'; ?>>Life Member</option>
-                        <option value="HL Member" <?php if("$result[UserType]"=="HL Member") echo 'selected="selected"'; ?>> Hon.Life Member</option>
+                        <option value="HL Member" <?php if("$result[UserType]"=="HL Member") echo 'selected="selected"'; ?>> HL Member</option>
                       </select>
 
                 </div><br>
