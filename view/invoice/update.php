@@ -99,7 +99,7 @@
                   <?php
                       require_once "..\..\controller\showtable.php";
                       $orderTable = new Table("grnitem");
-                      $orderTable->show("SELECT * FROM plunk.invoiceitem WHERE InvoiceID in ('$result[InvoiceID]')", 'update');
+                      $orderTable->show("SELECT * FROM plunk.invoiceitem WHERE InvoiceID in ('$result[InvoiceID]')");
                    ?>
                 </div>
                 <div class="form-group">
