@@ -9,9 +9,16 @@
         <link rel="stylesheet" href="../style/crud.css">
         <script type="text/javascript" src="../script/addrow.js"></script>
         <script type="text/javascript" src="../script/maxQuantity.js"></script>
-
+        <script type="text/javascript" src="../script/rowCount.js"></script>
   </head>
   <body>
+  <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $sql = "SELECT ItemID, ItemName, Quantity FROM plunk.item;";
+        $result = json_encode($DB->runQuery($sql));
+        // setcookie("Items", json_encode($result));
+    ?>
     <div class=main>
     <div class= left>
     <div class="form">
@@ -49,14 +56,15 @@
                     <br/><br/> 
                             Item ID:
                             <?php 
-                                echo "<td><input type=text id=ItemID onchange=maxQuantity(1,0)></td>";
-                            ?>
+                                echo "<td><input type=text id=ItemID onchange=maxQuantity(". $result .",0".")></td>";
+                                    
+                            ?> 
                     <br/><br/> 
                             Quantity :&nbsp; 
-                            <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
+                            <input type=number id="Quantity" min=1 oninput="validity.valid||(value='');"> 
                     <br/> 
                     <?php
-                        echo "<td><input type=button id=add value=Add onclick=addRowGRN() disabled></td>";
+                        echo "<td><input type=button id=add value=Add onclick=addRowGRN(" . $result . ") disabled></td>";
                     ?>
                     </div> 
                     <br/>
@@ -64,6 +72,7 @@
                     <b>Item Details...</b><br> 
                     <table id="myTableData"  class="addrowtable" > 
                         <tr> 
+                            <td><b>Item ID</b></td> 
                             <td><b>Item Name</b></td> 
                             <td><b>Quantity</b></td> 
                             <td>&nbsp;</td> 
