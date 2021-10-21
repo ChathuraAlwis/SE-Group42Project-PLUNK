@@ -136,8 +136,7 @@
                 <iframe src="paymentbooking.php" class="item"></iframe>
             </div>
     </div>
-    </div>
-    <div class= right>
+
             <div class="rightbottom">
             <div class="itemtable">
                 <h3>VISA CARD PAYMENT DETAILS TABLE</h3>
