@@ -103,7 +103,7 @@
 
 
                 <div class="form-group">
-                    <button type="submit" name="visa" value="visa" class="button submit"><a href="visagm.php">Visa Card</a></button>
+                  <center>  <button type="submit" name="visa" value="visa" class="button submit"><a href="visagm.php">Visa Card</a></button> </center>
                 </div>
         </form>
     </div>
