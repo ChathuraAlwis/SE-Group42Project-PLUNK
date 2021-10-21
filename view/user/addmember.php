@@ -64,7 +64,7 @@
                 </div><br><br>
 
                 <div class="forminputs">
-                  <button type="submit"  id="add" class="add" name="button">Add Member</button>
+                  <button type="submit"  id="add" class="add" name="button" onclick='<?php echo 'checkUser('. $result .')';?>'>Add Member</button>
                   <button type="reset" id="reset" class="add" name="button">Reset</button>
                 </div>
               </div>

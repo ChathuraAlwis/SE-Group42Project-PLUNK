@@ -46,7 +46,7 @@ function checkDisplayID(userDetails){
     
     userDetails.forEach(element => {
         // console.log(element['ItemID'], ItemID);
-        if (element['DisplayID'] == DisplayID.value) {
+        if (element['DisplayID'].toUpperCase() == DisplayID.value.toUpperCase()) {
             canAdd = false;
         }
     });
@@ -63,11 +63,11 @@ function checkDisplayID(userDetails){
 
 function checkUserName(userDetails){
     var UserName = document.getElementById("UserName");
-    var canAdd = false;
-   
+    var canAdd = true;
+
     userDetails.forEach(element => {
         // console.log(element['ItemID'], ItemID);
-        if (element['UserName'] == UserName.value) {
+        if (element['UserName'].toUpperCase() == UserName.value.toUpperCase()) {
             canAdd = false;
         }
     });
@@ -84,11 +84,10 @@ function checkUserName(userDetails){
 function checkEmail(userDetails){
 
     var Email = document.getElementById("Email");
-    var canAdd = false;
+    var canAdd = true;
 
     userDetails.forEach(element => {
-        // console.log(element['ItemID'], ItemID);
-        if (element['Email'] == Email.value) {
+        if (element['Email'].toUpperCase() == Email.value.toUpperCase()) {
             canAdd = false;
         }
     });
@@ -100,5 +99,14 @@ function checkEmail(userDetails){
         document.getElementById("add").disabled=true;
         alert("Email Already Exists");
     }
+
+}
+
+function checkUser(Details){
+
+    // console.log(Details);
+    checkDisplayID(Details);
+    checkUserName(Details);
+    checkEmail(Details);
 
 }
