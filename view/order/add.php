@@ -86,7 +86,7 @@
                                 <tr>
                                     <td>&nbsp;</td>
                                     <?php 
-                                        echo "<td><input type=button id=add value=Add onclick=addRowOrder(" . $result . ") style=width:50% style=align:right disabled></td>";
+                                        echo "<td><input type=button id=add value='Add Item' onclick=addRowOrder(" . $result . ") style=width:70% style=align:right disabled></td>";
                                     ?> 
                                 </tr>
                                 <tr>
@@ -130,7 +130,7 @@
                     <br>
                     <input type="hidden" id="rowCount" name="rowCount" value=0>
                     <div class="form-group">
-                        <button type="submit" name="submit" value="Submit" class="button submit" onclick="tableRowCount('myTableData')">Add</button>
+                        <button type="submit" name="submit" value="Submit" class="button submit" onclick="tableRowCount('myTableData')">Order</button>
                         <input type="button" onclick="history.back();" value="Cancel" class="button submit">
                     </div>
                 </form>
