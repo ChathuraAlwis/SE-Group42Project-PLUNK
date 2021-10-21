@@ -17,7 +17,7 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $invoiceitemTable = new Table("invoiceitem");
-                        $invoiceitemTable->show("SELECT InvoiceID as 'Invoice ID', ItemID as 'Item ID', Quantity FROM plunk.invoiceitem", false);
+                        $invoiceitemTable->show("SELECT InvoiceID as 'Invoice ID', ItemID as 'Item ID', ItemName as 'Item Name', Quantity FROM plunk.invoiceitem", false);
                     ?> 
                     </div>
 
