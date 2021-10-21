@@ -104,7 +104,7 @@
                 <div class="line3">
                   <button type="submit" name="button" class="add" formaction="bookingupdatesuccess.html"><b>Update</b> </button>
                   <button type="reset" name="button" class="add"><b>Reset</b> </button><br>
-                  <button type="submit" name="button" class="Payment" formaction="..\payment\paymentgm.php" ><b>Payment</b> </button>
+                  <button type="submit" name="button" class="Payment" formaction="..\payment\paymentcm.php" ><b>Payment</b> </button>
 
                 </div>
 

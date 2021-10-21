@@ -16,7 +16,7 @@
                       <?php
                           require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("user");
-                          $orderTable->show("SELECT DisplayID as 'Staff ID',Name, UserType as 'User Type', Email as 'E-mail', ContactNo as 'Contact No', JoinedYear as 'Joined Date' FROM plunk.user WHERE UserType in ('Admin', 'Manager','Accountant','Restaurant Manager','Cashier','Staff Member')", 'update');
+                          $orderTable->show("SELECT DisplayID as 'Staff ID',Name, UserType as 'User Type', Email as 'E-mail', ContactNo as 'Contact No', JoinedYear as 'Joined Date' FROM plunk.user WHERE UserType in ('Admin', 'Manager','Accountant','Restaurant Manager','Cashier','Staff Member') order by UserID desc", 'update');
                        ?>
 
 
