@@ -17,7 +17,7 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $grnTable = new Table("grn");
-                        $grnTable->show("SELECT * FROM plunk.returngrn", 'permissionform');
+                        $grnTable->show("SELECT * FROM plunk.returngrn order by GRNID desc", 'permissionform');
                       ?>
 
                 </div>
