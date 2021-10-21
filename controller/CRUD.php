@@ -106,7 +106,7 @@
         try {
             $sql = "UPDATE plunk.bill SET Paid=2 WHERE BillID=$_POST[BillID];";
             $DB->runQuery($sql);
-            $newPage = new Page("../view/bill/billtable.php");
+            $newPage = new Page("../view/Dashboards/cashierdash.php");
             $newPage->show();
         } catch (\Throwable $th) {
             throw $th;
