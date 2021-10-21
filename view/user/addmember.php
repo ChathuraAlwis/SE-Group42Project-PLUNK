@@ -7,9 +7,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/adduserforms.css">
+        <script type="text/javascript" src="../script/maxQuantity.js"></script>
 
   </head>
   <body>
+    <?php
+        require_once "../../model/database.php";
+        $DB = new DB;
+        $sql = "SELECT UserName, DisplayID, Email FROM plunk.user;";
+        $result = json_encode($DB->runQuery($sql));
+        date_default_timezone_set("Asia/Kolkata");
+    ?>
         <div class="main" >
             <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
               <input name ="add-member" type="hidden" >
@@ -21,7 +29,7 @@
 
                 <div class="forminputs">
                     <label for="DisplayID"> Member Id</label><br>
-                    <input type="text"  class="input" name="DisplayID" maxlength="10" required>
+                    <input type="text"  class="input" id="DisplayID" name="DisplayID" maxlength="10" onchange='<?php echo 'checkDisplayID('. $result .')';?>' required>
                 </div><br>
 
                 <div class="radio">
@@ -35,7 +43,7 @@
                 </div><br>
                 <div class="forminputs">
                     <label for="UserName"> User Name</label><br>
-                    <input type="text" id="UserName" class="input" name="UserName" maxlength="50" required>
+                    <input type="text" id="UserName" class="input" name="UserName" maxlength="50" onchange='<?php echo 'checkUserName('. $result .')';?>' required>
                 </div><br>
                 <div class="forminputs">
                     <label for="Password"> Password</label><br>
@@ -48,7 +56,7 @@
                 </div><br>
                 <div class="forminputs">
                     <label for="Email"> E-mail </label><br>
-                    <input type="email" id="Email" class="input" name="Email" placeholder="xxxx@gmail.com" required>
+                    <input type="email" id="Email" class="input" name="Email" placeholder="xxxx@gmail.com" onchange='<?php echo 'checkEmail('. $result .')';?>' required>
                 </div><br>
                 <div class="forminputs">
                     <label for="ContactNo"> Contact No</label><br>
@@ -56,7 +64,7 @@
                 </div><br><br>
 
                 <div class="forminputs">
-                  <button type="submit"  class="add" name="button">Add Member</button>
+                  <button type="submit"  id="add" class="add" name="button">Add Member</button>
                   <button type="reset" id="reset" class="add" name="button">Reset</button>
                 </div>
               </div>
