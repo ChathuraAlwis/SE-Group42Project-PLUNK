@@ -81,6 +81,12 @@
         </div>
         
        </div>
+       <div class = "rightbottom">
+            <div class="itemtable">
+            <h3>LEAVE DETAILS TABLE</h3>
+                <iframe src="../leave/allleave.php" class="item"></iframe>
+            </div>  
+        </div>
 
     </div>
 

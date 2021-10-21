@@ -98,7 +98,7 @@ function addRowInvoice(itemPrice) {
         itemPrice.forEach(element => {
             // console.log(element['ItemID'], ItemID);
             if (element['ItemID'] == ItemID.value) {
-                row.insertCell(1).innerHTML= '<input type="text" class="Name" value = "' + element['ItemName'] + '" id="Name'+ rowCount +'" style="border:none" size=5 readonly >';
+                row.insertCell(1).innerHTML= '<input type="text" class="Name" value = "' + element['ItemName'] + '" id="Name'+ rowCount +'" style="border:none" size=10 readonly >';
             }
         });
         
