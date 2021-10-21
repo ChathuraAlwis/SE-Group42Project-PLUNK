@@ -220,9 +220,10 @@ if(isset($_POST['update-item'])){
                 while($rowCount > 0){
                     if(isset($_POST['ItemID' . $itemRow])){
                         $rowCount--;
-                        $ItemRow = 'ItemID' . $itemRow;
+                        $IDRow = 'ItemID' . $itemRow;
+                        $NameRow = 'ItemName' . $itemRow;
                         $QuanRow = 'Quantity' . $itemRow;
-                        $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, Quantity) VALUES ('$InvoiceID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
+                        $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, ItemName, Quantity) VALUES ('$InvoiceID', '$_POST[$IDRow]', '$_POST[$NameRow]',  '$_POST[$QuanRow]');";
                         $DB->runQuery($sql);
                         $newPage = new Page('../view/invoice/addinvoicesuccess.html');
                         $newPage->show();
