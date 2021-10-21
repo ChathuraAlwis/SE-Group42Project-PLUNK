@@ -113,21 +113,21 @@
             </div>
         </div>
         <div class= right>
-            <div class="righttop">
+      <div class = "righttop">
+        <div class="itemtable">
+            <h4>CRICKET CLUB PROPERTY BOOKING TABLE</h4>
+            <iframe src="paymentbooking.php" class="item"></iframe>
+        </div>
+        
+       </div>
+        <div class = "rightbottom">
             <div class="itemtable">
-                <h3>CRICKET CLUB PROPERTY BOOKING TABLE</h3>
-                <iframe src="paymentbooking.php" class="item"></iframe>
-            </div>
-    </div>
-    </div>
-    <div class= right>
-            <div class="rightbottom">
-            <div class="itemtable">
-                <h3>CASH PAYMENT DETAILS TABLE</h3>
+                <h4>CASH PAYMENT DETAILS TABLE</h4>
                 <iframe src="cash.php" class="item"></iframe>
-            </div>
+            </div>  
+        </div>
     </div>
-    </div>
+        
     </div>
 </body>
 </html>

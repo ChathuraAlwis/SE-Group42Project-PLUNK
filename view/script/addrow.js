@@ -42,7 +42,7 @@ function deleteRowOrder(obj) {
     BillTotal.value = Total.value * (110 - Discount.value) / 100;
 } 
 
-function addRowGRN() {       
+function addRowGRN(itemgrn) {       
     var ItemID = document.getElementById("ItemID"); 
     var Quantity = document.getElementById("Quantity");
     if (ItemID.value > 0 && Quantity.value > 0) {
@@ -50,7 +50,14 @@ function addRowGRN() {
         var rowCount = table.rows.length; 
         var row = table.insertRow(rowCount); 
         row.insertCell(0).innerHTML= '<input type="text" value = "' + ItemID.value + '" name="ItemID'+ rowCount + '" id="ItemID' + rowCount + '" style="border:none" size=5 readonly >'; 
-        row.insertCell(1).innerHTML= '<input type="text" value = "' + Quantity.value + '" name="Quantity'+ rowCount + '" style="border:none" size=5 readonly >';
+        
+        itemgrn.forEach(element => {
+            // console.log(element['ItemID'], ItemID);
+            if (element['ItemID'] == ItemID.value) {
+                row.insertCell(1).innerHTML= '<input type="text" class="Name" value = "' + element['ItemName'] + '" id="Name'+ rowCount +'" style="border:none"  size=10 readonly >';
+            }
+        });
+        row.insertCell(2).innerHTML= '<input type="text" value = "' + Quantity.value + '" name="Quantity'+ rowCount + '" style="border:none" size=5 readonly >';
         
         // itemPrice.forEach(element => {
         //     // console.log(element['ItemID'], ItemID);
@@ -62,7 +69,7 @@ function addRowGRN() {
         //     }
         // });
         
-        row.insertCell(2).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRowGRN(this)">'; 
+        row.insertCell(3).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRowGRN(this)">'; 
         document.getElementById("add").setAttribute("disabled", true);
     }
 } 
@@ -91,7 +98,7 @@ function addRowInvoice(itemPrice) {
         itemPrice.forEach(element => {
             // console.log(element['ItemID'], ItemID);
             if (element['ItemID'] == ItemID.value) {
-                row.insertCell(1).innerHTML= '<input type="text" class="Name" value = "' + element['ItemName'] + '" id="Name'+ rowCount +'" name="ItemName'+ rowCount + '" style="border:none" size=5 readonly >';
+                row.insertCell(1).innerHTML= '<input type="text" class="Name" value = "' + element['ItemName'] + '" id="Name'+ rowCount +'" name="ItemName'+ rowCount + '" style="border:none" size=10 readonly >';
             }
         });
         
