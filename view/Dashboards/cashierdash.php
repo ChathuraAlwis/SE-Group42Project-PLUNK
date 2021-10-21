@@ -18,8 +18,8 @@
           <div class="upper">
                 <div class="Table">
                   <div class="detailtable">
-                    <h3>Orders</h3>
-                    <iframe src="../order/details.php" class="staff"></iframe>
+                    <h3>New Orders</h3>
+                    <iframe src="../bill/details.php" class="staff"></iframe>
           
                   </div>
                 </div>
