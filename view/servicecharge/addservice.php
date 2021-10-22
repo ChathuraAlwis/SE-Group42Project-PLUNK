@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
-        
+
   </head>
   <body>
 
@@ -49,13 +49,13 @@
                 </tr>
                 <tr><td><br></td></tr>
             </table>
-            
-                
+
+
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
+                    <button type="submit" name="submit" value="Submit" class="button submit"> <a class="addpage" href="..\servicecharge\details.php">Add</a></button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
-        </form>        
+        </form>
     </div>
 </div>
 <div class= right>
@@ -67,8 +67,8 @@
     </div>
     </div>
     </div>
-     
+
   </body>
 
- 
+
 </html>

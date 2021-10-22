@@ -6,12 +6,12 @@
 
   }
 .main{
-      
+
       height:100%;
       width:100%;
   }
-    
-  
+
+
 .left{
     float: left;
 
@@ -32,15 +32,15 @@
 }
 .righttop{
     width:100%;
-    height: 45%; 
-    border-radius: 20px;    
+    height: 45%;
+    border-radius: 20px;
 }
 
 .rightbottom{
     margin-top: 5%;
     width:100%;
-    height: 45%; 
-    border-radius: 20px;    
+    height: 45%;
+    border-radius: 20px;
 }
 .righttable{
     height: 500px;
@@ -66,7 +66,7 @@ h4{
     color: #ffffff;
     padding-top: 4%;
     padding-bottom: 0%;
-      
+
 }
 h3{
     font-size: 2.5vw;
@@ -76,7 +76,7 @@ h3{
     padding: none;
     color: #ffffff;
     padding-top: 9%;
-  
+
   }
 .item{
     width: 100%;
@@ -112,7 +112,7 @@ table.formtable{
     display:block;
     width: 90%;
     table-layout: block;
-    
+
 }
 table.formtable td{
     vertical-align: top;
@@ -132,7 +132,7 @@ textarea{
     font-size: 2.5vw;
   }
 
-.bin{  
+.bin{
     float: right;
     height: 40px;
     width:auto;
@@ -212,6 +212,10 @@ a{
     color: rgb(0, 0, 0);
     text-decoration: none;
   }
+.addpage{
+  color: white;
+  text-decoration: none;
+}
 .addrowtable,table.addrowtable th, table.addrowtable td{
     border: 1px solid black;
 }
