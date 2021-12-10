@@ -162,7 +162,7 @@ if(isset($_POST['add-item'])){
 
     try {
         if($_POST['ItemType'] != "Choose type..."){
-            $sql = "INSERT INTO plunk.item (ItemID, ItemName, ItemCost,Price, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]', '$_POST[ItemCost]',  '$_POST[Price]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
+            $sql = "INSERT INTO plunk.item (ItemID, ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
             $DB->runQuery($sql);
             $newPage = new Page('../view/items/additemsuccess.html');
             $newPage->show();
@@ -184,7 +184,7 @@ if(isset($_POST['update-item'])){
 
     try {
         if($_POST['ItemType'] != "Choose type..."){
-            $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`ItemCost`='$_POST[ItemCost]',`Price`='$_POST[Price]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
+            $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`PurchasePrice`='$_POST[PurchasePrice]',`SellingPrice`='$_POST[SellingPrice]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
             $DB->runQuery($sql);
             $newPage = new Page('../view/items/updateitemsuccess.html');
             $newPage->show();
@@ -201,7 +201,27 @@ if(isset($_POST['update-item'])){
 }
 
 //-----------Delete Item--------------------
+if(isset($_POST['delete-item'])){
+    $DB = new DB;
 
+    try {
+        if($_POST['Quantity'] == 0){
+            $sql = "INSERT INTO plunk.deleteitem (ItemID, ItemName, PurchasePrice,SellingPrice,ItemType) VALUES ( '' , '$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[ItemType]';";
+            $DB->runQuery($sql);
+            $sql = "DELETE FROM plunk.item WHERE `ItemID` = '$_POST[ItemID]'";
+            $newPage = new Page('../view/items/deleteitemsuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/items/qerror.html');
+            $newPage->show();
+        }
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+
+}
 //-----------Search Item---------------------
 
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
@@ -364,4 +384,109 @@ if(isset($_POST['delete-user'])){
     }
 
 }
+//---------------------------------------------------Nortification-----------------------------------------------------------------------
+//---------Add notification------------
+
+if(isset($_POST['add-notifications'])){
+    $DB = new DB;
+
+    try {
+        if($_POST['EventType'] != "Choose type..."){
+            $sql = "INSERT INTO plunk.notification (`NotificationID`, `FromDate`, `ToDate`, `EventType` ,`Message`, `UserID`) VALUES ( '' , '$_POST[FromDate]', '$_POST[ToDate]', '$_POST[EventType]',  '$_POST[Message]','$_SESSION[UserID]')";
+            $DB->runQuery($sql);
+            print_r($DB);
+            $newPage = new Page('../view/notifications/addnotifysuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/notifications/notificationtypeerror.html');
+            $newPage->show();
+        }
+       
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+    
+}
+//---------Update Notification------------
+if(isset($_POST['update-notifications'])){
+    $DB = new DB;
+
+    try {
+        if($_POST['EventType'] != "Choose type..."){
+            $sql = "UPDATE plunk.notification SET `NotificationID`='$_POST[NotificationID]' ,`FromDate` = '$_POST[FromDate]', `ToDate` = '$_POST[ToDate]', `EventType` ='$_POST[EventType]' ,`Message` = '$_POST[Message]' WHERE `NotificationID` = '$_POST[NotificationID]'";
+            $DB->runQuery($sql);
+            $newPage = new Page('../view/notifications/updatenotifysuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/notifications/notificationtypeerror.html');
+            $newPage->show();
+        }
+       
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+    
+}
+
+if(isset($_POST['delete-notification'])){
+    $DB = new DB;
+
+    try {
+        $sql = "DELETE FROM plunk.notification WHERE NotificationID='$_POST[NotificationID]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('..\view\notification\deletenotifysuccess.html');
+        $newPage->show();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+//..........................................................Reservation Menu................................................................................
+
+if(isset($_POST['add-notifications'])){
+    $DB = new DB;
+
+    try {
+        if($_POST['EventType'] != "Choose type..."){
+            $sql = "INSERT INTO plunk.notification (`NotificationID`, `FromDate`, `ToDate`, `EventType` ,`Message`, `UserID`) VALUES ( '' , '$_POST[FromDate]', '$_POST[ToDate]', '$_POST[EventType]',  '$_POST[Message]','$_SESSION[UserID]')";
+            $DB->runQuery($sql);
+            print_r($DB);
+            $newPage = new Page('../view/notifications/addnotifysuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/notifications/notificationtypeerror.html');
+            $newPage->show();
+        }
+       
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+    
+}
+//---------Update Notification------------
+if(isset($_POST['add-reservation'])){
+    $DB = new DB;
+
+    try {
+        if($_POST['EventType'] != "Choose type..."){
+            $sql = "UPDATE plunk.notification SET `NotificationID`='$_POST[NotificationID]' ,`FromDate` = '$_POST[FromDate]', `ToDate` = '$_POST[ToDate]', `EventType` ='$_POST[EventType]' ,`Message` = '$_POST[Message]' WHERE `NotificationID` = '$_POST[NotificationID]'";
+            $DB->runQuery($sql);
+            $newPage = new Page('../view/notifications/updatenotifysuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/notifications/notificationtypeerror.html');
+            $newPage->show();
+        }
+       
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+    
+}
+
 ?>
