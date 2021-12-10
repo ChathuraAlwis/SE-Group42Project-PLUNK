@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2021 at 09:59 AM
+-- Generation Time: Dec 10, 2021 at 07:55 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -44,12 +44,22 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`BillID`, `CustomerName`, `Price`, `ServiceCharge`, `Discount`, `BillDate`, `UserID`, `OrderID`, `Paid`) VALUES
-(9, 'Shaveen', 2173, 10, 0, '2021-10-20', 18, 14, 'No'),
-(10, 'Shaveen', 3201, 10, 0, '2021-10-20', 18, 15, 'No'),
-(11, 'Shaveen', 3901, 10, 0, '2021-10-20', 18, 16, 'No'),
-(12, 'Shaveen', 871, 10, 0, '2021-10-20', 18, 17, 'No'),
-(13, 'Shaveen', 660, 10, 0, '2021-10-20', 18, 18, 'No'),
-(14, 'Shaveen', 275, 10, 0, '2021-10-20', 18, 19, 'No');
+(9, 'abiru', 2173, 10, 0, '2021-10-20', 18, 14, 'Yes'),
+(10, 'adithya', 3201, 10, 0, '2021-10-20', 18, 15, 'Yes'),
+(11, 'buvin', 3901, 10, 0, '2021-10-20', 18, 16, 'Yes'),
+(12, 'Shaveen', 871, 10, 0, '2021-10-20', 18, 17, 'Yes'),
+(13, 'Shaveen', 660, 10, 0, '2021-10-20', 18, 18, 'Yes'),
+(14, 'Shaveen', 275, 10, 0, '2021-10-20', 18, 19, 'Yes'),
+(15, 'Bandara', 974, 10, 0, '2021-10-20', 17, 20, 'Yes'),
+(16, 'nurad', 1078, 10, 0, '2021-10-21', 17, 21, 'No'),
+(17, 'abiru', 660, 10, 0, '2021-10-21', 17, 22, 'No'),
+(18, 'adithya', 294, 10, 12, '2021-10-21', 18, 23, 'No'),
+(19, 'ruvin', 660, 10, 0, '2021-10-21', 17, 24, 'Yes'),
+(20, 'Bandara', 990, 10, 0, '2021-10-22', 17, 25, 'Yes'),
+(21, 'Bandara', 264, 10, 0, '2021-10-22', 17, 26, 'Yes'),
+(22, 'Bandara', 660, 10, 0, '2021-10-22', 17, 27, 'Yes'),
+(23, 'Shaveen', 95, 10, 10, '2021-10-22', 18, 28, 'Yes'),
+(24, 'Jayani', 781, 10, 0, '2021-12-10', 15, 31, 'Yes');
 
 -- --------------------------------------------------------
 
@@ -61,8 +71,6 @@ CREATE TABLE `booking` (
   `BookingID` int(11) NOT NULL,
   `CustomerName` varchar(50) NOT NULL,
   `BookingType` enum('Club','Restaurant') NOT NULL,
-  `Reservation1` varchar(25) NOT NULL,
-  `Reservation2` varchar(25) DEFAULT NULL,
   `NoOfPeople` int(11) NOT NULL,
   `ReservedDate` date NOT NULL,
   `ReservedTime` time NOT NULL,
@@ -79,18 +87,30 @@ CREATE TABLE `booking` (
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`BookingID`, `CustomerName`, `BookingType`, `Reservation1`, `Reservation2`, `NoOfPeople`, `ReservedDate`, `ReservedTime`, `EndTime`, `CreatedDate`, `LastModifiedDate`, `ContactNo`, `Total`, `Payment`, `UserID`) VALUES
-(1, 'Nanduni', 'Restaurant', 'table1', NULL, 100, '2021-09-30', '16:00:00', '18:00:00', '2021-09-28', NULL, 788854567, 5000, 'Yes', 6),
-(2, 'Supun', 'Restaurant', 'table1', 'table2', 20, '2021-10-11', '15:30:00', '17:30:00', '2021-10-11', NULL, 788854561, 1000, 'No', 6),
-(3, 'Thisara', 'Restaurant', 'table2', NULL, 10, '2021-10-12', '17:00:00', '20:00:00', '2021-10-11', NULL, 711154561, 800, 'No', 4),
-(4, 'Bimal', 'Club', 'lounge', NULL, 100, '2021-10-12', '15:30:00', '17:30:00', '2021-10-11', NULL, 700234576, 900, 'Yes', 4),
-(5, 'Thisaru', 'Club', 'lounge', NULL, 100, '2021-10-22', '18:00:00', '20:00:00', '2021-10-18', '2021-10-19', 711234545, 5000, 'No', 4),
-(6, 'Abiru', 'Restaurant', 'table5', 'table6', 20, '2021-10-22', '17:30:00', '19:00:00', '2021-10-19', '2021-10-19', 755554567, 1500, 'Yes', 15),
-(7, 'Nimali', 'Restaurant', 'table1', NULL, 8, '2021-10-22', '18:30:00', '20:30:00', '2021-10-20', NULL, 788833367, 1000, 'No', 4),
-(8, 'Bandara', 'Restaurant', 'table2', 'table3', 20, '2021-10-23', '15:30:00', '17:30:00', '2021-10-20', NULL, 722222567, 1000, 'No', 17),
-(9, 'Bandara', 'Restaurant', 'table4', 'table5', 20, '2021-10-23', '15:30:00', '17:30:00', '2021-10-20', NULL, 722222567, 1000, 'No', 17),
-(10, 'Samith', 'Club', 'Center-Wicket', NULL, 0, '2021-10-22', '09:00:00', '11:00:00', '2021-10-20', '2021-10-20', 711234566, 10000, 'No', 1),
-(11, 'Supun', 'Club', 'Practice-Net1', 'Practice-Net2', 0, '2021-10-23', '08:00:00', '10:00:00', '2021-10-20', NULL, 701234567, 10000, 'Yes', 15);
+INSERT INTO `booking` (`BookingID`, `CustomerName`, `BookingType`, `NoOfPeople`, `ReservedDate`, `ReservedTime`, `EndTime`, `CreatedDate`, `LastModifiedDate`, `ContactNo`, `Total`, `Payment`, `UserID`) VALUES
+(1, 'Nanduni', 'Restaurant', 100, '2021-09-30', '16:00:00', '18:00:00', '2021-09-28', NULL, 788854567, 5000, 'Yes', 6),
+(2, 'Supun', 'Restaurant', 20, '2021-10-11', '15:30:00', '17:30:00', '2021-10-11', NULL, 788854561, 1000, 'No', 6),
+(3, 'Thisara', 'Restaurant', 10, '2021-10-12', '17:00:00', '20:00:00', '2021-10-11', NULL, 711154561, 800, 'No', 4),
+(4, 'Bimal', 'Club', 100, '2021-10-12', '15:30:00', '17:30:00', '2021-10-11', NULL, 700234576, 900, 'Yes', 4),
+(5, 'Thisaru', 'Club', 100, '2021-10-22', '18:00:00', '20:00:00', '2021-10-18', '2021-10-19', 711234545, 5000, 'No', 4),
+(6, 'Abiru', 'Restaurant', 20, '2021-10-22', '17:30:00', '19:00:00', '2021-10-19', '2021-10-19', 755554567, 1500, 'Yes', 15),
+(7, 'Nimali', 'Restaurant', 8, '2021-10-22', '18:30:00', '20:30:00', '2021-10-20', NULL, 788833367, 1000, 'No', 4),
+(8, 'Bandara', 'Restaurant', 20, '2021-10-23', '15:30:00', '17:30:00', '2021-10-20', NULL, 722222567, 1000, 'No', 17),
+(9, 'Bandara', 'Restaurant', 20, '2021-10-23', '15:30:00', '17:30:00', '2021-10-20', NULL, 722222567, 1000, 'No', 17),
+(10, 'samith', 'Club', 20, '2021-10-23', '09:00:00', '11:00:00', '2021-10-20', '2021-10-20', 711234566, 10000, 'No', 1),
+(11, 'Supun', 'Club', 30, '2021-10-23', '08:00:00', '10:00:00', '2021-10-20', NULL, 701234567, 10000, 'Yes', 15),
+(12, 'Bandara', 'Club', 40, '2021-10-25', '08:00:00', '09:00:00', '2021-10-22', NULL, 722222567, 10000, 'No', 17);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bookingreservation`
+--
+
+CREATE TABLE `bookingreservation` (
+  `BookingID` int(11) NOT NULL,
+  `ReservationName` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -110,6 +130,30 @@ CREATE TABLE `cashpayment` (
 
 INSERT INTO `cashpayment` (`PaymentID`, `ReceiptNo`, `SignedPerson`) VALUES
 (2, 1, 'K.P.M.Marasinghe');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company`
+--
+
+CREATE TABLE `company` (
+  `Company` varchar(50) NOT NULL,
+  `DistributorName` varchar(50) NOT NULL,
+  `PhoneNo` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`Company`, `DistributorName`, `PhoneNo`) VALUES
+('Cocacola', 'L.S.Dabare', '0711234576'),
+('Elephanthouse', 'T.L.Fernando', '0711234567'),
+('Kothmale', 'M.W.Dabare', '0711678567'),
+('Mr.POP', 'R.I.Sirisena', '0701234321'),
+('Munchee', 'R.W.Ranaweera', '0721234987'),
+('Nestle', 'G.P.Abethunga', '0781234321');
 
 -- --------------------------------------------------------
 
@@ -171,6 +215,38 @@ CREATE TABLE `deleteinvoiceitem` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `deleteitem`
+--
+
+CREATE TABLE `deleteitem` (
+  `ItemID` int(11) NOT NULL,
+  `ItemType` enum('Food','Beverage') NOT NULL,
+  `CompanyID` int(11) NOT NULL,
+  `ItemName` varchar(100) NOT NULL,
+  `Volume/Weight` int(11) NOT NULL,
+  `PurchasePrice` int(11) NOT NULL,
+  `SellingPrice` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Discount` int(11) NOT NULL,
+  `Availability` enum('Yes','No') NOT NULL,
+  `ReorderQuantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `deletereservationmenu`
+--
+
+CREATE TABLE `deletereservationmenu` (
+  `ReservationName` varchar(25) NOT NULL,
+  `Type` enum('Club','Restaurant') NOT NULL,
+  `Cost` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `deleteuser`
 --
 
@@ -194,7 +270,12 @@ INSERT INTO `deleteuser` (`UserID`, `Name`, `Email`, `ContactNo`, `JoinedYear`, 
 (7, 'Piyal perera', 'piyal@gmail.com', 723332567, '2018-10-17', 'OM001', 'Ordinary Member', 'Found a new job'),
 (8, 'Staff Member', 'staff@gmail.com', 789012345, '2021-10-04', 'S0001', 'Staff Member', 'End the agreement period resigned '),
 (9, 'Pushpan ranaveera', 'pushpan@gmail.com', 711234123, '2020-10-07', 'OM002', 'Ordinary Member', 'Went to the aboard '),
-(11, 'R.Ranasinghe', 'ranasinghe@gmail.com', 789012343, '2021-10-06', 'CA0002', 'Cashier', 'Went for the higher studies');
+(11, 'R.Ranasinghe', 'ranasinghe@gmail.com', 789012343, '2021-10-06', 'CA0002', 'Cashier', 'Went for the higher studies'),
+(19, 'Ridma Palihavadana', 'Ridma@gmail.com', 789012341, '2021-10-20', 'LM0006', 'Life Member', 'Left from club'),
+(20, 'Dilshan Ruvapura', 'dilshan@gmail.com', 789012342, '2021-10-21', 'M0001', 'Life Member', 'Reason'),
+(21, 'Neshvi fernando', 'neshvi@gmail.com', 716634123, '2021-10-21', 'HL001', 'HL Member', 'reason'),
+(24, 'A.Perera', 'bima@gmail.com', 789012345, '2021-10-22', 'HL00007', 'HL Member', 'Left from club'),
+(25, 'D.Perera', 'Dilru@gmail.com', 719012342, '2021-10-21', 'LM00005', 'Life Member', 'Left from club');
 
 -- --------------------------------------------------------
 
@@ -274,7 +355,7 @@ INSERT INTO `grnitem` (`GRNID`, `ItemID`, `ItemName`, `Quantity`) VALUES
 
 CREATE TABLE `invoice` (
   `InvoiceID` int(11) NOT NULL,
-  `Company` varchar(50) NOT NULL,
+  `Company` varchar(50) DEFAULT NULL,
   `Type` enum('Beverage','Food') NOT NULL,
   `ReceivedDate` date NOT NULL,
   `DueDate` date NOT NULL,
@@ -287,35 +368,13 @@ CREATE TABLE `invoice` (
 --
 
 INSERT INTO `invoice` (`InvoiceID`, `Company`, `Type`, `ReceivedDate`, `DueDate`, `Total`, `UserID`) VALUES
-(1, 'Kothmale', 'Food', '2021-09-26', '2021-09-29', 12000, 3),
-(2, 'ElephantHouse', 'Beverage', '2021-10-19', '2021-10-20', 423, 3),
-(3, 'Cocalcola', 'Beverage', '2021-10-20', '2021-10-21', 9000, 3),
-(4, 'MrPOP', 'Food', '2021-10-22', '2021-10-24', 800, 3);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `invoiceitem`
---
-
-CREATE TABLE `invoiceitem` (
-  `InvoiceID` int(11) NOT NULL,
-  `ItemID` int(11) NOT NULL,
-  `ItemName` varchar(100) NOT NULL,
-  `Quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `invoiceitem`
---
-
-INSERT INTO `invoiceitem` (`InvoiceID`, `ItemID`, `ItemName`, `Quantity`) VALUES
-(1, 2, 'Ice-Cream-Kothmale-4L', 20),
-(2, 2, 'EGB-Elephant House-50ml', 1000),
-(2, 8, 'Elephant-house-cream-soda-500ml', 200),
-(3, 3, 'Coca-Cola-1L', 30),
-(4, 4, 'Mr-POP-Chocolate-Popcorn', 2),
-(4, 19, 'Mr-POP-Butter-Popcorn', 2);
+(1, 'Kothmale', 'Food', '2021-09-26', '2021-11-26', 12000, 3),
+(2, 'Elephanthouse', 'Beverage', '2021-10-19', '2021-12-16', 423, 3),
+(3, 'Cocacola', 'Beverage', '2021-10-20', '2021-12-16', 9000, 3),
+(4, 'Mr.POP', 'Food', '2021-10-22', '2021-12-23', 800, 3),
+(9, 'Nestle', 'Beverage', '2021-10-20', '2021-12-26', 2000, 3),
+(11, 'Munchee', 'Food', '2021-10-22', '2021-12-24', 1820, 3),
+(12, 'Elephanthouse', 'Beverage', '2021-10-21', '2021-12-21', 4030, 3);
 
 -- --------------------------------------------------------
 
@@ -326,31 +385,39 @@ INSERT INTO `invoiceitem` (`InvoiceID`, `ItemID`, `ItemName`, `Quantity`) VALUES
 CREATE TABLE `item` (
   `ItemID` int(11) NOT NULL,
   `ItemType` enum('Food','Beverage') NOT NULL,
+  `Company` varchar(50) DEFAULT NULL,
   `ItemName` varchar(100) NOT NULL,
-  `ItemCost` int(11) NOT NULL,
-  `Price` int(11) NOT NULL,
+  `PurchasePrice` int(11) NOT NULL,
+  `SellingPrice` int(11) NOT NULL,
   `Quantity` int(11) NOT NULL,
   `Discount` int(11) NOT NULL,
   `Availability` enum('Yes','No') NOT NULL,
-  `ReorderQuantity` int(11) NOT NULL
+  `ReorderQuantity` int(11) NOT NULL,
+  `IsDeleted` enum('No','Yes') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `item`
 --
 
-INSERT INTO `item` (`ItemID`, `ItemType`, `ItemName`, `ItemCost`, `Price`, `Quantity`, `Discount`, `Availability`, `ReorderQuantity`) VALUES
-(1, 'Food', 'Fried-Rice', 0, 300, 78, 0, 'Yes', 0),
-(2, 'Beverage', 'EGB-Elephant-House-50ml', 80, 100, 975, 5, 'Yes', 100),
-(3, 'Beverage', 'Coca-Cola-1L', 220, 300, 20, 3, 'Yes', 25),
-(4, 'Food', 'Mr-POP-Chocolate-Popcorn', 55, 60, 200, 0, 'Yes', 20),
-(5, 'Food', 'Ice-Cream-Kothmale-4L', 700, 800, 5, 1, 'No', 10),
-(6, 'Food', 'Tiffin-180g', 90, 100, 61, 2, 'Yes', 20),
-(7, 'Beverage', 'Sprite-500ml', 80, 100, 194, 0, 'Yes', 15),
-(8, 'Beverage', 'Elephant-house-cream-soda-500ml', 55, 60, 150, 5, 'Yes', 25),
-(18, 'Food', 'Tip-Tip', 50, 50, 50, 0, 'Yes', 20),
-(19, 'Food', 'Mr-POP-Butter-Popcorn', 45, 50, 37, 0, 'Yes', 20),
-(20, 'Food', 'ChocolateChipCookies', 80, 100, 30, 3, 'Yes', 10);
+INSERT INTO `item` (`ItemID`, `ItemType`, `Company`, `ItemName`, `PurchasePrice`, `SellingPrice`, `Quantity`, `Discount`, `Availability`, `ReorderQuantity`, `IsDeleted`) VALUES
+(1, 'Food', NULL, 'FriedRice', 250, 300, 196, 0, 'Yes', 0, 'No'),
+(2, 'Beverage', 'Elephanthouse', 'EGB-500ml', 80, 100, 985, 5, 'Yes', 100, 'No'),
+(3, 'Beverage', 'Cocacola', 'Coca-Cola-1L', 250, 300, 20, 2, 'No', 25, 'No'),
+(4, 'Food', 'Mr.POP', 'Chocolate-Popcorn', 55, 60, 196, 0, 'Yes', 20, 'No'),
+(5, 'Food', 'Kothmale', 'Ice-Cream-4L', 700, 800, 5, 1, 'No', 10, 'No'),
+(6, 'Food', 'Munchee', 'Tiffin-180g', 90, 100, 61, 2, 'Yes', 20, 'No'),
+(7, 'Beverage', 'Cocacola', 'Sprite-500ml', 80, 100, 12, 0, 'Yes', 15, 'No'),
+(8, 'Beverage', 'Elephanthouse', 'cream-soda-500ml', 55, 65, 150, 5, 'Yes', 25, 'No'),
+(9, 'Food', NULL, 'Buriyani-180g', 375, 400, 4, 0, 'Yes', 0, 'No'),
+(18, 'Food', 'Mr.POP', 'Tip-Tip', 50, 50, 30, 0, 'Yes', 20, 'No'),
+(19, 'Food', 'Mr.POP', 'Butter-Popcorn', 45, 50, 25, 0, 'Yes', 20, 'No'),
+(20, 'Food', 'Munchee', 'ChocolateChipCookies-180g', 80, 100, 20, 3, 'Yes', 10, 'No'),
+(21, 'Beverage', 'Nestle', 'Nestle-Milo-180ml', 50, 55, 46, 0, 'Yes', 20, 'No'),
+(22, 'Beverage', 'Elephanthouse', 'Necto-1L', 130, 150, 10, 2, 'Yes', 5, 'No'),
+(23, 'Beverage', 'Elephanthouse', 'freshmilk500ml', 180, 200, 35, 0, 'Yes', 12, 'No'),
+(24, 'Beverage', 'Elephanthouse', 'Soda-1l', 200, 220, 20, 0, 'Yes', 5, 'No'),
+(25, 'Beverage', 'Elephanthouse', 'AppleSoda-500ml', 50, 60, 30, 0, 'Yes', 15, 'No');
 
 -- --------------------------------------------------------
 
@@ -383,7 +450,8 @@ INSERT INTO `leave` (`UserID`, `RequestedDate`, `LeaveDate`, `Reason`, `Accepted
 
 CREATE TABLE `notification` (
   `NotificationID` int(11) NOT NULL,
-  `Date` date NOT NULL,
+  `FromDate` date NOT NULL,
+  `ToDate` date DEFAULT NULL,
   `EventType` enum('Club Event','Restaurant Event') NOT NULL,
   `Message` text NOT NULL,
   `UserID` int(11) NOT NULL
@@ -393,9 +461,11 @@ CREATE TABLE `notification` (
 -- Dumping data for table `notification`
 --
 
-INSERT INTO `notification` (`NotificationID`, `Date`, `EventType`, `Message`, `UserID`) VALUES
-(1, '2021-09-28', 'Restaurant Event', 'The restaurant will be closed tomorrow (2021/09/29)', 2),
-(2, '2021-10-21', 'Restaurant Event', 'There will be a special offer at ElephantHouse products on 2021/10/23 ', 2);
+INSERT INTO `notification` (`NotificationID`, `FromDate`, `ToDate`, `EventType`, `Message`, `UserID`) VALUES
+(1, '2021-09-28', '2021-09-28', 'Restaurant Event', 'The restaurant will be closed tomorrow (2021/09/29)', 2),
+(2, '2021-10-21', '2021-10-23', 'Restaurant Event', 'There will be a special offer at ElephantHouse products on 2021/10/23 ', 2),
+(3, '2021-11-22', '2021-11-26', 'Club Event', 'You have a special offer to book club properties on this Friday(2021/11/26)', 2),
+(4, '2021-12-01', '2022-01-03', 'Restaurant Event', 'There is a special Christmas offer restaurant bookings and selected items from 2021/12/24 to 2022/01/03.', 2);
 
 -- --------------------------------------------------------
 
@@ -422,7 +492,17 @@ INSERT INTO `order` (`OrderID`, `OrderDate`, `OrderTime`, `OrderPlace`, `Total`,
 (16, '2021-10-20', '00:45:00', 'Lounge', 3546, 18),
 (17, '2021-10-20', '00:46:00', 'Lounge', 792, 18),
 (18, '2021-10-20', '01:00:00', 'Lounge', 600, 18),
-(19, '2021-10-20', '01:02:00', 'Lounge', 250, 18);
+(19, '2021-10-20', '01:02:00', 'Lounge', 250, 18),
+(20, '2021-10-20', '22:19:00', 'Lounge', 885, 17),
+(21, '2021-10-21', '15:59:00', 'Table1', 980, 17),
+(22, '2021-10-21', '18:49:00', 'Table2', 600, 17),
+(23, '2021-10-21', '22:38:00', 'Table1', 300, 18),
+(24, '2021-10-21', '23:40:00', 'Table2', 600, 17),
+(25, '2021-10-22', '10:34:00', 'Table3', 900, 17),
+(26, '2021-10-22', '12:41:00', 'Table1', 240, 17),
+(27, '2021-10-22', '13:19:00', 'Table7', 600, 17),
+(28, '2021-10-22', '13:21:00', 'Table3', 95, 18),
+(31, '2021-12-10', '20:05:00', 'Lounge', 710, 15);
 
 -- --------------------------------------------------------
 
@@ -441,15 +521,19 @@ CREATE TABLE `orderitem` (
 --
 
 INSERT INTO `orderitem` (`OrderID`, `ItemID`, `Quantity`) VALUES
-(14, 1, 5),
 (14, 2, 5),
 (15, 3, 10),
-(16, 1, 6),
 (16, 3, 6),
 (17, 6, 4),
 (17, 19, 8),
 (18, 7, 6),
-(19, 19, 5);
+(19, 19, 5),
+(20, 2, 3),
+(21, 2, 4),
+(26, 4, 4),
+(28, 2, 1),
+(31, 1, 2),
+(31, 21, 2);
 
 -- --------------------------------------------------------
 
@@ -498,29 +582,30 @@ CREATE TABLE `report` (
 CREATE TABLE `reservationmenu` (
   `ReservationName` varchar(25) NOT NULL,
   `Type` enum('Club','Restaurant') NOT NULL,
-  `Cost` int(11) NOT NULL
+  `Cost` int(11) NOT NULL,
+  `IsDeleted` enum('No','Yes') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `reservationmenu`
 --
 
-INSERT INTO `reservationmenu` (`ReservationName`, `Type`, `Cost`) VALUES
-('Center-Wicket', 'Club', 5000),
-('lounge', 'Club', 5000),
-('Practice-Net1', 'Club', 2500),
-('Practice-Net2', 'Club', 2500),
-('Practice-Net3', 'Club', 2500),
-('Practice-Net4', 'Club', 2500),
-('Practice-Net5', 'Club', 2500),
-('Practice-Net6', 'Club', 2500),
-('Practice-Wicket1', 'Club', 5000),
-('table1', 'Restaurant', 500),
-('table2', 'Restaurant', 500),
-('table3', 'Restaurant', 500),
-('table4', 'Restaurant', 500),
-('table5', 'Restaurant', 500),
-('table6', 'Restaurant', 500);
+INSERT INTO `reservationmenu` (`ReservationName`, `Type`, `Cost`, `IsDeleted`) VALUES
+('Center-Wicket', 'Club', 5000, 'No'),
+('lounge', 'Club', 5000, 'No'),
+('Practice-Net1', 'Club', 2500, 'No'),
+('Practice-Net2', 'Club', 2500, 'No'),
+('Practice-Net3', 'Club', 2500, 'No'),
+('Practice-Net4', 'Club', 2500, 'No'),
+('Practice-Net5', 'Club', 2500, 'No'),
+('Practice-Net6', 'Club', 2500, 'No'),
+('Practice-Wicket1', 'Club', 5000, 'No'),
+('table1', 'Restaurant', 500, 'No'),
+('table2', 'Restaurant', 500, 'No'),
+('table3', 'Restaurant', 500, 'No'),
+('table4', 'Restaurant', 500, 'No'),
+('table5', 'Restaurant', 500, 'No'),
+('table6', 'Restaurant', 500, 'No');
 
 -- --------------------------------------------------------
 
@@ -680,6 +765,25 @@ INSERT INTO `servicechargestaff` (`ServiceChargeID`, `StaffID`, `Percentage`, `A
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `signup`
+--
+
+CREATE TABLE `signup` (
+  `SignupID` int(11) NOT NULL,
+  `Name` text NOT NULL,
+  `UserName` varchar(50) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `ContactNo` int(11) NOT NULL,
+  `JoinedYear` date NOT NULL,
+  `DisplayID` varchar(10) NOT NULL,
+  `UserType` enum('Admin','Manager','Restaurant Manager','Cashier','Accountant','Staff Member','Life Member','Ordinary Member','HL Member') NOT NULL,
+  `ProfilePic` longblob DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -710,8 +814,8 @@ INSERT INTO `user` (`UserID`, `Name`, `UserName`, `Password`, `Email`, `ContactN
 (6, 'Member', 'Member', '$2y$10$9RaH99CEpIK1ivO.KwhRUOdsalIUeP3vYuzT/2xd8PU4vfgmfF7sG', 'member@gmail.com', 789012346, '2020-08-30', 'LM00001', 'Life Member', NULL),
 (13, 'U.P.Perera', 'Priyani', '$2y$10$tUb0K.wyPaVrM7UV2wTdy.yTCBF/K3FJGMnm46XW1apxjVEwtkYOa', 'priyani@gmail.com', 789012346, '2021-10-05', 'S0002', 'Staff Member', NULL),
 (14, 'S.Rupasinghe', 'Sumith', '$2y$10$hw0xzIbaG57V11zsEmXsZueeYXOQx71VriiLYStCu6ehnJV8/Qjem', 'sumith@gmail.com', 789012342, '2021-10-03', 'S0003', 'Staff Member', NULL),
-(15, 'J.S.Peris', 'Jayani', '$2y$10$9A/2JIgWKjr0m3fH2oNmrOglFJNsd.XJ0zylSYEH/M4itx8iVmARG', 'Jayani@gmail.com', 719012346, '2021-10-17', 'HM00001', 'HL Member', NULL),
-(17, 'P.N.S.Bandara', 'Bandara', '$2y$10$/2djmpADeEImOFxZaiG.SeRwcB0Q/WUpG8ljv525YrI9/hSDPJu.G', 'Bandara@gmail.com', 719012355, '2021-10-17', 'OM00001', 'Ordinary Member', NULL),
+(15, 'J.S.Peris', 'Jayani', '$2y$10$9A/2JIgWKjr0m3fH2oNmrOglFJNsd.XJ0zylSYEH/M4itx8iVmARG', 'Jayani@gmail.com', 719012346, '2021-10-17', 'HL00002', 'HL Member', NULL),
+(17, 'P.N.S.Bandara', 'Bandara', '$2y$10$/2djmpADeEImOFxZaiG.SeRwcB0Q/WUpG8ljv525YrI9/hSDPJu.G', 'Bandara@gmail.com', 789012346, '2021-10-17', 'OM00001', 'Ordinary Member', NULL),
 (18, 'Venushi Alwis', 'Shaveen', '$2y$10$p0oYbkvpvMsx1F4UKTmof.03KzAUMp6dG9eB0ZkBMWZHRJvOyk5QW', 'venushi@gmail.com', 719012342, '2021-10-19', 'CA0005', 'Cashier', NULL);
 
 -- --------------------------------------------------------
@@ -749,9 +853,14 @@ ALTER TABLE `bill`
 --
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`BookingID`),
-  ADD KEY `UserID` (`UserID`),
-  ADD KEY `Reservation1` (`Reservation1`),
-  ADD KEY `Reservation2` (`Reservation2`);
+  ADD KEY `UserID` (`UserID`);
+
+--
+-- Indexes for table `bookingreservation`
+--
+ALTER TABLE `bookingreservation`
+  ADD PRIMARY KEY (`BookingID`,`ReservationName`),
+  ADD KEY `ReservationName` (`ReservationName`);
 
 --
 -- Indexes for table `cashpayment`
@@ -759,6 +868,12 @@ ALTER TABLE `booking`
 ALTER TABLE `cashpayment`
   ADD PRIMARY KEY (`PaymentID`),
   ADD UNIQUE KEY `ReceiptNo` (`ReceiptNo`);
+
+--
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`Company`);
 
 --
 -- Indexes for table `deletebooking`
@@ -782,6 +897,12 @@ ALTER TABLE `deleteinvoiceitem`
   ADD KEY `ItemID` (`ItemID`);
 
 --
+-- Indexes for table `deleteitem`
+--
+ALTER TABLE `deleteitem`
+  ADD KEY `CompanyID` (`CompanyID`);
+
+--
 -- Indexes for table `deleteuser`
 --
 ALTER TABLE `deleteuser`
@@ -801,7 +922,8 @@ ALTER TABLE `feedback`
 --
 ALTER TABLE `grn`
   ADD PRIMARY KEY (`GRNID`),
-  ADD KEY `UserID` (`UserID`);
+  ADD KEY `UserID` (`UserID`),
+  ADD KEY `CompanyName` (`CompanyName`);
 
 --
 -- Indexes for table `grnitem`
@@ -815,21 +937,16 @@ ALTER TABLE `grnitem`
 --
 ALTER TABLE `invoice`
   ADD PRIMARY KEY (`InvoiceID`),
-  ADD KEY `UserID` (`UserID`);
-
---
--- Indexes for table `invoiceitem`
---
-ALTER TABLE `invoiceitem`
-  ADD PRIMARY KEY (`InvoiceID`,`ItemID`),
-  ADD KEY `ItemID` (`ItemID`);
+  ADD KEY `UserID` (`UserID`),
+  ADD KEY `Company` (`Company`);
 
 --
 -- Indexes for table `item`
 --
 ALTER TABLE `item`
   ADD PRIMARY KEY (`ItemID`),
-  ADD UNIQUE KEY `ItemName` (`ItemName`);
+  ADD UNIQUE KEY `ItemName` (`ItemName`),
+  ADD KEY `Company` (`Company`);
 
 --
 -- Indexes for table `leave`
@@ -927,6 +1044,12 @@ ALTER TABLE `servicechargestaff`
   ADD KEY `StaffID` (`StaffID`);
 
 --
+-- Indexes for table `signup`
+--
+ALTER TABLE `signup`
+  ADD PRIMARY KEY (`SignupID`);
+
+--
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
@@ -949,13 +1072,13 @@ ALTER TABLE `visapayment`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `BillID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `BillID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `booking`
 --
 ALTER TABLE `booking`
-  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `feedback`
@@ -973,25 +1096,25 @@ ALTER TABLE `grn`
 -- AUTO_INCREMENT for table `invoice`
 --
 ALTER TABLE `invoice`
-  MODIFY `InvoiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `InvoiceID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `NotificationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `NotificationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `payment`
@@ -1024,10 +1147,16 @@ ALTER TABLE `servicecharge`
   MODIFY `ServiceChargeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `signup`
+--
+ALTER TABLE `signup`
+  MODIFY `SignupID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
@@ -1044,9 +1173,14 @@ ALTER TABLE `bill`
 -- Constraints for table `booking`
 --
 ALTER TABLE `booking`
-  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`Reservation1`) REFERENCES `reservationmenu` (`ReservationName`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`Reservation2`) REFERENCES `reservationmenu` (`ReservationName`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `bookingreservation`
+--
+ALTER TABLE `bookingreservation`
+  ADD CONSTRAINT `bookingreservation_ibfk_1` FOREIGN KEY (`BookingID`) REFERENCES `booking` (`BookingID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `bookingreservation_ibfk_2` FOREIGN KEY (`ReservationName`) REFERENCES `reservationmenu` (`ReservationName`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `cashpayment`
@@ -1074,6 +1208,12 @@ ALTER TABLE `deleteinvoiceitem`
   ADD CONSTRAINT `deleteinvoiceitem_ibfk_2` FOREIGN KEY (`ItemID`) REFERENCES `item` (`ItemID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Constraints for table `deleteitem`
+--
+ALTER TABLE `deleteitem`
+  ADD CONSTRAINT `deleteitem_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `item` (`ItemID`);
+
+--
 -- Constraints for table `feedback`
 --
 ALTER TABLE `feedback`
@@ -1084,7 +1224,8 @@ ALTER TABLE `feedback`
 -- Constraints for table `grn`
 --
 ALTER TABLE `grn`
-  ADD CONSTRAINT `grn_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `grn_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `grn_ibfk_2` FOREIGN KEY (`CompanyName`) REFERENCES `company` (`Company`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `grnitem`
@@ -1097,14 +1238,14 @@ ALTER TABLE `grnitem`
 -- Constraints for table `invoice`
 --
 ALTER TABLE `invoice`
-  ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `invoice_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `invoice_ibfk_2` FOREIGN KEY (`Company`) REFERENCES `company` (`Company`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `invoiceitem`
+-- Constraints for table `item`
 --
-ALTER TABLE `invoiceitem`
-  ADD CONSTRAINT `invoiceitem_ibfk_1` FOREIGN KEY (`InvoiceID`) REFERENCES `invoice` (`InvoiceID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `invoiceitem_ibfk_2` FOREIGN KEY (`ItemID`) REFERENCES `item` (`ItemID`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `item`
+  ADD CONSTRAINT `item_ibfk_1` FOREIGN KEY (`Company`) REFERENCES `company` (`Company`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `leave`
