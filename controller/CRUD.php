@@ -162,7 +162,7 @@ if(isset($_POST['add-item'])){
 
     try {
         if($_POST['ItemType'] != "Choose type..."){
-            $sql = "INSERT INTO plunk.item (ItemID, ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity) VALUES ( '' , '$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]');";
+            $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";
             $DB->runQuery($sql);
             $newPage = new Page('../view/items/additemsuccess.html');
             $newPage->show();
@@ -171,11 +171,11 @@ if(isset($_POST['add-item'])){
             $newPage = new Page('../view/items/Itemtypeerror.html');
             $newPage->show();
         }
-       
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
 }
 //---------Update Item------------
 
@@ -184,7 +184,7 @@ if(isset($_POST['update-item'])){
 
     try {
         if($_POST['ItemType'] != "Choose type..."){
-            $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`ItemName`='$_POST[ItemName]',`PurchasePrice`='$_POST[PurchasePrice]',`SellingPrice`='$_POST[SellingPrice]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
+            $sql = "UPDATE plunk.item SET `ItemID`='$_POST[ItemID]',`ItemType`='$_POST[ItemType]',`Company`='$_POST[Company]',`ItemName`='$_POST[ItemName]',`PurchasePrice`='$_POST[PurchasePrice]',`SellingPrice`='$_POST[SellingPrice]',`Quantity`='$_POST[Quantity]',`Discount`='$_POST[Discount]',`Availability`='$_POST[Availability]',`ReorderQuantity`='$_POST[ReorderQuantity]' WHERE `ItemID` = '$_POST[ItemID]'";
             $DB->runQuery($sql);
             $newPage = new Page('../view/items/updateitemsuccess.html');
             $newPage->show();
@@ -247,7 +247,7 @@ if(isset($_POST['delete-item'])){
                         $DB->runQuery($sql);
                         $newPage = new Page('../view/invoice/addinvoicesuccess.html');
                         $newPage->show();
-                    
+
                         // $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
                         // $DB->runQuery($sql);
                     }
@@ -258,7 +258,7 @@ if(isset($_POST['delete-item'])){
                 $newPage = new Page('../view/invoice/Invoicetypeerror.html');
                 $newPage->show();
             }
-           
+
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -384,6 +384,7 @@ if(isset($_POST['delete-user'])){
     }
 
 }
+<<<<<<< HEAD
 //---------------------------------------------------Nortification-----------------------------------------------------------------------
 //---------Add notification------------
 
@@ -446,47 +447,40 @@ if(isset($_POST['delete-notification'])){
 
 //..........................................................Reservation Menu................................................................................
 
-if(isset($_POST['add-notifications'])){
+
+=======
+//--------------------------------------------feedback-------------------------------------------
+//----give feedback-------
+if(isset($_POST['give-feedback'])){
     $DB = new DB;
 
     try {
-        if($_POST['EventType'] != "Choose type..."){
-            $sql = "INSERT INTO plunk.notification (`NotificationID`, `FromDate`, `ToDate`, `EventType` ,`Message`, `UserID`) VALUES ( '' , '$_POST[FromDate]', '$_POST[ToDate]', '$_POST[EventType]',  '$_POST[Message]','$_SESSION[UserID]')";
-            $DB->runQuery($sql);
-            print_r($DB);
-            $newPage = new Page('../view/notifications/addnotifysuccess.html');
-            $newPage->show();
-        }
-        else{
-            $newPage = new Page('../view/notifications/notificationtypeerror.html');
-            $newPage->show();
-        }
-       
+        $sql = "INSERT INTO plunk.feedback (FeedBackID,FeedBack,FeedBackDate, UserID) VALUES ('','$_POST[FeedBack]','$_POST[CreatedDate]','$_SESSION[UserID]')";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\feedback\feebacksuccess.html');
+        $newPage->show();
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
 }
-//---------Update Notification------------
-if(isset($_POST['add-reservation'])){
+//----give reply--------
+if(isset($_POST['reply-feedback'])){
     $DB = new DB;
 
     try {
-        if($_POST['EventType'] != "Choose type..."){
-            $sql = "UPDATE plunk.notification SET `NotificationID`='$_POST[NotificationID]' ,`FromDate` = '$_POST[FromDate]', `ToDate` = '$_POST[ToDate]', `EventType` ='$_POST[EventType]' ,`Message` = '$_POST[Message]' WHERE `NotificationID` = '$_POST[NotificationID]'";
-            $DB->runQuery($sql);
-            $newPage = new Page('../view/notifications/updatenotifysuccess.html');
-            $newPage->show();
-        }
-        else{
-            $newPage = new Page('../view/notifications/notificationtypeerror.html');
-            $newPage->show();
-        }
-       
+        $sql = "UPDATE plunk.feedback SET Reply='$_POST[Reply]', ReplyDate='$_POST[replydDate]',ReplyPersonID='$_SESSION[UserID]' WHERE FeedBackID='$_POST[FeedBackID]'";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\feedback\replysuccess.html');
+        $newPage->show();
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
-}
 
+}
+>>>>>>> 4f81fa2280ae334934d91d00d29c64d0014e52f4
 ?>
