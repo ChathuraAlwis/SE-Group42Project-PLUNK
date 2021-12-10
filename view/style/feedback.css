@@ -104,7 +104,7 @@ border: none;
 }
 .replyboxcover{
   width: 100%;
-  height: 70%;
+  height: 75%;
   padding-top: 20px;
 /* background-color: green;*/
 }
@@ -159,12 +159,12 @@ textarea{
 .labelbox{
   width: 100%;
   height: 30%;
-  padding-bottom: 3%;
+  padding-bottom: 8%;
 }
 .labelbox2{
   width: 100%;
   height: 30%;
-  padding-bottom: 4%;
+  padding-bottom: 1%;
 }
 .btnbox{
   width: 65%;

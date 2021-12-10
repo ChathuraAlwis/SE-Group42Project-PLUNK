@@ -33,6 +33,12 @@
               <div class="replybox">
                 <form class="feedbackform" action="..\..\controller\CRUD.php" method="post">
                   <input name ="reply-feedback" type="hidden" >
+                  <div class="questions">
+
+                          <label for="replydDate"><b>Date :</b> </label>
+                          <input type="date" name="replydDate" id="today" value="<?php echo date("Y-m-d") ?>" readonly>
+
+                  </div><br>
                 <div class="labelbox">
                     <label for="FeedBack"><b>Message :</b> </label>
 
