@@ -24,7 +24,7 @@
             <div class="replyboxcover">
               <div class="replybox2">
                 <form class="feedbackform" action="..\..\controller\CRUD.php" method="post">
-                  <input name ="reply-feedback" type="hidden" >
+                  <input name ="give-feedback" type="hidden" >
                   <div class="questions">
 
                           <label for="CreatedDate"><b>Date :</b> </label>

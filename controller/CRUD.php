@@ -171,11 +171,11 @@ if(isset($_POST['add-item'])){
             $newPage = new Page('../view/items/Itemtypeerror.html');
             $newPage->show();
         }
-       
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
 }
 //---------Update Item------------
 
@@ -227,7 +227,7 @@ if(isset($_POST['update-item'])){
                         $DB->runQuery($sql);
                         $newPage = new Page('../view/invoice/addinvoicesuccess.html');
                         $newPage->show();
-                    
+
                         // $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
                         // $DB->runQuery($sql);
                     }
@@ -238,7 +238,7 @@ if(isset($_POST['update-item'])){
                 $newPage = new Page('../view/invoice/Invoicetypeerror.html');
                 $newPage->show();
             }
-           
+
             } catch (\Throwable $th) {
                 throw $th;
             }
@@ -359,6 +359,39 @@ if(isset($_POST['delete-user'])){
         $DB->runQuery($sql);
         $newPage = new Page('..\view\user\deleteusersuccess.html');
         $newPage->show();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+//--------------------------------------------feedback-------------------------------------------
+//----give feedback-------
+if(isset($_POST['give-feedback'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.feedback (FeedBackID,FeedBack,FeedBackDate, UserID) VALUES ('','$_POST[FeedBack]','$_POST[CreatedDate]','$_SESSION[UserID]')";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\feedback\feebacksuccess.html');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+//----give reply--------
+if(isset($_POST['reply-feedback'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.feedback SET Reply='$_POST[Reply]', ReplyDate='$_POST[replydDate]',ReplyPersonID='$_SESSION[UserID]' WHERE FeedBackID='$_POST[FeedBackID]'";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\feedback\replysuccess.html');
+        $newPage->show();
+
     } catch (\Throwable $th) {
         throw $th;
     }
