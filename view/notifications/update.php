@@ -30,13 +30,19 @@
                <tr>
                     <div class="form-group">
                         <td> <label for="NotificationID">Notification ID</label></td>
-                        <td><input type="number" id= "NotificationID" name="NotificationID" required class="form-control" value = "<?php echo "$result[NotificationID]";?>"/></td>
+                        <td><input type="number" id= "NotificationID" name="NotificationID" required class="form-control" value = "<?php echo "$result[NotificationID]";?>" readonly/></td>
                     </div>
                 </tr>
-               <tr>
+                <tr>
                     <div class="form-group">
-                        <td> <label for="Date">Date</label></td>
-                        <td><input type="date" id= "Date" name="Date" required class="form-control" value = "<?php echo "$result[Date]";?>"/></td>
+                        <td> <label for="FromDate">From Date</label></td>
+                        <td><input type="date" id= "FromDate" name="FromDate" required class="form-control" value = "<?php echo "$result[FromDate]";?>"/></td>
+                    </div>
+                </tr>
+                 <tr>
+                    <div class="form-group">
+                        <td> <label for="ToDate">To Date</label></td>
+                        <td><input type="date" id= "ToDate" name="ToDate" required class="form-control" value = "<?php echo "$result[ToDate]";?>"/></td>
                     </div>
                 </tr>
                 <tr>
@@ -59,7 +65,7 @@
             </table>
         </div>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="updatenotifysuccess.html">Update</a></button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Update</a></button>
                     <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="notificationpage.php">Cancel</a></button>
                 </div>
         </form>        
