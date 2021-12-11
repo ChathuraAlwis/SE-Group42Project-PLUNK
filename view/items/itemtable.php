@@ -19,13 +19,13 @@
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("item");
                         if($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'HL Member' || $_SESSION['UserType'] == 'Cashier'){
-                          $itemTable->show("SELECT ItemID, ItemName as Name, ItemType as Type, Price, Discount FROM plunk.item WHERE Availability=1", '../order/add');
+                          $itemTable->show("SELECT ItemID, ItemName as 'Name', ItemType as 'Type', SellingPrice as 'Price', Discount FROM plunk.item WHERE Availability=1", '../order/add');
                         }
                         elseif ($_SESSION['UserType'] == 'Accountant') {
-                          $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',ItemName as 'Item Name',ItemCost as 'Item Cost',Quantity as 'Quantity', ReorderQuantity as 'Reorder Quantity' FROM plunk.item where ReorderQuantity NOT LIKE '0' " );
+                          $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',ItemName as 'Item Name',PurchasePrice as 'Purchase Price',Quantity as 'Quantity', ReorderQuantity as 'Reorder Quantity' FROM plunk.item where ReorderQuantity NOT LIKE '0'");
                         }
                         elseif ($_SESSION['UserType'] == 'Restaurant Manager'){
-                          $itemTable->show("SELECT * FROM plunk.item", 'update');;
+                          $itemTable->show("SELECT ItemID,ItemType,Company ,ItemName ,PurchasePrice ,SellingPrice ,Quantity ,Discount,Availability , ReorderQuantity  FROM plunk.item WHERE IsDeleted = 'No' ", 'update');
                         }
 
 
