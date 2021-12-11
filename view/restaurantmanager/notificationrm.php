@@ -18,7 +18,8 @@
               <?php
                     require_once "../../controller/showtable.php";
                     $notificationTable = new Table("notification");
-                    $notificationTable->show("SELECT Date, EventType as 'Event Type', Message FROM plunk.notification");
+                    $day = date('Y-m-d');
+                    $notificationTable->show("SELECT EventType as 'Event Type', Message FROM plunk.notification where FromDate <= '$day' AND ToDate >= '$day'; ");
             ?>
                 
              </div>

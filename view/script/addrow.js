@@ -1,4 +1,6 @@
- function addRowOrder(itemPrice) {       
+ 
+ function addRowOrder(itemPrice) {    
+    console.log(itemPrice) ;  
     var ItemID = document.getElementById("ItemID"); 
     var Quantity = document.getElementById("Quantity");
     var Total = document.getElementById("Total");
@@ -12,8 +14,8 @@
         itemPrice.forEach(element => {
             // console.log(element['ItemID'], ItemID);
             if (element['ItemID'] == ItemID.value) {
-                var tot = element['Price'] * Quantity.value * (100 - element['Discount']) / 100;
-                row.insertCell(2).innerHTML= '<input type="text" class="Price" value = "' + tot + '" id="Price'+ rowCount +'" style="border:none" size=5 readonly >';
+                var tot = element['SellingPrice'] * Quantity.value * (100 - element['Discount']) / 100;
+                row.insertCell(2).innerHTML= '<input type="text" class="SellingPrice" value = "' + tot + '" id="SellingPrice'+ rowCount +'" style="border:none" size=5 readonly >';
                 var Tot = parseInt(Total.value) + tot;
                 Total.setAttribute("value", Tot); 
             }
@@ -32,8 +34,8 @@ function deleteRowOrder(obj) {
     var index = obj.parentNode.parentNode.rowIndex;   
     var Table = document.getElementById("myTableData");
     var Total = document.getElementById("Total");
-    var Price = Table.rows[index].getElementsByClassName("Price")[0].value;
-    var Tot = Total.value - Price;
+    var SellingPrice = Table.rows[index].getElementsByClassName("SellingPrice")[0].value;
+    var Tot = Total.value - SellingPrice;
     Total.setAttribute("value", Tot);
     Table.deleteRow(index);
 
@@ -59,11 +61,11 @@ function addRowGRN(itemgrn) {
         });
         row.insertCell(2).innerHTML= '<input type="text" value = "' + Quantity.value + '" name="Quantity'+ rowCount + '" style="border:none" size=5 readonly >';
         
-        // itemPrice.forEach(element => {
+        // itemSellingPrice.forEach(element => {
         //     // console.log(element['ItemID'], ItemID);
         //     if (element['ItemID'] == ItemID.value) {
-        //         var tot = element['Price'] * Quantity.value * (100 - element['Discount']) / 100;
-        //         row.insertCell(2).innerHTML= '<input type="text" class="Price" value = "' + tot + '" id="Price'+ rowCount +'" style="border:none" size=5 readonly >';
+        //         var tot = element['SellingPrice'] * Quantity.value * (100 - element['Discount']) / 100;
+        //         row.insertCell(2).innerHTML= '<input type="text" class="SellingPrice" value = "' + tot + '" id="SellingPrice'+ rowCount +'" style="border:none" size=5 readonly >';
         //         var Tot = parseInt(Total.value) + tot;
         //         Total.setAttribute("value", Tot); 
         //     }
@@ -78,8 +80,8 @@ function deleteRowGRN(obj) {
     var index = obj.parentNode.parentNode.rowIndex;   
     var Table = document.getElementById("myTableData");
     // var Total = document.getElementById("Total");
-    // var Price = Table.rows[index].getElementsByClassName("Price")[0].value;
-    // var Tot = Total.value - Price;
+    // var SellingPrice = Table.rows[index].getElementsByClassName("SellingPrice")[0].value;
+    // var Tot = Total.value - SellingPrice;
     // Total.setAttribute("value", Tot);
     Table.deleteRow(index);
 } 
