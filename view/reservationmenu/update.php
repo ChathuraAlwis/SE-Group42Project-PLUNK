@@ -56,7 +56,7 @@
                 </tr>
             </table>
             <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="updateresrvationsuccesssuccess.html">Update</button>
+                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
                 <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="reservationmenupage.php">Cancel</a></button>
             </div>
         </form> 

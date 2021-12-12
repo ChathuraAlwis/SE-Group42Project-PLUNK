@@ -26,10 +26,10 @@
                 <tr><td><br></td></tr>
                 <tr><div class="form-group">
                     <td><label for="Type">Reservation Type</label></td>
-                    <td><select id="Type" name="Type" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
-                    <option selected> Choose type ...</option>
-                        <option value="club">Club</option>
-                        <option value="restaurant">Restaurant</option>
+                    <td><select id="Type" name="Type" required class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
+                    <option selected>Choose type ...</option>
+                        <option value="Club">Club</option>
+                        <option value="Restaurant">Restaurant</option>
                      </select></td>
                 </div>
                 </tr>
@@ -42,7 +42,7 @@
                 </tr>
             </table>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="addresrvationsuccesssuccess.html">Add</button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
                 </div>
         </form> 
