@@ -47,7 +47,7 @@ function deleteRowOrder(obj) {
 function addRowGRN(itemgrn) {       
     var ItemID = document.getElementById("ItemID"); 
     var Quantity = document.getElementById("Quantity");
-    if (ItemID.value > 0 && Quantity.value > 0) {
+    if (ItemID.value > 0) {
         var table = document.getElementById("myTableData"); 
         var rowCount = table.rows.length; 
         var row = table.insertRow(rowCount); 
