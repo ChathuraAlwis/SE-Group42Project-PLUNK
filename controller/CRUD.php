@@ -162,8 +162,14 @@ if(isset($_POST['add-item'])){
 
     try {
         if($_POST['ItemType'] != "Choose type..."){
-            $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";
+            if($POST['Company'] != "None Selected"){
+                $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";               
+            }
+            else{
+                $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '' ,'$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";               
+            }
             $DB->runQuery($sql);
+            print_r($sql);
             $newPage = new Page('../view/items/additemsuccess.html');
             $newPage->show();
         }
