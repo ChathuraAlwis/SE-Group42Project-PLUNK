@@ -27,7 +27,7 @@
             //print_r($result2);
         }
         else{
-            $companyname = "None Selected";
+            $companyname = "Select the Company";
         }
 
        
@@ -42,7 +42,7 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="Company">Company</label></td>
-                        <td><input type="text" id="Company" name="Company"  class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
+                        <td><input type="text" id="Company" name="Company"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
                     </div>
                 </tr> 
                   <tr>
@@ -108,7 +108,7 @@
                 </table>
                 
                 <div class="form-group">
-                    <button type="submit" id="add" name="submit" value="Submit" class="button submit" disabled>Add</button>
+                    <button type="submit" id="add" name="submit" value="Submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
                 </div>
         </form>        
