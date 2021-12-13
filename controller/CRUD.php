@@ -235,33 +235,32 @@ if(isset($_POST['delete-item'])){
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
         $DB = new DB;
-        if($_POST['rowCount']!=0){
+        //if($_POST['rowCount']!=0){
 
             try {
                 if($_POST['ItemType'] != "Choose type..."){
-                $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
-                $DB->runQuery($sql);
-                $sql = "SELECT InvoiceID FROM plunk.invoice;";
-                $InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
-                $itemRow = 1;
-                $rowCount = $_POST['rowCount'];
-                while($rowCount > 0){
-                    if(isset($_POST['ItemID' . $itemRow])){
-                        $rowCount--;
-                        $IDRow = 'ItemID' . $itemRow;
-                        $NameRow = 'ItemName' . $itemRow;
-                        $QuanRow = 'Quantity' . $itemRow;
-                        $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, ItemName, Quantity) VALUES ('$InvoiceID', '$_POST[$IDRow]', '$_POST[$NameRow]',  '$_POST[$QuanRow]');";
-                        $DB->runQuery($sql);
+                    $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
+                    $DB->runQuery($sql);
+                    $sql = "SELECT InvoiceID FROM plunk.invoice;";
+                    $InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
+                // $itemRow = 1;
+                // $rowCount = $_POST['rowCount'];
+                // while($rowCount > 0){
+                //     if(isset($_POST['ItemID' . $itemRow])){
+                //         $rowCount--;
+                //         $IDRow = 'ItemID' . $itemRow;
+                //         $NameRow = 'ItemName' . $itemRow;
+                //         $QuanRow = 'Quantity' . $itemRow;
+                //         $sql = "INSERT INTO plunk.invoiceitem (InvoiceID, ItemID, ItemName, Quantity) VALUES ('$InvoiceID', '$_POST[$IDRow]', '$_POST[$NameRow]',  '$_POST[$QuanRow]');";
+                //         $DB->runQuery($sql);
                         $newPage = new Page('../view/invoice/addinvoicesuccess.html');
                         $newPage->show();
 
                         // $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
                         // $DB->runQuery($sql);
                     }
-                    $itemRow++;
-                }
-            }
+                    //$itemRow++;
+            
             else{
                 $newPage = new Page('../view/invoice/Invoicetypeerror.html');
                 $newPage->show();
@@ -270,7 +269,7 @@ if(isset($_POST['delete-item'])){
             } catch (\Throwable $th) {
                 throw $th;
             }
-        }
+        //}
     }
 //---------Update Invoice------------
 

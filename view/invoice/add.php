@@ -8,21 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
-        <script type="text/javascript" src="../script/addrow.js"></script>
-        <script type="text/javascript" src="../script/addTax.js"></script>
+        
         <script type="text/javascript" src="../script/maxQuantity.js"></script>
-        <script type="text/javascript" src="../script/rowCount.js"></script>
-
+        
         
   </head>
   <body>
-  <!-- <?php
-        require_once "../../model/database.php";
-        $DB = new DB;
-        $sql = "SELECT ItemID, ItemName, Quantity, ItemCost FROM plunk.item;";
-        $result = json_encode($DB->runQuery($sql));
-        // setcookie("Items", json_encode($result));
-    ?> -->
+  
     <?php
         require_once "../../model/database.php";
         if(isset($_GET['data'])){ //Select company
@@ -88,22 +80,30 @@
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit" onclick="tableRowCount('myTableData')">Add</button>
+                    <button type="submit" name="submit" value="Submit" class="button submit" >Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form> 
     </div> 
     </div>
         
-        <div class= right>
-            <div class="righttable">
+    <div class= right>
+      <div class = "righttop">
+        <div class="itemtable">
+            <h4>COMPANY DETAILS TABLE</h4>
+            <iframe src="comdetails.php" class="item"></iframe>
+        </div>
+        
+       </div>
+        <div class = "rightbottom">
             <div class="itemtable">
-                <h3>COMPANY DETAILS TABLE</h3>
-                <iframe src="../company/companytable.php" class="item"></iframe>
-            </div>
+                <h4>ITEM DETAILS TABLE</h4>
+                <iframe src="../items/itemtable.php" class="item"></iframe>
+            </div>  
+        </div>
     </div>
-    </div>
-    </div>
+
+</div>
      
   </body>
 
