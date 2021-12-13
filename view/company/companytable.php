@@ -17,7 +17,13 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("company");
-                        $itemTable->show("SELECT * FROM plunk.company",'../items/additems');
+                        // if($_SESSION['UserType'] ==  'Restaurant Manager'){
+                        //   $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Phone No' FROM plunk.company",'../items/additems');
+                        // }
+                        // elseif ($_SESSION['UserType'] == 'Accountant') {
+                        //   $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Phone No' FROM plunk.company",'../invoice/add');
+                        // }
+                        $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Phone No' FROM plunk.company",'../items/additems');
                       ?> 
                     </div>
 

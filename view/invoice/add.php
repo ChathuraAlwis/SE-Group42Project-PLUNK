@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -15,12 +16,25 @@
         
   </head>
   <body>
-  <?php
+  <!-- <?php
         require_once "../../model/database.php";
         $DB = new DB;
         $sql = "SELECT ItemID, ItemName, Quantity, ItemCost FROM plunk.item;";
         $result = json_encode($DB->runQuery($sql));
         // setcookie("Items", json_encode($result));
+    ?> -->
+    <?php
+        require_once "../../model/database.php";
+        if(isset($_GET['data'])){ //Select company
+            //$DB2 = new DB;
+            $companyname = explode("=", $_GET['data'])[1];
+            //$query = "SELECT * FROM plunk.company WHERE Company=$companyname";
+            //$result2 = $DB2->runQuery($query)[0];
+            //print_r($result2);
+        }
+        else{
+            $companyname = "Select the Company";
+        }
     ?>
     <div class="main">
     <div class= "left">
@@ -28,18 +42,17 @@
         <h2 class="center-text"><b>Add Invoice</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-invoice" type="hidden" >
-                <table>
-                    <tr>
-                        <div class="form-group">
-                            <td><label for="Companyname">Company Name</label></td>
-                            <td></td>
-                            <td><input type="text" id= "Companyname" name="Companyname" required class="form-control" placeholder="Enter the company name"/></td>
-                        </div>
-                    </tr>
+                <table class="formtable">
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Company">Company</label></td>
+                        <td><input type="text" id="Company" name="Company"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
+                    </div>
+                </tr>
                 <tr>
                 <div class="form-group">
                     <td><label for="Type">Item Type</label></td>
-                    <td></td>
+                    
                     <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
                         <option value="Beverage">Beverage Items</option>
@@ -50,7 +63,7 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="ReceivedDate">Received Date</label></td>
-                        <td></td>
+                        
                         <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" placeholder="Enter the received date" max="<?php echo date("Y-m-d") ?>"/></td>
                     </div>
                 </tr> 
@@ -58,63 +71,16 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="DueDate">Due Date</label></td>
-                        <td></td>
+                        
                         <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date" min="<?php echo date("Y-m-d") ?>"/></td>
                     </div>
                 </tr> 
 
-                <br>
-                <tr>
-                    
-                </tr>
-            </table>
-            <br>
-            <div class="form-group">
-            <div id="myform" onload="load()"> 
-                    <b>Enter the item details of the invoice...</b> 
-                    <br/><br/> 
-                            Item ID:
-                            <?php 
-                                echo "<td><input type=text id=ItemID onchange=maxQuantity(". $result .",0".")></td>";
-                                    
-                            ?> 
-                    <br/><br/> 
-                            Quantity :&nbsp; 
-                            <input type=number id="Quantity" min=0 oninput="validity.valid||(value='');"> 
-                    <br/> 
-                    
-                    <?php 
-                        echo "<td><input type=button id=add value=Add onclick=addRowInvoice(" . $result . ") disabled></td>";
-                    ?> 
-                    </div> 
-                    <br/><br/> 
-                    <div id="mydata"> 
-                    <b>Item Details...</b> 
-                    <table id="myTableData" class="addrowtable" > 
-                        <tr> 
-                            <td><b>Item ID</b></td>
-                            <td><b>Item Name</b></td> 
-                            <td><b>Quantity</b></td> 
-                            <td><b>Total Cost</b></td> 
-                            <td>&nbsp;</td> 
-
-                        </tr> 
-                        
-                    </table> 
-                      
-                    </div> 
-                </div>
-                <br>
-                <input type="hidden" id="rowCount" name="rowCount" value=0>
-                <div class="form-group">
-                    <table>
-                        <tr>
-                            <td><label for="Total">Tax</label></td>
-                            <td><input type="text" id= "Tax" name="Tax" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the tax price" onchange="addTax()"/></td>
-                        </tr>
+               
+           
                         <tr>
                             <td><label for="Total">Total</label></td>
-                            <td><input type="text" id= "Total" name="Total" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the total" readonly/></td>
+                            <td><input type="text" id= "Total" name="Total" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the total"/></td>
                         </tr>
                     </table>
                         
@@ -132,8 +98,8 @@
         <div class= right>
             <div class="righttable">
             <div class="itemtable">
-                <h3>ITEM TABLE</h3>
-                <iframe src="../items/itemtable.php" class="item"></iframe>
+                <h3>COMPANY DETAILS TABLE</h3>
+                <iframe src="../company/companytable.php" class="item"></iframe>
             </div>
     </div>
     </div>
