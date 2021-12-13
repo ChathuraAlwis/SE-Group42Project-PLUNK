@@ -22,15 +22,21 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                        <form method="POST" action="details.php">
+                        <form method="POST" action="billtable.php">
                               <input type="text" name="billsearch" class="search" placeholder="Search..." >
                               <button type = "submit" class = "search"><a href="#"><b>Search</b></a></button>
                         </form>
                           
                     </div>
                     <div class="detailtable" >
-
-                            <iframe src="details.php" name="searchinfo" class="staff"></iframe>
+                            <?php 
+                              if(isset($_POST['billsearch'])){
+                                echo '<iframe src="details.php?billsearch=' . $_POST['billsearch'] . '" name="searchinfo" class="staff"></iframe>';
+                              }
+                              else{
+                                echo '<iframe src="details.php" name="searchinfo" class="staff"></iframe>';
+                              }
+                            ?>
                     </div>
 
                 </div>
