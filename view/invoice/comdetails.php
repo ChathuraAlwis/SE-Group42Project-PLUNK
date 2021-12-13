@@ -23,7 +23,7 @@
                         // elseif ($_SESSION['UserType'] == 'Accountant') {
                         //   $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Phone No' FROM plunk.company",'../invoice/add');
                         // }
-                        $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Phone No' FROM plunk.company",'../items/additems');
+                        $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Phone No' FROM plunk.company",'../invoice/add');
                       ?> 
                     </div>
 

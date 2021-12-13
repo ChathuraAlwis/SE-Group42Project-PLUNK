@@ -106,15 +106,15 @@
 <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>ITEM TABLE</h4>
-            <iframe src="../items/itemtable.php" class="item"></iframe>
+            <h4>COMPANY DETAILS TABLE</h4>
+            <iframe src="../company/companytable.php" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
-                <h4>ITEMS DETAILS WITH INVOICE TABLE</h4>
-                <iframe src="invoiceitem.php" class="item"></iframe>
+                <h4>INVOICE DETAILS TABLE</h4>
+                <iframe src="invoiceform.php" class="item"></iframe>
             </div>  
         </div>
     </div>
