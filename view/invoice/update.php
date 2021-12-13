@@ -95,13 +95,7 @@
               </tr>
             
             </table>
-            <div class="forminputs">
-                  <?php
-                      require_once "..\..\controller\showtable.php";
-                      $orderTable = new Table("grnitem");
-                      $orderTable->show("SELECT * FROM plunk.invoiceitem WHERE InvoiceID in ('$result[InvoiceID]')");
-                   ?>
-                </div>
+           
                 <div class="form-group">
                 <button type="submit" name="submit" value="Submit" class="button submit"  >Update</button>
                 <button type="back" name="cancel" value="cancel" class="button submit" ><a class="cancel" href="invoicetable.php">Cancel</a></button>
