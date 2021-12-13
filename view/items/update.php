@@ -24,7 +24,7 @@
     <div class= left>
     <div class="form">
 			<h2 class="center-text"><b>ITEM DETAILS</b>
-                <a href="deleteitemsuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
+                <a href="deleteitemsuccess.html"><input name ="delete-item" type="hidden" ><image src = "../images/bin.png" class="bin"></input></image></a></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
@@ -35,33 +35,20 @@
                    <td><label for="ItemID">Item ID</label></td> 
                     <td><input type="number" id= "ItemID" name="ItemID" required class="form-control" value = "<?php echo "$result[ItemID]";?>"/></td>
                 </div>
-              </tr>
-            
+            </tr>
+            <tr>
+                    <div class="form-group">
+                        <td><label for="Company">Company</label></td>
+                        <td><input type="text" id="Company" name="Company"  class="form-control"  readonly value = "<?php echo "$result[Company]";?>"/></td>
+                    </div>
+            </tr> 
             <tr>
                 <div class="form-group">
                    <td><label for="ItemName">Item Name</label></td> 
                     <td><input type="text" id= "ItemName" name="ItemName" required class="form-control" value = "<?php echo "$result[ItemName]";?>"/></td>
                 </div>
               </tr>
-              <tr>
-                <div class="form-group">
-                    <td><label for="ItemCost">Item Cost</label></td>
-                    <td><input type="number" id="ItemCost" name="ItemCost" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ItemCost]";?>" /></td>
-                </div>
-            </tr>
-            <tr>
-                <div class="form-group">
-                    <td><label for="Price">Price</label></td>
-                    <td><input type="number" id="Price" name="Price" required class="form-control" min=1 oninput="validity.valid||(value='');" value = "<?php echo "$result[Price]";?>" /></td>
-                </div>
-            </tr>
-            <tr>
-                <div class="form-group">
-                    <td><label for="Discount">Discount</label></td>
-                    <td><input type="number" id="Discount" name="Discount" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Discount]";?>" /></td>
-                </div>
-            </tr>
-            <tr> 
+              <tr> 
                 <div class="form-group">
                     <td><label for="ItemType">Item Type</label></td>
                     <td><select id="ItemType" name="ItemType" class="form-control"  onchange="changeType(this);">
@@ -71,6 +58,25 @@
                      </select></td>
                 </div>
             </tr>
+              <tr>
+                <div class="form-group">
+                    <td><label for="PurchasePrice">Purchase Price</label></td>
+                    <td><input type="number" id="PurchasePrice" name="PurchasePrice" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[PurchasePrice]";?>" /></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td><label for="SellingPrice">Selling Price</label></td>
+                    <td><input type="number" id="SellingPrice" name="SellingPrice" required class="form-control" min=1 oninput="validity.valid||(value='');" value = "<?php echo "$result[SellingPrice]";?>" /></td>
+                </div>
+            </tr>
+            <tr>
+                <div class="form-group">
+                    <td><label for="Discount">Discount</label></td>
+                    <td><input type="number" id="Discount" name="Discount" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Discount]";?>" /></td>
+                </div>
+            </tr>
+            
             <tr> 
                 <div class="form-group">
                     <td><label for="Availability">Availability</label></td>

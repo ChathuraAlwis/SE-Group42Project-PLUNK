@@ -162,10 +162,18 @@ if(isset($_POST['add-item'])){
 
     try {
         if($_POST['ItemType'] != "Choose type..."){
-            $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";
-            $DB->runQuery($sql);
-            $newPage = new Page('../view/items/additemsuccess.html');
-            $newPage->show();
+            if($_POST['Company'] != "Select the Company"){
+                $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";               
+                $DB->runQuery($sql);    
+                $newPage = new Page('../view/items/additemsuccess.html');
+                $newPage->show(); 
+                
+            }
+            else{
+                $newPage = new Page('../view/items/companyerror.html');
+                $newPage->show();  
+               
+            }
         }
         else{
             $newPage = new Page('../view/items/Itemtypeerror.html');
@@ -446,6 +454,49 @@ if(isset($_POST['delete-notification'])){
 
 //..........................................................Reservation Menu................................................................................
 
+//---------Add Reservation Menu------------
+
+if(isset($_POST['add-reservation'])){
+    $DB = new DB;
+
+    try {
+        if($_POST['Type'] == "Restaurant" || $_POST['Type'] == "Club"){
+            $sql = "INSERT INTO plunk.reservationmenu(`ReservationName`, `Type`, `Cost`, `IsDeleted`) VALUES ('$_POST[ReservationName]','$_POST[Type]','$_POST[Cost]','No')";
+            $DB->runQuery($sql);
+            $newPage = new Page('../view/reservationmenu/addreservationsuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/reservationmenu/reservationtypeerror.html');
+            $newPage->show();
+        }
+       
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+    
+}
+//---------Update Reservation Menu------------
+if(isset($_POST['update-reservation'])){
+    $DB = new DB;
+
+    try {
+        if($_POST['Type'] == "Restaurant" || $_POST['Type'] == "Club" ){
+            $sql = "UPDATE plunk.reservationmenu SET `ReservationName`='$_POST[ReservationName]',`Type`='$_POST[Type]',`Cost`='$_POST[Cost]',`IsDeleted`='No' WHERE `ReservationName`='$_POST[ReservationName]'";
+            $DB->runQuery($sql);
+            $newPage = new Page('../view/reservationmenu/updateresrvationsuccesssuccess.html');
+            $newPage->show();
+        }
+        else{
+            $newPage = new Page('../view/reservationmenu/reservationtypeerror.html');
+            $newPage->show();
+        }
+       
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+    
+}
 
 //--------------------------------------------feedback-------------------------------------------
 //----give feedback-------
@@ -480,4 +531,6 @@ if(isset($_POST['reply-feedback'])){
     }
 
 }
+
+
 ?>

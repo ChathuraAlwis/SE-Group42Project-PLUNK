@@ -6,19 +6,21 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/tablehome.css">
+        <link rel="stylesheet" href="../style/success.css">
 
   </head>
   <body>
         <div class="main" >
 
                     <div class="detailtable">
-                    
-                    <?php
-                        require_once "../../controller/showtable.php";
-                        $itemTable = new Table("reservationmenu");
-                        $itemTable->show("SELECT ReservationName,Type,Cost FROM plunk.reservationmenu", 'update');
-                      ?> 
+                    <h3><b>Please select the company from the company table.</b> </h3>
+                    <h1 id="Error"><b>Error</b> </h1><br>
+
+                    <div class="btn">
+                      <a href="itemspage.php"><button type="button" name="button"><b>OK</b> </button></a>
+                    </div>
+
+
                     </div>
 
                 </div>

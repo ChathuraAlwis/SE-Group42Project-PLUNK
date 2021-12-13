@@ -6,7 +6,7 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/itemtable.css">
+        <link rel="stylesheet" href="../style/tablehome.css">
 
   </head>
   <body>
@@ -16,9 +16,8 @@
                     
                     <?php
                         require_once "../../controller/showtable.php";
-                        $reorderTable = new Table("booking");
-                        $day =  date("Y-m-d");
-                        $reorderTable->show("SELECT CustomerName,ReservationName,ReservedDate,ReservedTime from plunk.booking b , plunk.bookingreservation r where r.BookingID = b.BookingID and b.BookingType ='Restaurant' and ReservedDate >= '$day'; ");
+                        $itemTable = new Table("company");
+                        $itemTable->show("SELECT * FROM plunk.company",'../items/additems');
                       ?> 
                     </div>
 
