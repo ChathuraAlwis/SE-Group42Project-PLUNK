@@ -549,7 +549,7 @@ if(isset($_POST['edit-profile'])){
 
     try {
         $sql = "UPDATE plunk.user SET Name='$_POST[Name]', ContactNo='$_POST[ContactNo]',Email='$_POST[Email]', UserName='$_POST[UserName]' WHERE UserID='$_POST[UserID]'";
-        echo $DB->runQuery($sql);
+        $DB->runQuery($sql);
 
         $newPage = new Page('..\view\profile\prfileui.php');
         $newPage->show();
