@@ -1,4 +1,11 @@
-
+<?php 
+session_start();
+require_once "../../model/database.php";
+$DB = new DB;
+$query = "SELECT * FROM plunk.user WHERE UserID=$_SESSION[UserID]";
+$result = $DB->runQuery($query)[0];
+// print_r($result);
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -16,55 +23,43 @@
   <body>
     <div class="main">
         <div class="profformbox">
-          <form class="profform" action="#" method="post">
+          <form class="profform" action="index.html" method="post">
           <div class="imagebox">
             <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
 
             <img id="output" >
-            <label for="file" class="upload"><b>Upload Image</b> </label>
-
-            <script>
-            var loadFile = function(event) {
-            	var image = document.getElementById('output');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
-            </script>
 
           </div><br>
           <div class="forminputs">
             <label for="">Name with initials :</label>
-            <input type="text" name="" >
+            <input type="text" name="" value="<?php print_r($result['Name'])?>" readonly>
           </div><br>
           <div class="forminputs">
             <label for="">User ID :</label>
-            <input type="text" name=""  readonly>
+            <input type="text" name="" value="<?php print_r($result['UserID'])?>" readonly>
           </div><br>
           <div class="forminputs">
             <label for="">User Type :</label>
-            <input type="text" name=""  readonly>
+            <input type="text" name="" value="<?php print_r($result['UserType'])?>" readonly>
           </div><br>
           <div class="forminputs">
             <label for="">Joined Date :</label>
-            <input type="date" name=""  readonly>
+            <input type="date" name="" value="<?php print_r($result['JoinedYear'])?>" readonly>
           </div><br>
           <div class="forminputs">
             <label for="">Contact No :</label>
-            <input type="tel" name=""  >
+            <input type="tel" name="" value="<?php print_r($result['ContactNo'])?>" readonly>
           </div><br>
           <div class="forminputs">
             <label for="">E-mail :</label>
-            <input type="email" name="" placeholder="XXX@gmail.com" >
+            <input type="email" name="" value="<?php print_r($result['Email'])?>" readonly>
           </div><br>
           <div class="forminputs">
               <label for="UserName"> User Name :</label>
-              <input type="text" id="UserName" name="UserName" maxlength="50" >
-          </div><br>
-          <div class="forminputs">
-              <label for="Password"> Password :</label>
-              <input type="password" id="Password" name="Password"  >
+              <input type="text" id="UserName" name="UserName" maxlength="50" value="<?php print_r($result['UserName'])?>" readonly>
           </div><br>
           <div class="forminputbtn">
-            <button type="submit" name="button" class="save" formaction="prfileui.html" ><b>Save</b> </button>
+            <a href="profileuiedit.php"><button type="button" name="button" class="save"><b>Edit</b></button></a>
           </div>
           </form>
 

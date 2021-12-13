@@ -532,5 +532,19 @@ if(isset($_POST['reply-feedback'])){
 
 }
 
+//--------------------------------------------------------edit-profile--------------------------------------------------------
+if(isset($_POST['edit-profile'])){
+    $DB = new DB;
 
+    try {
+        $sql = "UPDATE plunk.user SET Name='$_POST[Name]', ContactNo='$_POST[ContactNo]',Email='$_POST[Email]', UserName='$_POST[UserName]' WHERE UserID='$_POST[UserID]'";
+        echo $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\profile\prfileui.php');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+}
 ?>
