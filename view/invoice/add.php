@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/crud.css">
-        
+        <script type="text/javascript" src="../script/additem.js"></script>
         <script type="text/javascript" src="../script/maxQuantity.js"></script>
         
         
@@ -55,7 +55,6 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="ReceivedDate">Received Date</label></td>
-                        
                         <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" placeholder="Enter the received date" max="<?php echo date("Y-m-d") ?>"/></td>
                     </div>
                 </tr> 
@@ -63,7 +62,6 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="DueDate">Due Date</label></td>
-                        
                         <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date" min="<?php echo date("Y-m-d") ?>"/></td>
                     </div>
                 </tr> 
@@ -72,7 +70,7 @@
            
                         <tr>
                             <td><label for="Total">Total</label></td>
-                            <td><input type="text" id= "Total" name="Total" required class="form-control" value=0 oninput="validity.valid||(value='');" placeholder="Enter the total"/></td>
+                            <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total"/></td>
                         </tr>
                     </table>
                         

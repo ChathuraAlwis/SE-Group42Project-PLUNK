@@ -241,8 +241,8 @@ if(isset($_POST['delete-item'])){
                 if($_POST['ItemType'] != "Choose type..."){
                     $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
                     $DB->runQuery($sql);
-                    $sql = "SELECT InvoiceID FROM plunk.invoice;";
-                    $InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
+                    //$sql = "SELECT InvoiceID FROM plunk.invoice;";
+                    //$InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
                 // $itemRow = 1;
                 // $rowCount = $_POST['rowCount'];
                 // while($rowCount > 0){
@@ -309,6 +309,18 @@ if(isset($_POST['search-invoice'])){
             echo "Due Date\t:" . $row['DueDate'] . "\n";
             echo "Total\t:" . $row['Total'] . "\n";
         }
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+//--Delete
+if(isset($_POST['delete-invoice'])){
+    $DB = new DB;
+
+    try {
+        $sql = "DELETE FROM plunk.invoice WHERE Invoice_ID=\"$_POST[Invoice_ID]\"";
+        $DB->runQuery($sql);
     } catch (\Throwable $th) {
         throw $th;
     }
