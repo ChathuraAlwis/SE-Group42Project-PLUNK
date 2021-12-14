@@ -27,7 +27,7 @@
     <form id="form" class="form" method="POST" action="../controller/checkLogin.php">
 
       <img class="Logo2" src="../view/images/bloomfieldlogo.png" alt="Bloomfield Logo">
-		
+
       <p><br></p>
 
           <div class="form-control">
@@ -45,7 +45,8 @@
           </div>
 
         <button class = "button login">Login</button>
-        <button class = "buttonforgot"><a href="forgotpassword.html">Forgot Password</a></button>
+        <button class = "buttonforgot"><a href="forgotpassword.html">Forgot Password</a></button><br>
+        <a class="signup" href="..\view\user\signup.php"> <b>Want to join with Bloomfield?</b></a>
 
     </form>
 
