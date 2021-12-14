@@ -17,7 +17,7 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("notification");
-                        $itemTable->show("SELECT * FROM plunk.notification", 'update');
+                        $itemTable->show("SELECT `NotificationID`AS 'Notification ID', `FromDate` As 'Message Display From', `ToDate` AS 'Message Display To', `EventType` AS 'Event Type', `Message` AS 'Message' FROM plunk.notification", 'update');
                       ?> 
                     </div>
 

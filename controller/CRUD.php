@@ -448,18 +448,21 @@ if(isset($_POST['update-notifications'])){
     }
     
 }
-
+//-----------Delete Notification--------------------
 if(isset($_POST['delete-notification'])){
     $DB = new DB;
-
     try {
-        $sql = "DELETE FROM plunk.notification WHERE NotificationID='$_POST[NotificationID]'";
+        
+        $sql = "DELETE FROM plunk.notification WHERE `NotificationID` = '$_POST[NotificationID]'";
         $DB->runQuery($sql);
-        $newPage = new Page('..\view\notification\deletenotifysuccess.html');
+
+        $newPage = new Page('../view/notifications/deletenotifysuccess.html');
         $newPage->show();
+      
     } catch (\Throwable $th) {
         throw $th;
     }
+
 
 }
 
