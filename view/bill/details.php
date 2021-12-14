@@ -17,8 +17,8 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $billTable = new Table("bill");
-                          if(isset($_POST['billsearch'])){
-                            $search = $_POST['billsearch'];
+                          if(isset($_GET['billsearch'])){
+                            $search = $_GET['billsearch'];
                             $billTable->show("SELECT * FROM plunk.bill WHERE CustomerName LIKE ('%$search%') ORDER BY BillID DESC;");
                             // $orderTable->show("SEARCH Cus");
                           }

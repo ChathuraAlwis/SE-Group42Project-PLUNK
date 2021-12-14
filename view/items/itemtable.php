@@ -19,7 +19,20 @@
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("item");
                         if($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'HL Member' || $_SESSION['UserType'] == 'Cashier'){
-                          $itemTable->show("SELECT ItemID, ItemName as 'Name', ItemType as 'Type', SellingPrice as 'Price', Discount FROM plunk.item WHERE Availability=1", '../order/add');
+                          
+                          if(isset($_GET['name'])){
+                            $name = $_GET['name'];
+                            if ($_GET['type']=='0'){
+                              $type = '1 OR Itemtype=2';
+                            }
+                            else{
+                              $type = $_GET['type'];
+                            }
+                            $itemTable->show("SELECT ItemID, ItemName as 'Name', ItemType as 'Type', SellingPrice as 'Price', Discount FROM plunk.item WHERE ItemName LIKE ('%$name%') AND ItemType=$type AND Availability=1", '../order/add');
+                          }
+                          else{
+                            $itemTable->show("SELECT ItemID, ItemName as 'Name', ItemType as 'Type', SellingPrice as 'Price', Discount FROM plunk.item WHERE Availability=1", '../order/add');
+                          }
                         }
                         elseif ($_SESSION['UserType'] == 'Accountant') {
                           $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',ItemName as 'Item Name',PurchasePrice as 'Purchase Price',Quantity as 'Quantity', ReorderQuantity as 'Reorder Quantity' FROM plunk.item where ReorderQuantity NOT LIKE '0'");
