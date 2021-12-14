@@ -1,0 +1,270 @@
+html, body{
+  height: 100%;
+  width:100%;
+  margin: auto;
+}
+.main{
+  width:100%;
+  height: 100%;
+  font-family: sans-serif;
+  /*  background-color: red;*/
+}
+.middle{
+  width:100%;
+  height: 80%;
+  background-color: #dcdcdc;
+}
+.header{
+  width: 100%;
+  height: 20%;
+background-color: #017a7a;
+}
+.leftheader{
+  float: left;
+  width: 20%;
+  height: 100%;
+/*   background-color: green;*/
+}
+.middleheader{
+  float: left;
+  width: 60%;
+  height: 100%;
+  /* background-color: blue;*/
+}
+.rightheader{
+  float: left;
+  width: 20%;
+  height: 100%;
+/*    background-color: green;*/
+}
+
+.plunk{
+  width: 30%;
+  height: auto;
+  margin-top: 0px;
+  padding-left: 5%;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  padding-right: 0;
+
+}
+
+a{
+  text-decoration: none;
+  color:black;
+}
+
+
+.Logo{
+  float:left;
+  height: 80%;
+  width: 13%;
+  margin: 0px;
+  margin-left: 5%;
+  margin-right: 3%;
+  margin-top:2%;
+}
+
+h2{
+
+  color: white;
+  font-size: 4.5vw;
+  text-align: left;
+  vertical-align: baseline;
+  line-height:4vw;
+  margin-top: 1.5vw;
+  padding: 0;
+  margin-bottom: 0;
+
+}
+.subrightheader{
+  width: 70%;
+  height: 100%;
+  float:right;
+}
+
+
+
+.mainpages{
+
+  height: 98%;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s;
+  border-style: solid;
+  border-radius: 10px;
+  border-width:5px;
+  border-color:#017a7a;
+
+}
+
+.formbox{
+  width: 60%;
+  height: 75%;
+  background-color: white;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  display: block;
+  font-size: 1.5vw;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+.input{
+  width: 90%;
+  font-size: 1.2vw;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom-width: 2px;
+  border-color: black;
+}
+.forminputs{
+  width: 50%;
+  height: 70px;
+/* background-color: yellow; */
+
+
+}
+.radio{
+
+  width: 50%;
+  height: 70px;
+  /* background-color: red; */
+
+}
+.UserType{
+  width: 90%;
+  font-size: 1.2vw;
+}
+.formbtn{
+  width: 50%;
+  height: 50px;
+  /* background-color: yellow; */
+}
+.add{
+  background-color: #017a7a;
+  width: 45%;
+  height:auto;
+  border-radius: 50px;
+  color:  #acacac;
+  font-size: 1.5vw;
+  transition-duration: 1s;
+}
+.add:hover{
+  background-color: #acacac;
+  color:#017a7a;
+}
+.imagebox{
+  float:right;
+  /* background-color: yellow; */
+}
+#output{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  height: 400px;
+  width: 400px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 3px;
+  border-color:#017a7a;
+}
+.upload{
+  cursor: pointer;
+  margin-left: 30%;
+  font-size: 1vw;
+  border-style: solid;
+  border-radius: 5px;
+  border-color:#017a7a;
+  border-width: 2px;
+  color:#017a7a;
+}
+@media only screen and (max-width:720px) {
+      .header{
+        height: 10%;
+      }
+      .middle{
+        height: 92%;
+      }
+      .menudiv{
+        width: 30%;
+        height: 45%;
+      }
+      h2{
+        margin-top:7%;
+      }
+      .Logo{
+        width: 60%;
+      }
+      .logout{
+        height: 20%;
+        width: 60%;
+        font-size: 2vw;
+      }
+}
+
+@media only screen and (max-width:1024px)and (min-width:721px){
+  .header{
+    height: 15%;
+  }
+  .plunk{
+    width: 50%;
+  }
+  .menudiv{
+    height: 30%;
+  }
+  h2{
+    margin-top:10%;
+  }
+  .Logo{
+    width: 60%;
+  }
+  .logout{
+    width: 60%;
+    font-size: 2vw;
+    font-weight: bold;
+  }
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #acacac;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2d7166;
+}
+
+marquee.msg{
+  font-family: sans-serif;
+
+}
+h4{
+  color:rgb(175, 207, 245);
+  margin-top: 0%;
+}
+
+#open{
+    background-color: #000000;
+
+    font-family: sans-serif;
+    color: white;
+    cursor: pointer;
+    padding: 12px ;
+    display: block;
+}
