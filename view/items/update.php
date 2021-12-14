@@ -24,8 +24,7 @@
     <div class= left>
     <div class="form">
 			<h2 class="center-text"><b>ITEM DETAILS</b>
-                <a href="deleteitemsuccess.html"><input name ="delete-item" type="hidden" ><image src = "../images/bin.png" class="bin"></input></image></a></h2>
-			
+            <a href="deletemsg.php?<?php echo 'ItemID='.$result['ItemID'].'&Quantity='.$result['Quantity'];?>"><image src = "../images/bin.png" class="bin"></image></a></h2>			
         
         <form action="../../controller/CRUD.php" method="POST">
             <input name ="update-item" type="hidden" >
