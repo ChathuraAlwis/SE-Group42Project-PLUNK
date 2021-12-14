@@ -211,15 +211,14 @@ if(isset($_POST['update-item'])){
 //-----------Delete Item--------------------
 if(isset($_POST['delete-item'])){
     $DB = new DB;
-
     try {
-        if($_POST['Quantity'] == 0){
-            $sql = "INSERT INTO plunk.deleteitem (ItemID, ItemName, PurchasePrice,SellingPrice,ItemType) VALUES ( '' , '$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[ItemType]';";
-            $DB->runQuery($sql);
-            $sql = "DELETE FROM plunk.item WHERE `ItemID` = '$_POST[ItemID]'";
-            $newPage = new Page('../view/items/deleteitemsuccess.html');
-            $newPage->show();
-        }
+        
+            if($_POST['Quantity'] == 0){
+                $sql = "UPDATE plunk.item SET `IsDeleted`= 'Yes' WHERE `ItemID` = '$_POST[ItemID]'";
+                $DB->runQuery($sql);
+                $newPage = new Page('../view/items/deleteitemsuccess.html');
+                $newPage->show();
+            }
         else{
             $newPage = new Page('../view/items/qerror.html');
             $newPage->show();
@@ -230,6 +229,7 @@ if(isset($_POST['delete-item'])){
 
 
 }
+
 //-----------Search Item---------------------
 
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
