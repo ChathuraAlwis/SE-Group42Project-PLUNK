@@ -26,8 +26,8 @@ $result = $DB->runQuery($query)[0];
           <form class="profform" action="index.html" method="post">
           <div class="imagebox">
             <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
-
-            <img id="output" >
+            
+            <?php echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';?>
 
           </div><br>
           <div class="forminputs">
