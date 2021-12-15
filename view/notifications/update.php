@@ -23,7 +23,8 @@
     <div class="main">
     <div class= "left">
     <div class="form">
-        <h2 class="center-text"><b>Notifications details</b><a href="deletenotifysuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
+        <h2 class="center-text"><b>Notifications details</b>
+        <a href="deletemsg.php?<?php echo 'NotificationID='.$result['NotificationID'];?>"><image src = "../images/bin.png" class="bin"></image></a></h2>	
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="update-notifications" type="hidden" >
                <div class="t"> <table class="formtable">
@@ -35,13 +36,13 @@
                 </tr>
                 <tr>
                     <div class="form-group">
-                        <td> <label for="FromDate">From Date</label></td>
+                        <td> <label for="FromDate">Message Display From</label></td>
                         <td><input type="date" id= "FromDate" name="FromDate" required class="form-control" value = "<?php echo "$result[FromDate]";?>"/></td>
                     </div>
                 </tr>
                  <tr>
                     <div class="form-group">
-                        <td> <label for="ToDate">To Date</label></td>
+                        <td> <label for="ToDate">Message Display To</label></td>
                         <td><input type="date" id= "ToDate" name="ToDate" required class="form-control" value = "<?php echo "$result[ToDate]";?>"/></td>
                     </div>
                 </tr>
