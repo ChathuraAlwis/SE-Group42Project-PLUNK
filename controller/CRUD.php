@@ -591,4 +591,37 @@ if(isset($_POST['edit-profile'])){
         throw $th;
     }
 }
+
+//--------------------------------------------------------update-password--------------------------------------------------------
+if (isset($_POST['update-password'])){
+    $DB = new DB;
+    $query = "SELECT * FROM plunk.user WHERE UserID=$_SESSION[UserID]";
+    $result = $DB->runQuery($query)[0];
+
+    if (count($_POST) > 0) {
+        $verify = password_verify($_POST["currentPassword"], $result["Password"]);
+        $confirm = ($_POST["newPassword"] == $_POST["confirmPassword"]);
+
+        if (!$verify){
+            $message = "Current Password is not correct";
+        }
+        if (!$confirm){
+            $message = "Password confirmation doesn't match the password";
+        }
+        if (!$verify and !$confirm){
+            $message = "Current Password is not correct
+            Password confirmation doesn't match the password";
+        }
+        if ($verify and $confirm) {
+            $hashedpassword = Password_hash("$_POST[newPassword]", PASSWORD_BCRYPT);
+            $result = $DB->runQuery("UPDATE plunk.user set password='" . $hashedpassword . "' WHERE userId=$_SESSION[UserID]");
+            // print_r($_POST['newPassword']);
+            $message = "Password Changed";
+        }
+        $pageURL = '..\view\profile\change_password.php?msg=' . $message;
+        $newPage = new Page($pageURL);
+        $newPage->show();
+    }
+}
+?>
 ?>
