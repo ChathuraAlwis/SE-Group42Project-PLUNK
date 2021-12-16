@@ -94,7 +94,7 @@
 
 
                                     <div class="formbtn">
-                                      <button type="submit"  id="add" class="add" name="button" onclick='<?php echo 'checkUser('. $result .')';?>'>Add Member</button>
+                                      <button type="submit"  id="add" class="add" name="button" onclick='<?php echo 'checkUser('. $result .')';?>'>Request</button>
                                       <button type="reset" id="reset" class="add" name="button">Reset</button>
                                     </div>
 
