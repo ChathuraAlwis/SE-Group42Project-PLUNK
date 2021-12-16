@@ -115,7 +115,7 @@
 <div class= right>
         <div class="righttable">
         <div class="itemtable">
-            <h3>ITEMS TABLE</h3>
+            <h3>RESTAURANT ITEM TABLE</h3>
             <iframe src="itemtable.php" class="item"></iframe>
         </div>
 </div>

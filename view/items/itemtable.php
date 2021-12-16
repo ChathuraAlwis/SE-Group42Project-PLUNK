@@ -38,7 +38,7 @@
                           $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',ItemName as 'Item Name',PurchasePrice as 'Purchase Price',Quantity as 'Quantity', ReorderQuantity as 'Reorder Quantity' FROM plunk.item where ReorderQuantity NOT LIKE '0'");
                         }
                         elseif ($_SESSION['UserType'] == 'Restaurant Manager'){
-                          $itemTable->show("SELECT ItemID,ItemType,Company ,ItemName ,PurchasePrice ,SellingPrice ,Quantity ,Discount,Availability , ReorderQuantity  FROM plunk.item WHERE IsDeleted = 'No' ", 'update');
+                          $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',Company as 'Company' ,ItemName as 'Item Name' ,PurchasePrice as 'Purchase Price',SellingPrice as 'Selling Price',Quantity as 'Quantity',Discount as 'Discount',Availability as 'Availability', ReorderQuantity  as 'Reorder Quantity' FROM plunk.item WHERE IsDeleted = 'No' ", 'update');
                         }
 
 

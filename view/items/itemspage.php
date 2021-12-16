@@ -16,7 +16,7 @@
                   <div class="tableheader">
                         <div class="innerdiv">
                         </div>
-                        <h2>ITEMS</h2>
+                        <h2>RESTAURANT MENU</h2>
                   </div>
             </div>
             <div class="covertable">
