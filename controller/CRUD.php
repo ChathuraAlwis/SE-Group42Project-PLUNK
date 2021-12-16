@@ -549,16 +549,79 @@ if(isset($_POST['reply-feedback'])){
 //--------------------------------------------------------edit-profile--------------------------------------------------------
 if(isset($_POST['edit-profile'])){
     $DB = new DB;
-
+    
+    //--------------------------------------------------------upload-profile-picture-------------------------------------------------------
+   if(isset($_FILES['image'])){
+      $errors= array();
+      $file_name = $_FILES['image']['name'];
+      $file_size = $_FILES['image']['size'];
+      $file_tmp = $_FILES['image']['tmp_name'];
+      $file_type = $_FILES['image']['type'];
+      $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+      
+      $extensions= array("jpeg","jpg","png");
+      
+      if(in_array($file_ext,$extensions)=== false){
+         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+      }
+      
+      if($file_size > 2097152) {
+         $errors[]='File size must be excately 2 MB';
+      }
+      
+      if(empty($errors)==true) {
+            // move_uploaded_file($file_tmp,"images/".$file_name);
+            $image = $_FILES['image']['tmp_name']; 
+            $imgContent = addslashes(file_get_contents($image)); 
+            
+            // Insert image content into database 
+            $result = $DB->runQuery("UPDATE plunk.user SET ProfilePic='$imgContent' WHERE UserID=$_POST[UserID]"); 
+      }else{
+         print_r($errors);
+      }
+   }
     try {
         $sql = "UPDATE plunk.user SET Name='$_POST[Name]', ContactNo='$_POST[ContactNo]',Email='$_POST[Email]', UserName='$_POST[UserName]' WHERE UserID='$_POST[UserID]'";
         $DB->runQuery($sql);
-
+        
         $newPage = new Page('..\view\profile\prfileui.php');
         $newPage->show();
-
+        
     } catch (\Throwable $th) {
         throw $th;
     }
 }
+
+//--------------------------------------------------------update-password--------------------------------------------------------
+if (isset($_POST['update-password'])){
+    $DB = new DB;
+    $query = "SELECT * FROM plunk.user WHERE UserID=$_SESSION[UserID]";
+    $result = $DB->runQuery($query)[0];
+
+    if (count($_POST) > 0) {
+        $verify = password_verify($_POST["currentPassword"], $result["Password"]);
+        $confirm = ($_POST["newPassword"] == $_POST["confirmPassword"]);
+
+        if (!$verify){
+            $message = "Current Password is not correct";
+        }
+        if (!$confirm){
+            $message = "Password confirmation doesn't match the password";
+        }
+        if (!$verify and !$confirm){
+            $message = "Current Password is not correct
+            Password confirmation doesn't match the password";
+        }
+        if ($verify and $confirm) {
+            $hashedpassword = Password_hash("$_POST[newPassword]", PASSWORD_BCRYPT);
+            $result = $DB->runQuery("UPDATE plunk.user set password='" . $hashedpassword . "' WHERE userId=$_SESSION[UserID]");
+            // print_r($_POST['newPassword']);
+            $message = "Password Changed";
+        }
+        $pageURL = '..\view\profile\change_password.php?msg=' . $message;
+        $newPage = new Page($pageURL);
+        $newPage->show();
+    }
+}
+?>
 ?>

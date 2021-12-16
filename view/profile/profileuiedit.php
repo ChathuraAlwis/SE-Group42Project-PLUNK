@@ -23,13 +23,13 @@ $result = $DB->runQuery($query)[0];
   <body>
     <div class="main">
         <div class="profformbox">
-          <form class="profform" action="../../controller/CRUD.php" method="POST">
+          <form class="profform" action="../../controller/CRUD.php" method="POST" enctype = "multipart/form-data">
           <input type="hidden" name="edit-profile">
           <input type="hidden" name="UserID" value="<?php print_r($result['UserID'])?>" >
           <div class="imagebox">
-            <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+            <input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;">
 
-            <img id="output" >
+            <?php echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';?>
             <label for="file" class="upload"><b>Upload Image</b> </label>
 
             <script>
