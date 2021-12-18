@@ -37,7 +37,7 @@
                     <table>
                         <div class="form-group">
                             <tr>
-                                <td style="text-align: right"><label for="OrderDate">Order Date: </label></td>
+                                <td style="float: left"><label for="OrderDate">Order Date: </label></td>
                                 <td><input name ="OrderDate" id="OrderDate" type="date" value="<?php echo date("Y-m-d") ?>" style="width:130" readonly></td>
                                 <td width=50px>&nbsp;</td>
                                 <td style="text-align: right"><label for="OrderTime">Order Time: </label></td>
@@ -150,8 +150,8 @@
         <div class= right>
             <div class="righttable">
                 <div class="itemtable">
-                    <h5>Click on items to add them to the order</h5>
-                    <iframe src="../items/itemspage.php" class="item"></iframe>
+                    <h5>Type the matching item ID in your order to add them</h5>
+                    <iframe src="../items/itemspage.php?noTitle" class="item"></iframe>
                 </div>
             </div>
         </div>
