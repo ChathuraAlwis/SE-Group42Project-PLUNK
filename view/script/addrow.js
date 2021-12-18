@@ -50,7 +50,8 @@ function deleteRowOrder(obj) {
     BillTotal.value = Total.value * (110 - Discount.value) / 100;
 } 
 
-function addRowGRN(itemgrn) {       
+function addRowGRN(itemgrn) { 
+    console.log(itemgrn) ;     
     var ItemID = document.getElementById("ItemID"); 
     var Quantity = document.getElementById("Quantity");
     if (ItemID.value > 0) {

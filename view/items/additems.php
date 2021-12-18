@@ -35,7 +35,7 @@
     <div class="main">
     <div class= "left">
     <div class="form">
-        <h2 class="center-text"><b>Add item</b></h2>
+        <h2 class="center-text"><b>Add Restaurant item</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-item" type="hidden" >
                 <table class="formtable">
