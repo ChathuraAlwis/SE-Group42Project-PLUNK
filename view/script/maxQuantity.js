@@ -21,6 +21,7 @@ function maxQuantity(itemQuantity, setMax=1){
 
     for (var r = 1, n = Table.rows.length; r < n; r++) {
         var presentID = document.getElementById("ItemID"+r).value;
+        // console.log(Table);
         if(presentID == ItemID.value){
             canAdd=false;
         }

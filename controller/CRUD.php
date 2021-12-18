@@ -30,7 +30,7 @@
                 }
                 $billPrice = $_POST['BillTotal'];
                 echo $billPrice;
-                $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_SESSION[UserName]', '$billPrice', $_POST[Discount], '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
+                $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_POST[CustomerName]', '$billPrice', $_POST[Discount], '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
                 $DB->runQuery($sql);
                 $sql = "SELECT * FROM plunk.bill ORDER BY BillID DESC LIMIT 1;";
                 $BillData = $DB->runQuery($sql);
