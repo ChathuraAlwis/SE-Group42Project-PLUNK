@@ -67,7 +67,7 @@
                 <?php
                     if($_SESSION['UserType']=='Cashier'){
                         echo "
-                        <center><button type=submit name=submit value=Submit class=\"button submit\">Paid</button></center>
+                        <center><button type=submit name=submit value=Submit class=\"button submit\">Mark as Paid</button></center>
                         ";
                     }
                 ?>
