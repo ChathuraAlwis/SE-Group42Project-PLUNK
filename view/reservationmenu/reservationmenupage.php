@@ -16,7 +16,7 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>RESERVATION MENU</h2>
+                    <h2>Booking Menu</h2>
               </div>
             </div>
             <div class="covertable">
