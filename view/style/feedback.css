@@ -123,7 +123,7 @@ border: none;
  padding-top: 10px;
 }
 .replybox{
-height: 93%;
+height: 95%;
 }
 .replybox2{
   height: 90%;
@@ -142,6 +142,14 @@ label{
   font-size: 1.5vw;
   border: none;
 }
+.fblabel{
+float: left;
+}
+.fbid{
+  font-size: 2vw;
+  border: none;
+  text-align: left;
+}
 textarea{
   float: right;
   font-size: 1.5vw;
@@ -159,7 +167,7 @@ textarea{
 .labelbox{
   width: 100%;
   height: 30%;
-  padding-bottom: 8%;
+  padding-bottom: 2%;
 }
 .labelbox2{
   width: 100%;

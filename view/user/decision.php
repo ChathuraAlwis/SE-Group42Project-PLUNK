@@ -15,34 +15,18 @@
   </head>
   <body>
     <?php
-        require_once "../../model/database.php";
-        $DB = new DB;
-        $sql = "SELECT Email FROM plunk.signup;";
-        $result = json_encode($DB->runQuery($sql));
-        date_default_timezone_set("Asia/Kolkata");
+    require_once "../../model/database.php";
+    $DB = new DB;
+    $id = explode("=", $_GET['data'])[1];
+    $query = "SELECT * FROM plunk.signup WHERE SignupID='$id'";
+
+
+    $result = $DB->runQuery($query)[0];
+    // print_r($result);
     ?>
     <div class="main">
 
-          <div class="header" id="myheader">
-                  <div class="leftheader">
-                      <img class="plunk" src="../images/projectlogo.png" alt="plunk logo"><br>
 
-                  </div>
-
-                  <div class="middleheader">
-                    <img class="Logo" src="../images/bloomfieldlogo.png" alt="Bloomfield Logo"><br>
-                      <h2>Bloomfield C. & A.C.</h2>
-
-                  </div>
-
-                  <div class="rightheader">
-                    <div class="subrightheader">
-
-                    </div>
-
-                  </div>
-
-          </div>
               <div class="middle">
 
                             <div class="mainpages" id="mainpages">
@@ -66,36 +50,37 @@
                                     </div><br>
                                     <div class="forminputs">
                                         <label for="Name"> Name with initials</label><br>
-                                        <input type="text" id="Name" class="input" name="Name"  required>
+                                        <input type="text" id="Name" class="input" name="Name" value ="<?php echo "$result[Name]";?>" readonly>
                                     </div>
 
                                     <div class="radio">
                                           <label for="UserType">Requesting Member Type</label><br>
-                                          <select class="UserType" name="UserType" id="UserType" value="Select the member type" required>
-
-                                                  <option value="Ordinary Member" >Ordinary Member</option>
+                                          <input type="text" class="input" name="UserType" value="" readonly>
+                                          <!-- <select class="UserType" name="UserType" id="UserType" readonly>
+                                                  <option selected>Select the member type</option>
+                                                  <option value="Ordinary Member">Ordinary Member</option>
                                                   <option value="Life Member">Life Member</option>
                                                   <option value="HL Member"> HL Member</option>
-                                          </select>
+                                          </select> -->
                                     </div>
 
                                     <div class="forminputs">
                                         <label for="JoinedYear"> Requesting date</label><br>
-                                        <input type="date" id="JoinedYear" class="input" name="JoinedYear" value="<?php echo date("Y-m-d") ?>" readonly>
+                                        <input type="date" id="JoinedYear" class="input" name="JoinedYear" value="" readonly>
                                     </div>
                                     <div class="forminputs">
                                         <label for="Email"> E-mail </label><br>
-                                        <input type="email" id="Email" class="input" name="Email" placeholder="xxxx@gmail.com" onchange='<?php echo 'checkEmail('. $result .')';?>' required>
+                                        <input type="email" id="Email" class="input" name="Email" placeholder="xxxx@gmail.com" value="" readonly>
                                     </div>
                                     <div class="forminputs">
                                         <label for="ContactNo"> Contact No</label><br>
-                                        <input type=" tel" id="ContactNo" class="input" name="ContactNo" pattern="[0-9]{10}" required>
+                                        <input type=" tel" id="ContactNo" class="input" name="ContactNo" pattern="[0-9]{10}" value="" readonly>
                                     </div><br>
 
 
                                     <div class="formbtn">
-                                      <button type="submit"  id="add" class="add" name="button" onclick='<?php echo 'checkUser('. $result .')';?>'>Request</button>
-                                      <button type="reset" id="reset" class="add" name="button">Reset</button>
+                                      <button type="button"  id="approve" class="add" name="button"  ><a href="approve.php?data=<?php echo $_GET['data'];?>" class="btnlink">Approve</a></button>
+                                      <button type="button" id="deny" class="add" name="button"><a href="deny.php" class="btnlink">Deny</a></button>
                                     </div>
 
                                   </div>
