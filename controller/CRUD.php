@@ -239,7 +239,7 @@ if(isset($_POST['delete-item'])){
 
             try {
                 if($_POST['ItemType'] != "Choose type..."){
-                    $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
+                    $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[CompanyName]', '$_POST[ItemType]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
                     $DB->runQuery($sql);
                     //$sql = "SELECT InvoiceID FROM plunk.invoice;";
                     //$InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
@@ -319,8 +319,11 @@ if(isset($_POST['delete-invoice'])){
     $DB = new DB;
 
     try {
-        $sql = "DELETE FROM plunk.invoice WHERE Invoice_ID=\"$_POST[Invoice_ID]\"";
-        $DB->runQuery($sql);
+        $sql = "SELECT * FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
+        $data = $DB->runQuery($sql);
+        print_r($data);
+        // $sql = "DELETE FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
+        // $DB->runQuery($sql);
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -641,4 +644,4 @@ if (isset($_POST['update-password'])){
     }
 }
 ?>
-?>
+
