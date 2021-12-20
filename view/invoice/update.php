@@ -29,8 +29,15 @@
     <div class=main>
     <div class= left>
     <div class="form">
-			<h2 class="center-text"><b>INVOICE DETAILS</b>
-                <a href="deleteinvoicesuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
+        <form action="update.php" method="POST">
+            <h2 class="center-text">
+                <b>INVOICE DETAILS</b>
+                <!-- <a href="deleteinvoicesuccess.html"> -->
+                <input type="hidden" name="delete-invoice">
+                <input type="hidden" name="InvoiceID" value="<?php echo $result['InvoiceID']; ?>">
+                <button type="submit" style="background-color: transparent; border:none"><image src = "../images/bin.png" class="bin"></image></button>
+            </h2>
+        </form>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
