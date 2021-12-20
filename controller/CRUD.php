@@ -512,6 +512,23 @@ if(isset($_POST['update-reservation'])){
     
 }
 
+//-----------Delete Reservation Menu--------------------
+if(isset($_POST['delete-reservation'])){
+    $DB = new DB;
+    try {
+
+        $sql = "UPDATE plunk.reservationmenu SET `IsDeleted` = 'Yes' WHERE `ReservationName` = '$_POST[ReservationName]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('../view/reservationmenu/deleteressuccess.html');
+        $newPage->show();
+
+    } 
+    catch (\Throwable $th) {
+        throw $th;
+    }
+}
+
+
 //--------------------------------------------feedback-------------------------------------------
 //----give feedback-------
 if(isset($_POST['give-feedback'])){
