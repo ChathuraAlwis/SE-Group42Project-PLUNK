@@ -53,8 +53,12 @@ a{
   text-decoration: none;
   color:black;
 }
-
-
+.btnlink{
+  color: #acacac;
+}
+.btnlink:hover{
+  color:#017a7a;
+}
 .Logo{
   float:left;
   height: 80%;
@@ -97,10 +101,31 @@ h2{
   border-color:#017a7a;
 
 }
-
+.mainpage2{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  transition: 0.5s;
+  border: none;
+}
 .formbox{
   width: 60%;
   height: 75%;
+  background-color: white;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  display: block;
+  font-size: 1.5vw;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-right: 30px;
+}
+
+.formbox2{
+  width: 60%;
+  height: 85%;
   background-color: white;
   border-radius: 20px;
   margin-left: auto;

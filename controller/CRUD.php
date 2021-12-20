@@ -163,16 +163,16 @@ if(isset($_POST['add-item'])){
     try {
         if($_POST['ItemType'] != "Choose type..."){
             if($_POST['Company'] != "Select the Company"){
-                $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";               
-                $DB->runQuery($sql);    
+                $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";
+                $DB->runQuery($sql);
                 $newPage = new Page('../view/items/additemsuccess.html');
-                $newPage->show(); 
-                
+                $newPage->show();
+
             }
             else{
                 $newPage = new Page('../view/items/companyerror.html');
-                $newPage->show();  
-               
+                $newPage->show();
+
             }
         }
         else{
@@ -212,7 +212,7 @@ if(isset($_POST['update-item'])){
 if(isset($_POST['delete-item'])){
     $DB = new DB;
     try {
-        
+
             if($_POST['Quantity'] == 0){
                 $sql = "UPDATE plunk.item SET `IsDeleted`= 'Yes' WHERE `ItemID` = '$_POST[ItemID]'";
                 $DB->runQuery($sql);
@@ -260,7 +260,7 @@ if(isset($_POST['delete-item'])){
                         // $DB->runQuery($sql);
                     }
                     //$itemRow++;
-            
+
             else{
                 $newPage = new Page('../view/invoice/Invoicetypeerror.html');
                 $newPage->show();
@@ -328,6 +328,22 @@ if(isset($_POST['delete-invoice'])){
 }
 
 //---------------------------------------------------User-----------------------------------------------------------------------
+//---------------------sign up----------------------
+if(isset($_POST['joinrequest'])){
+    $DB = new DB;
+
+    try {
+          $sql = "INSERT INTO plunk.signup (SignupID, Name, Email, ContactNo, JoinedYear,UserType, ProfilePic) VALUES ( '' , '$_POST[Name]', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[UserType]','$_POST[image]')";
+         $DB->runQuery($sql);
+
+         $newPage = new Page('..\view\user\requestsuccess.html');
+         $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+}
+//---------------------Add, update and delete user--------------------------
 if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
     $DB = new DB;
 
@@ -421,11 +437,11 @@ if(isset($_POST['add-notifications'])){
             $newPage = new Page('../view/notifications/notificationtypeerror.html');
             $newPage->show();
         }
-       
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
 }
 //---------Update Notification------------
 if(isset($_POST['update-notifications'])){
@@ -442,23 +458,23 @@ if(isset($_POST['update-notifications'])){
             $newPage = new Page('../view/notifications/notificationtypeerror.html');
             $newPage->show();
         }
-       
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
 }
 //-----------Delete Notification--------------------
 if(isset($_POST['delete-notification'])){
     $DB = new DB;
     try {
-        
+
         $sql = "DELETE FROM plunk.notification WHERE `NotificationID` = '$_POST[NotificationID]'";
         $DB->runQuery($sql);
 
         $newPage = new Page('../view/notifications/deletenotifysuccess.html');
         $newPage->show();
-      
+
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -484,11 +500,11 @@ if(isset($_POST['add-reservation'])){
             $newPage = new Page('../view/reservationmenu/reservationtypeerror.html');
             $newPage->show();
         }
-       
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
 }
 //---------Update Reservation Menu------------
 if(isset($_POST['update-reservation'])){
@@ -505,11 +521,11 @@ if(isset($_POST['update-reservation'])){
             $newPage = new Page('../view/reservationmenu/reservationtypeerror.html');
             $newPage->show();
         }
-       
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
 }
 
 //--------------------------------------------feedback-------------------------------------------
@@ -549,7 +565,7 @@ if(isset($_POST['reply-feedback'])){
 //--------------------------------------------------------edit-profile--------------------------------------------------------
 if(isset($_POST['edit-profile'])){
     $DB = new DB;
-    
+
     //--------------------------------------------------------upload-profile-picture-------------------------------------------------------
    if(isset($_FILES['image'])){
       $errors= array();
@@ -558,24 +574,24 @@ if(isset($_POST['edit-profile'])){
       $file_tmp = $_FILES['image']['tmp_name'];
       $file_type = $_FILES['image']['type'];
       $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
-      
+
       $extensions= array("jpeg","jpg","png");
-      
+
       if(in_array($file_ext,$extensions)=== false){
          $errors[]="extension not allowed, please choose a JPEG or PNG file.";
       }
-      
+
       if($file_size > 2097152) {
          $errors[]='File size must be excately 2 MB';
       }
-      
+
       if(empty($errors)==true) {
             // move_uploaded_file($file_tmp,"images/".$file_name);
-            $image = $_FILES['image']['tmp_name']; 
-            $imgContent = addslashes(file_get_contents($image)); 
-            
-            // Insert image content into database 
-            $result = $DB->runQuery("UPDATE plunk.user SET ProfilePic='$imgContent' WHERE UserID=$_POST[UserID]"); 
+            $image = $_FILES['image']['tmp_name'];
+            $imgContent = addslashes(file_get_contents($image));
+
+            // Insert image content into database
+            $result = $DB->runQuery("UPDATE plunk.user SET ProfilePic='$imgContent' WHERE UserID=$_POST[UserID]");
       }else{
          print_r($errors);
       }
@@ -583,10 +599,10 @@ if(isset($_POST['edit-profile'])){
     try {
         $sql = "UPDATE plunk.user SET Name='$_POST[Name]', ContactNo='$_POST[ContactNo]',Email='$_POST[Email]', UserName='$_POST[UserName]' WHERE UserID='$_POST[UserID]'";
         $DB->runQuery($sql);
-        
+
         $newPage = new Page('..\view\profile\prfileui.php');
         $newPage->show();
-        
+
     } catch (\Throwable $th) {
         throw $th;
     }
