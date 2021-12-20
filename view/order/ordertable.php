@@ -29,8 +29,8 @@
                     <div >
                         <button type = "submit" class = "search" ><b>Search</b></button>
                     </div>
-                    <div class="addicon">
-                        <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                    <div class="addordericon">
+                        <a href="add.php" class="addorder"><button type="button" name="button" class="addorderbtn"><b>New Order</b></button></a>
                     </div> 
                  </div>
                     <div class="detailtable">

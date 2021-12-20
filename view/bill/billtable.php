@@ -7,7 +7,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/stafftable.css">
-
+        <script type="text/javascript">
+            function isEmpty(){
+                var search = document.getElementById("billsearch");
+                // console.log(search.value);
+                if (search.value.length){
+                    return true;
+                }
+                else{ return false; }
+            }
+        </script>
   </head>
   <body>
         <div class="main" >
@@ -16,14 +25,14 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>Bill</h2>
+                    <h2><?php if(isset($_POST['billsearch'])){ echo "Searched "; } else{ echo "Unpaid "; } ?>Bills</h2>
               </div>
             </div>
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                        <form method="POST" action="billtable.php">
-                              <input type="text" name="billsearch" class="search" placeholder="Search..." >
+                        <form method="POST" action="billtable.php" onclick = "return isEmpty()">
+                              <input type="text" id="billsearch" name="billsearch" class="search" placeholder="Search By Customer Name" value="<?php if(isset($_POST['billsearch'])) { echo "$_POST[billsearch]"; } ?>" required>
                               <button type = "submit" class = "search"><a href="#"><b>Search</b></a></button>
                         </form>
                           

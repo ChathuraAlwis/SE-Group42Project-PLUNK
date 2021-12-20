@@ -130,6 +130,38 @@ button.reportsearch{
   background-color: transparent;
   border: none;
 }
+.addordericon{
+  float:right;
+  margin-top: 2%;
+  margin-right: 2%;
+  padding: none;
+  background-color: transparent;
+  border: none;
+}
+.addorder{
+  height:inherit;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin: none;
+/*  background-color: blue;*/
+
+}
+.addorderbtn{
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color:#017a7a;
+  text-align: center;
+  vertical-align: baseline;
+  line-height:2vw;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 10px;
+  border-color:#dcdcdc;
+
+}
 .add{
   height:inherit;
   text-decoration: none;

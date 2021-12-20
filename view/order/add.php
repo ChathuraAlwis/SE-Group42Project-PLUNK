@@ -16,7 +16,7 @@
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $sql = "SELECT ItemID, Quantity, SellingPrice, Discount FROM plunk.item;";
+        $sql = "SELECT ItemID, ItemName, Quantity, SellingPrice, Discount FROM plunk.item;";
         $result = json_encode($DB->runQuery($sql));
         // print_r($result);
         // setcookie("Items", json_encode($result));
@@ -37,7 +37,7 @@
                     <table>
                         <div class="form-group">
                             <tr>
-                                <td style="text-align: right"><label for="OrderDate">Order Date: </label></td>
+                                <td style="float: left"><label for="OrderDate">Order Date: </label></td>
                                 <td><input name ="OrderDate" id="OrderDate" type="date" value="<?php echo date("Y-m-d") ?>" style="width:130" readonly></td>
                                 <td width=50px>&nbsp;</td>
                                 <td style="text-align: right"><label for="OrderTime">Order Time: </label></td>
@@ -65,12 +65,22 @@
                                 <option value="11">Table 10</option>
                                 </select></td>
                             </tr>
+                            <?php
+                                if ($_SESSION['UserType'] == 'Cashier'){
+                                    echo '
+                                    <tr>
+                                        <td><label for="CustomerName">Customer Name: </label></td>
+                                        <td><input id="CustomerName" name="CustomerName" required>
+                                    </tr>
+                                    ';
+                                }
+                            ?>
                         </div>
                     </table>
                     <br>
                     <div class="form-group">
                         <div id="myform" onload="load()"> 
-                            <b>Item details of the order:</b> 
+                            <b>Enter item details:</b> 
                             <br>
                             <table width=200>
                                 <tr>
@@ -89,10 +99,6 @@
                                         echo "<td><input type=button id=add value='Add Item' onclick=addRowOrder(" . $result . ") style=width:70% style=align:right disabled></td>";
                                     ?> 
                                 </tr>
-                                <tr>
-                                    <td><label for="Total">Order Total</label></td>
-                                    <td><input name ="Total" id="Total" type="number" value=0 style="width:100%" readonly></td>
-                                </tr>
                             </table>
                         </div> 
                         <br>
@@ -100,7 +106,8 @@
                             <b>Added Items:</b> 
                             <table id="myTableData" class="addrowtable"> 
                                 <tr>
-                                    <td><b>Item ID</b></td> 
+                                    <td><b>Item ID</b></td>
+                                    <td><b>Item Name</b></td> 
                                     <td><b>Quantity</b></td> 
                                     <td><b>Price</b></td>
                                     <td>&nbsp;</td> 
@@ -110,12 +117,16 @@
                         <br> 
                         <table>
                             <tr>
+                                <td><label for="Total">Order Total</label></td>
+                                <td><input name ="Total" id="Total" type="number" value=0 style="width:100%" readonly></td>
+                            </tr>
+                            <tr>
                                 <td>Service charges</td>
-                                <td><input type=number id="ServiceCharge" value=10 min=10 max=10 oninput="validity.valid||(value='');"> </td>
+                                <td><input type=number id="ServiceCharge" value=10 min=10 max=10 oninput="validity.valid||(value='');">%</td>
                             </tr>
                             <?php 
                             if ($_SESSION['UserType'] == 'Cashier') {
-                                echo "<tr><td>Discount</td><td><input type=number name=Discount id=Discount value=0 min=0 max=15 oninput=validity.valid||(value=''); onchange=setBillTotal()> </td></tr> ";
+                                echo "<tr><td>Discount</td><td><input type=number name=Discount id=Discount value=0 min=0 max=15 oninput=validity.valid||(value=''); onchange=setBillTotal()>%</td></tr> ";
                             }
                             else{
                                 echo "<input type=hidden id=Discount name=Discount value=0>";
@@ -139,8 +150,8 @@
         <div class= right>
             <div class="righttable">
                 <div class="itemtable">
-                    <h3>ITEM TABLE</h3>
-                    <iframe src="../items/itemtable.php" class="item"></iframe>
+                    <h5>Type the matching item ID in your order to add them</h5>
+                    <iframe src="../items/itemspage.php?noTitle" class="item"></iframe>
                 </div>
             </div>
         </div>

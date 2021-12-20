@@ -30,7 +30,7 @@
                 }
                 $billPrice = $_POST['BillTotal'];
                 echo $billPrice;
-                $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_SESSION[UserName]', '$billPrice', $_POST[Discount], '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
+                $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_POST[CustomerName]', '$billPrice', $_POST[Discount], '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
                 $DB->runQuery($sql);
                 $sql = "SELECT * FROM plunk.bill ORDER BY BillID DESC LIMIT 1;";
                 $BillData = $DB->runQuery($sql);
@@ -528,6 +528,23 @@ if(isset($_POST['update-reservation'])){
 
 }
 
+//-----------Delete Reservation Menu--------------------
+if(isset($_POST['delete-reservation'])){
+    $DB = new DB;
+    try {
+
+        $sql = "UPDATE plunk.reservationmenu SET `IsDeleted` = 'Yes' WHERE `ReservationName` = '$_POST[ReservationName]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('../view/reservationmenu/deleteressuccess.html');
+        $newPage->show();
+
+    } 
+    catch (\Throwable $th) {
+        throw $th;
+    }
+}
+
+
 //--------------------------------------------feedback-------------------------------------------
 //----give feedback-------
 if(isset($_POST['give-feedback'])){
@@ -607,4 +624,37 @@ if(isset($_POST['edit-profile'])){
         throw $th;
     }
 }
+
+//--------------------------------------------------------update-password--------------------------------------------------------
+if (isset($_POST['update-password'])){
+    $DB = new DB;
+    $query = "SELECT * FROM plunk.user WHERE UserID=$_SESSION[UserID]";
+    $result = $DB->runQuery($query)[0];
+
+    if (count($_POST) > 0) {
+        $verify = password_verify($_POST["currentPassword"], $result["Password"]);
+        $confirm = ($_POST["newPassword"] == $_POST["confirmPassword"]);
+
+        if (!$verify){
+            $message = "Current Password is not correct";
+        }
+        if (!$confirm){
+            $message = "Password confirmation doesn't match the password";
+        }
+        if (!$verify and !$confirm){
+            $message = "Current Password is not correct
+            Password confirmation doesn't match the password";
+        }
+        if ($verify and $confirm) {
+            $hashedpassword = Password_hash("$_POST[newPassword]", PASSWORD_BCRYPT);
+            $result = $DB->runQuery("UPDATE plunk.user set password='" . $hashedpassword . "' WHERE userId=$_SESSION[UserID]");
+            // print_r($_POST['newPassword']);
+            $message = "Password Changed";
+        }
+        $pageURL = '..\view\profile\change_password.php?msg=' . $message;
+        $newPage = new Page($pageURL);
+        $newPage->show();
+    }
+}
+?>
 ?>

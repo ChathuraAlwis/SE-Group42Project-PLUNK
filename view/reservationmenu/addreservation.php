@@ -36,7 +36,7 @@
                 <tr><td><br></td></tr>
                 <tr>
                 <div class="form-group">
-                    <td><label for="Cost">Cost</label></td>
+                    <td><label for="Cost">Place Cost</label></td>
                     <td><input type="number" id="Cost" name="Cost" required class="form-control"  min=0 oninput="validity.valid||(value='');" placeholder="Enter the Cost"/></td>
                     </div>
                 </tr>
@@ -51,7 +51,7 @@
     <div class= right>
     <div class="righttable">
         <div class="itemtable">
-            <h3>RESERVATIONMENU TABLE</h3>
+            <h3>BOOKING MENU TABLE</h3>
             <iframe src="Reservationmenutable.php" class="item"></iframe>
         </div>
     </div>

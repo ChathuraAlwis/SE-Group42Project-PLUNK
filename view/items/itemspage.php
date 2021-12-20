@@ -12,13 +12,17 @@
 </head>
 <body>
       <div class="main" >
-            <div class="coverheader">
-                  <div class="tableheader">
-                        <div class="innerdiv">
+            <?php if(!isset($_GET['noTitle'])){
+                  echo '
+                  <div class="coverheader">
+                        <div class="tableheader">
+                              <div class="innerdiv">
+                              </div>
+                              <h2>RESTAURANT MENU</h2>
                         </div>
-                        <h2>ITEMS</h2>
                   </div>
-            </div>
+                  ';
+            }?>
             <div class="covertable">
                   <div class="table">
                         <div class="upperbar">
