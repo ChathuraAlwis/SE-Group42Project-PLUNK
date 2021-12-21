@@ -92,7 +92,7 @@
                 
                 <div class="form-group">
                     <td><label for="Quantity">Quantity</label></td>
-                    <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Quantity]";?>" /></td>
+                    <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Quantity]";?>" readonly/></td>
                 </div>
             </tr>
         
