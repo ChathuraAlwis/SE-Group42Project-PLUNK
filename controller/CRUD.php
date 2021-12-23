@@ -163,7 +163,7 @@ if(isset($_POST['add-item'])){
     try {
         if($_POST['ItemType'] != "Choose type..."){
             if($_POST['Company'] != "Select the Company"){
-                $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '$_POST[Quantity]','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";
+                $sql = "INSERT INTO plunk.item (ItemID, Company,ItemName, PurchasePrice,SellingPrice, Discount, Availability , Quantity, ItemType, ReorderQuantity,IsDeleted) VALUES ( '' , '$_POST[Company]','$_POST[ItemName]', '$_POST[PurchasePrice]',  '$_POST[SellingPrice]','$_POST[Discount]', '$_POST[Availability]', '0','$_POST[ItemType]','$_POST[ReorderQuantity]','No');";
                 $DB->runQuery($sql);
                 $newPage = new Page('../view/items/additemsuccess.html');
                 $newPage->show();
@@ -232,6 +232,67 @@ if(isset($_POST['delete-item'])){
 
 //-----------Search Item---------------------
 
+
+//---------------------------------------------------GRN---------------------------------------------------------------------------
+
+//------------Add GRN-------------------------
+
+if(isset($_POST['add-grn'])){
+    $DB = new DB;
+
+    try {
+        if($_POST['ItemType'] != "Choose type..."  || $_POST['CompanyName'] != "Not Selected"){
+            
+            $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";               
+            //echo $sql;
+            // $DB->runQuery($sql);
+            
+            $rowCount = $_POST['rowCount'];
+            // echo $rowCount;
+            if($rowCount == 0){
+                $newPage = new Page('../view/grn/addgrnitemserror.html');
+                $newPage->show(); 
+            }
+            else{
+               $DB->runQuery($sql1); 
+               $sql = "SELECT GRNID FROM plunk.grn;";
+               $GRNID = end($DB->runQuery($sql))['GRNID'];
+               $GRNRow = 1; 
+            }
+            while($rowCount > 0){
+                if(isset($_POST['ItemID' . $GRNRow])){
+                    $rowCount--;
+                    $grnRow = 'ItemID' . $GRNRow;
+                    //$itemname = 'ItemName'. $GRNRow;
+                    $QuanRow = 'Quantity' . $GRNRow;
+                    $sql = "INSERT INTO plunk.grnitem (GRNID, ItemID,ItemName, Quantity) VALUES ('$GRNID', '$_POST[$grnRow]','$_POST[ItemName]','$_POST[$QuanRow]');";
+                    //echo $sql;
+                    $DB->runQuery($sql);
+                    $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$grnRow];";
+                    // echo $sql;
+                    $DB->runQuery($sql);
+                    $sql = "UPDATE plunk.invoice SET AddToGRN = 'Yes' WHERE InvoiceID = $_POST[id]";
+                    // echo $sql;
+                    $DB->runQuery($sql);
+                }
+                $GRNRow++;
+            } 
+            $newPage = new Page('../view/grn/addgrnsuccess.html');
+            $newPage->show(); 
+            
+        }
+        else{
+            $newPage = new Page('../view/grn/invoiceerror.html');
+            $newPage->show();
+        }
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
         $DB = new DB;
@@ -239,7 +300,7 @@ if(isset($_POST['delete-item'])){
 
             try {
                 if($_POST['ItemType'] != "Choose type..."){
-                    $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[Companyname]', '$_POST[Type]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
+                    $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[CompanyName]', '$_POST[ItemType]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
                     $DB->runQuery($sql);
                     //$sql = "SELECT InvoiceID FROM plunk.invoice;";
                     //$InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
@@ -319,8 +380,11 @@ if(isset($_POST['delete-invoice'])){
     $DB = new DB;
 
     try {
-        $sql = "DELETE FROM plunk.invoice WHERE Invoice_ID=\"$_POST[Invoice_ID]\"";
-        $DB->runQuery($sql);
+        $sql = "SELECT * FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
+        $data = $DB->runQuery($sql);
+        print_r($data);
+        // $sql = "DELETE FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
+        // $DB->runQuery($sql);
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -684,6 +748,7 @@ if (isset($_POST['update-password'])){
         $newPage->show();
     }
 }
+
 //---------------------------------------------------Company-----------------------------------------------------------------------
     if(isset($_POST['add-company'])){
         $DB = new DB;
@@ -731,3 +796,4 @@ if (isset($_POST['update-password'])){
 
     }
 ?>
+

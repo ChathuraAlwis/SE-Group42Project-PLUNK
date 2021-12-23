@@ -16,8 +16,8 @@
                     
                     <?php
                         require_once "../../controller/showtable.php";
-                        $grnTable = new Table("grn");
-                        $grnTable->show("SELECT `GRNID` AS 'GRN ID', `CompanyName` AS 'Company Name', `AddDate` AS 'Add Date', `ItemType` AS 'Item Type' FROM plunk.grn", 'update');
+                        $grnTable = new Table("invoice");
+                        $grnTable->show("SELECT `InvoiceID` AS 'Invoice ID', `Company` AS 'Company', `Type` AS 'Item Type', `ReceivedDate` AS 'Received Date', `DueDate` AS 'Due Date', `Total` AS 'Total' FROM plunk.invoice WHERE AddToGRN = 'No'", 'addgrn');
                       ?>
 
                 </div>

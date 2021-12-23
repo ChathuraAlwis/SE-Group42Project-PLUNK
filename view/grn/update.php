@@ -66,7 +66,7 @@
                 </div><br>
             
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="updategrnsuccess.html">Update</a></button>
+                    <!-- <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="updategrnsuccess.html">Update</a></button> -->
                     <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="grnpage.php">Cancel</a></button>
                 </div>
         </form>        

@@ -18,6 +18,17 @@
         $sql = "SELECT ItemID, ItemName, Quantity FROM plunk.item;";
         $result = json_encode($DB->runQuery($sql));
         // setcookie("Items", json_encode($result));
+        if(isset($_GET['data'])){
+            $DB2 = new DB;
+            $id = explode("=", $_GET['data'])[1];
+            $query = "SELECT Type,Company FROM plunk.invoice WHERE InvoiceID=$id;";
+            $result2 = $DB2->runQuery($query)[0];
+        }
+        else{
+            $result2['InvoiceID'] = -1;
+            $result2['Company'] = "Not Selected";
+            $result2['Type'] = "Choose Type...";           
+        }
     ?>
     <div class=main>
     <div class= left>
@@ -25,29 +36,33 @@
         <h2 class="center-text"><b>Add GRN</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-grn" type="hidden" >
+                <input name = 'id' type="hidden" value="<?php echo $id;?>">
+                
                 <table class="formtable">
+
+                <tr>
+                    <div class="form-group">
+                        <td><label for="CompanyName">Company</label></td>
+                        <td><input type="text" id= "CompanyName" name="CompanyName" required class="form-control" value= "<?php echo "$result2[Company]";?>"/></td>
+                    </div>
+                </tr>    
                 <tr>
                 <div class="form-group">
-                    <td><label for="ItemType">Item Type</label></td>
-                    <td><select id="ItemType" name="ItemType" class="form-control" placeholder="Enter the item type" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
-                        <option value="Food">Food Items</option>
-                        <option value="Beverage">Beverage Items</option>
+                    <td><label for="Type">Item Type</label></td>
+                    <td><select id="Type" name="ItemType" class="form-control"  onchange="changeType(this);">
+                        <option selected>Choose type...</option>
+                        <option value="Food"  <?php if("$result2[Type]"=="Food") echo 'selected="selected"'; ?> >Food Items</option>
+                        <option value="Beverage"  <?php if("$result2[Type]"=="Beverage") echo 'selected="selected"'; ?> >Beverage Items</option>
                      </select></td>
-                    </div>
+                </div>
                 </tr>
                 <tr>
                     <div class="form-group">
-                        <td><label for="Date">Date</label></td>
-                        <td><input type="date" id= "Date" name="Date" required class="form-control" placeholder="Enter the Date"/></td>
+                        <td><label for="AddDate">Date</label></td>
+                        <td><input type="date" id= "AddDate" name="AddDate" required class="form-control" value="<?php echo date("Y-m-d") ?>" readonly/></td>
                     </div>
                 </tr> 
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Company">Company</label></td>
-                        <td><input type="text" id= "Company" name="Company" required class="form-control" placeholder="Enter the Company name"/></td>
-                    </div>
-                </tr>
+                
                 
              </table>
             <div class="form-group">
@@ -82,9 +97,9 @@
                       
                     </div> 
                 </div>
-            
+                <input type="hidden" id="rowCount" name="rowCount" value=0>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="addgrnsuccess.html">Add</button>
+                    <button type="submit" name="submit" value="Submit" class="button submit" onclick="tableRowCount('myTableData')">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset">Reset</button>
                 </div>
         </form>        
@@ -93,8 +108,8 @@
     <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>Company Details</h4>
-            <iframe src="../company/companytable.php" class="item"></iframe>
+            <h4>Invoice Details</h4>
+            <iframe src="pickinvoice.php" class="item"></iframe>
         </div>
         
        </div>
