@@ -1,57 +1,27 @@
 html, body{
-  height: 100%;
+  height: 95%;
   width:100%;
   margin: auto;
+  background-color: #dcdcdc;
 }
 .main{
   width:100%;
   height: 100%;
   font-family: sans-serif;
-  /*  background-color: red;*/
+     /* background-color: red; */
 }
-.middle{
-  width:100%;
-  height: 80%;
-  background-color: #dcdcdc;
+.mailheader{
+  height: 3%;
 }
+h2{
+  font-size: 2.5vw;
+  text-align:center;
+  color: #017a7a;
+}
+
 .middle2{
   width:100%;
-  height: 75%;
-  /* background-color: #dcdcdc; */
-}
-.header{
-  width: 100%;
-  height: 20%;
-background-color: #017a7a;
-}
-.leftheader{
-  float: left;
-  width: 20%;
   height: 100%;
-/*   background-color: green;*/
-}
-.middleheader{
-  float: left;
-  width: 60%;
-  height: 100%;
-  /* background-color: blue;*/
-}
-.rightheader{
-  float: left;
-  width: 20%;
-  height: 100%;
-/*    background-color: green;*/
-}
-
-.plunk{
-  width: 30%;
-  height: auto;
-  margin-top: 0px;
-  padding-left: 5%;
-  padding-top: 3%;
-  padding-bottom: 5%;
-  padding-right: 0;
-
 }
 
 a{
@@ -64,66 +34,18 @@ a{
 .btnlink:hover{
   color:#017a7a;
 }
-.Logo{
-  float:left;
-  height: 80%;
-  width: 13%;
-  margin: 0px;
-  margin-left: 5%;
-  margin-right: 3%;
-  margin-top:2%;
-}
 
-h2{
-
-  color: white;
-  font-size: 4.5vw;
-  text-align: left;
-  vertical-align: baseline;
-  line-height:4vw;
-  margin-top: 1.5vw;
-  padding: 0;
-  margin-bottom: 0;
-
-}
-.subrightheader{
-  width: 70%;
-  height: 100%;
-  float:right;
-}
-
-
-
-.mainpages{
-
-  height: 98%;
-  margin: 0;
-  padding: 0;
-  transition: 0.5s;
-  border-style: solid;
-  border-radius: 10px;
-  border-width:5px;
-  border-color:#017a7a;
-
-}
-.mainpage2{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  transition: 0.5s;
-  border: none;
-}
  .mainpage3{ /*for decision page */
    height: 95%;
-   margin: 0;
-   padding: 0;
+   margin: none;
+   padding: none;
    transition: 0.5s;
    border: none;
-
+   /* background-color: green; */
 }
 .formbox{
-  width: 60%;
-  height: 75%;
+  width: 50%;
+  height: 90%;
   background-color: white;
   border-radius: 20px;
   margin-left: auto;
@@ -134,24 +56,13 @@ h2{
   padding-left: 30px;
   padding-top: 30px;
   padding-right: 30px;
+  padding-bottom: 20px;
 }
-
-.formbox2{
-  width: 60%;
-  height: 85%;
-  background-color: white;
-  border-radius: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  display: block;
+label{
   font-size: 1.5vw;
-  padding-left: 30px;
-  padding-top: 30px;
-  padding-right: 30px;
 }
 .input{
-  width: 90%;
+  width: 70%;
   font-size: 1.2vw;
   border-top: 0;
   border-left: 0;
@@ -160,26 +71,27 @@ h2{
   border-color: black;
 }
 .forminputs{
-  width: 50%;
-  height: 70px;
-/* background-color: yellow; */
-
-
-}
-.radio{
-
-  width: 50%;
-  height: 70px;
-  /* background-color: red; */
-
-}
-.UserType{
   width: 90%;
+  height: 70px;
+ /* background-color: yellow; */
+
+
+}
+.forminput2{
+  width: 100%;
+  height: 20%;
+  /* background-color: yellow; */
+}
+.msg{
   font-size: 1.2vw;
+  margin-left: 7%;
+  border-radius: 10px;
 }
 .formbtn{
   width: 50%;
   height: 50px;
+  margin-left: auto;
+  margin-right: auto;
   /* background-color: yellow; */
 }
 .add{
@@ -195,31 +107,9 @@ h2{
   background-color: #acacac;
   color:#017a7a;
 }
-.imagebox{
-  float:right;
-  /* background-color: yellow; */
-}
-#output{
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  height: 400px;
-  width: 400px;
-  border-radius: 50%;
-  border-style: solid;
-  border-width: 3px;
-  border-color:#017a7a;
-}
-.upload{
-  cursor: pointer;
-  margin-left: 30%;
-  font-size: 1vw;
-  border-style: solid;
-  border-radius: 5px;
-  border-color:#017a7a;
-  border-width: 2px;
-  color:#017a7a;
-}
+
+
+
 @media only screen and (max-width:720px) {
       .header{
         height: 10%;
