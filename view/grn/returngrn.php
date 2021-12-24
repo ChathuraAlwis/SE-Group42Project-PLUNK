@@ -11,20 +11,29 @@
 
   </head>
   <body>
+
+
     <div class="main">
       <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>RETURN GRN</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-          <input name ="add-leave" type="hidden" >
+          <input name ="return-grn" type="hidden" >
+          <input name="GRNID" type="hidden" value="<?php echo $_GET['GRNID']?>"/> 
           <table class="formtable">           
                 <div class="form-group">
+                <tr>
+                    <div class="form-group">
+                        <td><label for="ReturnDate">Date</label></td>
+                        <td><input type="date" id= "ReturnDate" name="ReturnDate" required class="form-control" value="<?php echo date("Y-m-d") ?>" readonly/></td>
+                    </div>
+                </tr> 
                     <td><label for="Reason">Reason</label></td>
                     <td><textarea id= "Reason" name="Reason" required class="form-control" placeholder="Enter the Reason"></textarea></td>
                 </div>
           </table>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="requestgrnsuccess.html">Request</button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Request</button>
                     <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="grnpage.php">Cancel</a></button>
                 </div>
         </form>        
