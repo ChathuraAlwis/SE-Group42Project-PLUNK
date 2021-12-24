@@ -17,7 +17,7 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("reservationmenu");
-                        $itemTable->show("SELECT ReservationName AS 'Place Name',Type AS 'Place Type',Cost AS 'Place Cost' FROM plunk.reservationmenu WHERE IsDeleted = 'No'", 'update');
+                        $itemTable->show("SELECT ReservationName AS 'Place Name',Type AS 'Place Type',Cost AS 'Place Cost',Availability AS 'Availability' FROM plunk.reservationmenu WHERE IsDeleted = 'No'", 'update');
                       ?> 
                     </div>
 
