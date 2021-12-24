@@ -407,6 +407,34 @@ if(isset($_POST['joinrequest'])){
         throw $th;
     }
 }
+// if (isset($_POST['sendmail'])) {
+//     // $fromEmail = $_POST['from'];
+//     // $toEmail = $_POST['to'];
+//     // $subjectName = $_POST['subject'];
+//     // $message = $_POST['message'];
+//
+//     error_reporting( E_ALL );
+//     $from = $_POST['from'];
+//     $to = $_POST['to'];
+//     $subject = $_POST['subject'];
+//     $message = $_POST['message'];
+//     $headers = "From:" . $from;
+//     if(mail($to,$subject,$message, $headers)) {
+// 		echo "The email message was sent.";
+//     } else {
+//     	echo "The email message was not sent.";
+//     }
+    // $to = $toEmail;
+    // $subject = $subjectName;
+    // $headers = "MIME-Version: 1.0" . "\r\n";
+    // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    // $headers .= 'From: '.$fromEmail.'<'.$fromEmail.'>' . "\r\n".'Reply-To: '.$fromEmail."\r\n" . 'X-Mailer: PHP/' . phpversion();
+    //
+    // mail("$to", "$subject", "$message");
+    //
+    // echo '<script>alert("Email sent successfully !")</script>';
+    // echo '<script>window.location.href="mail.php";</script>';
+
 //---------------------Add, update and delete user--------------------------
 if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
     $DB = new DB;
@@ -602,7 +630,7 @@ if(isset($_POST['delete-reservation'])){
         $newPage = new Page('../view/reservationmenu/deleteressuccess.html');
         $newPage->show();
 
-    } 
+    }
     catch (\Throwable $th) {
         throw $th;
     }
@@ -720,5 +748,52 @@ if (isset($_POST['update-password'])){
         $newPage->show();
     }
 }
+
+//---------------------------------------------------Company-----------------------------------------------------------------------
+    if(isset($_POST['add-company'])){
+        $DB = new DB;
+
+        try {
+            $sql = "INSERT INTO plunk.company (Company,DistributorName,PhoneNo, Email) VALUES ('$_POST[Company]','$_POST[DistributorName]','$_POST[PhoneNo]','$_POST[Email]')";
+            $DB->runQuery($sql);
+
+            $newPage = new Page('..\view\company\addcompanysuccess.html');
+            $newPage->show();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
+    if(isset($_POST['update-company'])){
+        $DB = new DB;
+
+        try {
+            $sql = "UPDATE plunk.company SET DistributorName='$_POST[DistributorName]', PhoneNo='$_POST[PhoneNo]',Email='$_POST[Email]' WHERE Company='$_POST[Company]'";
+            $DB->runQuery($sql);
+
+            $newPage = new Page('..\view\company\updatesuccess.html');
+            $newPage->show();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
+    if(isset($_POST['remove'])){
+        $DB = new DB;
+
+        try {
+            $sql = "UPDATE plunk.company SET Remove='Yes' WHERE Company='$_POST[Company]'";
+            $DB->runQuery($sql);
+
+            $newPage = new Page('..\view\company\deletesuccess.html');
+            $newPage->show();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
 ?>
 

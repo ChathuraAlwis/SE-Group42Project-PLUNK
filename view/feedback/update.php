@@ -38,11 +38,11 @@
                           <label for="replydDate"><b>Date :</b> </label>
                           <input type="date" name="replydDate" id="today" value="<?php echo date("Y-m-d") ?>" readonly>
 
-                  </div><br>
-                  <div class="questions">
+                  </div>
+                  <div class="questions2">
                     <label for="FeedBackID" class="fblabel"><b>Feedback ID:</b> </label>
                     <input type="text" name="FeedBackID" class="fbid" value="<?php echo "$result[FeedBackID]";?>">
-                  </div> <br>
+                  </div> <br><br>
                 <div class="labelbox">
                     <label for="FeedBack"><b>Message :</b> </label>
 
