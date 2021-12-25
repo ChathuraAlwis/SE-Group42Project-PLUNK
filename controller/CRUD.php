@@ -292,6 +292,49 @@ if(isset($_POST['add-grn'])){
 
 }
 
+//--------------Return GRN--------------------------
+
+if(isset($_POST['return-grn'])){
+    $DB = new DB;
+
+    try {
+       $sql = "SELECT * FROM plunk.grn WHERE GRNID = $_POST[GRNID]";
+       $result = $DB->runQuery($sql)[0]; 
+
+       $sql = "INSERT INTO plunk.returngrn(`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `ReturnDate`, `Reason`, `UserID`, `Accepted`) VALUES ('$result[GRNID]','$result[CompanyName]','$result[AddDate]','$result[ItemType]','$_POST[ReturnDate]','$_POST[Reason]','$_SESSION[UserID]','No')";
+       //echo $sql;
+       $DB->runQuery($sql);
+       $sql = "SELECT  `ItemID` FROM plunk.grnitem WHERE GRNID = $_POST[GRNID]";
+       //echo $sql;
+       $result= $DB->runQuery($sql);
+
+       $counter = count($result);
+       $index = 0;
+       
+       while($counter>$index){
+            $id = $result[$index]['ItemID'];
+            $sql2 = "SELECT `GRNID`, `ItemID`, `ItemName`, `Quantity` FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = $id";
+            // echo $sql2;
+            $result2= $DB->runQuery($sql2)[0];
+
+            $sql3 = "INSERT INTO plunk.returngrnitem(`GRNID`, `ItemID`, `ItemName`, `Quantity`) VALUES ('$result2[GRNID]','$result2[ItemID]','$result2[ItemName]','$result2[Quantity]')";
+            // echo $sql3;
+            $DB->runQuery($sql3);
+
+            $index++;
+        }
+
+        $newPage = new Page('../view/grn/requestgrnsuccess.html');
+        $newPage->show();
+
+    } 
+    catch (\Throwable $th) {
+        throw $th;
+
+    }
+
+}
+
 
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
