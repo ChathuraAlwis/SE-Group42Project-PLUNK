@@ -17,7 +17,7 @@
                           require_once "..\..\controller\showtable.php";
                           $itemTable = new Table("booking");
                         
-                          $itemTable->show("SELECT BookingID as 'Booking ID',CustomerName as 'Customer Name', ContactNo as 'Contact No',Reservation1 as 'Reservation 1',Reservation2 as 'Reservation 2', Total as 'Total Payment' FROM plunk.booking where Payment='No' ORDER BY BookingID DESC",'add');
+                          $itemTable->show("SELECT BookingID as 'Booking ID',CustomerName as 'Customer Name', ContactNo as 'Contact No', Total as 'Total Payment' FROM plunk.booking where Payment='No' ORDER BY BookingID DESC",'add');
                           
                        ?>
 

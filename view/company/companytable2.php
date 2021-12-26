@@ -15,7 +15,7 @@
                     <div class="detailtable">
                       <?php
                           require_once "..\..\controller\showtable.php";
-                          $orderTable = new Table("company");
+                          $orderTable = new Table("user");
                           $orderTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Contact No', Email as 'E-mail' FROM plunk.company WHERE Remove='No'", 'update');
                        ?>
 
