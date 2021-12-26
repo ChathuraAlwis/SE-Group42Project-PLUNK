@@ -24,7 +24,22 @@
                     <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" min="<?php echo date("Y-m-d") ?>" placeholder="Enter the Date"/></td>
                 </div>
             </tr>
-            
+            <tr>
+                <div class="form-group">
+                    <td><label for="Type">Leave Type</label></td>
+                    
+                    <td><select id="Type" name="LeaveType" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
+                    <option selected>Choose type...</option>
+                        <option value="Annual">Annual Leaves</option>
+                        <option value="Casual">Casual Leaves</option>
+                        <option value="Medical;">Medical Leaves</option>
+                     </select></td>
+                    </div>
+            </tr>
+                <tr>
+                      <td><label for="NoOfdays">No Of Days</label></td>
+                      <td><input type="text" id= "NoOfdays" name="NoOfdays" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the no of days"/></td>
+                </tr>
                 <div class="form-group">
                     <td><label for="Reason">Reason</label></td>
                     <td><textarea id= "Reason" name="Reason" required class="form-control" placeholder="Enter the Reason"></textarea></td>

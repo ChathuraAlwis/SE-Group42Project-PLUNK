@@ -25,7 +25,7 @@ session_start();?>
                           $itemTable->show("SELECT * FROM plunk.leave ;", 'givepermission');
                         }
                         else{
-                          $itemTable->show("SELECT LeaveDate,Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]';", 'update');
+                          $itemTable->show("SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]';", 'update');
                         }
 
                       ?>

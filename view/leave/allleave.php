@@ -23,7 +23,7 @@ session_start();?>
                           $itemTable->show("SELECT UserID,	RequestedDate,	LeaveDate, ManagerID FROM plunk.leave where Accepted = 'Yes';", 'update');
                         }
                         else{
-                          $itemTable->show("SELECT LeaveDate,Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]';", 'update');
+                          $itemTable->show("SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]';", 'update');
                         }
                         
                       ?> 
