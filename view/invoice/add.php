@@ -66,15 +66,12 @@
                     </div>
                 </tr> 
 
-               
-           
                         <tr>
                             <td><label for="Total">Total</label></td>
                             <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total"/></td>
                         </tr>
                     </table>
                         
-                </div>
             
                 <div class="form-group">
                     <button type="submit" name="submit" value="Submit" class="button submit" >Add</button>
@@ -88,7 +85,7 @@
       <div class = "righttop">
         <div class="itemtable">
             <h4>COMPANY DETAILS TABLE</h4>
-            <iframe src="comdetails.php" class="item"></iframe>
+            <iframe src="../company/companytable.php" class="item"></iframe>
         </div>
         
        </div>

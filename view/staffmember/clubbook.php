@@ -18,7 +18,7 @@
                         require_once "../../controller/showtable.php";
                         $reorderTable = new Table("booking");
                         $day =  date("Y-m-d");
-                        $reorderTable->show("SELECT CustomerName,Reservation1,Reservation2,ReservedDate,ReservedTime,EndTime FROM plunk.booking where BookingType = 'Club' and ReservedDate >= '$day'; ", false);
+                        $reorderTable->show("SELECT CustomerName AS 'Customer Name',ReservationName AS 'Reservation Name',ReservedDate AS 'Reserved Date',ReservedTime AS 'ReservedTime' from plunk.booking b , plunk.bookingreservation r where r.BookingID = b.BookingID and b.BookingType ='Club' and ReservedDate >= '$day'; ", false);
                       ?> 
                     </div>
 
