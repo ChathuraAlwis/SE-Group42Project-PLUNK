@@ -118,7 +118,7 @@
         <div class="righttable">
         <div class="itemtable">
             <h3>Company Details</h3>
-            <iframe src="../company/companytable.php" class="item"></iframe>
+            <iframe src="comdetails.php" class="item"></iframe>
         </div>
 </div>
 </div>
