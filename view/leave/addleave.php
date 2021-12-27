@@ -11,6 +11,21 @@
 
   </head>
   <body>
+  <?php
+        if(isset($_GET['data'])){
+            require_once "../../model/database.php";
+            $DB = new DB;
+            $id = explode("=", $_GET['data'])[1];
+            $query = "SELECT * FROM plunk.leave WHERE RequestDate=$id";
+            $result = $DB->runQuery($query)[0];
+        }else{
+            $id = -1;
+        }
+        date_default_timezone_set("Asia/Kolkata");
+
+
+
+    ?>
     <div class="main">
       <div class= "left">
     <div class="form">
@@ -18,6 +33,16 @@
         <form action="../../controller/CRUD.php" method="POST">
           <input name ="add-leave" type="hidden" >
           <table class="formtable">
+            <tr>
+                <div class="form-group">
+                            
+                                <td><label for="RequestDate">Request Date</label></td>
+                                
+                                <td><input name ="RequestDate" id="RequestDate" type="date" value="<?php echo date("Y-m-d") ?>" readonly></td>
+                            </tr>
+                        </div>
+              </tr>
+                
             <tr>
                 <div class="form-group">
                     <td><label for="LeaveDate">Date</label></td>

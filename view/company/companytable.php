@@ -24,7 +24,7 @@
                         // elseif ($_SESSION['UserType'] == 'Accountant') {
                         //   $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Phone No', Email AS 'E-mail Address' FROM plunk.company",'../invoice/add');
                         // }
-                        $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Contact No' FROM plunk.company",'update');
+                        $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Contact No' FROM plunk.company WHERE Remove= 'No'",'update');
                       ?>
                     </div>
 
