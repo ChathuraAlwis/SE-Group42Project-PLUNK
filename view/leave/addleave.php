@@ -53,7 +53,7 @@
                 <div class="form-group">
                     <td><label for="Type">Leave Type</label></td>
                     
-                    <td><select id="Type" name="LeaveType" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
+                    <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
                         <option value="Annual">Annual Leaves</option>
                         <option value="Casual">Casual Leaves</option>
