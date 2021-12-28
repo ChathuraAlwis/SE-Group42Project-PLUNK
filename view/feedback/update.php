@@ -38,7 +38,11 @@
                           <label for="replydDate"><b>Date :</b> </label>
                           <input type="date" name="replydDate" id="today" value="<?php echo date("Y-m-d") ?>" readonly>
 
-                  </div><br>
+                  </div>
+                  <div class="questions2">
+                    <label for="FeedBackID" class="fblabel"><b>Feedback ID:</b> </label>
+                    <input type="text" name="FeedBackID" class="fbid" value="<?php echo "$result[FeedBackID]";?>">
+                  </div> <br><br>
                 <div class="labelbox">
                     <label for="FeedBack"><b>Message :</b> </label>
 
@@ -49,7 +53,7 @@
                   <textarea name="Reply" rows="5" cols="80" required></textarea>
                 </div>
                 <div  class="btnbox">
-                  <button type="submit" name="submit" class="btn" formaction="..\feedback\replysuccess.html"><b>Submit</b> </button>
+                  <button type="submit" name="submit" class="btn" ><b>Submit</b> </button>
                   <button type="reset" name="reset" class="btn"><b>Reset</b> </button>
                 </div>
               </form>

@@ -36,10 +36,21 @@
                 <tr><td><br></td></tr>
                 <tr>
                 <div class="form-group">
-                    <td><label for="Cost">Cost</label></td>
+                    <td><label for="Cost">Place Cost</label></td>
                     <td><input type="number" id="Cost" name="Cost" required class="form-control"  min=0 oninput="validity.valid||(value='');" placeholder="Enter the Cost"/></td>
                     </div>
                 </tr>
+                <tr><td><br></td></tr>
+                <tr> 
+                    <div class="form-group">
+                        <td><label for="Availability">Availability</label></td>
+                        <td><select id="Availability" name="Availability" class="form-control" >
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </td>
+                    </div>
+                </tr>   
             </table>
                 <div class="form-group">
                     <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
@@ -51,7 +62,7 @@
     <div class= right>
     <div class="righttable">
         <div class="itemtable">
-            <h3>RESERVATIONMENU TABLE</h3>
+            <h3>BOOKING MENU TABLE</h3>
             <iframe src="Reservationmenutable.php" class="item"></iframe>
         </div>
     </div>

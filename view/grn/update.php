@@ -23,7 +23,7 @@
     <div class=main>
     <div class= left>
     <div class="form">
-        <h2 class="center-text"><b>GRN DETAILS</b><button  class="return"><a href= "returngrn.php"><image src = "../images/return.png"  class="bin"></image></a></button></h2>
+        <h2 class="center-text"><b>GRN DETAILS</b><button  class="return"><a href= "returngrn.php?<?php echo 'GRNID='.$result['GRNID'];?>"><image src = "../images/return.png"  class="bin"></image></a></button></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="update-grn" type="hidden" >
                 <table class="formtable">
@@ -66,7 +66,7 @@
                 </div><br>
             
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="updategrnsuccess.html">Update</a></button>
+                    <!-- <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="updategrnsuccess.html">Update</a></button> -->
                     <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="grnpage.php">Cancel</a></button>
                 </div>
         </form>        

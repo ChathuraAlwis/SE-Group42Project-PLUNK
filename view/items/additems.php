@@ -91,13 +91,13 @@
                     </div>
                 </tr>                
                 <div id = Quantity>
-                <tr>
+                <!-- <tr>
                     
                     <div class="form-group">
                         <td><label for="Quantity">Quantity</label></td>
                         <td><input type="number" id= "Quantity "name="Quantity" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Quantity"/></td>
                     </div>
-                </tr>                
+                </tr>                 -->
                 <tr>
                     <div class="form-group">
                         <td><label for="ReorderQuantity">Reorder Quantity</label></td>
@@ -118,7 +118,7 @@
         <div class="righttable">
         <div class="itemtable">
             <h3>Company Details</h3>
-            <iframe src="../company/companytable.php" class="item"></iframe>
+            <iframe src="comdetails.php" class="item"></iframe>
         </div>
 </div>
 </div>

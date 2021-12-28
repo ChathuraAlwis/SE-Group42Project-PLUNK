@@ -120,10 +120,10 @@ border: none;
  background-color: white;
  padding-left:10px;
  padding-right: 10px;
- padding-top: 10px;
+ padding-top: 20px;
 }
 .replybox{
-height: 93%;
+height: 90%;
 }
 .replybox2{
   height: 90%;
@@ -139,8 +139,16 @@ label{
 
 }
 #today{
-  font-size: 1.5vw;
+  font-size: 2vw;
   border: none;
+}
+.fblabel{
+float: left;
+}
+.fbid{
+  font-size: 2vw;
+  border: none;
+  text-align: left;
 }
 textarea{
   float: right;
@@ -155,11 +163,22 @@ textarea{
   border-color: black;
   padding-top: 5px;
 }
-
+.questions{
+  /* background-color: red; */
+  width: 50%;
+  height: 40px;
+  float: left;
+}
+.questions2{
+  /* background-color: green; */
+  width: 50%;
+  height: 40px;
+  float: right;
+}
 .labelbox{
   width: 100%;
   height: 30%;
-  padding-bottom: 8%;
+  padding-bottom: 3%;
 }
 .labelbox2{
   width: 100%;

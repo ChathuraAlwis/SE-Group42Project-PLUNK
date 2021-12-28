@@ -25,7 +25,7 @@
     <div class= left>
     <div class="form">
         <h2 class="center-text"><b>Place Details</b>
-            <a href="deleteressuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
+            <a href="deletemsg.php?<?php echo 'ReservationName='.$result['ReservationName'];?>"><image src = "../images/bin.png" class="bin"></image></a></h2>
 
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="update-reservation" type="hidden" >
@@ -54,6 +54,17 @@
                     <td><input type="number" id="Cost" name="Cost" required class="form-control"  min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Cost]";?>"/></td>
                     </div>
                 </tr>
+                <tr><td><br></td></tr>
+                <tr> 
+                    <div class="form-group">
+                        <td><label for="Availability">Availability</label></td>
+                        <td><select id="Availability" name="Availability" class="form-control" >
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </td>
+                    </div>
+                </tr>   
             </table>
             <div class="form-group">
                 <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>

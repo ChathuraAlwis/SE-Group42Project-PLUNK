@@ -38,14 +38,14 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="Company">Company</label></td>
-                        <td><input type="text" id="Company" name="Company"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
+                        <td><input type="text" id="Company" name="CompanyName"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
                     </div>
                 </tr>
                 <tr>
                 <div class="form-group">
                     <td><label for="Type">Item Type</label></td>
                     
-                    <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
+                    <td><select id="Type" name="ItemType" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
                         <option value="Beverage">Beverage Items</option>
                         <option value="Food">Food Items</option>
@@ -66,15 +66,12 @@
                     </div>
                 </tr> 
 
-               
-           
                         <tr>
                             <td><label for="Total">Total</label></td>
                             <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total"/></td>
                         </tr>
                     </table>
                         
-                </div>
             
                 <div class="form-group">
                     <button type="submit" name="submit" value="Submit" class="button submit" >Add</button>
