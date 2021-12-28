@@ -38,7 +38,24 @@
                           $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',ItemName as 'Item Name',PurchasePrice as 'Purchase Price',Quantity as 'Quantity', ReorderQuantity as 'Reorder Quantity' FROM plunk.item where ReorderQuantity NOT LIKE '0'");
                         }
                         elseif ($_SESSION['UserType'] == 'Restaurant Manager'){
-                          $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',Company as 'Company' ,ItemName as 'Item Name' ,PurchasePrice as 'Purchase Price',SellingPrice as 'Selling Price',Quantity as 'Quantity',Discount as 'Discount',Availability as 'Availability', ReorderQuantity  as 'Reorder Quantity' FROM plunk.item WHERE IsDeleted = 'No' ", 'update');
+                          if(isset($_GET['name'])){                    
+                            $name = $_GET['name'];
+
+                            if ($_GET['type']=='0'){
+                              $type = '1 OR Itemtype=2';
+                            }
+                            else{
+                              $type = $_GET['type'];
+                            }
+                              
+                            $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',Company as 'Company' ,ItemName as 'Item Name' ,PurchasePrice as 'Purchase Price',SellingPrice as 'Selling Price',Quantity as 'Quantity',Discount as 'Discount',Availability as 'Availability', ReorderQuantity  as 'Reorder Quantity' FROM plunk.item WHERE IsDeleted = 'No' AND ItemName LIKE ('%$name%') AND ItemType=$type ", 'update');
+                          }
+                          
+                          else{
+
+                            $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',Company as 'Company' ,ItemName as 'Item Name' ,PurchasePrice as 'Purchase Price',SellingPrice as 'Selling Price',Quantity as 'Quantity',Discount as 'Discount',Availability as 'Availability', ReorderQuantity  as 'Reorder Quantity' FROM plunk.item WHERE IsDeleted = 'No' ", 'update');
+                          }
+                          
                         }
 
 
