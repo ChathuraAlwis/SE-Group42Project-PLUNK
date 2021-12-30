@@ -25,11 +25,11 @@
                               <form action="reportpage.php" method="post">
                                     <div class>
                                           <select id="ReportType" name="ReportType" class="search" placeholder="Choose report type..." onchange="changeType(this);">
-                                                <option value="Salary">Salary report</option>
-                                                <option value="ServiceCharge">Service Charge report</option>
-                                                <option value="Leave">Leave report</option>
-                                                <option value="Item">Item report</option>
-                                                <option value="Invoice">Invoice report</option>
+                                                <option value="Salary" <?php if(isset($_POST['ReportType'])) {if($_POST['ReportType'] == "Salary") {echo "selected";}}?>>Salary report</option>
+                                                <option value="ServiceCharge" <?php if(isset($_POST['ReportType'])) {if($_POST['ReportType'] == "ServiceCharge") {echo "selected";}}?>>Service Charge report</option>
+                                                <option value="Leave" <?php if(isset($_POST['ReportType'])) {if($_POST['ReportType'] == "Leave") {echo "selected";}}?>>Leave report</option>
+                                                <option value="Item" <?php if(isset($_POST['ReportType'])) {if($_POST['ReportType'] == "Item") {echo "selected";}}?>>Item report</option>
+                                                <option value="Invoice" <?php if(isset($_POST['ReportType'])) {if($_POST['ReportType'] == "Invoice") {echo "selected";}}?>>Invoice report</option>
                                           </select>
                                     </div>
                                     <div >
@@ -54,6 +54,7 @@
                                                       break;
                                 
                                                 case 'ServiceCharge':
+                                                      echo "<iframe src=serviceCharge.php?start=$_POST[start]&end=$_POST[end] class=staff></iframe>";
                                                       break;
                                 
                                                 case 'Leave':
