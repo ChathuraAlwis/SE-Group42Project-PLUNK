@@ -681,18 +681,18 @@ INSERT INTO `returngrnitem` (`GRNID`, `ItemID`, `ItemName`, `Quantity`) VALUES
 
 CREATE TABLE `salary` (
   `SalaryID` int(11) NOT NULL,
-  `Year` year(4) NOT NULL,
-  `Month` enum('January','February','March','April','May','June','July','August','September','October','November','December') NOT NULL,
-  `WorkingDays` int(11) NOT NULL DEFAULT 30
+  `WorkingDays` int(11) NOT NULL DEFAULT 30,
+  `Date` VARCHAR (45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `salary`
 --
 
-INSERT INTO `salary` (`SalaryID`, `Year`, `Month`, `WorkingDays`) VALUES
-(1, 2021, 'September', 30),
-(2, 2021, 'October', 30);
+INSERT INTO `salary` (`SalaryID`, `WorkingDays`, `Date`) VALUES
+(1, 30, '2021-09-30'),
+(2, 30, '2021-10-31'),
+(3, 30, '2022-01-31')
 
 -- --------------------------------------------------------
 
@@ -729,17 +729,16 @@ INSERT INTO `salarystaff` (`SalaryID`, `StaffID`, `Basic`, `Bonus`, `EPF`, `ETF`
 
 CREATE TABLE `servicecharge` (
   `ServiceChargeID` int(11) NOT NULL,
-  `Year` year(4) NOT NULL,
-  `Month` enum('January','February','March','April','May','June','July','August','September','October','November','December') NOT NULL
+  `Date` VARCHAR(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `servicecharge`
 --
 
-INSERT INTO `servicecharge` (`ServiceChargeID`, `Year`, `Month`) VALUES
-(1, 2021, 'September'),
-(2, 2021, 'October');
+INSERT INTO `servicecharge` (`ServiceChargeID`, `Date`) VALUES
+(1, '2021-09-30'),
+(2, '2021-10-31');
 
 -- --------------------------------------------------------
 
