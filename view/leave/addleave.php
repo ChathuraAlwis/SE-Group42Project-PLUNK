@@ -55,9 +55,9 @@
                     
                     <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="Annual">Annual Leaves</option>
-                        <option value="Casual">Casual Leaves</option>
-                        <option value="Medical;">Medical Leaves</option>
+                        <option value="1">Annual Leaves</option>
+                        <option value="2">Casual Leaves</option>
+                        <option value="3">Medical Leaves</option>
                      </select></td>
                     </div>
             </tr>
@@ -71,7 +71,7 @@
                 </div>
           </table>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="cancel" href="addleavesuccess.html">Request</button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Request</button>
                     <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="leavepage.php">Cancel</a></button>
                 </div>
         </form>        
