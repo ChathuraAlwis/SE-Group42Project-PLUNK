@@ -870,13 +870,16 @@ if (isset($_POST['update-password'])){
 
     }
     //---------------------------------------------------Leaves-----------------------------------------------------------------------
+    
     if(isset($_POST['add-leave'])){
         $DB = new DB;
 
         try {
-            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason,Accepted,ManagerID) VALUES ('$_SESSION[UserID]','$_POST[RequestDate]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]','No','4')";
+            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason) VALUES ('$_SESSION[UserID]','$_POST[RequestDate]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]')";
+            //echo $sql;
             $DB->runQuery($sql);
 
+            
             $newPage = new Page('..\view\leave\addleavesuccess.html');
             $newPage->show();
 
@@ -885,5 +888,6 @@ if (isset($_POST['update-password'])){
         }
 
     }
+
 ?>
 
