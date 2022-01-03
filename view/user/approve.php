@@ -91,7 +91,7 @@
 
 
                                     <div class="formbtn">
-                                      <button type="submit"  id="add" class="add" name="button" ><a href="mail.php" class="btnlink"> Approve<a></button>
+                                      <button type="submit"  id="add" class="add" name="button" ><a href="testmail.php" class="btnlink"> Approve<a></button>
                                       <button type="reset" id="reset" class="add" name="button">Reset</button>
                                     </div>
 
