@@ -17,7 +17,29 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $grnTable = new Table("grn");
-                        $grnTable->show("SELECT `GRNID` AS 'GRN ID', `CompanyName` AS 'Company Name', `AddDate` AS 'Add Date', `ItemType` AS 'Item Type' FROM plunk.grn", 'update');
+                        
+                        if(isset($_GET['name'])){                    
+                              $name = $_GET['name'];
+  
+                              if ($_GET['type']=='0'){
+                                $type = '1 OR Itemtype=2';
+                              }
+                              else{
+                                $type = $_GET['type'];
+                              }
+                                
+                              $grnTable->show("SELECT `GRNID` AS 'GRN ID', `CompanyName` AS 'Company Name', `AddDate` AS 'Add Date', `ItemType` AS 'Item Type' FROM plunk.grn WHERE CompanyName LIKE ('%$name%') AND ItemType=$type ", 'update');
+                              
+                            }
+                            
+                            else{
+  
+                              $grnTable->show("SELECT `GRNID` AS 'GRN ID', `CompanyName` AS 'Company Name', `AddDate` AS 'Add Date', `ItemType` AS 'Item Type' FROM plunk.grn", 'update');
+                            }
+                            
+                      
+                      
+                      
                       ?>
 
                 </div>

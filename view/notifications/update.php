@@ -51,8 +51,8 @@
                         <td><label for="EventType">Event Type</label></td>
                         <td><select id="EventType" name="EventType" class="form-control" onchange="changeType(this);">
                             <option >Choose type...</option>
-                            <option value="Club Event"  <?php if("$result[EventType]"=="Club Event") echo 'selected="selected"'; ?>>Club Event</option>
-                            <option value="Restaurant Event" <?php if("$result[EventType]"=="Restaurant Event") echo 'selected="selected"'; ?>>Restaurant Event</option>
+                            <option value="Club"  <?php if("$result[EventType]"=="Club") echo 'selected="selected"'; ?>>Club Event</option>
+                            <option value="Restaurant" <?php if("$result[EventType]"=="Restaurant") echo 'selected="selected"'; ?>>Restaurant Event</option>
                             </select>
                         </td>
                     </div>

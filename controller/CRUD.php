@@ -292,6 +292,49 @@ if(isset($_POST['add-grn'])){
 
 }
 
+//--------------Return GRN--------------------------
+
+if(isset($_POST['return-grn'])){
+    $DB = new DB;
+
+    try {
+       $sql = "SELECT * FROM plunk.grn WHERE GRNID = $_POST[GRNID]";
+       $result = $DB->runQuery($sql)[0]; 
+
+       $sql = "INSERT INTO plunk.returngrn(`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `ReturnDate`, `Reason`, `UserID`, `Accepted`) VALUES ('$result[GRNID]','$result[CompanyName]','$result[AddDate]','$result[ItemType]','$_POST[ReturnDate]','$_POST[Reason]','$_SESSION[UserID]','No')";
+       //echo $sql;
+       $DB->runQuery($sql);
+       $sql = "SELECT  `ItemID` FROM plunk.grnitem WHERE GRNID = $_POST[GRNID]";
+       //echo $sql;
+       $result= $DB->runQuery($sql);
+
+       $counter = count($result);
+       $index = 0;
+       
+       while($counter>$index){
+            $id = $result[$index]['ItemID'];
+            $sql2 = "SELECT `GRNID`, `ItemID`, `ItemName`, `Quantity` FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = $id";
+            // echo $sql2;
+            $result2= $DB->runQuery($sql2)[0];
+
+            $sql3 = "INSERT INTO plunk.returngrnitem(`GRNID`, `ItemID`, `ItemName`, `Quantity`) VALUES ('$result2[GRNID]','$result2[ItemID]','$result2[ItemName]','$result2[Quantity]')";
+            // echo $sql3;
+            $DB->runQuery($sql3);
+
+            $index++;
+        }
+
+        $newPage = new Page('../view/grn/requestgrnsuccess.html');
+        $newPage->show();
+
+    } 
+    catch (\Throwable $th) {
+        throw $th;
+
+    }
+
+}
+
 
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
@@ -578,13 +621,43 @@ if(isset($_POST['delete-notification'])){
 
 //---------Add Reservation Menu------------
 
+
 if(isset($_POST['add-reservation'])){
     $DB = new DB;
 
     try {
         if($_POST['Type'] == "Restaurant" || $_POST['Type'] == "Club"){
-            $sql = "INSERT INTO plunk.reservationmenu(`ReservationName`, `Type`, `Cost`, `IsDeleted`) VALUES ('$_POST[ReservationName]','$_POST[Type]','$_POST[Cost]','No')";
+            $sql = "SELECT ReservationName FROM plunk.reservationmenu";
+            $names= $DB->runQuery($sql);
+            $namecount = count($names);
+            $index=0;
+            while($index < $namecount){
+                // print_r($names[$index]['ReservationName']);
+                
+                if($names[$index]['ReservationName'] == $_POST['ReservationName']){
+                    $sql = "SELECT IsDeleted FROM plunk.reservationmenu WHERE ReservationName = '$_POST[ReservationName]'";
+                    $IsDeleted=$DB->runQuery($sql)[0];
+
+                    if($IsDeleted['IsDeleted'] == 'Yes'){
+                        $sql = "UPDATE plunk.reservationmenu SET IsDeleted = 'No', Cost = $_POST[Cost], Type = '$_POST[Type]', Availability = '$_POST[Availability]' WHERE ReservationName = '$_POST[ReservationName]'";
+                        break;
+                    }
+                    else{
+                        echo "No";
+                        $newPage = new Page('../view/reservationmenu/readdingerror.html');
+                        $newPage->show();
+                    }
+                   
+
+                }else{
+
+                    $sql = "INSERT INTO plunk.reservationmenu(`ReservationName`, `Type`, `Cost`,`Availability`, `IsDeleted`) VALUES ('$_POST[ReservationName]','$_POST[Type]','$_POST[Cost]','$_POST[Availability]','No')";  
+
+                }
+                $index++;
+            }
             $DB->runQuery($sql);
+            
             $newPage = new Page('../view/reservationmenu/addreservationsuccess.html');
             $newPage->show();
         }
@@ -592,19 +665,20 @@ if(isset($_POST['add-reservation'])){
             $newPage = new Page('../view/reservationmenu/reservationtypeerror.html');
             $newPage->show();
         }
-
+       
     } catch (\Throwable $th) {
         throw $th;
     }
-
+    
 }
+
 //---------Update Reservation Menu------------
 if(isset($_POST['update-reservation'])){
     $DB = new DB;
 
     try {
         if($_POST['Type'] == "Restaurant" || $_POST['Type'] == "Club" ){
-            $sql = "UPDATE plunk.reservationmenu SET `ReservationName`='$_POST[ReservationName]',`Type`='$_POST[Type]',`Cost`='$_POST[Cost]',`IsDeleted`='No' WHERE `ReservationName`='$_POST[ReservationName]'";
+            $sql = "UPDATE plunk.reservationmenu SET `ReservationName`='$_POST[ReservationName]',`Type`='$_POST[Type]',`Cost`='$_POST[Cost]',`Availability` = '$_POST[Availability]',`IsDeleted`='No' WHERE `ReservationName`='$_POST[ReservationName]'";
             $DB->runQuery($sql);
             $newPage = new Page('../view/reservationmenu/updateresrvationsuccesssuccess.html');
             $newPage->show();
@@ -795,5 +869,25 @@ if (isset($_POST['update-password'])){
         }
 
     }
+    //---------------------------------------------------Leaves-----------------------------------------------------------------------
+    
+    if(isset($_POST['add-leave'])){
+        $DB = new DB;
+
+        try {
+            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason) VALUES ('$_SESSION[UserID]','$_POST[RequestDate]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]')";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            
+            $newPage = new Page('..\view\leave\addleavesuccess.html');
+            $newPage->show();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
+
 ?>
 

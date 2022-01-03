@@ -17,7 +17,28 @@
                     <?php
                         require_once "../../controller/showtable.php";
                         $itemTable = new Table("reservationmenu");
-                        $itemTable->show("SELECT ReservationName AS 'Place Name',Type AS 'Place Type',Cost AS 'Place Cost' FROM plunk.reservationmenu WHERE IsDeleted = 'No'", 'update');
+                        
+                      
+                        if(isset($_GET['name'])){                    
+                          $name = $_GET['name'];
+
+                          if ($_GET['type']=='0'){
+                            $type = '1 OR Type=2';
+                          }
+                          else{
+                            $type = $_GET['type'];
+                          }
+                            
+                          $itemTable->show("SELECT ReservationName AS 'Place Name',Type AS 'Place Type',Cost AS 'Place Cost',Availability AS 'Availability' FROM plunk.reservationmenu WHERE IsDeleted = 'No' AND ReservationName LIKE ('%$name%') AND Type = $type; ", 'update');
+                          
+                        }
+                        
+                        else{
+
+                          $itemTable->show("SELECT ReservationName AS 'Place Name',Type AS 'Place Type',Cost AS 'Place Cost',Availability AS 'Availability' FROM plunk.reservationmenu WHERE IsDeleted = 'No'", 'update');
+                        }
+                        
+                   
                       ?> 
                     </div>
 

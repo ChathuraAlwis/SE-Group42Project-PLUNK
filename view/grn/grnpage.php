@@ -22,19 +22,56 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
+                    <form method="POST" action="grnpage.php">
+                    <input type = "hidden" class = "search" name="companysearch"/>
                     <div >
-                              <input type = "text" class = "search"placeholder="Enter the Company name"/>
+                              <input type = "text" class = "search" id="CompanyName" name="CompanyName" placeholder="Enter the Company name" value="<?php if(isset($_POST['companysearch'])) {echo $_POST['CompanyName'];}?>" />
                   </div>
-                    <div >
-                              <button type = "submit" class = "search" ><b>Search</b></button>
-                        </div>               
+                  <div >
+                        <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
+                              <?php 
+                                    if(isset($_POST['companysearch'])){
+                                          if ($_POST['ItemType']=='0'){
+                                                echo '<option value="0" selected>Item Type: All</option>
+                                                <option value="1">Item Type: Food Items</option>
+                                                <option value="2">Item Type: Beverage Items</option>';
+                                          }elseif ($_POST['ItemType']=='1') {
+                                                echo '<option value="0">Item Type: All</option>
+                                                <option value="1" selected>Item Type: Food Items</option>
+                                                <option value="2">Item Type: Beverage Items</option>';
+                                          }else{
+                                                echo '<option value="0">Item Type: All</option>
+                                                <option value="1">Item Type: Food Items</option>
+                                                <option value="2" selected>Item Type: Beverage Items</option>';
+                                          }
+                                    }
+                                    else{
+                                          echo '<option value="0" selected>Item Type: All</option>
+                                          <option value="1">Item Type: Food Items</option>
+                                          <option value="2">Item Type: Beverage Items</option>';
+                                    }
+                                    ?>
+                        </select>
+                  </div>
+                  <div >
+                        <button type = "submit" class = "search" ><b>Search</b></button>
+                  </div>   
+                  </form>            
                         <div class="addicon">
                               <a href="../grn/addgrn.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>
                     </div>
                     <div class="detailtable">
-
-                        <iframe src="grntable.php" class="staff"></iframe>
+                        <?php
+                              if(isset($_POST['companysearch'])){
+                                    echo '<iframe src="grntable.php?name=' . $_POST['CompanyName'] . '&type='. $_POST['ItemType'] .'" class="staff"></iframe>';
+                              }
+                              else{
+                                    echo '<iframe src="grntable.php" class="staff"></iframe>';
+                              }
+                        
+                        ?>
+                        
                   </div>    
 
                 </div>
