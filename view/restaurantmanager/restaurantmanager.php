@@ -11,6 +11,7 @@
     $page = new Page('../login.php');
     $page->show();
   }
+  
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -24,10 +25,19 @@
         <link rel="stylesheet" href="../style/user.css">
         <script type="text/javascript" src="../script/user.js">  </script>
         <script type="text/javascript" src="../script/usernavbtn.js"> </script>
-       
+        
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="../script/restauranrStatus.js"> </script>
 
   </head>
   <body>
+  <?php
+      require_once "../../model/database.php";
+        $DB = new DB;
+        $query = "SELECT Message FROM plunk.restaurantmessage WHERE Display='Yes'";
+        $result = $DB->runQuery($query)[0];
+        
+    ?>
     <div class="main">
 
           <div class="header" id="myheader">
@@ -36,9 +46,9 @@
                       <div class="menudiv">
                          <a href="rmnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
                      </div>
-                     
-                      
-                  </div>
+                                           
+
+                    </div>
                  
 
                   <div class="middleheader">
@@ -57,20 +67,25 @@
                         // }
                         
                      ?> 
-                         
-            
-                        <marquee class="msg" ><h4 class="classmsg" id ="idmsg" name="dismsg">The restaurant is closed now.</h4></marquee>
-                  
-                  </div>
+                     
+                     
+                     <div id="divmsg">
+                        <!-- <marquee class="msg" ><h4 class="classmsg" id ="idmsg" name="dismsg">The restaurant is closed now.</h4></marquee> -->
+                        <marquee class="msg" ><h4 class="classmsg" id ="idmsg" name="dismsg" ><?php include "resmsgdatabase.php" ?></h4></marquee>
+                        </div>    
+
+                        </div>
 
                   <div class="rightheader">
                     <div class="subrightheader">
                     <div class="dropdown">
                         <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
                         <div class="dropdown-content">
+
                         <a href="../profile/prfileui.php" class="headerdrop" target="Pages"><b>Profile</b></a>
-                         <a type="button"  id="open" name="open" onclick="colorchange()" >Open</a>
+                         <!-- <a type="button"  id="open" name="open" href="changeresstatus.php" onclick="colorchange()">Open</a> -->
                         <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
+                        
                         </div>
                     </div>
                             <h3>Restaurant Manager</h3>
