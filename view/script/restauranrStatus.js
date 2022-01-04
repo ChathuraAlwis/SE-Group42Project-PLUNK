@@ -2,7 +2,7 @@ $(document).ready(
     function() {
         setInterval(function() {
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "resmsgdatabase.php", true);
+            xhr.open("POST", "../restaurantmanager/resmsgdatabase.php", true);
             xhr.onload = function () {
                 
                 $('#idmsg').text(

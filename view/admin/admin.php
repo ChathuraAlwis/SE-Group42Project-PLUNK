@@ -24,6 +24,8 @@
         <link rel="stylesheet" href="../style/user.css">
         <script type="text/javascript" src="../script/user.js"></script>
         <script type="text/javascript" src="../script/usernavbtn.js"> </script>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        <script type="text/javascript" src="../script/restauranrStatus.js"> </script>
 
   </head>
   <body>
@@ -40,7 +42,9 @@
                   <div class="middleheader">
                     <img class="Logo" src="../images/bloomfieldlogo.png" alt="Bloomfield Logo"><br>
                       <h2>Bloomfield C. & A.C.</h2>
-
+                      <div id="divmsg">
+                        <marquee class="msg" ><h4 class="classmsg" id ="idmsg" name="dismsg" ><?php include "../restaurantmanager/resmsgdatabase.php" ?></h4></marquee>
+                        </div> 
                   </div>
 
                   <div class="rightheader">
