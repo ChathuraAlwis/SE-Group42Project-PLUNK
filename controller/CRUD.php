@@ -888,6 +888,50 @@ if (isset($_POST['update-password'])){
         }
 
     }
+   
+//------------------------------------------------Restaurant Message---------------------------------------------------
+
+if(isset($_POST['res-message'])){
+    $DB = new DB;
+
+    try {
+        $sql = "SELECT Display FROM plunk.restaurantmessage WHERE No ='1'";
+        $result = $DB->runQuery($sql)[0];
+        //echo $result['Display'];
+
+        if($result['Display'] == 'Yes'){
+            //echo "open";
+            $sql = "UPDATE plunk.restaurantmessage SET `Display`='No' WHERE No = '1'";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            $sql = "UPDATE plunk.restaurantmessage SET `Display`='Yes' WHERE No = '2'";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            $newPage = new Page('..\view\restaurantmanager\resclosesuccess.php');
+            $newPage->show();
+            
+        }
+        else{
+            //echo "close";
+            $sql = "UPDATE plunk.restaurantmessage SET `Display`='No' WHERE No = '2'";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            $sql = "UPDATE plunk.restaurantmessage SET `Display`='Yes' WHERE No = '1'";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            $newPage = new Page('..\view\restaurantmanager\resopensuccess.php');
+            $newPage->show();
+        }  
+    } 
+    
+    catch (\Throwable $th) {
+        throw $th;
+    }
+}
 
 ?>
 
