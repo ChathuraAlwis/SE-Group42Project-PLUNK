@@ -18,7 +18,7 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $salaryTable = new Table("salary");
-                          $salaryTable->show("SELECT SalaryID as 'Salary ID', Year, Month, WorkingDays as 'No of Working days' FROM plunk.salary ORDER BY SalaryID DESC",'alltable');
+                          $salaryTable->show("SELECT SalaryID as 'Salary ID', Date, WorkingDays as 'No of Working days' FROM plunk.salary",'alltable');
                        ?>
 
                     </div>
