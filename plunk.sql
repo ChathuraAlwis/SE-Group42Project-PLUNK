@@ -464,12 +464,12 @@ CREATE TABLE `leave` (
 --
 
 INSERT INTO `leave` (`UserID`, `RequestedDate`, `LeaveDate`, `LeaveType`, `NoOfdays`, `Reason`, `Accepted`, `ManagerID`) VALUES
-(2, '2021-10-21', '2021-10-24', 'Annual', 1, 'I have to go to my village because my grandmother is not well.', 'No', 4),
+(2, '2021-10-21', '2021-10-24', 'Annual', 1, 'I have to go to my village because my grandmother is not well.', 'No', NULL),
 (3, '2021-10-14', '2021-10-18', 'Annual', 1, 'I have to get the second dose of the covid vaccine. ', 'Yes', 4),
-(3, '2021-12-31', '2022-01-02', '', 2, 'Pruvgfg', 'No', 4),
-(3, '2021-12-31', '2022-01-05', 'Medical', 1, 'gsrgsgd', 'Yes', NULL),
+(3, '2021-12-31', '2022-01-02', '', 2, 'Pruvgfg', 'No', NULL),
+(3, '2021-12-31', '2022-01-05', 'Medical', 1, 'gsrgsgd', 'Yes', 4),
 (3, '2021-12-31', '2022-01-06', 'Annual', 1, 'dfvda', 'No', NULL),
-(3, '2021-12-31', '2022-01-07', 'Medical', 1, 'wrgqrv', 'Yes', NULL),
+(3, '2021-12-31', '2022-01-07', 'Medical', 1, 'wrgqrv', 'Yes', 4),
 (3, '2021-12-31', '2022-01-11', 'Casual', 1, 'wefweg', 'No', NULL),
 (3, '2021-12-31', '2022-01-19', 'Medical', 1, 'efegre', 'No', NULL);
 
