@@ -354,6 +354,7 @@ if(isset($_POST['return-grn'])){
             try {
                 if($_POST['ItemType'] != "Choose type..."){
                     $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[CompanyName]', '$_POST[ItemType]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
+                    //echo $sql;
                     $DB->runQuery($sql);
                     //$sql = "SELECT InvoiceID FROM plunk.invoice;";
                     //$InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
@@ -885,7 +886,7 @@ if (isset($_POST['update-password'])){
         $DB = new DB;
 
         try {
-            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason) VALUES ('$_SESSION[UserID]','$_POST[RequestDate]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]')";
+            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason) VALUES ('$_SESSION[UserID]','$_POST[Date]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]')";
             //echo $sql;
             $DB->runQuery($sql);
 
@@ -942,6 +943,27 @@ if(isset($_POST['res-message'])){
         throw $th;
     }
 }
+
+//---------------------------------------------------Salary-----------------------------------------------------------------------
+    
+if(isset($_POST['add-salary'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.salary(SalaryID,Date,WorkingDays) VALUES ('','$_POST[Date]','$_POST[Days]')";
+        //echo $sql;
+        $DB->runQuery($sql);
+
+        
+        $newPage = new Page('..\view\salary\addsalsuccess.php');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
 
 ?>
 
