@@ -36,16 +36,16 @@
             <tr>
                 <div class="form-group">
                             
-                                <td><label for="RequestDate">Request Date</label></td>
+                                <td><label for="Date">Date</label></td>
                                 
-                                <td><input name ="RequestDate" id="RequestDate" type="date" value="<?php echo date("Y-m-d") ?>" readonly></td>
+                                <td><input name ="Date" id="Date" type="date" value="<?php echo date("Y-m-d") ?>" readonly></td>
                             </tr>
                         </div>
               </tr>
                 
             <tr>
                 <div class="form-group">
-                    <td><label for="LeaveDate">Date</label></td>
+                    <td><label for="LeaveDate"> Request Date</label></td>
                     <td><input type="date" id= "LeaveDate" name="LeaveDate" required class="form-control" min="<?php echo date("Y-m-d") ?>" placeholder="Enter the Date"/></td>
                 </div>
             </tr>
