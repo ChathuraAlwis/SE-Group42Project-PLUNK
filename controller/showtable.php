@@ -15,6 +15,9 @@
 
         function show($sql, $linkPage="none", $getdata="none"){
 
+            //function caller file
+            $callerFile = basename($_SERVER['PHP_SELF']);
+
             //get the returned array with data from database
             $result = $this->DB->runQuery($sql);
             
@@ -24,7 +27,7 @@
             $heading = false; //if table heading has been printed
 
             //start echoing the table
-            echo "<table border=1 width=100% >";
+            echo "<table id=$this->tableName border=1 width=100% >";
 
             //loop for each record
             for ($row=0; $row<$recordCount; $row++) {
@@ -35,7 +38,7 @@
                     //check if heading has been printed
                     if (!$heading){
                         //heading of the table
-                        echo "<th>$column</th>";
+                        echo "<th><a href=$callerFile?OrderBy=$column>$column</a></th>";
                     }
                     else{
                         //prepare data to send through get method for update forms
