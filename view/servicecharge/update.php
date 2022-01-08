@@ -29,7 +29,7 @@
     <div class= left>
     <div class="form">
 			<h2 class="center-text"><b>Service Charge Details</b>
-            <a href="deleteservicesuccess.html"><image src = "../images/bin.png" class="bin"></image></h2>
+            <a href="deleteservicesuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
