@@ -59,8 +59,8 @@ $result = $DB->runQuery($query)[0];
               <input type="text" id="UserName" name="UserName" maxlength="50" value="<?php print_r($result['UserName'])?>" readonly>
           </div><br>
           <div class="forminputbtn">
-            <a href="profileuiedit.php"><button type="button" name="button" class="save"><b>Edit</b></button></a>
-            <a href="change_password.php"><button type="button" name="button" class="save"><b>Change Password</b></button></a>
+            <a href="profileuiedit.php"><button type="button" name="button" class="edit"><b>Edit</b></button></a>
+            <a href="change_password.php"><button type="button" name="button" class="change-pw"><b>Change Password</b></button></a>
           </div>
           </form>
 

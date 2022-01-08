@@ -53,7 +53,7 @@ if (count($_POST) > 0) {
                     <input type="password" name="confirmPassword" class="txtField" required/>
                 </div><br>
                 <div class="forminputbtn">
-                    <button type="submit" name="button" class="save"><b>Update Password</b></button>
+                    <button type="submit" name="button" class="update-pw"><b>Update Password</b></button>
                 </div>
             </form>
         </div>
