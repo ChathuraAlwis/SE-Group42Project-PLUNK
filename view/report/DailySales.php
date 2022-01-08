@@ -16,12 +16,8 @@
             <div class="detailtable">
             <?php
                 require_once "../../controller/showreport.php";
-                $salaryReport = new Report("salaryReport");
-                if($_SESSION['UserType'] == "Accountant" or $_SESSION['UserType'] == "Manager"){
-                  $salaryReport->salaryReport($_GET['start'], $_GET['end'], 0);     
-                }else{
-                  $salaryReport->salaryReport($_GET['start'], $_GET['end']);     
-                }
+                $DailySales = new Report("DailySales");
+                $DailySales->DailySalesReport($_GET['today']);
             ?>
             </div>
 
