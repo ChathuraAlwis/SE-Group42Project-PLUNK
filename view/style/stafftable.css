@@ -92,12 +92,12 @@ h2{
   border-color:#dcdcdc;
   font-size: 1.5vw;
 }
-button.search{ 
+button.search{
   width: 10vw !important;
   background-color: #acacac ;
   margin-right: 5%;
 }
-button.reportsearch{ 
+button.reportsearch{
   width: 10vw !important;
   background-color: #acacac ;
   float: left;
@@ -109,7 +109,7 @@ button.reportsearch{
   font-size: 1.5vw;
 }
 .selecttype{
-  
+
   align-items:  center;
   margin-top: 0.75vw;
   width: 20vw;
@@ -122,6 +122,16 @@ button.reportsearch{
 }
 .addicon{
   width: 3vw;
+  height: 2.5vw;
+  float:right;
+  margin-top: 0.75vw;
+  margin-right: 1%;
+  padding: none;
+  background-color: transparent;
+  border: none;
+}
+.addicon2{
+  width: 40px;
   height: 2.5vw;
   float:right;
   margin-top: 0.75vw;
@@ -218,7 +228,7 @@ td{
   border-style: solid;
   border-width: 1px;
   border-color: #017a7a;
-  
+
 }
 iframe{
 width: 100%;
