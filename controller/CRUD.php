@@ -6,44 +6,54 @@
     //--------------------------------------------------------order--------------------------------------------------------
     if(isset($_POST['add-order'])){
         $DB = new DB;
-        if($_POST['rowCount']!=0){
-            try {
-                $sql = "INSERT INTO plunk.order (OrderDate, OrderTime, OrderPlace, Total, UserID) VALUES ('$_POST[OrderDate]', '$_POST[OrderTime]', '$_POST[OrderPlace]', '$_POST[Total]', '$_SESSION[UserID]');";
-                $DB->runQuery($sql);
-                $sql = "SELECT OrderID FROM plunk.order ORDER BY OrderID ASC;";
-                $OrderID = end($DB->runQuery($sql))['OrderID'];
-                $itemRow = 1;
-                $rowCount = $_POST['rowCount'];
-                while($rowCount > 0){
-                    if(isset($_POST['ItemID' . $itemRow])){
-                        $rowCount--;
-                        $ItemRow = 'ItemID' . $itemRow;
-                        $QuanRow = 'Quantity' . $itemRow;
-                        $sql = "INSERT INTO plunk.orderitem (OrderID, ItemID, Quantity) VALUES ('$OrderID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
-                        $DB->runQuery($sql);
-                        $sql = "UPDATE plunk.item SET Quantity = Quantity - $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
-                        $DB->runQuery($sql);
-                        $sql = "UPDATE plunk.item SET Availability = IF(Quantity<=0, 'No', 'Yes') WHERE ItemID = $_POST[$ItemRow];";
-                        $DB->runQuery($sql);
+        $sql = "SELECT Display FROM plunk.restaurantmessage WHERE No ='1'";
+        $result = $DB->runQuery($sql)[0];
+
+        if($result['Display'] == 'Yes'){
+
+            if($_POST['rowCount']!=0){
+                try {
+                    $sql = "INSERT INTO plunk.order (OrderDate, OrderTime, OrderPlace, Total, UserID) VALUES ('$_POST[OrderDate]', '$_POST[OrderTime]', '$_POST[OrderPlace]', '$_POST[Total]', '$_SESSION[UserID]');";
+                    $DB->runQuery($sql);
+                    $sql = "SELECT OrderID FROM plunk.order ORDER BY OrderID ASC;";
+                    $OrderID = end($DB->runQuery($sql))['OrderID'];
+                    $itemRow = 1;
+                    $rowCount = $_POST['rowCount'];
+                    while($rowCount > 0){
+                        if(isset($_POST['ItemID' . $itemRow])){
+                            $rowCount--;
+                            $ItemRow = 'ItemID' . $itemRow;
+                            $QuanRow = 'Quantity' . $itemRow;
+                            $sql = "INSERT INTO plunk.orderitem (OrderID, ItemID, Quantity) VALUES ('$OrderID', '$_POST[$ItemRow]',  '$_POST[$QuanRow]');";
+                            $DB->runQuery($sql);
+                            $sql = "UPDATE plunk.item SET Quantity = Quantity - $_POST[$QuanRow] WHERE ItemID = $_POST[$ItemRow];";
+                            $DB->runQuery($sql);
+                            $sql = "UPDATE plunk.item SET Availability = IF(Quantity<=0, 'No', 'Yes') WHERE ItemID = $_POST[$ItemRow];";
+                            $DB->runQuery($sql);
+                        }
+                        $itemRow++;
                     }
-                    $itemRow++;
+                    $billPrice = $_POST['BillTotal'];
+                    echo $billPrice;
+                    $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_POST[CustomerName]', '$billPrice', $_POST[Discount], '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
+                    $DB->runQuery($sql);
+                    $sql = "SELECT * FROM plunk.bill ORDER BY BillID DESC LIMIT 1;";
+                    $BillData = $DB->runQuery($sql);
+                    $record = http_build_query(array('record' => $BillData));
+                    $newPage = new Page("../view/bill/add.php?data=$record");
+                    $newPage->show();
+                } catch (\Throwable $th) {
+                    throw $th;
                 }
-                $billPrice = $_POST['BillTotal'];
-                echo $billPrice;
-                $sql = "INSERT INTO plunk.bill (CustomerName, Price, Discount, BillDate, UserID, OrderID) VALUES('$_POST[CustomerName]', '$billPrice', $_POST[Discount], '$_POST[OrderDate]', '$_SESSION[UserID]', $OrderID)";
-                $DB->runQuery($sql);
-                $sql = "SELECT * FROM plunk.bill ORDER BY BillID DESC LIMIT 1;";
-                $BillData = $DB->runQuery($sql);
-                $record = http_build_query(array('record' => $BillData));
-                $newPage = new Page("../view/bill/add.php?data=$record");
-                $newPage->show();
-            } catch (\Throwable $th) {
-                throw $th;
+            }
+            else{
+                echo "<script>alert('Order was Incomplete. Please check again before Adding order.')</script>";
+                // print_r($_COOKIE);
             }
         }
         else{
-            echo "<script>alert('Order was Incomplete. Please check again before Adding order.')</script>";
-            // print_r($_COOKIE);
+            $newPage = new Page("../view/order/ordereror.html");
+            $newPage->show();
         }
     }
 
@@ -344,6 +354,7 @@ if(isset($_POST['return-grn'])){
             try {
                 if($_POST['ItemType'] != "Choose type..."){
                     $sql = "INSERT INTO plunk.invoice (Company, Type, ReceivedDate, DueDate, Total, UserID ) VALUES ('$_POST[CompanyName]', '$_POST[ItemType]', '$_POST[ReceivedDate]', '$_POST[DueDate]', '$_POST[Total]','$_SESSION[UserID]');";
+                    //echo $sql;
                     $DB->runQuery($sql);
                     //$sql = "SELECT InvoiceID FROM plunk.invoice;";
                     //$InvoiceID = end($DB->runQuery($sql))['InvoiceID'];
@@ -888,13 +899,81 @@ if (isset($_POST['update-password'])){
         }
 
     }
+
+   
+//------------------------------------------------Restaurant Message---------------------------------------------------
+
+if(isset($_POST['res-message'])){
+    $DB = new DB;
+
+    try {
+        $sql = "SELECT Display FROM plunk.restaurantmessage WHERE No ='1'";
+        $result = $DB->runQuery($sql)[0];
+        //echo $result['Display'];
+
+        if($result['Display'] == 'Yes'){
+            //echo "open";
+            $sql = "UPDATE plunk.restaurantmessage SET `Display`='No' WHERE No = '1'";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            $sql = "UPDATE plunk.restaurantmessage SET `Display`='Yes' WHERE No = '2'";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            $newPage = new Page('..\view\restaurantmanager\resclosesuccess.php');
+            $newPage->show();
+            
+        }
+        else{
+            //echo "close";
+            $sql = "UPDATE plunk.restaurantmessage SET `Display`='No' WHERE No = '2'";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            $sql = "UPDATE plunk.restaurantmessage SET `Display`='Yes' WHERE No = '1'";
+            //echo $sql;
+            $DB->runQuery($sql);
+
+            $newPage = new Page('..\view\restaurantmanager\resopensuccess.php');
+            $newPage->show();
+        }  
+    } 
+    
+    catch (\Throwable $th) {
+        throw $th;
+    }
+}
+
+//---------------------------------------------------Salary-----------------------------------------------------------------------
+    
+if(isset($_POST['add-salary'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.salary(SalaryID,Date,WorkingDays) VALUES ('','$_POST[Date]','$_POST[Days]')";
+        //echo $sql;
+        $DB->runQuery($sql);
+
+        
+        $newPage = new Page('..\view\salary\addsalsuccess.php');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
     //---------------------------------------------------Leaves-----------------------------------------------------------------------
 
     if(isset($_POST['add-leave'])){
         $DB = new DB;
 
         try {
-            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason,LeaveID) VALUES ('$_SESSION[UserID]','$_POST[RequestDate]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]', '')";
+
+            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason) VALUES ('$_SESSION[UserID]','$_POST[Date]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]')";
+
             //echo $sql;
             $DB->runQuery($sql);
 
@@ -907,9 +986,11 @@ if (isset($_POST['update-password'])){
         }
 
     }
+
 //------------------------give permission for leaves--------------------------
     if(isset($_POST['accept'])){
         $DB = new DB;
+
 
         try {
 

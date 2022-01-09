@@ -19,11 +19,18 @@
                           $billTable = new Table("bill");
                           if(isset($_GET['billsearch'])){
                             $search = $_GET['billsearch'];
-                            $billTable->show("SELECT * FROM plunk.bill WHERE CustomerName LIKE ('%$search%') ORDER BY BillID DESC;");
-                            // $orderTable->show("SEARCH Cus");
+                            $sql = "SELECT * FROM plunk.bill WHERE CustomerName LIKE ('%$search%')";
+                            if(isset($_GET['OrderBy'])){
+                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            }
+                            $billTable->show($sql);
                           }
                           else{
-                            $billTable->show("SELECT * FROM plunk.bill WHERE Paid=1 ORDER BY BillID DESC", "../order/billdetails");
+                            $sql = "SELECT * FROM plunk.bill WHERE Paid=1";
+                            if(isset($_GET['OrderBy'])){
+                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            }
+                            $billTable->show($sql, "../order/billdetails");
                           }
                           
                        ?>

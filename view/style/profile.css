@@ -72,8 +72,6 @@ label{
 
 }
 .forminputbtn{
-  width: 20%;
-  height: 30px;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -87,15 +85,59 @@ label{
   padding: 5px;
   border-radius:4px;
 }
-.save{
+.edit{
+  margin-left: 20%;
+  float: left;
+  width: 15%;
   height: 100%;
-  width: 100%;
   border-radius: 10px;
   border-color:#017a7a;
   background-color:#017a7a;
   color:  #acacac;
   font-size: 1.5vw;
   transition-duration: 1s;
+}
+.change-pw{
+  margin-right: 20%;
+  float: right;
+  height: 100%;
+  width: 30%;
+  border-radius: 10px;
+  border-color:#017a7a;
+  background-color:#017a7a;
+  color:  #acacac;
+  font-size: 1.5vw;
+  transition-duration: 1s;
+}
+.update-pw{
+  float: right;
+  border-radius: 10px;
+  border-color:#017a7a;
+  background-color:#017a7a;
+  color:  #acacac;
+  font-size: 1.5vw;
+  transition-duration: 1s;
+}
+.save{
+  float: right;
+  border-radius: 10px;
+  border-color:#017a7a;
+  background-color:#017a7a;
+  color:  #acacac;
+  font-size: 1.5vw;
+  transition-duration: 1s;
+}
+.edit:hover{
+  background-color: #acacac;
+  color:#017a7a;
+}
+.change-pw:hover{
+  background-color: #acacac;
+  color:#017a7a;
+}
+.update-pw:hover{
+  background-color: #acacac;
+  color:#017a7a;
 }
 .save:hover{
   background-color: #acacac;

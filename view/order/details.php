@@ -18,10 +18,18 @@
                           require_once "../../controller/showtable.php";
                           $orderTable = new Table("order");
                           if($_SESSION['UserType']=="Cashier"){
-                            $orderTable->show("SELECT * FROM plunk.order ORDER BY OrderID DESC");
+                            $sql = "SELECT * FROM plunk.order";
+                            if(isset($_GET['OrderBy'])){
+                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            }
+                            $orderTable->show($sql);
                           }
                           else{
-                            $orderTable->show("SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID] ORDER BY OrderID DESC;", "billdetails");
+                            $sql = "SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID]";
+                            if(isset($_GET['OrderBy'])){
+                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            }
+                            $orderTable->show($sql, "billdetails");
                           }     
                        ?>
 
