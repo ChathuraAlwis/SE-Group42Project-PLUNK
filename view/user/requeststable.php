@@ -16,7 +16,7 @@
                       <?php
                           require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("signup");
-                          $orderTable->show("SELECT SignupID as 'Registration ID', Name, UserType as 'Requested User Type', Email as 'E-mail', ContactNo as 'Contact No', JoinedYear as 'Joined Date' FROM plunk.signup", 'decision');
+                          $orderTable->show("SELECT SignupID as 'Registration ID', Name, UserType as 'Requested User Type', Email as 'E-mail', ContactNo as 'Contact No', JoinedYear as 'Joined Date' FROM plunk.signup WHERE Approval='NoDecision'", 'decision');
                        ?>
 
 
