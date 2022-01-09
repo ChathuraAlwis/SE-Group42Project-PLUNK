@@ -31,7 +31,7 @@
                             <div class="mainpages" id="mainpages">
                               <div class="formbox">
                                 <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-                                  <input name ="joinrequest" type="hidden" >
+                                  <input name ="denied" type="hidden" >
                                   <div class="submain">
                                     <div class="imagebox">
                                       <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" required>
