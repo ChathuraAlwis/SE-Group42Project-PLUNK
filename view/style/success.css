@@ -15,7 +15,7 @@ html,body{
 
 .detailtable{
   width: 50%;
-  height: 60%;
+  height: 70%;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -36,7 +36,7 @@ h3{
 }
 h1{
   font-family: sans-serif;
-  font-size: 4.5vw;
+  font-size: 4vw;
   color: #4aad78;
   text-align: center;
   line-height: 4vw;
@@ -53,6 +53,22 @@ h1{
   border: none;
 
 }
+.btnstyle2, .btnstyle3{
+  width: 20%;
+  height: auto;
+  display: block;
+  border: none;
+}
+.btnstyle2{
+  margin-right: 10%;
+  margin-left: 25%;
+  float:left;
+}
+.btnstyle3{
+  margin-right: 25%;
+  margin-left: auto;
+  float:right;
+}
 button{
 width: 100%;
 font-size: 1.5vw;
@@ -63,6 +79,7 @@ border-width: 3px;
 border-color:#017a7a;
 background-color: #017a7a;
 color: white;
+cursor: pointer;
 }
 a{
   text-decoration: none;
