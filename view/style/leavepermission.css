@@ -85,9 +85,20 @@ button.return{
     background-color: white !important;
     float: right;
 }
+.form-control2{
+  font-size: 1.5vw;
+  width:100%;
+  height: auto;
+  border-radius: 10px;
+
+}
 .form-control{
     font-size: 1.5vw;
     width:100%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
 }
 .form-control i {
 	visibility: hidden;
