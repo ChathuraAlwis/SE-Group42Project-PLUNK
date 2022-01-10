@@ -48,6 +48,10 @@
 
                                     </div><br>
                                     <div class="forminputs">
+                                        <label for="Name"> Sign-up ID</label><br>
+                                        <input type="text" id="SignupID" class="input" name="SignupID" value ="<?php echo "$result[SignupID]";?>" readonly>
+                                    </div>
+                                    <div class="forminputs">
                                         <label for="Name"> Name with initials</label><br>
                                         <input type="text" id="Name" class="input" name="Name" value ="<?php echo "$result[Name]";?>" readonly>
                                     </div>
@@ -77,11 +81,12 @@
                                     </div>
                                     <div class="forminputs">
                                         <label for="Name"> User Name</label><br>
-                                        <input type="text" id="UserName" class="input" name="Username" onchange='<?php echo 'checkUserName('. $result .')';?>' required>
+                                        <input type="text" id="UserName" class="input" name="UserName" onchange='<?php echo 'checkUserName('. $result .')';?>' required>
                                     </div>
                                     <div class="forminputs">
                                         <label for="Name"> Password</label><br>
-                                        <input type="text" id="Password" class="input" name="Password"  required>
+                                        <input type="text" id="Password" class="input" name="Password"><br>
+                                        <p class="detail">Password is optional. If you doesn't enter it, Display ID will work as a password</p>
                                     </div>
                                     <div class="forminputs">
                                         <label for="DisplayID"> Display ID</label><br>
@@ -91,7 +96,7 @@
 
 
                                     <div class="formbtn">
-                                      <button type="submit"  id="add" class="add" name="button" ><a href="testmail.php" class="btnlink"> Approve<a></button>
+                                      <button type="submit"  id="add" class="add" name="button" > Approve</button>
                                       <button type="reset" id="reset" class="add" name="button">Reset</button>
                                     </div>
 

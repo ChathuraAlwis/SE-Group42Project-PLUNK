@@ -7,7 +7,7 @@ html, body{
 }
 
 .main{
-  width: 80%;
+  width: 90%;
   height:80%;
   display: block;
   margin-left: auto;
@@ -35,9 +35,10 @@ h2{
   line-height: 2.5vw;
 }
 .addbooking{
-  width: 60%;
+  width: 50%;
   height: auto;
-  margin-left: auto;
+  float: left;
+  margin-left: none;
   margin-right: auto;
   display: block;
   padding-top: 4%;
@@ -50,6 +51,28 @@ h2{
   color: Black;
   font-family: sans-serif;
   font-size: 1.7vw;
+}
+.resevationtable{
+ float:right;
+ width: 40%;
+ height: auto;
+ border-radius: 10px;
+ background-color:#017a7a;
+color: Black;
+font-family: sans-serif;
+
+
+}
+.reservationmenu{
+  border-radius: 10px;
+  border-width: 0;
+  padding: 3px;
+  width: 98%;
+  height: 98%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
 }
 .headerrow{
   width: 100%;
@@ -84,12 +107,15 @@ h2{
 
 }
 #today{
-  width: 90%;
+  width: 80%;
+  border:none;
+}
+#type{
   border:none;
 }
 input{
   float: right;
-  width: 74%;
+  width: 65%;
   font-size: 1.5vw;
   border-top: 0;
   border-bottom-width: 2px;
@@ -100,14 +126,9 @@ input{
   color:#495057;
   background-color: transparent;
 }
-select{
-  width: 74%;
-  font-size: 1.5vw;
-  text-align: center;
-  float:right;
-}
+
 .line3{
-  width: 50%;
+  width: 70%;
   height: 15%;
 
   margin-left: auto;
@@ -130,6 +151,48 @@ select{
 }
 #reset{
   float: right;
+}
+.ReservationMenu{
+  text-align: center;
+  color: white;
+  font-size: 2vw;
+}
+#table{
+  width: 95%;
+  height: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+th{
+  font-size: 1.5vw;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #017a7a;
+  background-color: white;
+  text-align: center;
+}
+th:first-child,td:first-child{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+th:last-child,td:last-child{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+td{
+  font-size: 1.2vw;
+  border-collapse: collapse;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #017a7a;
+  text-align: center;
+  cursor: pointer;
 }
 @media only screen and (max-width: 720px) {
   /* For mobile phones: */

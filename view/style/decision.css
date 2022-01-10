@@ -59,7 +59,7 @@ a{
 /* for APPROVE PHP */
 .formbox2{
   width: 65%;
-  height: 120%;
+  height: auto;
   background-color: white;
   border-radius: 20px;
   margin-left: auto;
@@ -71,6 +71,11 @@ a{
   padding-top: 20px;
   padding-right: 30px;
   padding-bottom: 20px;
+}
+.detail{
+  color: red;
+  font-size: 0.9vw;
+  text-align: left;
 }
 /* END */
 .input{

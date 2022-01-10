@@ -16,20 +16,27 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>Bookings</h2>
+                    <h2>Club and cricket Bookings</h2>
               </div>
-            </div>
+            </div><br>
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Search..." >
+                        <form class="searchbar" action="clubbookingui.php" method="post">
+                          <input type="hidden" name="clubsearch" >
+                          <input type="text" name="search" class="search" placeholder="Search..." value="<?php if(isset($_POST['clubsearch'])) {echo $_POST['CustomerName'];}?>"> 
+
+                                <button type = "submit" class = "searchbtn" ><b>Search</b></button>
+
+                        </form>
+
                           <div class="addicon">
-                                <a href="..\bookings\addbooking.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                                <a href="..\bookings\addcricketbooking.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
                     </div>
                     <div class="detailtable">
 
-                            <iframe src="../bookings/bookingtable.php" class="staff"></iframe>
+                            <iframe src="..\bookings\gmclubbookingtable.php" class="staff"></iframe>
                     </div>
 
                 </div>
