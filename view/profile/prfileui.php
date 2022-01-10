@@ -27,7 +27,13 @@ $result = $DB->runQuery($query)[0];
           <div class="imagebox">
             <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
             
-            <?php echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';?>
+            <?php 
+            if($result['ProfilePic'] != NULL){
+              echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';
+            }else{
+              echo '<img id="output" src="../images/profile.png" alt="profile icon">';
+            }
+            ?>
 
           </div><br>
           <div class="forminputs">
