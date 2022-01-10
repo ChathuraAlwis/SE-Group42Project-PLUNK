@@ -252,22 +252,22 @@ if(isset($_POST['add-grn'])){
 
     try {
         if($_POST['ItemType'] != "Choose type..."  || $_POST['CompanyName'] != "Not Selected"){
-            
-            $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";               
+
+            $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";
             //echo $sql;
             // $DB->runQuery($sql);
-            
+
             $rowCount = $_POST['rowCount'];
             // echo $rowCount;
             if($rowCount == 0){
                 $newPage = new Page('../view/grn/addgrnitemserror.html');
-                $newPage->show(); 
+                $newPage->show();
             }
             else{
-               $DB->runQuery($sql1); 
+               $DB->runQuery($sql1);
                $sql = "SELECT GRNID FROM plunk.grn;";
                $GRNID = end($DB->runQuery($sql))['GRNID'];
-               $GRNRow = 1; 
+               $GRNRow = 1;
             }
             while($rowCount > 0){
                 if(isset($_POST['ItemID' . $GRNRow])){
@@ -286,10 +286,10 @@ if(isset($_POST['add-grn'])){
                     $DB->runQuery($sql);
                 }
                 $GRNRow++;
-            } 
+            }
             $newPage = new Page('../view/grn/addgrnsuccess.html');
-            $newPage->show(); 
-            
+            $newPage->show();
+
         }
         else{
             $newPage = new Page('../view/grn/invoiceerror.html');
@@ -309,7 +309,7 @@ if(isset($_POST['return-grn'])){
 
     try {
        $sql = "SELECT * FROM plunk.grn WHERE GRNID = $_POST[GRNID]";
-       $result = $DB->runQuery($sql)[0]; 
+       $result = $DB->runQuery($sql)[0];
 
        $sql = "INSERT INTO plunk.returngrn(`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `ReturnDate`, `Reason`, `UserID`, `Accepted`) VALUES ('$result[GRNID]','$result[CompanyName]','$result[AddDate]','$result[ItemType]','$_POST[ReturnDate]','$_POST[Reason]','$_SESSION[UserID]','No')";
        //echo $sql;
@@ -320,7 +320,7 @@ if(isset($_POST['return-grn'])){
 
        $counter = count($result);
        $index = 0;
-       
+
        while($counter>$index){
             $id = $result[$index]['ItemID'];
             $sql2 = "SELECT `GRNID`, `ItemID`, `ItemName`, `Quantity` FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = $id";
@@ -337,7 +337,7 @@ if(isset($_POST['return-grn'])){
         $newPage = new Page('../view/grn/requestgrnsuccess.html');
         $newPage->show();
 
-    } 
+    }
     catch (\Throwable $th) {
         throw $th;
 
@@ -461,33 +461,52 @@ if(isset($_POST['joinrequest'])){
         throw $th;
     }
 }
-// if (isset($_POST['sendmail'])) {
-//     // $fromEmail = $_POST['from'];
-//     // $toEmail = $_POST['to'];
-//     // $subjectName = $_POST['subject'];
-//     // $message = $_POST['message'];
-//
-//     error_reporting( E_ALL );
-//     $from = $_POST['from'];
-//     $to = $_POST['to'];
-//     $subject = $_POST['subject'];
-//     $message = $_POST['message'];
-//     $headers = "From:" . $from;
-//     if(mail($to,$subject,$message, $headers)) {
-// 		echo "The email message was sent.";
-//     } else {
-//     	echo "The email message was not sent.";
-//     }
-    // $to = $toEmail;
-    // $subject = $subjectName;
-    // $headers = "MIME-Version: 1.0" . "\r\n";
-    // $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    // $headers .= 'From: '.$fromEmail.'<'.$fromEmail.'>' . "\r\n".'Reply-To: '.$fromEmail."\r\n" . 'X-Mailer: PHP/' . phpversion();
-    //
-    // mail("$to", "$subject", "$message");
-    //
-    // echo '<script>alert("Email sent successfully !")</script>';
-    // echo '<script>window.location.href="mail.php";</script>';
+//-------------give approve for requests---------------
+if(isset($_POST['give-approve'])){
+    $DB = new DB;
+    $pw="$_POST[Password]";
+    $day = date("Y-m-d");
+    if (is_null($pw)) {
+      $pw="$_POST[DisplayID]";
+    }
+
+    try {
+        $sql = "UPDATE plunk.signup SET UserName='$_POST[UserName]', Password='$pw',DisplayID='$_POST[DisplayID]',JoinedYear='$day', Approval='Yes' WHERE SignupID='$_POST[SignupID]'";
+        $DB->runQuery($sql);
+
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+    $hashedpassword = Password_hash("$pw", PASSWORD_BCRYPT);
+
+    try {
+          $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$hashedpassword', '$_POST[Email]', '$_POST[ContactNo]','$day','$_POST[DisplayID]','$_POST[UserType]')";
+         $DB->runQuery($sql);
+         $newPage = new Page('..\view\user\approvalsuccess.html');
+         $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+//------------------request denied-------------------------
+if(isset($_POST['denied'])){
+    $DB = new DB;
+
+
+    try {
+        $sql = "UPDATE plunk.signup SET Reason='$_POST[Reason]', Approval='No' WHERE SignupID='$_POST[SignupID]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('..\view\user\approvaldenied.html');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
 
 //---------------------Add, update and delete user--------------------------
 if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
@@ -644,7 +663,7 @@ if(isset($_POST['add-reservation'])){
             $index=0;
             while($index < $namecount){
                 // print_r($names[$index]['ReservationName']);
-                
+
                 if($names[$index]['ReservationName'] == $_POST['ReservationName']){
                     $sql = "SELECT IsDeleted FROM plunk.reservationmenu WHERE ReservationName = '$_POST[ReservationName]'";
                     $IsDeleted=$DB->runQuery($sql)[0];
@@ -658,17 +677,17 @@ if(isset($_POST['add-reservation'])){
                         $newPage = new Page('../view/reservationmenu/readdingerror.html');
                         $newPage->show();
                     }
-                   
+
 
                 }else{
 
-                    $sql = "INSERT INTO plunk.reservationmenu(`ReservationName`, `Type`, `Cost`,`Availability`, `IsDeleted`) VALUES ('$_POST[ReservationName]','$_POST[Type]','$_POST[Cost]','$_POST[Availability]','No')";  
+                    $sql = "INSERT INTO plunk.reservationmenu(`ReservationName`, `Type`, `Cost`,`Availability`, `IsDeleted`) VALUES ('$_POST[ReservationName]','$_POST[Type]','$_POST[Cost]','$_POST[Availability]','No')";
 
                 }
                 $index++;
             }
             $DB->runQuery($sql);
-            
+
             $newPage = new Page('../view/reservationmenu/addreservationsuccess.html');
             $newPage->show();
         }
@@ -676,11 +695,11 @@ if(isset($_POST['add-reservation'])){
             $newPage = new Page('../view/reservationmenu/reservationtypeerror.html');
             $newPage->show();
         }
-       
+
     } catch (\Throwable $th) {
         throw $th;
     }
-    
+
 }
 
 //---------Update Reservation Menu------------
@@ -880,25 +899,7 @@ if (isset($_POST['update-password'])){
         }
 
     }
-    //---------------------------------------------------Leaves-----------------------------------------------------------------------
-    
-    if(isset($_POST['add-leave'])){
-        $DB = new DB;
 
-        try {
-            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason) VALUES ('$_SESSION[UserID]','$_POST[Date]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]')";
-            //echo $sql;
-            $DB->runQuery($sql);
-
-            
-            $newPage = new Page('..\view\leave\addleavesuccess.html');
-            $newPage->show();
-
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-
-    }
    
 //------------------------------------------------Restaurant Message---------------------------------------------------
 
@@ -964,6 +965,75 @@ if(isset($_POST['add-salary'])){
 
 }
 
+    //---------------------------------------------------Leaves-----------------------------------------------------------------------
 
+    if(isset($_POST['add-leave'])){
+        $DB = new DB;
+
+        try {
+
+            $sql = "INSERT INTO plunk.leave(UserID,RequestedDate,LeaveDate,LeaveType,NoOfdays,Reason) VALUES ('$_SESSION[UserID]','$_POST[Date]','$_POST[LeaveDate]','$_POST[Type]','$_POST[NoOfdays]','$_POST[Reason]')";
+
+            //echo $sql;
+            $DB->runQuery($sql);
+
+
+            $newPage = new Page('..\view\leave\addleavesuccess.html');
+            $newPage->show();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
+
+//------------------------give permission for leaves--------------------------
+    if(isset($_POST['accept'])){
+        $DB = new DB;
+
+
+        try {
+
+            $sql = "UPDATE plunk.leave SET Accepted='Yes' WHERE UserID='$_POST[UserID]' AND LeaveDate='$_POST[LeaveDate]' ";
+            $DB->runQuery($sql);
+
+            $newPage = new Page('..\view\leave\accepted.html');
+            $newPage->show();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
+    }
+    elseif (isset($_POST['deny'])) {
+      $DB = new DB;
+
+      try {
+
+          $sql = "UPDATE plunk.leave SET Accepted='No' WHERE UserID='$_POST[UserID]' AND LeaveDate='$_POST[LeaveDate]' ";
+          $DB->runQuery($sql);
+
+          $newPage = new Page('..\view\leave\denied.html');
+          $newPage->show();
+
+      } catch (\Throwable $th) {
+          throw $th;
+      }
+    }
+//--------------------------------------------------------Booking---------------------------------------------------------------------------------
+if(isset($_POST['addbook'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.booking (BookingID,CustomerName,BookingType,Reservation,NoOfPeople,ReservedDate,ReservedTime,EndTime,CreatedDate,LastModifiedDate,ContactNo,Total,UserID) VALUES ('','$_POST[CustomerName]','$_POST[BookingType]','$_POST[Reservation]','$_POST[NoOfPeaople]','$_POST[ReservedDate]','$_POST[ReservedTime]','$_POST[EndTime]','$_POST[CreatedDate]','$_POST[CreatedDate]','$_POST[ContactNo]','$_POST[Total]','$_POST[UserID]')";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\bookings\addbookingsuccess.html');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
 ?>
-

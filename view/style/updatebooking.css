@@ -7,7 +7,7 @@ html, body{
 }
 
 .main{
-  width: 80%;
+  width: 92%;
   height:80%;
   display: block;
   margin-left: auto;
@@ -35,9 +35,10 @@ h2{
   line-height: 2.5vw;
 }
 .addbooking{
-  width: 65%;
+  width: 55%;
   height: auto;
-  margin-left: auto;
+  float: left;
+  margin-left: none;
   margin-right: auto;
   display: block;
   padding-top: 4%;
@@ -108,6 +109,12 @@ h2{
   border: none;
   background-color: transparent;
 }
+.type{
+  width: 20%;
+  font-size: 1.5vw;
+  border: none;
+  background-color: transparent;
+}
 .qtype1{
   float: right;
 }
@@ -116,7 +123,7 @@ h2{
   float: right;
 }
 .qtype3{
-  width: 48%;
+  width: 45%;
 }
 .bookingiddiv{
   float: left;
@@ -200,6 +207,59 @@ select{
 }
 .qtype6{
   width: 48%;
+}
+.resevationtable{
+ float:right;
+ width: 35%;
+ height: auto;
+ border-radius: 10px;
+ background-color:#017a7a;
+color: Black;
+font-family: sans-serif;
+
+
+}
+.ReservationMenu{
+  text-align: center;
+  color: white;
+  font-size: 2vw;
+}
+#table{
+  width: 95%;
+  height: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+}
+th{
+  font-size: 1.5vw;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #017a7a;
+  background-color: white;
+  text-align: center;
+}
+th:first-child,td:first-child{
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+th:last-child,td:last-child{
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+td{
+  font-size: 1.2vw;
+  border-collapse: collapse;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #017a7a;
+  text-align: center;
+  cursor: pointer;
 }
 @media only screen and (max-width: 720px) {
   /* For mobile phones: */

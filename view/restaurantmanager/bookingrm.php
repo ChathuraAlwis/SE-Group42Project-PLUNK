@@ -13,13 +13,13 @@
         <div class="main" >
 
                     <div class="detailtable">
-                    
+
                     <?php
                         require_once "../../controller/showtable.php";
                         $reorderTable = new Table("booking");
                         $day =  date("Y-m-d");
-                        $reorderTable->show("SELECT CustomerName AS 'Customer Name',ReservationName AS 'Reservation Name',ReservedDate AS 'Reserved Date',ReservedTime AS 'ReservedTime' from plunk.booking b , plunk.bookingreservation r where r.BookingID = b.BookingID and b.BookingType ='Restaurant' and ReservedDate >= '$day'; ");
-                      ?> 
+                        $reorderTable->show("SELECT CustomerName AS 'Customer Name',Reservation ,ReservedDate AS 'Reserved Date',ReservedTime AS 'ReservedTime', NoOfPeople AS 'No of Peaple' from plunk.booking where BookingType in ('Restaurant') and ReservedDate >= '$day' ");
+                      ?>
                     </div>
 
                 </div>

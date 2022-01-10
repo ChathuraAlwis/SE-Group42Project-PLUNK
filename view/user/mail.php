@@ -14,32 +14,56 @@
 
   </head>
   <body>
-
     <?php
-    $status='';
-
+    require '..\..\library\vendor\autoload.php';
+    require "..\..\controller\pages.php";
+    require_once "..\..\model\database.php";
+    // $API_KEY = "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"; //dalana
+      $API_KEY ="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";
     if (isset($_POST['sendmail'])) {
-      $to = 'shandilranga62@gmail.com';
-      $from= $_POST['to'];
-      $subject = $_POST['subject'];
-      $body = $_POST['message'];
 
-      $email_body   = "Message from Bloomfield cricket club: <br>";
-  		$email_body   .= "<b>Subject:</b> {$subject} <br>";
-  		$email_body   .= "<b>Message:</b><br>" . nl2br(strip_tags($body));
-      $header       = "From: {$from}\r\nContent-Type: text/html;";
+      $name = $_POST['Name'];
+      $email_id = $_POST['to'];
+      $subject = $_POST['Subject'];
+      $massage = $_POST['message'];
 
-      $send_mail_result= mail($to, $subject, $email_body, $headers);
 
-      if ( $send_mail_result ) {
-			$status= '<p class= success>Message Sent</p>';
-		} else {
-				$status= '<p class= error>Message Error</p>';
-		}
-  }
+      $email = new \SendGrid\Mail\Mail();
+      $email->setFrom("shandilranga61@gmail.com", "shan dilranga");
+      $email->setSubject($subject);
+      $email->addTo($email_id, $name);
+      $email->addContent("text/plain", $massage);
+
+
+      //for update sign up table
+      try {
+          $sql = "UPDATE plunk.signup SET Approval='Emailed' WHERE SignupID='$_POST[SignupID]'";
+          $DB->runQuery($sql);
+
+
+      } catch (\Throwable $th) {
+          throw $th;
+      }
+      $sendgrid = new \SendGrid($API_KEY);
+      if ($sendgrid->send($email)) {
+        $newPage = new Page('mailsuccess.html');
+        $newPage->show();
+      }
+      // try {
+      //     $response = $sendgrid->send($email);
+      //     print $response->statusCode() . "\n";
+      //     print_r($response->headers());
+      //     print $response->body() . "\n";
+      // } catch (Exception $e) {
+      //     echo 'Caught exception: '. $e->getMessage() ."\n";
+      // }
+    }
 
 ?>
+
+
     <div class="main">
+
               <div class="mailheader">
                 <h2>Mail Box</h2>
 
@@ -51,40 +75,164 @@
                             <div class="mainpage3" id="mainpages">
                               <div class="formbox">
                                 <form class="adduser" action="mail.php" method="post" autocomplete="on" >
-                                  <!-- <input name ="sendmail" type="hidden" > -->
+
                                   <div class="submain">
-                                    <!-- <div class="forminputs">
-                                        <label for="from"><b>From :</b></label>
-                                        <input type="email" name="from" class="input" value="shandilranga61@gmail.com">
-                                    </div> -->
+                                    <input type="hidden" name="SignupID" id="SignupID">
                                     <div class="forminputs">
-                                        <label for="to"><b>To :</b></label>
-                                        <input type="email" name="to" class="input" value="">
+                                        <label for="Name"><b>Name :</b></label>
+                                        <input type="text" name="Name" class="input" id="Name" required>
                                     </div>
                                     <div class="forminputs">
-                                        <label for="subject"><b>Subject :</b></label>
-                                        <input type="text" name="subject" class="input" value="">
+                                        <label for="to"><b>To :</b></label>
+                                        <input type="email" name="to" class="input" id="Email" required>
+                                    </div>
+                                    <div class="forminputs">
+                                        <label for="Subject"><b>Subject :</b></label>
+                                        <input type="text" name="Subject" class="input" id="Subject" required>
                                     </div>
                                     <div class="forminput2">
                                         <label for="message"><b>Message :</b></label><br><br>
-                                        <textarea name="message" class="msg" rows="10" cols="60"></textarea>
+                                        <textarea class="msg" name="message" rows="8" cols="50" id="message" required></textarea>
                                     </div><br>
 
 
                                     <div class="formbtn">
                                       <button type="submit"  id="sent" class="add" name="sendmail" >Sent</button>
-                                      <button type="reset" id="deny" class="add" name="button"><a href="" class="btnlink">Reset</a></button>
+                                      <button type="reset" id="deny" class="add" name="button">Reset</button>
                                     </div>
 
                                   </div>
                                 </form>
 
                               </div>
+                              <div class="tablediv">
+                                <div class="resevationtable">
+                                  <h3 class="ReservationMenu">Approved Member Requestes</h3>
+                                  <table id="table" >
+                                    <tr>
+                                      <th>Sign-up ID</th>
+                                      <th>Name</th>
+                                      <th>Email</th>
+                                      <th>UserName</th>
+                                      <th>Password</th>
+                                      <th>DisplayID</th>
+
+                                    </tr>
+
+                                  <?php
+                                  require '..\..\model\bookingdatabaseconnection.php';
+                    // C:\xampp\htdocs\project\SE-Group42Project-PLUNK\model\bookingdatabaseconnection.php
+                                  $records = mysqli_query($conn,"SELECT * FROM plunk.signup WHERE Approval ='Yes'");
+                                  while($data = mysqli_fetch_array($records))
+                                  {
+                                  ?>
+                                    <tr>
+                                      <td><?php echo $data['SignupID']; ?></td>
+                                      <td><?php echo $data['Name']; ?></td>
+                                      <td><?php echo $data['Email']; ?></td>
+                                      <td><?php echo $data['UserName']; ?></td>
+                                      <td><?php echo $data['Password']; ?></td>
+                                      <td><?php echo $data['DisplayID']; ?></td>
+
+
+                                    </tr>
+                                  <?php
+                                  }
+                                  ?>
+                                  </table>
+
+                                  <?php mysqli_close($conn); // Close connection ?>
+                                  <script>
+
+                                                  var table = document.getElementById('table');
+                                                  var msg=" Hello, Your Request has accepted by the bllomfield Management.";
+                                                  for(var i = 1; i < table.rows.length; i++)
+                                                  {
+                                                      table.rows[i].onclick = function()
+                                                      {
+                                                           //rIndex = this.rowIndex;
+                                                           document.getElementById("SignupID").value = this.cells[0].innerHTML;
+                                                           document.getElementById("Name").value = this.cells[1].innerHTML;
+                                                           document.getElementById("Email").value = this.cells[2].innerHTML;
+                                                           document.getElementById("message").value =msg+"User Name :"+ this.cells[3].innerHTML+" "+"Password :"+this.cells[4].innerHTML+" "+"Member ID :"+this.cells[5].innerHTML;
+                                                           // document.getElementById("message").value = this.cells[3].innerHTML;
+
+
+                                                      };
+                                                  }
+
+                                           </script>
+
+
+                                </div><br><br>
+                                <div class="resevationtable2">
+                                  <h3 class="ReservationMenu">Denied Member Requestes</h3>
+                                  <table id="table" >
+                                    <tr>
+                                      <th>Sign-up ID</th>
+                                      <th>Name</th>
+                                      <th>Email</th>
+                                      <th>Reason</th>
+
+
+                                    </tr>
+
+                                  <?php
+                                  require '..\..\model\bookingdatabaseconnection.php';
+                    // C:\xampp\htdocs\project\SE-Group42Project-PLUNK\model\bookingdatabaseconnection.php
+                                  $records = mysqli_query($conn,"SELECT * FROM plunk.signup WHERE Approval ='No'");
+                                  while($data = mysqli_fetch_array($records))
+                                  {
+                                  ?>
+                                    <tr>
+                                      <td><?php echo $data['SignupID']; ?></td>
+                                      <td><?php echo $data['Name']; ?></td>
+                                      <td><?php echo $data['Email']; ?></td>
+                                      <td><?php echo $data['Reason']; ?></td>
+
+
+
+                                    </tr>
+                                  <?php
+                                  }
+                                  ?>
+                                  </table>
+
+                                  <?php mysqli_close($conn); // Close connection ?>
+                                  <script>
+
+                                                  var table = document.getElementById('table');
+                                                  var msg=" Hello, Your Request has denied by the bllomfield Management.";
+                                                  for(var i = 1; i < table.rows.length; i++)
+                                                  {
+                                                      table.rows[i].onclick = function()
+                                                      {
+                                                           //rIndex = this.rowIndex;
+                                                           document.getElementById("SignupID").value = this.cells[0].innerHTML;
+                                                           document.getElementById("Name").value = this.cells[1].innerHTML;
+                                                           document.getElementById("Email").value = this.cells[2].innerHTML;
+                                                           document.getElementById("message").value =msg+" "+"Reason is :" +this.cells[3].innerHTML;
+                                                           // document.getElementById("message").value = this.cells[3].innerHTML;
+
+
+                                                      };
+                                                  }
+
+                                           </script>
+
+
+                                </div>
+
+                              </div>
+
 
 
                             </div>
+
+
                   </div>
             </div>
+
 
       </body>
 </html>

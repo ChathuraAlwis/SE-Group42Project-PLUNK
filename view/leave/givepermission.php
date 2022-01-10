@@ -22,31 +22,32 @@
     <div class="main">
       <div class= "left">
     <div class="form">
-        <h2 class="center-text"><b>Leave</b></h2>
+        <h2 class="center-text"><b>Permission for Leave</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-          <input name ="add-leave" type="hidden" >
+
+
           <div class="form-group">
-              <td><label for="LeaveDate">User ID</label></td>
-              <td><input type="date" id= "LeaveDate" name="LeaveDate"  class="form-control" readonly></td>
+              <td><label for="UserID">User ID</label></td>
+              <td><input type="text" id= "LeaveDate" name="UserID"  class="form-control" value="<?php echo ($result['UserID']); ?>" readonly></td>
           </div><br>
                 <div class="form-group">
-                    <td><label for="LeaveDate">Requested Date</label></td>
-                    <td><input type="date" id= "LeaveDate" name="LeaveDate"  class="form-control" readonly ></td>
+                    <td><label for="RequestedDate">Requested Date</label></td>
+                    <td><input type="date" id= "LeaveDate" name="RequestedDate"  class="form-control" value="<?php echo ($result['RequestedDate']); ?>" readonly ></td>
                 </div><br>
                 <div class="form-group">
                     <td><label for="LeaveDate">Leave Date</label></td>
-                    <td><input type="date" id= "LeaveDate" name="LeaveDate"   class="form-control" readonly></td>
+                    <td><input type="date" id= "LeaveDate" name="LeaveDate"   class="form-control" value="<?php echo ($result['LeaveDate']); ?>" readonly></td>
                 </div><br>
 
 
                 <div class="form-group">
                     <td><label for="Reason">Reason</label></td>
-                    <td><textarea id= "Reason" name="Reason"   class="form-control" placeholder="Enter the Reason" readonly></textarea></td>
+                    <td><textarea id= "Reason" name="Reason"   class="form-control2" placeholder="Enter the Reason" readonly><?php echo ($result['Reason']); ?></textarea></td>
                 </div><br>
 
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit" ><a href="..\leave\accepted.html">Accept</a> </button>
-                    <button type="submit" name="cancel" value="cancel" class="button submit"><a href="..\leave\denied.html">Deny</a></button>
+                    <button type="submit" name="accept"  class="button submit" >Accept </button>
+                    <button type="submit" name="deny"  class="button submit">Deny</button>
                 </div>
         </form>
       </div>

@@ -20,12 +20,11 @@
                           if($_SESSION['UserType'] == 'Accountant'){
                             $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as 'Customer Name', ContactNo as 'Contact No',Reservation1 as 'Reservation 1',Reservation2 as 'Reservation 2', Total as 'Total Payment' FROM plunk.booking");
                           }
-                          elseif ($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'HL Member') {
+                          else ($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'HL Member') {
                             $bookingTable->show("SELECT BookingID as 'ID', BookingType as 'Booking Type',  Reservation1 as 'Reservation 1',Reservation2 as 'Reservation 2', NoOfPeople as 'No. Of People', ReservedDate as Date, ReservedTime as 'From', EndTime as 'To', Total as Payment FROM plunk.booking WHERE UserID=$_SESSION[UserID]  order by BookingID desc" , 'updatecm');
                           }
-                          else{
-                            $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name, BookingType as 'Booking Type',ReservedDate as 'Reserved Date',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking  order by BookingID desc", 'update');
-                          }
+
+
                        ?>
 
 
