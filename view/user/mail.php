@@ -18,7 +18,7 @@
     require '..\..\library\vendor\autoload.php';
     require "..\..\controller\pages.php";
     require_once "..\..\model\database.php";
-    // $API_KEY = "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"; //dalana
+    
       $API_KEY ="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";
     if (isset($_POST['sendmail'])) {
 
