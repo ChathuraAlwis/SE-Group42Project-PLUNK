@@ -11,6 +11,13 @@
     $page = new Page('../login.php');
     $page->show();
   }
+  require_once "../../model/database.php";
+  $DB = new DB;
+  $query = "SELECT * FROM plunk.user WHERE UserID=$_SESSION[UserID]";
+  $result = $DB->runQuery($query)[0];
+  if($result['ProfilePic'] != NULL){
+    $picture = base64_encode($result['ProfilePic']);
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -50,7 +57,21 @@
                   <div class="rightheader">
                     <div class="subrightheader">
                     <div class="dropdown">
-                        <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
+                        <button class="dropbtn">
+                          <?php 
+                          if(isset($picture)){
+                            echo '<div class="imagebox">
+                              <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;">
+                              
+                              <img id="profilePic" alt="No Profile Picture" src="data:image/jpeg;base64,'.$picture.'"/>
+  
+                            </div>';
+                            
+                          }else{
+                            echo '<img class="profileicon" src="../images/profile.png" alt="profile icon">';
+                          }
+                          ?>
+                        </button>
                         <div class="dropdown-content">
                         <a href="..\profile\prfileui.php" class="headerdrop" target="Pages"><b>Profile</b></a>
                         <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
