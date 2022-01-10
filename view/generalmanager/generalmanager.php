@@ -52,7 +52,7 @@
                       <div class="dropdown">
                           <button class="dropbtn"><img class="profileicon"src="../images/profile.png" alt="profile icon"></button>
                           <div class="dropdown-content">
-                          <a href="..\profile\prfileui.html" class="headerdrop" target="Pages"><b>Profile</b></a>
+                          <a href="..\profile\prfileui.php" class="headerdrop" target="Pages"><b>Profile</b></a>
                           <a href="../logout.php" class="headerdrop"><b>Logout</b></a>
                           </div>
                       </div>
