@@ -20,38 +20,16 @@
                 <table>
                     <tr>
                         <div class="form-group">
-                            <td><label for="Year">Year</label></td>
-                            <td></td>
-                            <td><input type="number" id= "Year" name="Year" required class="form-control" placeholder="Enter the Year"/></td>
+                        <td><label for="Date">Date</label></td>
+                    <td><input type="date" id= "Date" name="Date" required class="form-control" min="<?php echo date("Y-m-d") ?>" placeholder="Enter the Date"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
-                <tr>
-                <div class="form-group">
-                    <td><label for="Month">Month</label></td>
-                    <td></td>
-                    <td><select id="Month" name="Month" class="form-control" placeholder="Enter the Month" onchange="changeType(this);">
-                    <option selected>Choose month...</option>
-                        <option value="1">January</option>
-                        <option value="2">February</option>
-                        <option value="3">March</option>
-                        <option value="4">April</option>
-                        <option value="5">May</option>
-                        <option value="6">June</option>
-                        <option value="7">July</option>
-                        <option value="8">August</option>
-                        <option value="9">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                     </select></td>
-                    </div>
-                </tr>
+                
                 <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Days">No Of Working Days</label></td>
-                        <td></td>
                         <td><input type="number" id= "Days" name="Days" required class="form-control" placeholder="Enter the working days"/></td>
                     </div>
                 </tr>
@@ -60,7 +38,7 @@
 
 
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit" ><a class="addpage" href="..\salary\details.php">Add</a></button>
+                <button type="submit" name="submit" value="Submit" class="button submit" >Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form>
