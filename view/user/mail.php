@@ -18,7 +18,7 @@
     require '..\..\library\vendor\autoload.php';
     require "..\..\controller\pages.php";
     require_once "..\..\model\database.php";
-    
+
       $API_KEY ="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";
     if (isset($_POST['sendmail'])) {
 
@@ -46,8 +46,11 @@
       }
       $sendgrid = new \SendGrid($API_KEY);
       if ($sendgrid->send($email)) {
+
         $newPage = new Page('mailsuccess.html');
+        // header(Location:$newPage );
         $newPage->show();
+        exit;
       }
       // try {
       //     $response = $sendgrid->send($email);
