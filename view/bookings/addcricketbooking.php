@@ -37,8 +37,8 @@
               <h2>Club & Cricket  Bookings</h2>
 
             </div><br>
-            <form class="addbooking" action="..\controller\CRUD.php" method="post" autocomplete="on" >
-              <input type="hidden" name="addbook">
+            <form class="addbooking" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
+              <input type="hidden" name="add-clubbook">
 
               <div class="submain">
                 <input type="hidden" name="UserID" value="<?php echo($result['UserID'])?>">
@@ -75,13 +75,16 @@
                   <div class="questions">
                         <label for="date">Reserved Date :</label>
                         <input type="date" name="ReservedDate" min="<?php echo date("Y-m-d") ?>" value="<?php echo date("Y-m-d") ?>" required>
-                  </div><br>
+                  </div>
                   <div class="questions">
+                    <p class=" tips">Please enter between 08.00 a.m and 05.00 p.m</p>
                         <label for="time">Reserved Time:</label>
-                        <input type="time" name="ReservedTime" value="<?php echo date("H:i") ?>" required>
+                        <input type="time" name="ReservedTime" min="08:00"  value="<?php echo date("H:i") ?>"  required>
 
-                  </div><br>
+
+                  </div>
                   <div class="questions">
+                    <p class=" tips">Please enter between 09.00 a.m and 06.00 p.m</p>
                         <label for="EndTime">End Time :</label>
                         <input type="time" name="EndTime"  required>
 
