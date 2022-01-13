@@ -93,7 +93,7 @@
       <div class = "righttop">
         <div class="itemtable">
             <h4>COMPANY DETAILS TABLE</h4>
-            <iframe src="comdetails.php" class="item"></iframe>
+            <iframe src="detailtable2.php" class="item"></iframe>
         </div>
         
        </div>
