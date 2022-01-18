@@ -345,6 +345,112 @@ if(isset($_POST['return-grn'])){
 
 }
 
+//--------------Give permission to return GRN-----------------------
+
+if(isset($_POST['permission-return-grn'])){
+    $DB =new DB;
+    
+    if($_POST['accept'] == 'Yes'){
+
+        try{
+            $sql = "SELECT Accepted FROM plunk.returngrn WHERE GRNID='$_POST[GRNID]' ";
+            $result = $DB->runQuery($sql)[0];
+            
+            if($result['Accepted'] == 'Yes'){
+                $newPage = new Page('../view/grn/alreadyacceptmsg.html');
+                $newPage->show();
+
+            }
+            else{
+                $sql = "UPDATE plunk.returngrn SET `Accepted`='Yes' WHERE `GRNID`='$_POST[GRNID]' ";
+                //echo $sql;
+                $DB->runQuery($sql);
+
+                $sql = "SELECT  `ItemID` FROM plunk.grnitem WHERE GRNID = $_POST[GRNID]";
+                // echo $sql;
+                $result= $DB->runQuery($sql);
+
+                $counter = count($result);
+                $index = 0;
+                
+                while($counter>$index){
+                    $id = $result[$index]['ItemID'];
+                    $sql2 = "SELECT Quantity FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = $id";
+                    // echo $sql2;
+                    $result1 = $DB->runQuery($sql2)[0];
+                    // echo  $result1['Quantity'];
+
+                    $sql3 = "UPDATE plunk.item SET Quantity = Quantity - $result1[Quantity] WHERE ItemID = $id";
+                    // echo $sql3;
+                    $DB->runQuery($sql3);
+
+                    $sql4 = "SELECT Quantity FROM plunk.item WHERE ItemID = $id";
+                    // echo $sql4;
+                    $result2 = $DB->runQuery($sql4)[0];
+
+                    if($result2['Quantity'] <= 0){
+                        $sql3 = "UPDATE plunk.item SET Availability = 'No' WHERE ItemID = $id";
+                        // echo $sql3;
+                        $DB->runQuery($sql3);
+                    }
+                    
+
+                    $index++;
+                }
+
+                $sql = "DELETE FROM plunk.grn WHERE GRNID = '$_POST[GRNID]' ";
+                // echo $sql;
+                $DB->runQuery($sql);
+
+                $sql = "DELETE FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' ";
+                // echo $sql;
+                $DB->runQuery($sql);
+
+                $newPage = new Page('../view/grn/requestacceptmg.html');
+                $newPage->show();
+                
+            }
+
+        }
+                
+        catch(\Throwable $th) {
+            throw $th;
+    
+        }
+
+    }
+    else {
+        try{
+            $sql = "SELECT Accepted FROM plunk.returngrn WHERE GRNID='$_POST[GRNID]' ";
+            $result = $DB->runQuery($sql)[0];
+            
+            if($result['Accepted'] == 'Yes'){
+                $newPage = new Page('../view/grn/alreadyacceptmsg.html');
+                $newPage->show();
+
+            }
+            else{
+                $sql = "DELETE FROM plunk.returngrn WHERE GRNID = '$_POST[GRNID]' ";
+                // echo $sql;
+                $DB->runQuery($sql);
+
+                $sql = "DELETE FROM plunk.returngrnitem WHERE GRNID = '$_POST[GRNID]' ";
+                // echo $sql;
+                $DB->runQuery($sql);
+
+                $newPage = new Page('../view/grn/requestdenied.html');
+                $newPage->show();
+            }
+            
+        }
+            
+        catch(\Throwable $th) {
+            throw $th;
+    
+        }
+    }
+}
+
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
         $DB = new DB;
