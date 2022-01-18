@@ -45,38 +45,45 @@
                 <table class="formtable">
                 <tr>
                     <div class="form-group">
-                        <td><label for="Company">Company</label></td>
+                        <td><label for="Company">Staff Member Name</label></td>
                         <td><input type="text" id="Company" name="CompanyName"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
                     </div>
                 </tr>
                 <tr>
                 <div class="form-group">
-                    <td><label for="Type">Item Type</label></td>
+                    <td><label for="Type">Staff Type</label></td>
                     
                     <td><select id="Type" name="ItemType" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                        <option value="Beverage">Beverage Items</option>
-                        <option value="Food">Food Items</option>
+                        <option value="1">Admin</option>
+                        <option value="2">General Manager</option>
+                        <option value="3">Reasuturant Manager</option>
+                        <option value="4">Accountant</option>
+                        <option value="3">Cashier</option>
+                        <option value="4">Staff Member</option>
                      </select></td>
                     </div>
                 </tr>
-                <tr>
-                    <div class="form-group">
-                        <td><label for="ReceivedDate">Received Date</label></td>
-                        <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" placeholder="Enter the received date" max="<?php echo date("Y-m-d") ?>"/></td>
-                    </div>
-                </tr> 
-
-                <tr>
-                    <div class="form-group">
-                        <td><label for="DueDate">Due Date</label></td>
-                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" placeholder="Enter the due date" min="<?php echo date("Y-m-d") ?>"/></td>
-                    </div>
-                </tr> 
 
                         <tr>
-                            <td><label for="Total">Total</label></td>
-                            <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total"/></td>
+                            <td><label for="Total">Basic Total</label></td>
+                            <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Bonus">Bonus Percentage</label></td>
+                            <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="ETF">ETF Percentage</label></td>
+                            <td><input type="text" id= "" name="ETF" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="EPF">EPF Percentage</label></td>
+                            <td><input type="text" id= "" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="Service">Service Charge Percentage</label></td>
+                            <td><input type="text" id= "Service" name="Service" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
                     </table>
                         
@@ -92,15 +99,15 @@
     <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>COMPANY DETAILS TABLE</h4>
+            <h4>BASIC DETAILS TABLE</h4>
             <iframe src="detailtable2.php" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
-                <h4>ITEM DETAILS TABLE</h4>
-                <iframe src="../items/itemtable.php" class="item"></iframe>
+                <h4>LEAVES DETAILS TABLE</h4>
+                <iframe src="../leave/alldetails.php" class="item"></iframe>
             </div>  
         </div>
     </div>
