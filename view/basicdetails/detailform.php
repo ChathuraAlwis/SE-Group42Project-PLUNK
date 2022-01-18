@@ -41,7 +41,7 @@
                     </div>
                     <div class="detailtable">
                     <?php 
-                         print_r($_POST['salarydetailssearch']);
+                         //print_r($_POST['salarydetailssearch']);
                         if(isset($_POST['salarydetailssearch'])){
                               echo '<iframe src="detailtable.php?salarydetailssearch=' . $_POST['salarydetailssearch'] . '" name="searchinfo" class="staff"></iframe>';
                         }
