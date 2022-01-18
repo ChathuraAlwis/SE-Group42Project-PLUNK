@@ -255,7 +255,7 @@ if(isset($_POST['add-grn'])){
 
             $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";
             //echo $sql;
-            // $DB->runQuery($sql);
+            $DB->runQuery($sql);
 
             $rowCount = $_POST['rowCount'];
             // echo $rowCount;
@@ -344,7 +344,6 @@ if(isset($_POST['return-grn'])){
     }
 
 }
-
 
 //---------------------------------------------------Invoice-----------------------------------------------------------------------
     if(isset($_POST['add-invoice'])){
@@ -729,8 +728,9 @@ if(isset($_POST['delete-reservation'])){
     $DB = new DB;
     try {
 
-        $sql = "UPDATE plunk.reservationmenu SET `IsDeleted` = 'Yes' WHERE `ReservationName` = '$_POST[ReservationName]'";
+        $sql = "UPDATE plunk.reservationmenu SET `IsDeleted` = 'Yes', Availability = 'No' WHERE `ReservationName` = '$_POST[ReservationName]'";
         $DB->runQuery($sql);
+
         $newPage = new Page('../view/reservationmenu/deleteressuccess.html');
         $newPage->show();
 
