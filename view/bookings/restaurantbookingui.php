@@ -22,9 +22,9 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                      <form class="searchbar" action="clubbookingui.php" method="post">
-                        <input type="hidden" name="clubsearch" >
-                        <input type="text" name="search" class="search" placeholder="Search..." value="<?php if(isset($_POST['clubsearch'])) {echo $_POST['CustomerName'];}?>">
+                      <form class="searchbar" action="restaurantbookingui.php" method="post">
+                        <!-- <input type="hidden" name="clubsearch" > -->
+                        <input type="text" id="restaurantsearch" name="restaurantsearch" class="search" placeholder="Search By Customer Name" value="<?php if(isset($_POST['restaurantsearch'])) { echo "$_POST[restaurantsearch]"; } ?>" required>
 
                               <button type = "submit" class = "searchbtn" ><b>Search</b></button>
 
@@ -34,8 +34,15 @@
                           </div>
                     </div>
                     <div class="detailtable">
-
-                            <iframe src="..\bookings\restaurantbookingtable.php" class="staff"></iframe>
+                      <?php
+                        if(isset($_POST['restaurantsearch'])){
+                          echo'<iframe src="restaurantbookingtable.php?CustomerName='.$_POST['restaurantsearch'].'" name="searchinfo" class="staff"></iframe>';
+                        }
+                        else{
+                          echo '<iframe src="restaurantbookingtable.php" name="searchinfo" class="staff"></iframe>';
+                        }
+                      ?>
+                            <!-- echo'<iframe src="restaurantbookingtable.php?CustomerName='.$_POST['CustomerName'].'" name="searchinfo" class="staff"></iframe>' -->
                     </div>
 
                 </div>

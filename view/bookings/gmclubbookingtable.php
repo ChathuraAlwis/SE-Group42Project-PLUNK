@@ -17,6 +17,17 @@
                       <?php
                           require_once "..\..\controller\showtable.php";
                           $bookingTable = new Table("booking");
+                          if(isset($_GET['CustomerName'])){
+                            $search = $_GET['CustomerName'];
+                            $sql = "SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Club') AND CustomerName LIKE ('%$search%')";
+
+                            if(isset($_GET['OrderBy'])){
+                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            }
+                            $bookingTable->show($sql, 'clubupdate');
+                          }
+                          else {
+
                           if($_SESSION['UserType'] == 'Manager'){
                               $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Club') ", 'clubupdate');
                           }
@@ -24,7 +35,7 @@
                             else {
                               $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name, BookingType as 'Booking Type',ReservedDate as 'Reserved Date',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Club') ", 'clubupdate');
                             }
-
+                          }
                        ?>
 
 

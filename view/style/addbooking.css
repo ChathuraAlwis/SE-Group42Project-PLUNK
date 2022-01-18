@@ -194,6 +194,12 @@ td{
   text-align: center;
   cursor: pointer;
 }
+
+.tips{
+  color: red;
+  font-size: 1vw;
+  text-align: right;
+}
 @media only screen and (max-width: 720px) {
   /* For mobile phones: */
   .main {

@@ -25,8 +25,8 @@
               <h2>Bookings</h2>
 
             </div><br>
-            <form class="addbooking" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-              <input name ="update-booking" type="hidden" >
+            <form class="addbookingtwo" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
+              <input name ="delete-booking" type="hidden" >
 
               <div class="submain">
                 <input type="hidden" name="UserID" value="<?php echo($result['UserID'])?>">
@@ -46,6 +46,10 @@
 
                 </div><br>
                 <div class="questions">
+                      <label for="CreatedDate">CreatedDate Date :</label>
+                      <input type="date" name="CreatedDate" class="bookingid" value="<?php echo "$result[CreatedDate]";?>" readonly>
+                </div><br>
+                <div class="questions">
                       <label for="LastModifiedDate">Last Modified Date :</label>
                       <input type="date" name="LastModifiedDate" class="bookingid" value="<?php echo "$result[LastModifiedDate]";?>" readonly>
                 </div><br>
@@ -59,10 +63,17 @@
                       <input type="text" name="Reservation" class="qtype1" id="reservation" value="<?php echo "$result[Reservation]";?>" readonly>
                   </div><br>
 
-
+                  <div class="questions">
+                        <label for="contactno">Price :</label>
+                        <input type="number" name="Total" class="qtype1"  value="<?php echo "$result[Total]";?>" readonly>
+                  </div><br>
+                  <div class="questions">
+                      <label for="reservation1">Payment  :</label>
+                      <input type="text" name="Payment" class="qtype1" id="Cost" value="<?php echo "$result[Payment]";?>" required>
+                  </div><br>
                   <div class="questions">
                         <label for="NoOfPeaople">No of People:</label>
-                        <input type="number" name="NoOfPeaople" min="1" value="1" class="qtype1" value="<?php echo "$result[NoOfPeople]";?>" readonly>
+                        <input type="number" name="NoOfPeaople" min="1"  class="qtype1" value="<?php echo "$result[NoOfPeople]";?>" readonly>
                   </div><br>
                   <div class="questions">
                         <label for="date">Reserved Date :</label>
@@ -82,6 +93,7 @@
                         <label for="contactno">Contact No :</label>
                         <input type="tel" name="ContactNo" class="qtype1"  value="<?php echo "$result[ContactNo]";?>" readonly>
                   </div><br>
+
                   <div class="questions">
                       <label for="Reason">Reason :</label>
                       <input type="text" name="Reason"class="qtype1"  required>
@@ -90,7 +102,7 @@
                 </div>
 
                 <div class="line3">
-                  <button type="submit" name="button" class="add" formaction="bookingdeleted.html"><b>Delete</b> </button>
+                  <button type="submit" name="button" class="add" ><b>Delete</b> </button>
                   <button type="reset" name="button" class="add"><b>Cancel</b> </button><br>
 
                 </div>

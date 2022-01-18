@@ -6,18 +6,18 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/success.css">
+        <link rel="stylesheet" href="../style/tabledesign.css">
 
   </head>
   <body>
         <div class="main" >
 
                     <div class="detailtable">
-                      <h1 id="Error"><b>Deleted!</b> </h1><br>
-
-                    <div class="btn">
-                      <a href="restaurantbookingui.php"><button type="button" name="button"><b>OK</b> </button></a>
-                    </div>
+                      <?php
+                          require_once "..\..\controller\showtable.php";
+                          $orderTable = new Table("usersalary");
+                          $orderTable->show();
+                       ?>
 
 
                     </div>
