@@ -108,15 +108,17 @@
     <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>Invoice Details</h4>
+            <h3>Invoice Details</h3>
+            <h4>Select the invoice you want to enter</h4>
+            
             <iframe src="pickinvoice.php" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
-            <div class="itemtable">
+            <div class="itemtable"> 
                 <h4>ITEMS TABLE</h4>
-                <iframe src="../items/itemtable.php" class="item"></iframe>
+                <iframe src="../items/itemtable.php" class="item"></iframe>              
             </div>  
         </div>
     </div>

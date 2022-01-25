@@ -22,7 +22,8 @@
     ?>
         <div class="main" >
             <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-              <input name ="return-grn" type="hidden" >
+              <input name ="permission-return-grn" type="hidden" >
+              
               <div class="submain">
                 <div class="forminputs">
                     <label for="GRNID"> GRN ID: </label><br>
@@ -42,8 +43,8 @@
                 <div class="forminputs">
                   <?php
                       require_once "..\..\controller\showtable.php";
-                      $orderTable = new Table("grnitem");
-                      $orderTable->show("SELECT * FROM plunk.grnitem WHERE GRNID in ('$result[GRNID]')", 'update');
+                      $orderTable = new Table("returngrnitem");
+                      $orderTable->show("SELECT * FROM plunk.returngrnitem WHERE GRNID in ('$result[GRNID]')", 'update');
                    ?>
                 </div><br>
 
@@ -61,8 +62,8 @@
                 </div><br>
 
                 <div class="forminputs">
-                  <button type="submit"  class="add" name="submit" value="submit" formaction="requestacceptmg.html"><input type="hidden" name="Accepted" value="Yes"> <b>Accept</b> </button>
-                  <button type="submit"  class="add" name="submit" value="submit" formaction="requestdenied.html"><input type="hidden" name="Accepted" value="No"> <b>Denied</b> </button>
+                  <button type="submit"  class="add" name="accept" value="Yes"><b>Accept</b> </button>
+                  <button type="submit"  class="add" name="accept" value="No"><b>Denied</b> </button>
                 </div>
               </div>
             </form>
