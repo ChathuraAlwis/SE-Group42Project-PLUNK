@@ -118,6 +118,7 @@
         <div class="righttable">
         <div class="itemtable">
             <h3>Company Details</h3>
+            <h4><i>Select the compnay you want to enter</i></h4>
             <iframe src="comdetails.php" class="item"></iframe>
         </div>
 </div>
