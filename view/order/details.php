@@ -18,13 +18,38 @@
                           require_once "../../controller/showtable.php";
                           $orderTable = new Table("order");
                           if($_SESSION['UserType']=="Cashier"){
-                            $sql = "SELECT * FROM plunk.order";
-                            if(isset($_GET['OrderBy'])){
-                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            if(isset($_GET['ordersearch'])){
+                              $search = $_GET['ordersearch'];
+                              $sql = "SELECT * FROM plunk.order WHERE OrderDate='$search'";
+                              if(isset($_GET['OrderBy'])){
+                                $sql .= " ORDER BY $_GET[OrderBy]";
+                              }
+                              $orderTable->show($sql);
                             }
-                            $orderTable->show($sql);
+                            else{
+                              $sql = "SELECT * FROM plunk.order";
+                              if(isset($_GET['OrderBy'])){
+                                $sql .= " ORDER BY $_GET[OrderBy]";
+                              }
+                              $orderTable->show($sql, "../order/billdetails");
+                            }
                           }
                           else{
+                            if(isset($_GET['ordersearch'])){
+                              $search = $_GET['ordersearch'];
+                              $sql = "SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID] AND OrderDate='$search'";
+                              if(isset($_GET['OrderBy'])){
+                                $sql .= " ORDER BY $_GET[OrderBy]";
+                              }
+                              $orderTable->show($sql);
+                            }
+                            else{
+                              $sql = "SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID]";
+                              if(isset($_GET['OrderBy'])){
+                                $sql .= " ORDER BY $_GET[OrderBy]";
+                              }
+                              $orderTable->show($sql, "../order/billdetails");
+                            }
                             $sql = "SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID]";
                             if(isset($_GET['OrderBy'])){
                               $sql .= " ORDER BY $_GET[OrderBy]";
