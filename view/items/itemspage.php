@@ -29,9 +29,6 @@
                               <form method="POST" action="itemspage.php">
                                     <input type = "hidden" class = "search" name="itemsearch"/>
                                     <div >
-                                          <input type = "text" id= "ItemName" name= "ItemName" class = "search" placeholder="Search By Item Name" value="<?php if(isset($_POST['itemsearch'])) {echo $_POST['ItemName'];}?>" />
-                                    </div>
-                                    <div >
                                           <select id="ItemType" name="ItemType" class="search" placeholder="Enter the item type" onchange="changeType(this);">
                                                 <?php 
                                                       if(isset($_POST['itemsearch'])){
@@ -56,6 +53,9 @@
                                                       }
                                                       ?>
                                           </select>
+                                    </div>
+                                    <div >
+                                          <input type = "text" id= "ItemName" name= "ItemName" class = "search" placeholder="Search By Item Name" value="<?php if(isset($_POST['itemsearch'])) {echo $_POST['ItemName'];}?>" />
                                     </div>
                                     <div >
                                           <button type = "submit" class = "search" ><b>Search</b></button>
