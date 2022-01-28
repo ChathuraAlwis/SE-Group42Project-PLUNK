@@ -13,8 +13,12 @@
             $this->tableName = $table;
         }
 
-        function show($sql, $linkPage="none", $getdata="none"){
-
+        function show($sql, $linkPage="none", $getdata="none", $SearchBy="none"){
+            //for search query
+            if(isset($_GET[$SearchBy])){
+                $search = $_GET[$SearchBy];
+            }
+            
             //function caller file
             $callerFile = basename($_SERVER['PHP_SELF']);
 
@@ -38,8 +42,17 @@
                     //check if heading has been printed
                     if (!$heading){
                         //heading of the table
-                        $GetColumn = str_replace(" ", "-", $column);
-                        echo "<th><a href=$callerFile?OrderBy=$GetColumn>$column</a></th>";
+                        $GetColumn = $column;
+                        if(strpos($column," ")){
+                            $GetColumn = str_replace(" ", "-", $column);
+                            $chr = "'";
+                            $GetColumn = $chr . $GetColumn . $chr;
+                        }
+                        if(isset($_GET[$SearchBy])){
+                            echo "<th><a href=$callerFile?OrderBy=$GetColumn&$SearchBy=$search>$column</a></th>";
+                        }else{
+                            echo "<th><a href=$callerFile?OrderBy=$GetColumn>$column</a></th>";
+                        }
                     }
                     else{
                         //prepare data to send through get method for update forms
