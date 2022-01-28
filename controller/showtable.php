@@ -38,7 +38,8 @@
                     //check if heading has been printed
                     if (!$heading){
                         //heading of the table
-                        echo "<th><a href=$callerFile?OrderBy=$column>$column</a></th>";
+                        $GetColumn = str_replace(" ", "-", $column);
+                        echo "<th><a href=$callerFile?OrderBy=$GetColumn>$column</a></th>";
                     }
                     else{
                         //prepare data to send through get method for update forms
