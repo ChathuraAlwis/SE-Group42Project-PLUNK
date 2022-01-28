@@ -16,14 +16,14 @@
                     <div class="detailtable">
                     <?php
                           require_once "../../controller/showtable.php";
-                          $salarydetailsTable = new Table("salarydetails");
+                          $salarydetailsTable = new Table("usersalary");
                           if(isset($_GET['salarydetailssearch'])){
                             $search = $_GET['salarydetailssearch'];
-                            $salarydetailsTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', BasicSalary as 'Basic Salary Percentage',Bonus as 'Bonus Percentage',ETF as 'ETF Percentage',EPF as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.salarydetails WHERE StaffName LIKE ('%$search%');", 'update');
+                            $salarydetailsTable->show("SELECT * FROM plunk.usersalary WHERE userType LIKE ('%$search%');", 'update');
     
                           }
                           else{
-                            $salarydetailsTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', BasicSalary as 'Basic Salary Percentage',Bonus as 'Bonus Percentage',ETF as 'ETF Percentage',EPF as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.salarydetails", 'update');
+                            $salarydetailsTable->show("SELECT * FROM plunk.usersalary", 'update');
                             
                           }
                           
