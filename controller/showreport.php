@@ -37,7 +37,7 @@ class Report{
         for ($row=0; $row<count($result)/$cols; $row++) {
             $rowSum=0;
             echo "<tr>";
-            $month = $result[$row+$cols-1]['Date'];
+            $month = substr($result[$row+$cols-1]['Date'],0,7);
             echo "<td> $month </td>";
             for ($col=0; $col<$cols; $col++) {
                 $total = $result[$col]['Total'];
@@ -137,7 +137,7 @@ class Report{
 
     function leaveReport($start, $end, $own=1){
         if($own){
-            $result = $this->DB->runQuery("SELECT LeaveType as 'Leave Type', sum(NoOfdays) as Leaves FROM plunk.leave INNER JOIN plunk.user WHERE plunk.leave.UserID=User.UserID AND plunk.leave.UserID=3 AND Accepted='Yes' AND LeaveDate BETWEEN '$start' AND '$end' GROUP BY plunk.leave.UserID, plunk.leave.LeaveType;");
+            $result = $this->DB->runQuery("SELECT LeaveType as 'Leave Type', sum(NoOfdays) as Leaves FROM plunk.leave INNER JOIN plunk.user WHERE plunk.leave.UserID=User.UserID AND plunk.leave.UserID=$_SESSION[UserID] AND Accepted='Yes' AND LeaveDate BETWEEN '$start' AND '$end' GROUP BY plunk.leave.UserID, plunk.leave.LeaveType;");
         }else{
             $result = $this->DB->runQuery("SELECT user.UserId, Name, UserType, sum(NoOfdays) as 'Total Leaves' FROM plunk.leave INNER JOIN plunk.user WHERE plunk.leave.UserID=User.UserID AND Accepted='Yes' AND LeaveDate BETWEEN '$start' AND '$end' GROUP BY plunk.leave.UserID;");
         }
