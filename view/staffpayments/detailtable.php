@@ -19,11 +19,13 @@
                           $salarydetailsTable = new Table("usersalary");
                           if(isset($_GET['salarydetailssearch'])){
                             $search = $_GET['salarydetailssearch'];
-                            $salarydetailsTable->show("SELECT * FROM plunk.usersalary WHERE userType LIKE ('%$search%');", 'update');
+                            $salarydetailsTable->show("SELECT detailID AS 'Category ID', userType AS 'Staff categoty type', basic AS 'Basic Salary',bonusValue as 'Bonus Percentage',ETFvalue as 'ETF Percentage',EPFvalue as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.usersalary WHERE userType LIKE ('%$search%');", 'update');
+                            //$salarydetailsTable->show("SELECT * FROM plunk.usersalary WHERE userType LIKE ('%$search%');", 'update');
     
                           }
                           else{
-                            $salarydetailsTable->show("SELECT * FROM plunk.usersalary", 'update');
+                            $salarydetailsTable->show("SELECT detailID AS 'Category ID', userType AS 'Staff categoty type', basic AS 'Basic Salary',bonusValue as 'Bonus Percentage',ETFvalue as 'ETF Percentage',EPFvalue as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.usersalary", 'update');
+                            //$salarydetailsTable->show("SELECT * FROM plunk.usersalary", 'update');
                             
                           }
                           

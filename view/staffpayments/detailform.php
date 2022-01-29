@@ -35,9 +35,7 @@
                         <input type = "text" name="salarydetailssearch" class = "search" placeholder="Enter the staff categoty"/>
                         <button type = "submit" class = "search" ><b>Search</b></button>
                   </form>
-                          <div class="addicon">
-                                <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
-                          </div>
+                         
                     </div>
                     <div class="detailtable">
                     <?php 

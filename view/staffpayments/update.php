@@ -15,7 +15,7 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.company WHERE Company='$id'";
+        $query = "SELECT * FROM plunk.usersalary WHERE detailID='$id'";
 
         $result = $DB->runQuery($query)[0];
 
@@ -23,30 +23,45 @@
 
         <div class="main" >
             <form class="addcompany" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-              <input name ="update-company" type="hidden" >
+              <input name ="update-usersalary" type="hidden" >
               <div class="headerrow">
-                <div class="bin">
-                  <a href="delete.php?data=<?php echo $_GET['data'];?>" ><img src="..\images\bin.png" alt="Delete Icon"  class="binicon"></a>
-                </div>
+                
               </div>
               <div class="submain">
                 <div class="forminputs">
-                    <label for="Name"> Company Name:</label><br>
-                    <input type="text" id="Name" class="input" name="Company" value = "<?php echo "$result[Company]";?>"  readonly>
+                    <label for="detailID"> Staff Category ID</label><br>
+                    <input type="number" id="detailID" class="input" name="detailID" value = "<?php echo "$result[detailID]";?>"  readonly>
                 </div><br>
 
                 <div class="forminputs">
-                    <label for="DisplayID"> Distributors' Name:</label><br>
-                    <input type="text"  class="input" id="DistributorName" name="DistributorName" value = "<?php echo "$result[DistributorName]";?>"   required>
+                    <label for="userType"> Staff Category Type</label><br>
+                    <input type="text" id="userType" class="input" name="userType" value = "<?php echo "$result[userType]";?>"  readonly>
                 </div><br>
 
                 <div class="forminputs">
-                    <label for="Email"> E-mail </label><br>
-                    <input type="email" id="Email" class="input" name="Email" placeholder="xxxx@gmail.com" value = "<?php echo "$result[Email]";?>" required>
+                    <label for="basic"> Basic Salary </label><br>
+                    <input type="text" id="basic" class="input" name="basic"  value = "<?php echo "$result[basic]";?>" required>
                 </div><br>
+
                 <div class="forminputs">
-                    <label for="ContactNo"> Contact No</label><br>
-                    <input type=" tel" id="ContactNo" class="input" name="PhoneNo" pattern="[0-9]{10}" value = "<?php echo "$result[PhoneNo]";?>" required>
+                    <label for="bonusValue"> Bounus Percentage </label><br>
+                    <input type="text" id="bonusValue" class="input" name="bonusValue"  value = "<?php echo "$result[bonusValue]";?>" required>
+                </div><br>
+
+                <div class="forminputs">
+                    <label for="ETFvalue"> ETF Percentage </label><br>
+                    <input type="text" id="ETFvalue" class="input" name="ETFvalue"  value = "<?php echo "$result[ETFvalue]";?>" required>
+                </div><br>
+
+                <div class="forminputs">
+                    <label for="EPFvalue"> EPF Percentage </label><br>
+                    <input type="text" id="EPFvalue" class="input" name="EPFvalue"  value = "<?php echo "$result[EPFvalue]";?>" required>
+                </div><br>
+
+
+                <div class="forminputs">
+                    <label for="percentage"> Service Charge Percentage</label><br>
+                    <input type="text" id="percentage" class="input" name="percentage" value = "<?php echo "$result[percentage]";?>" required>
                 </div><br><br>
 
                 <div class="forminputs">

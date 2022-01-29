@@ -1071,6 +1071,26 @@ if(isset($_POST['add-salary'])){
 
 }
 
+
+//---------------------------------------------------UserSalary-----------------------------------------------------------------------
+
+
+if(isset($_POST['update-usersalary'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.usersalary SET basic='$_POST[basic]', bonusValue='$_POST[bonusValue]', ETFvalue='$_POST[ETFvalue]',EPFvalue='$_POST[EPFvalue]',percentage='$_POST[percentage]' WHERE userType='$_POST[userType]'";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\staffpayments\updateusesalsuccess.html');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
     //---------------------------------------------------Leaves-----------------------------------------------------------------------
 
     if(isset($_POST['add-leave'])){
