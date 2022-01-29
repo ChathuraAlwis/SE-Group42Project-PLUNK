@@ -86,7 +86,7 @@
       <div class = "righttop">
         <div class="itemtable">
             <h3>SALARY DETAILS TABLE</h3>
-            <iframe src="allsalary.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
+            <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
         </div>
         
        </div>

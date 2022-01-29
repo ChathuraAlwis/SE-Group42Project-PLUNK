@@ -1071,6 +1071,26 @@ if(isset($_POST['add-salary'])){
 
 }
 
+//---------------------------------------------------ServiceCharge-----------------------------------------------------------------------
+
+if(isset($_POST['add-servicecharge'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.servicecharge(ServiceChargeID,Date) VALUES ('','$_POST[Date]')";
+        //echo $sql;
+        $DB->runQuery($sql);
+
+
+        $newPage = new Page('..\view\servicecharge\addservicesuccess.php');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
 
 //---------------------------------------------------UserSalary-----------------------------------------------------------------------
 

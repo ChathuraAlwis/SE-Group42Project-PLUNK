@@ -15,8 +15,8 @@
                     <div class="detailtable">
                     <?php
                           require_once "..\..\controller\showtable.php";
-                          $orderTable = new Table("usersalary");
-                          $orderTable->show("SELECT detailID AS 'Category ID', userType AS 'Staff categoty type', basic AS 'Basic Salary',bonusValue as 'Bonus Percentage',ETFvalue as 'ETF Percentage',EPFvalue as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.usersalary");
+                          $orderTable = new Table("salarydetails");
+                          $orderTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', Percentage as 'Service Charge Percentage' FROM plunk.salarydetails");
                        ?>
 
                     </div>

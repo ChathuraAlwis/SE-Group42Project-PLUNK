@@ -99,15 +99,15 @@
     <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>BASIC DETAILS TABLE</h4>
-            <iframe src="detailtable2.php" class="item"></iframe>
+            <h4>STAFF MEMBERS DETAILS TABLE</h4>
+            <iframe src="staff.php" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
-                <h4>LEAVES DETAILS TABLE</h4>
-                <iframe src="../leave/alldetails.php" class="item"></iframe>
+                <h4>STAFF CATEGORY PAYMENTS DETAILS TABLE</h4>
+                <iframe src="detailtable2.php" class="item"></iframe>
             </div>  
         </div>
     </div>
