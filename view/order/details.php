@@ -22,14 +22,16 @@
                               $search = $_GET['ordersearch'];
                               $sql = "SELECT * FROM plunk.order WHERE OrderDate='$search'";
                               if(isset($_GET['OrderBy'])){
-                                $sql .= " ORDER BY $_GET[OrderBy]";
+                                $orderBy = str_replace("-", " ", $_GET['OrderBy']);
+                                $sql .= " ORDER BY $orderBy";
                               }
-                              $orderTable->show($sql);
+                              $orderTable->show($sql, "none", "none", "ordersearch");
                             }
                             else{
                               $sql = "SELECT * FROM plunk.order";
                               if(isset($_GET['OrderBy'])){
-                                $sql .= " ORDER BY $_GET[OrderBy]";
+                                $orderBy = str_replace("-", " ", $_GET['OrderBy']);
+                                $sql .= " ORDER BY $orderBy";
                               }
                               $orderTable->show($sql, "../order/billdetails");
                             }
@@ -39,22 +41,25 @@
                               $search = $_GET['ordersearch'];
                               $sql = "SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID] AND OrderDate='$search'";
                               if(isset($_GET['OrderBy'])){
-                                $sql .= " ORDER BY $_GET[OrderBy]";
+                                $orderBy = str_replace("-", " ", $_GET['OrderBy']);
+                                $sql .= " ORDER BY $orderBy";
                               }
-                              $orderTable->show($sql);
+                              $orderTable->show($sql, "none", "none", "ordersearch");
                             }
                             else{
                               $sql = "SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID]";
                               if(isset($_GET['OrderBy'])){
-                                $sql .= " ORDER BY $_GET[OrderBy]";
+                                $orderBy = str_replace("-", " ", $_GET['OrderBy']);
+                                $sql .= " ORDER BY $orderBy";
                               }
                               $orderTable->show($sql, "../order/billdetails");
                             }
-                            $sql = "SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID]";
-                            if(isset($_GET['OrderBy'])){
-                              $sql .= " ORDER BY $_GET[OrderBy]";
-                            }
-                            $orderTable->show($sql, "billdetails");
+                            // $sql = "SELECT OrderID, OrderDate as Date, OrderTime as Time, OrderPlace as Place, Total FROM plunk.order WHERE UserID=$_SESSION[UserID]";
+                            // if(isset($_GET['OrderBy'])){
+                              //   $orderBy = str_replace("-", " ", $_GET['OrderBy']);
+                            //   $sql .= " ORDER BY $orderBy";
+                            // }
+                            // $orderTable->show($sql, "billdetails");
                           }     
                        ?>
 

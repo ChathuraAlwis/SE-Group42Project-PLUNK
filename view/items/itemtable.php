@@ -28,10 +28,10 @@
                             else{
                               $type = $_GET['type'];
                             }
-                            $itemTable->show("SELECT ItemID, ItemName as 'Name', ItemType as 'Type', SellingPrice as 'Price', Discount FROM plunk.item WHERE ItemName LIKE ('%$name%') AND ItemType=$type AND Availability=1");
+                            $itemTable->show("SELECT ItemID, ItemName as 'Name', ItemType as 'Type', SellingPrice as 'Price', Discount FROM plunk.item WHERE ItemName LIKE ('%$name%') AND ItemType=$type AND Availability=1", "../order/add");
                           }
                           else{
-                            $itemTable->show("SELECT ItemID, ItemName as 'Name', ItemType as 'Type', SellingPrice as 'Price', Discount FROM plunk.item WHERE Availability=1");
+                            $itemTable->show("SELECT ItemID, ItemName as 'Name', ItemType as 'Type', SellingPrice as 'Price', Discount FROM plunk.item WHERE Availability=1", "../order/add");
                           }
                         }
                         elseif ($_SESSION['UserType'] == 'Accountant') {
