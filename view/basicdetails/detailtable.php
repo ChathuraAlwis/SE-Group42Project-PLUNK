@@ -19,11 +19,11 @@
                           $salarydetailsTable = new Table("salarydetails");
                           if(isset($_GET['salarydetailssearch'])){
                             $search = $_GET['salarydetailssearch'];
-                            $salarydetailsTable->show("SELECT StaffID AS 'Staff ID',StaffName AS 'Staff Name', UserType AS 'Staff Type', BasicSalary as 'Basic Salary Percentage',Bonus as 'Bonus Percentage',ETF as 'ETF Percentage',EPF as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.salarydetails WHERE StaffName LIKE ('%$search%');", 'update');
+                            $salarydetailsTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', BasicSalary as 'Basic Salary Percentage',Bonus as 'Bonus Percentage',ETF as 'ETF Percentage',EPF as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.salarydetails WHERE StaffName LIKE ('%$search%');", 'update');
     
                           }
                           else{
-                            $salarydetailsTable->show("SELECT StaffID AS 'Staff ID',StaffName AS 'Staff Name', UserType AS 'Staff Type', BasicSalary as 'Basic Salary Percentage',Bonus as 'Bonus Percentage',ETF as 'ETF Percentage',EPF as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.salarydetails", 'update');
+                            $salarydetailsTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', BasicSalary as 'Basic Salary Percentage',Bonus as 'Bonus Percentage',ETF as 'ETF Percentage',EPF as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.salarydetails", 'update');
                             
                           }
                           

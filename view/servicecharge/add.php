@@ -61,7 +61,7 @@
       <div class = "righttop">
         <div class="itemtable">
             <h4>Service Charge Details Table</h4>
-            <iframe src="allservicecharge.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
+            <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
         </div>
         
        </div>

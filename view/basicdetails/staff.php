@@ -13,11 +13,12 @@
         <div class="main" >
 
                     <div class="detailtable">
-                    <?php
+                      <?php
                           require_once "..\..\controller\showtable.php";
-                          $orderTable = new Table("usersalary");
-                          $orderTable->show("SELECT detailID AS 'Category ID', userType AS 'Staff categoty type', basic AS 'Basic Salary',bonusValue as 'Bonus Percentage',ETFvalue as 'ETF Percentage',EPFvalue as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.usersalary");
+                          $orderTable = new Table("user");
+                          $orderTable->show("SELECT DisplayID as 'Staff ID',Name, UserType as 'User Type'  FROM plunk.user WHERE UserType in ('Admin', 'Manager','Accountant','Restaurant Manager','Cashier','Staff Member') ");
                        ?>
+
 
                     </div>
 
