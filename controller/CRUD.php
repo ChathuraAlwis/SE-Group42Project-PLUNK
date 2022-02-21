@@ -1071,6 +1071,43 @@ if(isset($_POST['add-salary'])){
 
 }
 
+//---------------------------------------------------UserSalary-----------------------------------------------------------------------
+
+if(isset($_POST['add-usersalary'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.salarystaff(SalaryID,StaffID,Basic,Bonus,ETF,EPF,Total) VALUES ('','$_POST[StaffID]','$_POST[Basic]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
+        //echo $sql;
+        $DB->runQuery($sql);
+
+
+        $newPage = new Page('..\view\salary\addusersalsuccess.php');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+//---------Update user salary------------
+
+if(isset($_POST['update-usersalary'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.salarystaff SET `SalaryID`='$_POST[SalaryID]',`StaffID`='$_POST[StaffID]',`Basic`='$_POST[Basic]',`Bonus`='$_POST[Bonus]',`ETF`='$_POST[ETF]',`EPF`='$_POST[EPF]',`Total`='$_POST[Total]'  WHERE StaffID = '$_POST[StaffID]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('../view/salary/updatesalarysuccess.html');
+        $newPage->show();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+
 //---------------------------------------------------ServiceCharge-----------------------------------------------------------------------
 
 if(isset($_POST['add-servicecharge'])){
