@@ -12,19 +12,39 @@
         
   </head>
   <body>
+  <?php
+        require_once "../../model/database.php";
+        //$DB = new DB;
+        //$sql = "SELECT ItemID, ItemName, Quantity FROM plunk.item;";
+        //$result = json_encode($DB->runQuery($sql));
+        // setcookie("Items", json_encode($result));
+        if(isset($_GET['data'])){
+            $DB = new DB;
+            $id = explode("=", $_GET['data'])[1];
+            $query = "SELECT StaffID,BasicSalary,Bonus,ETF,EPF FROM plunk.salarydetails WHERE No=$id;";
+            $result = $DB->runQuery($query)[0];
+        }
+        else{
+            $result['StaffID'] = "Not Selected";
+            $result['BasicSalary'] = "Not Selected";
+            $result['Bonus'] = "Not Selected";  
+            $result['ETF'] = "Not Selected";
+            $result['EPF'] = "Not Selected";         
+        }
+    ?>
 
     <div class="main">
     <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Add Salary Details</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-                <input name ="add-salary" type="hidden" >
+                <input name ="add-usersalary" type="hidden" >
                 <table>
                     <tr>
                         <div class="form-group">
                             <td><label for="StaffID">Staff ID</label></td>
                             <td></td>
-                            <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" placeholder="Enter the staff ID"/></td>
+                            <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value= "<?php echo "$result[StaffID]";?>"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -32,7 +52,7 @@
                     <div class="form-group">
                         <td><label for="Basic">Basic Salary</label></td>
                         <td></td>
-                        <td><input type="number" id="Basic" name="Basic" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the basic salary"/></td>
+                        <td><input type="number" id="Basic" name="Basic" required class="form-control" min=0 oninput="validity.valid||(value='');" value= "<?php echo "$result[BasicSalary]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -40,7 +60,7 @@
                     <div class="form-group">
                         <td><label for="Bonus">Bonus Value</label></td>
                         <td></td>
-                        <td><input type="number" id="Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the bonus value"/></td>
+                        <td><input type="number" id="Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value= "<?php echo "$result[Bonus]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -48,7 +68,7 @@
                     <div class="form-group">
                         <td><label for="ETF">ETF Value</label></td>
                         <td></td>
-                        <td><input type="number" id="ETF" name="ETF" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the ETF value"/></td>
+                        <td><input type="number" id="ETF" name="ETF" required class="form-control" min=0 oninput="validity.valid||(value='');" value= "<?php echo "$result[ETF]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -56,7 +76,21 @@
                     <div class="form-group">
                         <td><label for="EPF">EPF Value</label></td>
                         <td></td>
-                        <td><input type="number" id="EPF" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the EPF Value"/></td>
+                        <td><input type="number" id="EPF" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" value= "<?php echo "$result[EPF]";?>"/></td>
+                    </div>
+                </tr>
+                <tr><td><br></td></tr>
+
+                <tr>
+                <div class="form-group">
+                    <td><label for="Type">Total Leaves</label></td>
+                    <td></td>
+                    <td><select id="Type" name="LeaveType" class="form-control" placeholder="Choose the leaves details" onchange="changeType(this);">
+                    <option selected>Choose correct detail...</option>
+                        <option value="1">Total leaves less than 5</option>
+                        <option value="2">Medical leaves less than 5</option>
+                        <option value="3">Total leaves greater than 5</option>
+                     </select></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -86,7 +120,8 @@
       <div class = "righttop">
         <div class="itemtable">
             <h3>SALARY DETAILS TABLE</h3>
-            <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
+            <iframe src="detailtable2.php" class="item"></iframe>
+            <!-- <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe> -->
         </div>
         
        </div>

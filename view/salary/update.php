@@ -30,7 +30,7 @@
 			
         
         <form action="../../controller/CRUD.php" method="POST">
-            <input name ="update-payment" type="hidden" >
+            <input name ="update-usersalary" type="hidden" >
             <table class="formtable">
             <tr>
                 <div class="form-group">
