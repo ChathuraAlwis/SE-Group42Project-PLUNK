@@ -22,14 +22,27 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Search..." >
+                        <form method="POST" action="companydash.php" onclick = "return isEmpty()">
+                              <input type = "text" name="companysearch" class = "search" placeholder="Enter the company name"/>
+                              <button type = "submit" class = "search" ><b>Search</b></button>
+                        </form>
+
                           <div class="addicon">
                                 <a href="addcompany.html" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
                     </div>
                     <div class="detailtable">
-                            <iframe src="companytable.php" class="staff"></iframe>
-                    </div>
+                        <?php 
+                        // print_r($_POST['companysearch']);
+                        if(isset($_POST['companysearch'])){
+                              echo '<iframe src="companytable.php?companysearch=' . $_POST['companysearch'] . '" name="searchinfo" class="staff"></iframe>';
+                        }
+                        else{
+                              echo '<iframe src="companytable.php" name="searchinfo" class="staff"></iframe>';
+                        }
+                  ?>
+            
+                  </div>
 
                 </div>
 

@@ -30,7 +30,7 @@
                       <button type="submit" name="remove"><b>Yes</b> </button></a>
                     </div>
                     <div class="btn2">
-                      <a href="..\company\companydash.html"><button type="button" name="button"><b>No</b> </button></a>
+                      <a href="..\company\companydash.php"><button type="button" name="button"><b>No</b> </button></a>
                     </div>
 
                     </form>
