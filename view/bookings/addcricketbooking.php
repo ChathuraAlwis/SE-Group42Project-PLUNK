@@ -60,11 +60,11 @@
 
                   <div class="questions">
                       <label for="reservation1">Reservation  :</label>
-                      <input type="text" name="Reservation" id="ReservationName"  required>
+                      <input type="text" name="Reservation" id="ReservationName" autocomplete="off" readonly required>
                   </div><br>
                   <div class="questions">
                       <label for="reservation1">Price  :</label>
-                      <input type="text" name="Total" class="qtype1" id="Cost"  required>
+                      <input type="text" name="Total" class="qtype1" id="Cost" readonly  required>
                   </div><br>
 
 
@@ -79,14 +79,14 @@
                   <div class="questions">
                     <p class=" tips">Please enter between 08.00 a.m and 05.00 p.m</p>
                         <label for="time">Reserved Time:</label>
-                        <input type="time" name="ReservedTime" min="08:00"  value="<?php echo date("H:i") ?>"  required>
+                        <input type="time" name="ReservedTime" min="08:00" max="17:00" value="<?php echo date("H:i") ?>"  required>
 
 
                   </div>
                   <div class="questions">
                     <p class=" tips">Please enter between 09.00 a.m and 06.00 p.m</p>
                         <label for="EndTime">End Time :</label>
-                        <input type="time" name="EndTime"  required>
+                        <input type="time" name="EndTime"min="09:00" max="18:00" required>
 
                   </div><br>
                   <div class="questions">
