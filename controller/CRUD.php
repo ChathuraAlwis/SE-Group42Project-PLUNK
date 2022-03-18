@@ -1051,7 +1051,7 @@ if(isset($_POST['addbook'])){
             }
             $planday=$create;
 
-            if ($start>='17:00'&& $start<='22:30'&& $end >='17:30'&& $end <='23:00') {
+            if ($start>='17:00'&& $start<='22:30'&& $end >='17:30'&& $end <='23:00' && $start<$end) {
 
                     $sql = "INSERT INTO plunk.booking (BookingID,CustomerName,BookingType,Reservation,NoOfPeople,ReservedDate,ReservedTime,EndTime,CreatedDate,LastModifiedDate,ContactNo,Total,UserID) VALUES ('','$_POST[CustomerName]','Restaurant','$_POST[Reservation]','$_POST[NoOfPeaople]','$_POST[ReservedDate]','$_POST[ReservedTime]','$_POST[EndTime]','$_POST[CreatedDate]','$_POST[CreatedDate]','$_POST[ContactNo]','$_POST[Total]','$_POST[UserID]')";
                     $DB->runQuery($sql);
@@ -1100,7 +1100,7 @@ elseif (isset($_POST['add-clubbook'])) {
           }
           $planday=$create;
 
-          if ($start>='8:00'&& $start<='17:00'&& $end >='09:00'&& $end <='18:00') {
+          if ($start>='8:00'&& $start<='17:00'&& $end >='09:00'&& $end <='18:00' && $start<$end) {
         $sql = "INSERT INTO plunk.booking (BookingID,CustomerName,BookingType,Reservation,NoOfPeople,ReservedDate,ReservedTime,EndTime,CreatedDate,LastModifiedDate,ContactNo,Total,UserID) VALUES ('','$_POST[CustomerName]','Club','$_POST[Reservation]','$_POST[NoOfPeaople]','$_POST[ReservedDate]','$_POST[ReservedTime]','$_POST[EndTime]','$_POST[CreatedDate]','$_POST[CreatedDate]','$_POST[ContactNo]','$_POST[Total]','$_POST[UserID]')";
         $DB->runQuery($sql);
 
@@ -1113,7 +1113,7 @@ elseif (isset($_POST['add-clubbook'])) {
           $newPage->show();
         }
       }else {
-        $newPage = new Page('..\view\bookings\restimewarning.html');
+        $newPage = new Page('..\view\bookings\resclubtime.html');
         $newPage->show();
       }
     }
@@ -1144,7 +1144,7 @@ if(isset($_POST['update-booking'])){
          // else {
          //   echo "not null";
          // }
-         if ($start>='17:00'&& $start<='22:30'&& $end >='17:30'&& $end <='23:00') {
+         if ($start>='17:00'&& $start<='22:30'&& $end >='17:30'&& $end <='23:00' && $start<$end ) {
             if ($len == 0) {
               $sql = "UPDATE plunk.booking SET CustomerName='$_POST[CustomerName]', Reservation='$_POST[Reservation]', NoOfPeople='$_POST[NoOfPeaople]', ReservedDate='$_POST[ReservedDate]', ReservedTime='$_POST[ReservedTime]', EndTime='$_POST[EndTime]', LastModifiedDate='$_POST[LastModifiedDate]', ContactNo='$_POST[ContactNo]', Total='$_POST[Total]', UserID='$_POST[UserID]' WHERE BookingID='$_POST[BookingID]'  ";
 
@@ -1201,7 +1201,7 @@ elseif(isset($_POST['update-clubbooking'])){
         $end=$_POST['EndTime'];
 
 
-        if ($start>='8:00'&& $start<='17:00'&& $end >='09:00'&& $end <='18:00') {
+        if ($start>='8:00'&& $start<='17:00'&& $end >='09:00'&& $end <='18:00'&& $start<$end) {
             if ($len == 0) {
               $sql = "UPDATE plunk.booking SET CustomerName='$_POST[CustomerName]', Reservation='$_POST[Reservation]', NoOfPeople='$_POST[NoOfPeaople]', ReservedDate='$_POST[ReservedDate]', ReservedTime='$_POST[ReservedTime]', EndTime='$_POST[EndTime]', LastModifiedDate='$_POST[LastModifiedDate]', ContactNo='$_POST[ContactNo]', Total='$_POST[Total]', UserID='$_POST[UserID]' WHERE BookingID='$_POST[BookingID]'  ";
 
@@ -1234,7 +1234,7 @@ elseif(isset($_POST['update-clubbooking'])){
              $newPage->show();
             }
           }else {
-            $newPage = new Page('..\view\bookings\restimewarning.html');
+            $newPage = new Page('..\view\bookings\resclubtime.html');
             $newPage->show();
           }
     } catch (\Throwable $th) {
