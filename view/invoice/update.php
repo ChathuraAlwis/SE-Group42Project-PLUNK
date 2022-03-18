@@ -33,9 +33,15 @@
             <h2 class="center-text">
                 <b>INVOICE DETAILS</b>
                 <!-- <a href="deleteinvoicesuccess.html"> -->
-                <input type="hidden" name="delete-invoice">
-                <!-- <input type="hidden" name="InvoiceID" value="<?php echo $result['InvoiceID']; ?>"> -->
-                <a href="delete.php?<?php echo 'InvoiceID='.$result['InvoiceID'];?>"><image src = "../images/bin.png" class="bin"></image></a></h2>
+                <!-- <input type="hidden" name="delete-invoice"> -->
+                <?php if($result["AddToGRN"]=="Yes"){
+                    echo "<a href=deletemsg.php><image src = '../images/bin.png' class='bin'></image></a></h2>";
+                }
+                else{
+                    echo "<a href=delete.php?InvoiceID=$result[InvoiceID]><image src = '../images/bin.png' class='bin'></image></a></h2>";
+                }
+                ?>
+                
                 <!-- <button type="submit" style="background-color: transparent; border:none"><image src = "../images/bin.png" class="bin"></image></button> -->
             </h2>
         </form>

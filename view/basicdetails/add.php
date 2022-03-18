@@ -45,8 +45,14 @@
                 <table class="formtable">
                 <tr>
                     <div class="form-group">
-                        <td><label for="Company">Staff Member Name</label></td>
-                        <td><input type="text" id="Company" name="CompanyName"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
+                        <td><label for="StaffID">Staff ID</label></td>
+                        <td><input type="text" id="StaffID" name="StaffID"  required class="form-control"  placeholder="Select the staff ID" value = "<?php echo "$StaffID";?>"/></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="StaffName">Staff Member Name</label></td>
+                        <td><input type="text" id="StaffName" name="StaffName"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$StaffName";?>"/></td>
                     </div>
                 </tr>
                 <tr>
