@@ -118,7 +118,15 @@
         <div class = "rightbottom">
             <div class="itemtable"> 
                 <h4>ITEMS TABLE</h4>
-                <iframe src="../items/itemtable.php" class="item"></iframe>              
+                <!-- <iframe src="../items/itemtable.php" class="item"></iframe> -->
+                <?php 
+                    if($result2['Company'] != "Not Selected"){
+                            echo '<iframe src="../items/itemtable.php?companyname='. $result2['Company'].'&type='. $result2['Type'] .'" class="item"></iframe>';
+                    }
+                    else{
+                            echo '<iframe src="../items/itemtable.php" class="item"></iframe>';
+                    }
+                ?>            
             </div>  
         </div>
     </div>
