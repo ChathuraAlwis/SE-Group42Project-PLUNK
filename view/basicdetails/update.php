@@ -13,24 +13,26 @@
 
   </head>
   <body>
-    <?php
+  <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        // $personid = explode("=", $_GET['data'])[1];
-        // $personid=$_GET['getdata'];
-        $query = "SELECT * FROM plunk.salarydetails WHERE StaffID=$_GET[getdata]";
+        $id = explode("=", $_GET['data'])[1];
+        $query = "SELECT * FROM plunk.salarydetails WHERE StaffID='$id'";
+
         $result = $DB->runQuery($query)[0];
+
     ?>
+
 
     <div class=main>
     <div class= left>
     <div class="form">
-			<h2 class="center-text"><b>Staff Member Salary Details</b></h2>
-        <a href="deletesalarysuccess.html"><image src = "../images/bin.png" class="bin"></image></a> 
+			  <h2 class="center-text"><b>Staff Member Salary Details</b></h2>
+        <a href="deletemsg.php"><image src = "../images/bin.png" class="bin"></image></a> 
 			
         
         <form action="../../controller/CRUD.php" method="POST">
-            <input name ="update-usersalary" type="hidden" >
+            <input name ="update-basicdetail" type="hidden" >
             <table class="formtable">
               <tr>
                 <div class="form-group">
@@ -40,29 +42,23 @@
               </tr>
               <tr>
                 <div class="form-group">
-                   <td><label for="StaffID">Staff ID</label></td> 
-                    <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                   <td><label for="StaffName">Staff Member Name</label></td> 
+                    <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value = "<?php echo "$result[StaffName]";?>"/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
-                   <td><label for="StaffID">Staff ID</label></td> 
-                    <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                   <td><label for="UserType">Staff Type</label></td> 
+                    <td><input type="text" id= "UserType" name="UserType" required class="form-control" value = "<?php echo "$result[UserType]";?>"/></td>
                 </div>
               </tr>
               <tr>
                     <div class="form-group">
-                        <td><label for="Basic">Basic Value</label></td>
-                        <td><input type="text" id= "Basic" name="Basic" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Basic]";?>"/></td>
+                        <td><label for="BasicSalary">Basic Value</label></td>
+                        <td><input type="text" id= "BasicSalary" name="BasicSalary" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[BasicSalary]";?>"/></td>
                     </div>
                 </tr>
               <tr>
-                    <div class="form-group">
-                        <td><label for="Bonus">Bonus Value</label></td>
-                        <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>"/></td>
-                    </div>
-                </tr>
-                <tr>
                     <div class="form-group">
                         <td><label for="Bonus">Bonus Value</label></td>
                         <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>"/></td>
@@ -82,8 +78,8 @@
               </tr>
               <tr>
                 <div class="form-group">
-                   <td><label for="Total">Total Salary</label></td> 
-                    <td><input type="number" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Total]";?>"/></td>
+                   <td><label for="Percentage">Service Charge Percentage</label></td> 
+                    <td><input type="text" id= "Percentage" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Percentage]";?>"/></td>
                 </div>
               </tr>
             </table>
@@ -94,23 +90,23 @@
                 <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="salarytable.php">Cancel</a></button>
             </div>
     </form>                
-    </div>
+</div>
 </div>
 <div class= right>
-   <div class = "righttop">
+    <div class = "righttop">
         <div class="itemtable">
-            <h4>SALARY DETAILS TABLE</h4>
-            <iframe src="allsalary.php?id=<?php echo $_GET['getdata'];?>" class="item"></iframe>
+            <h4>STAFF MEMBERS DETAILS TABLE</h4>
+            <iframe src="staff.php" class="item"></iframe>
         </div>
         
-    </div>
-    <div class = "rightbottom">
+       </div>
+        <div class = "rightbottom">
             <div class="itemtable">
-            <h3>LEAVE DETAILS TABLE</h3>
-                <iframe src="../leave/allleave.php" class="item"></iframe>
+                <h4>STAFF CATEGORY PAYMENTS DETAILS TABLE</h4>
+                <iframe src="detailtable2.php" class="item"></iframe>
             </div>  
         </div>
-</div>
+    </div>
 </div>
      
   </body>

@@ -35,7 +35,7 @@
     <div class="form">
         <h2 class="center-text"><b>Add Staff Details</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-                <input name ="add-staffdetails" type="hidden" >
+                <input name ="add-basicdetail" type="hidden" >
                 <table class="formtable">
                 <tr>
                     <div class="form-group">
@@ -51,9 +51,9 @@
                 </tr>
                 <tr>
                 <div class="form-group">
-                    <td><label for="Type">Staff Type</label></td>
+                    <td><label for="UserType">Staff Type</label></td>
                     
-                    <td><select id="Type" name="ItemType" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
+                    <td><select id="UserType" name="ItemType" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
                         <option value="1">Admin</option>
                         <option value="2">General Manager</option>
@@ -66,8 +66,8 @@
                 </tr>
 
                         <tr>
-                            <td><label for="Total">Basic Total</label></td>
-                            <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                            <td><label for="BasicSalary">Basic Total</label></td>
+                            <td><input type="text" id= "BasicSalary" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
                         <tr>
                             <td><label for="Bonus">Bonus Percentage</label></td>
@@ -82,8 +82,8 @@
                             <td><input type="text" id= "" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
                         <tr>
-                            <td><label for="Service">Service Charge Percentage</label></td>
-                            <td><input type="text" id= "Service" name="Service" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                            <td><label for="Percentage">Service Charge Percentage</label></td>
+                            <td><input type="text" id= "Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
                     </table>
                         
