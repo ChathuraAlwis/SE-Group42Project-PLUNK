@@ -15,26 +15,20 @@
   </head>
   <body>
   
-    <?php
-         if(isset($_GET['data'])){
-            require_once "../../model/database.php";
-            $DB = new DB;
-            $type = explode("=", $_GET['data'])[1];
-            $query = "SELECT * FROM plunk.usersalary WHERE BookingID=$type";
-            $result = $DB->runQuery($query)[0];
-        }else{
-            $type = -1;
+  <?php
+        require_once "../../model/database.php";
+        if(isset($_GET['data'])){ //Select company
+            //$DB2 = new DB;
+            $StaffID = explode("=", $_GET['data'])[1];
+            $StaffName = explode("=", $_GET['data'])[1];
+            $query = "SELECT * FROM plunk.user WHERE DisplayID=$StaffID";
+            $result2 = $DB2->runQuery($query)[0];
+            //print_r($result2);
         }
-        // require_once "../../model/database.php";
-        // if(isset($_GET['data'])){ //Select user type details
-        //     $usertype = explode("=", $_GET['data'])[1];
-        //     //$query = "SELECT * FROM plunk.company WHERE Company=$companyname";
-        //     //$result2 = $DB2->runQuery($query)[0];
-        //     //print_r($result2);
-        // }
-        // else{
-        //     $companyname = "Select the Company";
-        // }
+        else{
+            $StaffID = "Select the StaffID";
+            $StaffName = "Select the StaffName";
+        }
     ?>
     <div class="main">
     <div class= "left">

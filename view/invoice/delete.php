@@ -67,14 +67,15 @@
 			
         
         <form action="../../controller/CRUD.php" method="POST">
-            <input name ="update-invoice" type="hidden" >
+            <input name ="delete-invoice" type="hidden" >
+            <input name="InvoiceID" type="hidden" value="<?php echo $_GET['InvoiceID']?>"/> 
             <table class="formtable">
             <tr>
-                <div class="form-group">
-                   <td><label for="InvoiceID">Invoice ID</label></td> 
-                    <td><input type="number" id= "InvoiceID" name="InvoiceID" required class="form-control" value = "<?php echo "$result[InvoiceID]";?>"/></td>
-                </div>
-              </tr>
+                    <div class="form-group">
+                        <td><label for="DeleteDate">Delete Date</label></td>
+                        <td><input type="date" id= "DeleteDate" name="DeleteDate" required class="form-control" value="<?php echo date("Y-m-d") ?>" readonly/></td>
+                    </div>
+                </tr> 
             
             <tr>
             <div class="form-group">

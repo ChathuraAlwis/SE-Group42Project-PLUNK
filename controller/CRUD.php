@@ -540,10 +540,15 @@ if(isset($_POST['delete-invoice'])){
 
     try {
         $sql = "SELECT * FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
-        $data = $DB->runQuery($sql);
-        print_r($data);
-        // $sql = "DELETE FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
-        // $DB->runQuery($sql);
+        $data = $DB->runQuery($sql)[0];
+        //print_r($data);
+        $sql2 = "INSERT INTO plunk.deleteinvioce(`InvoiceID`, `Company`, `Type`, `ReceivedDate`, `DueDate`, `Total`, `DeleteDate`, `Reason`, `UserID`) VALUES ('$data[InvoiceID]','$data[Company]','$data[Type]','$data[ReceivedDate]','$data[DueDate]','$data[Total]','$_POST[DeleteDate]','$_POST[Reason]','$data[UserID]')";
+        $DB->runQuery($sql2);
+        $sql3 = "DELETE FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
+        $DB->runQuery($sql3);
+
+        $newPage = new Page('../view/invoice/deleteinvoicesuccess.html');
+        $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -1168,7 +1173,7 @@ if(isset($_POST['update-userservicecharge'])){
 //---------------------------------------------------UserSalarydetail-----------------------------------------------------------------------
 
 
-if(isset($_POST['update-usersalary'])){
+if(isset($_POST['update-basicsalary'])){
     $DB = new DB;
 
     try {
