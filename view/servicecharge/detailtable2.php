@@ -16,7 +16,7 @@
                     <?php
                           require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("salarydetails");
-                          $orderTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', Percentage as 'Service Charge Percentage' FROM plunk.salarydetails");
+                          $orderTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', Percentage as 'Service Charge Percentage' FROM plunk.salarydetails", 'add');
                        ?>
 
                     </div>

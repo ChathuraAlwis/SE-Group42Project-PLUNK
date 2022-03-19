@@ -12,26 +12,53 @@
         
   </head>
   <body>
+  <?php
+        require_once "../../model/database.php";
+        //$DB = new DB;
+        //$sql = "SELECT ItemID, ItemName, Quantity FROM plunk.item;";
+        //$result = json_encode($DB->runQuery($sql));
+        // setcookie("Items", json_encode($result));
+        if(isset($_GET['data'])){
+            $DB = new DB;
+            $id = explode("=", $_GET['data'])[1];
+            $query = "SELECT StaffID, Percentage FROM plunk.salarydetails WHERE No=$id;";
+            $result = $DB->runQuery($query)[0];
+        }
+        else{
+            $result['StaffID'] = "Not Selected";
+            $result['Percentage'] = "Not Selected";         
+        }
+    ?>
     <div class="main">
     <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Add Service Charge Details</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-                <input name ="add-salary" type="hidden" >
+                <input name ="add-userservice" type="hidden" >
                 <table>
-                    <tr>
+                <tr>
                         <div class="form-group">
                             <td><label for="StaffID">Staff ID</label></td>
                             <td></td>
-                            <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" placeholder="Enter the staff ID"/></td>
+                            <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value= "<?php echo "$result[StaffID]";?>"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
-                    <tr>
+                
+                <tr>
                     <div class="form-group">
                         <td><label for="Percentage">Percentage</label></td>
                         <td></td>
-                        <td><input type="number" id="Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the percentage"/></td>
+                        <td><input type="number" id="Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" value= "<?php echo "$result[Percentage]";?>"/></td>
+                    </div>
+                </tr>
+
+                <tr><td><br></td></tr>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Monthly">Monthly Profit</label></td>
+                        <td></td>
+                        <td><input type="number" id="Monthly" name="Monthly" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Monthly Profit"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -60,15 +87,16 @@
     <div class= right>
       <div class = "righttop">
         <div class="itemtable">
-            <h4>Service Charge Details Table</h4>
-            <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe>
+        <h3>SERVICE CHARGE DETAILS TABLE</h3>
+            <iframe src="detailtable2.php" class="item"></iframe>
+            <!-- <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe> -->
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
-            <h3>Leave Details Table</h3>
-                <iframe src="../leave/allleave.php" class="item"></iframe>
+            <h3>MONTHLY PROFIT DETAILS TABLE</h3>
+                <iframe src="../report/MonthlySales.php" class="item"></iframe>
             </div>  
         </div>
     </div>

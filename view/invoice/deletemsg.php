@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -7,18 +6,20 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/tablehome.css">
+        <link rel="stylesheet" href="../style/success.css">
 
   </head>
   <body>
         <div class="main" >
 
                     <div class="detailtable">
-                      <?php
-                          require_once "../../controller/showtable.php";
-                          $orderTable = new Table("servicecharge");
-                          $orderTable->show("SELECT ServiceChargeID as 'Service Charge ID', Date FROM plunk.servicecharge",'alltable');
-                       ?>
+                    <h3><b>This invoice was added to the GRN...</b> </h3>
+                    <h1 id="Error"><b>This invoice cannot be deleted</b> </h1><br>
+
+                    <div class="btn">
+                      <a href="invoicetable.php"><button type="button" name="button"><b>OK</b> </button></a>
+                    </div>
+
 
                     </div>
 

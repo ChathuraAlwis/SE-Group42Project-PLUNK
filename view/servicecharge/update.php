@@ -33,7 +33,7 @@
 			
         
         <form action="../../controller/CRUD.php" method="POST">
-            <input name ="update-servicechargestaff" type="hidden" >
+            <input name ="update-userservicecharge" type="hidden" >
             <table class="formtable">
             <tr>
                 <div class="form-group">

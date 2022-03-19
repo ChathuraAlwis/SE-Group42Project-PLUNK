@@ -1128,8 +1128,44 @@ if(isset($_POST['add-servicecharge'])){
 
 }
 
+//---------------------------------------------------UserServiceCharge-----------------------------------------------------------------------
 
-//---------------------------------------------------UserSalary-----------------------------------------------------------------------
+if(isset($_POST['add-userservice'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.servicechargestaff(ServiceChargeID,StaffID,Percentage,Amount) VALUES ('','$_POST[StaffID]','$_POST[Percentage]','$_POST[Amount]')";
+        //echo $sql;
+        $DB->runQuery($sql);
+
+
+        $newPage = new Page('..\view\servicecharge\adduserservicesuccess.php');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+//---------Update user salary------------
+
+if(isset($_POST['update-userservicecharge'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.servicechargestaff SET `ServiceChargeID`='$_POST[ServiceChargeID]',`StaffID`='$_POST[StaffID]',`Percentage`='$_POST[Percentage]',`Amount`='$_POST[Amount]'  WHERE StaffID = '$_POST[StaffID]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('../view/servicecharge/updateservicesuccess.html');
+        $newPage->show();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+
+//---------------------------------------------------UserSalarydetail-----------------------------------------------------------------------
 
 
 if(isset($_POST['update-usersalary'])){
