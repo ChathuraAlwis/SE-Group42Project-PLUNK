@@ -54,6 +54,7 @@ function addRowGRN(itemgrn) {
     console.log(itemgrn) ;     
     var ItemID = document.getElementById("ItemID"); 
     var Quantity = document.getElementById("Quantity");
+    var Total = document.getElementById("Total");
 
     if (ItemID.value > 0) {
         var table = document.getElementById("myTableData"); 
@@ -70,17 +71,17 @@ function addRowGRN(itemgrn) {
         });
         row.insertCell(2).innerHTML= '<input type="text" value = "' + Quantity.value + '" name="Quantity'+ rowCount + '" style="border:none" size=5 readonly >';
         
-        // itemSellingPrice.forEach(element => {
-        //     // console.log(element['ItemID'], ItemID);
-        //     if (element['ItemID'] == ItemID.value) {
-        //         var tot = element['SellingPrice'] * Quantity.value * (100 - element['Discount']) / 100;
-        //         row.insertCell(2).innerHTML= '<input type="text" class="SellingPrice" value = "' + tot + '" id="SellingPrice'+ rowCount +'" style="border:none" size=5 readonly >';
-        //         var Tot = parseInt(Total.value) + tot;
-        //         Total.setAttribute("value", Tot); 
-        //     }
-        // });
+        itemgrn.forEach(element => {
+            // console.log(element['ItemID'], ItemID);
+            if (element['ItemID'] == ItemID.value) {
+                var tot = element['PurchasePrice'] * Quantity.value;
+                row.insertCell(3).innerHTML= '<input type="text" class="PurchasePrice" value = "' + tot + '" id="PurchasePrice'+ rowCount +'" style="border:none" size=5 readonly >';
+                var Tot = parseInt(Total.value) + tot;
+                Total.setAttribute("value", Tot); 
+            }
+        });
         
-        row.insertCell(3).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRowGRN(this)">'; 
+        row.insertCell(4).innerHTML= '<input type="button" value = "Delete" onClick="Javacsript:deleteRowGRN(this)">'; 
         document.getElementById("add").setAttribute("disabled", true);
     }
 } 
@@ -88,10 +89,10 @@ function addRowGRN(itemgrn) {
 function deleteRowGRN(obj) {  
     var index = obj.parentNode.parentNode.rowIndex;   
     var Table = document.getElementById("myTableData");
-    // var Total = document.getElementById("Total");
-    // var SellingPrice = Table.rows[index].getElementsByClassName("SellingPrice")[0].value;
-    // var Tot = Total.value - SellingPrice;
-    // Total.setAttribute("value", Tot);
+    var Total = document.getElementById("Total");
+    var PurchasePrice = Table.rows[index].getElementsByClassName("PurchasePrice")[0].value;
+    var Tot = Total.value - PurchasePrice;
+    Total.setAttribute("value", Tot);
     Table.deleteRow(index);
 } 
 
