@@ -252,43 +252,49 @@ if(isset($_POST['add-grn'])){
 
     try {
         if($_POST['ItemType'] != "Choose type..."  || $_POST['CompanyName'] != "Not Selected"){
-
-            $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";
-            //echo $sql;
-            $DB->runQuery($sql);
-
-            $rowCount = $_POST['rowCount'];
-            // echo $rowCount;
-            if($rowCount == 0){
-                $newPage = new Page('../view/grn/addgrnitemserror.html');
+            if($_POST['InvoiceTotal'] != $_POST['Total']){
+                $newPage = new Page('../view/grn/grntotalerror.html');
                 $newPage->show();
             }
             else{
-               $DB->runQuery($sql1);
-               $sql = "SELECT GRNID FROM plunk.grn;";
-               $GRNID = end($DB->runQuery($sql))['GRNID'];
-               $GRNRow = 1;
-            }
-            while($rowCount > 0){
-                if(isset($_POST['ItemID' . $GRNRow])){
-                    $rowCount--;
-                    $grnRow = 'ItemID' . $GRNRow;
-                    //$itemname = 'ItemName'. $GRNRow;
-                    $QuanRow = 'Quantity' . $GRNRow;
-                    $sql = "INSERT INTO plunk.grnitem (GRNID, ItemID,ItemName, Quantity) VALUES ('$GRNID', '$_POST[$grnRow]','$_POST[ItemName]','$_POST[$QuanRow]');";
-                    //echo $sql;
-                    $DB->runQuery($sql);
-                    $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$grnRow];";
-                    // echo $sql;
-                    $DB->runQuery($sql);
-                    $sql = "UPDATE plunk.invoice SET AddToGRN = 'Yes' WHERE InvoiceID = $_POST[id]";
-                    // echo $sql;
-                    $DB->runQuery($sql);
+                
+                $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";
+                //echo $sql;
+                $DB->runQuery($sql1);
+
+                $rowCount = $_POST['rowCount'];
+                // echo $rowCount;
+                if($rowCount == 0){
+                    $newPage = new Page('../view/grn/addgrnitemserror.html');
+                    $newPage->show();
                 }
-                $GRNRow++;
+                else{
+                $DB->runQuery($sql1);
+                $sql = "SELECT GRNID FROM plunk.grn;";
+                $GRNID = end($DB->runQuery($sql))['GRNID'];
+                $GRNRow = 1;
+                }
+                while($rowCount > 0){
+                    if(isset($_POST['ItemID' . $GRNRow])){
+                        $rowCount--;
+                        $grnRow = 'ItemID' . $GRNRow;
+                        //$itemname = 'ItemName'. $GRNRow;
+                        $QuanRow = 'Quantity' . $GRNRow;
+                        $sql = "INSERT INTO plunk.grnitem (GRNID, ItemID,ItemName, Quantity) VALUES ('$GRNID', '$_POST[$grnRow]','$_POST[ItemName]','$_POST[$QuanRow]');";
+                        //echo $sql;
+                        $DB->runQuery($sql);
+                        $sql = "UPDATE plunk.item SET Quantity = Quantity + $_POST[$QuanRow] WHERE ItemID = $_POST[$grnRow];";
+                        // echo $sql;
+                        $DB->runQuery($sql);
+                        $sql = "UPDATE plunk.invoice SET AddToGRN = 'Yes' WHERE InvoiceID = $_POST[id]";
+                        // echo $sql;
+                        $DB->runQuery($sql);
+                    }
+                    $GRNRow++;
+                }
+                $newPage = new Page('../view/grn/addgrnsuccess.html');
+                $newPage->show();
             }
-            $newPage = new Page('../view/grn/addgrnsuccess.html');
-            $newPage->show();
 
         }
         else{
