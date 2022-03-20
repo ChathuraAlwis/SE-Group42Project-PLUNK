@@ -546,10 +546,15 @@ if(isset($_POST['delete-invoice'])){
 
     try {
         $sql = "SELECT * FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
-        $data = $DB->runQuery($sql);
-        print_r($data);
-        // $sql = "DELETE FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
-        // $DB->runQuery($sql);
+        $data = $DB->runQuery($sql)[0];
+        //print_r($data);
+        $sql2 = "INSERT INTO plunk.deleteinvioce(`InvoiceID`, `Company`, `Type`, `ReceivedDate`, `DueDate`, `Total`, `DeleteDate`, `Reason`, `UserID`) VALUES ('$data[InvoiceID]','$data[Company]','$data[Type]','$data[ReceivedDate]','$data[DueDate]','$data[Total]','$_POST[DeleteDate]','$_POST[Reason]','$data[UserID]')";
+        $DB->runQuery($sql2);
+        $sql3 = "DELETE FROM plunk.invoice WHERE InvoiceID=$_POST[InvoiceID]";
+        $DB->runQuery($sql3);
+
+        $newPage = new Page('../view/invoice/deleteinvoicesuccess.html');
+        $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -1174,7 +1179,7 @@ if(isset($_POST['update-userservicecharge'])){
 //---------------------------------------------------UserSalarydetail-----------------------------------------------------------------------
 
 
-if(isset($_POST['update-usersalary'])){
+if(isset($_POST['update-basicsalary'])){
     $DB = new DB;
 
     try {
@@ -1184,6 +1189,60 @@ if(isset($_POST['update-usersalary'])){
         $newPage = new Page('..\view\staffpayments\updateusesalsuccess.html');
         $newPage->show();
 
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+//---------------------------------------------------StaffBasicSalary-----------------------------------------------------------------------
+
+if(isset($_POST['add-basicdetail'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.salarydetails(StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentege) VALUES ('$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$_POST[BasicSalary]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
+        //echo $sql;
+        $DB->runQuery($sql);
+
+
+        $newPage = new Page('..\view\basicdetails\addsuccess.php');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+//---------Update------------
+
+if(isset($_POST['update-basicdetail'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.salarydetails SET `StaffID`='$_POST[StaffID]',`StaffName='$_POST[StaffName]',`UserType='$_POST[UserType]',`BasicSalary`='$_POST[BasicSalary]',`Bonus`='$_POST[Bonus]',`ETF`='$_POST[ETF]',`EPF`='$_POST[EPF]',`Percentage`='$_POST[Percentage]'  WHERE StaffID = '$_POST[StaffID]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('../view/basicdetails/updatesuccess.php');
+        $newPage->show();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
+//--Delete
+if(isset($_POST['delete-basicdetail'])){
+    $DB = new DB;
+
+    try {
+        $sql = "SELECT * FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
+        $data = $DB->runQuery($sql)[0];
+        $sql2 = "DELETE FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
+        $DB->runQuery($sql2);
+
+        $newPage = new Page('../view/basicdetails/deletesuccess.php');
+        $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }

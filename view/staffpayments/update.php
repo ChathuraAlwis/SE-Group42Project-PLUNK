@@ -23,7 +23,7 @@
 
         <div class="main" >
             <form class="addcompany" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-              <input name ="update-usersalary" type="hidden" >
+              <input name ="" type="hidden" >
               <div class="headerrow">
                 
               </div>
