@@ -15,19 +15,20 @@
   <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $sql = "SELECT ItemID, ItemName, Quantity FROM plunk.item;";
+        $sql = "SELECT ItemID, ItemName, Quantity, PurchasePrice FROM plunk.item;";
         $result = json_encode($DB->runQuery($sql));
         // setcookie("Items", json_encode($result));
         if(isset($_GET['data'])){
             $DB2 = new DB;
             $id = explode("=", $_GET['data'])[1];
-            $query = "SELECT Type,Company FROM plunk.invoice WHERE InvoiceID=$id;";
+            $query = "SELECT Type,Company,Total FROM plunk.invoice WHERE InvoiceID=$id;";
             $result2 = $DB2->runQuery($query)[0];
         }
         else{
             $result2['InvoiceID'] = -1;
             $result2['Company'] = "Not Selected";
-            $result2['Type'] = "Choose Type...";           
+            $result2['Type'] = "Choose Type...";
+            $result2['Total'] = 0;            
         }
     ?>
     <div class=main>
@@ -37,7 +38,8 @@
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-grn" type="hidden" >
                 <input name = 'id' type="hidden" value="<?php echo $id;?>">
-                
+                <input name = 'InvoiceTotal' type="hidden" value="<?php echo "$result2[Total]";?>">
+
                 <table class="formtable">
 
                 <tr>
@@ -62,7 +64,12 @@
                         <td><input type="date" id= "AddDate" name="AddDate" required class="form-control" value="<?php echo date("Y-m-d") ?>" readonly/></td>
                     </div>
                 </tr> 
-                
+                <tr>
+                    <div>
+                        <td><label for="Total">GRN Total</label></td>
+                        <td><input name ="Total" id="Total" type="number" class="form-control" value=0  readonly></td>
+                    </div>
+                </tr> 
                 
              </table>
             <div class="form-group">
@@ -89,12 +96,12 @@
                         <tr> 
                             <td><b>Item ID</b></td> 
                             <td><b>Item Name</b></td> 
-                            <td><b>Quantity</b></td> 
+                            <td><b>Quantity</b></td>
+                            <td><b>Price</b></td>
                             <td>&nbsp;</td> 
                         </tr> 
                     </table> 
 
-                      
                     </div> 
                 </div>
                 <input type="hidden" id="rowCount" name="rowCount" value=0>
@@ -118,7 +125,15 @@
         <div class = "rightbottom">
             <div class="itemtable"> 
                 <h4>ITEMS TABLE</h4>
-                <iframe src="../items/itemtable.php" class="item"></iframe>              
+                <!-- <iframe src="../items/itemtable.php" class="item"></iframe> -->
+                <?php 
+                    if($result2['Company'] != "Not Selected"){
+                            echo '<iframe src="../items/itemtable.php?companyname='. $result2['Company'].'&type='. $result2['Type'] .'" class="item"></iframe>';
+                    }
+                    else{
+                            echo '<iframe src="../items/itemtable.php" class="item"></iframe>';
+                    }
+                ?>            
             </div>  
         </div>
     </div>
