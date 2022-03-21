@@ -23,6 +23,7 @@
             $id = explode("=", $_GET['data'])[1];
             $query = "SELECT StaffID,BasicSalary,Bonus,ETF,EPF FROM plunk.salarydetails WHERE No=$id;";
             $result = $DB->runQuery($query)[0];
+            print_r($_GET);
         }
         else{
             $result['StaffID'] = "Not Selected";
@@ -127,8 +128,17 @@
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
-            <h3>LEAVE DETAILS TABLE</h3>
-                <iframe src="../leave/allleave.php" class="item"></iframe>
+                <h3>LEAVE DETAILS TABLE</h3>
+                <form action="add.php" method="post">
+                    <input type = "text" name= "name" class = "search" placeholder="Search by Name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}?>" />
+                    <input title="Month" name = "month" type = date class = "search" value="<?php if(isset($_POST['month'])) {echo $_POST['month'];} else {echo date("Y-m-d");}?>">
+                    <?php if(isset($_POST['name']) and isset($_POST['month'])){
+                        echo "<iframe src='../leave/allleave.php?name=$_POST[name]&month=$_POST[month]' class='item'></iframe>";
+                    }else{
+                        echo "<iframe src='../leave/allleave.php' class='item'></iframe>";
+                    }
+                    ?>
+                </form>
             </div>  
         </div>
     </div>
