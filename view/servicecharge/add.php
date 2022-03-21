@@ -21,11 +21,12 @@
         if(isset($_GET['data'])){
             $DB = new DB;
             $id = explode("=", $_GET['data'])[1];
-            $query = "SELECT StaffID, Percentage FROM plunk.salarydetails WHERE No=$id;";
+            $query = "SELECT StaffID,StaffName,Percentage FROM plunk.salarydetails WHERE StaffID='$id';";
             $result = $DB->runQuery($query)[0];
         }
         else{
             $result['StaffID'] = "Not Selected";
+            $result['StaffName'] = "Not Selected";
             $result['Percentage'] = "Not Selected";         
         }
     ?>
@@ -44,7 +45,14 @@
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
-                
+                    <tr>
+                        <div class="form-group">
+                            <td><label for="StaffName">Staff Name</label></td>
+                            <td></td>
+                            <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value= "<?php echo "$result[StaffName]";?>"/></td>
+                        </div>
+                    </tr>
+                    <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Percentage">Percentage</label></td>

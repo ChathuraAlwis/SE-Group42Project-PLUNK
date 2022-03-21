@@ -27,8 +27,8 @@
     <div class=main>
     <div class= left>
     <div class="form">
-			  <h2 class="center-text"><b>Staff Member Salary Details</b></h2>
-        <a href="deletemsg.php"><image src = "../images/bin.png" class="bin"></image></a> 
+			  <h2 class="center-text"><b>Staff Member Salary Details</b>
+        <a href="deletemsg.php"><image src = "../images/bin.png" class="bin"></image></a></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
@@ -37,7 +37,7 @@
               <tr>
                 <div class="form-group">
                    <td><label for="StaffID">Staff ID</label></td> 
-                    <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                    <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                 </div>
               </tr>
               <tr>
@@ -79,14 +79,14 @@
               <tr>
                 <div class="form-group">
                    <td><label for="Percentage">Service Charge Percentage</label></td> 
-                    <td><input type="text" id= "Percentage" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Percentage]";?>"/></td>
+                    <td><input type="text" id= "Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Percentage]";?>"/></td>
                 </div>
               </tr>
             </table>
             
                 <br>
                 <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="updatesalarysuccess.html">Update</a></button>
+                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
                 <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="salarytable.php">Cancel</a></button>
             </div>
     </form>                

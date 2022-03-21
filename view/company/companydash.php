@@ -43,10 +43,10 @@
                     <?php 
                         // print_r($_POST['companysearch']);
                         if(isset($_POST['companysearch'])){
-                              echo '<iframe src="companytable2.php?companysearch=' . $_POST['companysearch'] . '" name="searchinfo" class="staff"></iframe>';
+                              echo '<iframe src="companytable.php?companysearch=' . $_POST['companysearch'] . '" name="searchinfo" class="staff"></iframe>';
                         }
                         else{
-                              echo '<iframe src="companytable2.php" name="searchinfo" class="staff"></iframe>';
+                              echo '<iframe src="companytable.php" name="searchinfo" class="staff"></iframe>';
                         }
                   ?>
                     </div>
