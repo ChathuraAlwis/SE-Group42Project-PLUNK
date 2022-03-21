@@ -96,6 +96,35 @@ function deleteRowGRN(obj) {
     Table.deleteRow(index);
 } 
 
+function calculateTotal(obj){
+    var Basic = parseInt(document.getElementById("Basic").value);
+    var EPF = parseInt(document.getElementById("EPF").value);
+    var ETF = parseInt(document.getElementById("ETF").value);
+    var Bonus = parseInt(document.getElementById("Bonus").value);
+
+    Basic = isNaN(Basic) ? 0 : Basic;
+    EPF = isNaN(EPF) ? 0 : EPF;
+    ETF = isNaN(ETF) ? 0 : ETF;
+    Bonus = isNaN(Bonus) ? 0 : Bonus;
+
+    var Salary = Basic + Basic*(Bonus + EPF + ETF)/100;
+    var Total = document.getElementById("Total");
+
+    switch (obj.value) {
+        case "1":
+            Total.value = Salary;
+            break;
+        case "2":
+            Total.value = Salary/2;
+            break;
+        case "3":
+            Total.value = 0;
+            break;
+        default:
+            break;
+    }
+}
+
 // function addRowInvoice(itemPrice) {    
 //     var ItemID = document.getElementById("ItemID"); 
 //     var Quantity = document.getElementById("Quantity");
@@ -142,4 +171,4 @@ function deleteRowGRN(obj) {
 
 
 
- 
+

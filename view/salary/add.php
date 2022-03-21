@@ -86,7 +86,7 @@
                 <div class="form-group">
                     <td><label for="Type">Total Leaves</label></td>
                     <td></td>
-                    <td><select id="Type" name="LeaveType" class="form-control" placeholder="Choose the leaves details" onchange="changeType(this);">
+                    <td><select id="Type" name="LeaveType" class="form-control" placeholder="Choose the leaves details" onchange="calculateTotal(this);">
                     <option selected>Choose correct detail...</option>
                         <option value="1">Total leaves less than 5</option>
                         <option value="2">All Medical leaves less than 7</option>

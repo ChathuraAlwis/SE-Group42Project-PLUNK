@@ -18,12 +18,17 @@ session_start();?>
                     
                     <?php
                         require_once "../../controller/showtable.php";
-                        $itemTable = new Table("leave");
+                        $leaveTable = new Table("leave");
                         if($_SESSION['UserType'] == 'Accountant'){
-                          $itemTable->show("SELECT UserID,	RequestedDate,	LeaveDate, ManagerID FROM plunk.leave where Accepted = 'Yes';", 'update');
+                          if(isset($_GET['name']) and isset($_GET['month'])){
+                            $month = substr($_GET['month'],0,7);
+                            $leaveTable->show("select *, sum(Leaves) over (order by NewTable.Leaves) as Total FROM (SELECT user.UserName as Name, LeaveType as 'Type', sum(NoOfdays) as Leaves FROM plunk.leave INNER JOIN plunk.user where plunk.leave.UserID=user.UserID and user.UserName LIKE '%$_GET[name]%' and LeaveDate LIKE '$month%' and Accepted='Yes' group by LeaveType) as NewTable;", '../salary/add');
+                          }else{
+                            echo "<h3>Search leaves by member name and salary month.<h3>";
+                          }
                         }
                         else{
-                          $itemTable->show("SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]';", 'update');
+                          $leaveTable->show("SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]';", 'update');
                         }
                         
                       ?> 
