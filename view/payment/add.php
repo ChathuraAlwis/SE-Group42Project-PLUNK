@@ -70,21 +70,13 @@
 
                 <tr>
                     <div class="form-group">
-                        <td><label for="Reservation1">Reservation 1</label></td>
+                        <td><label for="Reservation">Reservation List</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation1" name="Reservation1"  class="form-control" <?php if(isset($result)){echo "value=$result[Reservation1]";}?> readonly/></td>
+                        <td><input type="text" id= "Reservation" name="Reservation"  class="form-control" <?php if(isset($result)){echo "value=$result[Reservation]";}?> readonly/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
 
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Reservation2">Reservation 2</label></td>
-                        <td></td>
-                        <td><input type="text" id= "Reservation2" name="Reservation2" class="form-control" <?php if(isset($result["Reservation2"])){echo "value=$result[Reservation2]";}?> readonly/></td>
-                    </div>
-                </tr>
-                <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="Total">Total Value</label></td>

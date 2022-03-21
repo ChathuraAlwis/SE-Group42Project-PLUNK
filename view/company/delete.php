@@ -6,7 +6,7 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/companymgs.css">
+        <link rel="stylesheet" href="../style/deletemsg.css">
 
   </head>
   <body>
@@ -20,23 +20,20 @@
 
     ?>
         <div class="main" >
-
-                    <div class="detailtable">
-                      <form class="deleteform" action="..\..\controller\CRUD.php" method="post">
+                      <form class="deleteform" action="..\..\controller\CRUD.php" method="post">a
                       <input type="hidden" id="Name" class="input" name="Company" value = "<?php echo "$result[Company]";?>"  readonly>
-                    <h1 id="Error"><b> Do you want to remove this company</b> </h1><br>
+                      <div class="detailtable">
+                    <h3><b> Do you want to remove this company</b> </h3><br>
 
                     <div class="btn">
-                      <button type="submit" name="remove"><b>Yes</b> </button></a>
+                      <button type="Submit" name="Submit"><b>Yes</b> </button></a>
+                      <button type="button" name="cancel" value="cancel"><a class="cancel" href="..\company\companydash.php"><b>No</b></a></button>
                     </div>
-                    <div class="btn2">
-                      <a href="..\company\companydash.php"><button type="button" name="button"><b>No</b> </button></a>
                     </div>
-
                     </form>
                     </div>
 
-                </div>
+                
 
 
   </body>

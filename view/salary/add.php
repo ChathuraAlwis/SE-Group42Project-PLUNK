@@ -89,7 +89,7 @@
                     <td><select id="Type" name="LeaveType" class="form-control" placeholder="Choose the leaves details" onchange="changeType(this);">
                     <option selected>Choose correct detail...</option>
                         <option value="1">Total leaves less than 5</option>
-                        <option value="2">Medical leaves less than 5</option>
+                        <option value="2">All Medical leaves less than 7</option>
                         <option value="3">Total leaves greater than 5</option>
                      </select></td>
                     </div>

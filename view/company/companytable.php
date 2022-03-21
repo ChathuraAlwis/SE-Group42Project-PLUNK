@@ -24,7 +24,14 @@
                         // elseif ($_SESSION['UserType'] == 'Accountant') {
                         //   $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Phone No', Email AS 'E-mail Address' FROM plunk.company",'../invoice/add');
                         // }
-                        $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Contact No' FROM plunk.company WHERE Remove= 'No'",'update');
+                        if(isset($_GET['companysearch'])){
+                          $search = $_GET['companysearch'];
+                          $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Contact No' FROM plunk.company WHERE Remove= 'No' AND Company LIKE ('%$search%');",'update');
+                        }
+                        else{
+                          $itemTable->show("SELECT Company AS 'Company Name', DistributorName AS 'Distributor Name', PhoneNo AS 'Contact No' FROM plunk.company WHERE Remove= 'No'",'update');
+
+                        }
                       ?>
                     </div>
 

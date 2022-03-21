@@ -1145,7 +1145,7 @@ if(isset($_POST['add-userservice'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.servicechargestaff(ServiceChargeID,StaffID,Percentage,Amount) VALUES ('','$_POST[StaffID]','$_POST[Percentage]','$_POST[Amount]')";
+        $sql = "INSERT INTO plunk.servicechargestaff(ServiceChargeID,StaffID,StaffName,Percentage,Amount) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[Percentage]','$_POST[Amount]')";
         //echo $sql;
         $DB->runQuery($sql);
 
@@ -1159,13 +1159,13 @@ if(isset($_POST['add-userservice'])){
 
 }
 
-//---------Update user salary------------
+//---------Update user serviceCharge------------
 
 if(isset($_POST['update-userservicecharge'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE plunk.servicechargestaff SET `ServiceChargeID`='$_POST[ServiceChargeID]',`StaffID`='$_POST[StaffID]',`Percentage`='$_POST[Percentage]',`Amount`='$_POST[Amount]'  WHERE StaffID = '$_POST[StaffID]'";
+        $sql = "UPDATE plunk.servicechargestaff SET `ServiceChargeID`='$_POST[ServiceChargeID]',`StaffID`='$_POST[StaffID]',`StaffName`='$_POST[StaffName]',`Percentage`='$_POST[Percentage]',`Amount`='$_POST[Amount]'  WHERE StaffID = '$_POST[StaffID]'";
         $DB->runQuery($sql);
         $newPage = new Page('../view/servicecharge/updateservicesuccess.html');
         $newPage->show();
@@ -1221,7 +1221,8 @@ if(isset($_POST['update-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE plunk.salarydetails SET `StaffID`='$_POST[StaffID]',`StaffName='$_POST[StaffName]',`UserType='$_POST[UserType]',`BasicSalary`='$_POST[BasicSalary]',`Bonus`='$_POST[Bonus]',`ETF`='$_POST[ETF]',`EPF`='$_POST[EPF]',`Percentage`='$_POST[Percentage]'  WHERE StaffID = '$_POST[StaffID]'";
+        $sql = "UPDATE plunk.salarydetails SET `StaffID`='$_POST[StaffID]',`StaffName`='$_POST[StaffName]',`UserType`='$_POST[UserType]',`BasicSalary`='$_POST[BasicSalary]',`Bonus`='$_POST[Bonus]',`ETF`='$_POST[ETF]',`EPF`='$_POST[EPF]',`Percentage`='$_POST[Percentage]'  WHERE `StaffID` = '$_POST[StaffID]'";
+        //echo $sql;
         $DB->runQuery($sql);
         $newPage = new Page('../view/basicdetails/updatesuccess.php');
         $newPage->show();
