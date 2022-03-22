@@ -14,6 +14,7 @@
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
+        echo $id;
     ?>
         <div class="main" >
             <div class="coverheader">
@@ -38,7 +39,7 @@
                           </div>
                     </div>
                     <div class="detailtable">
-
+                        
                             <iframe src="allsalary.php?id=<?php echo $id;?>" class="staff"></iframe>
                     </div>
 

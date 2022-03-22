@@ -19,7 +19,8 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $salarystaffTable = new Table("salarystaff");
-                          $salarystaffTable->show("SELECT StaffID as 'Staff ID', Basic as 'Basic Salary', Bonus as 'Bonus Value', EPF as 'EPF Value', ETF as 'ETF Value', Total as 'Total Salary' FROM plunk.salarystaff WHERE SalaryID=$_GET[id]", 'update', $_GET['id']);
+                          //echo $_GET('íd');
+                          $salarystaffTable->show("SELECT SalaryID AS 'Salary ID', StaffID as 'Staff ID', Basic as 'Basic Salary', Bonus as 'Bonus Value', EPF as 'EPF Value', ETF as 'ETF Value', Total as 'Total Salary' FROM plunk.salarystaff WHERE SalaryID=$_GET[id]", 'update');
                        ?>
 
                     </div>

@@ -1089,12 +1089,12 @@ if(isset($_POST['add-usersalary'])){
 
     try {
         $sql = "INSERT INTO plunk.salarystaff(SalaryID,StaffID,Basic,Bonus,ETF,EPF,Total) VALUES ('','$_POST[StaffID]','$_POST[Basic]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
-        //echo $sql;
-        $DB->runQuery($sql);
+        echo $sql;
+        // $DB->runQuery($sql);
 
 
-        $newPage = new Page('..\view\salary\addusersalsuccess.php');
-        $newPage->show();
+        // $newPage = new Page('..\view\salary\addusersalsuccess.php');
+        // $newPage->show();
 
     } catch (\Throwable $th) {
         throw $th;

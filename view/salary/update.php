@@ -16,10 +16,12 @@
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        // $personid = explode("=", $_GET['data'])[1];
+        $personid = explode("=", $_GET['data'])[1];
+        echo $personid;
         // $personid=$_GET['getdata'];
-        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$_GET[getdata]";
+        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$personid";
         $result = $DB->runQuery($query)[0];
+
     ?>
 
     <div class=main>
@@ -35,13 +37,13 @@
             <tr>
                 <div class="form-group">
                    <td><label for="SalaryID">Salary ID</label></td> 
-                    <td><input type="number" id= "SalaryID" name="SalaryID" required class="form-control" value = "<?php echo "$result[SalaryID]";?>"/></td>
+                    <td><input type="text" id= "SalaryID" name="SalaryID" required class="form-control" value = "<?php echo "$result[SalaryID]";?>"/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
                    <td><label for="StaffID">Staff ID</label></td> 
-                    <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                    <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                 </div>
               </tr>
               <tr>
@@ -84,7 +86,7 @@
             
                 <br>
                 <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="updatesalarysuccess.html">Update</a></button>
+                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
                 <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="salarytable.php">Cancel</a></button>
             </div>
     </form>                
@@ -94,14 +96,23 @@
    <div class = "righttop">
         <div class="itemtable">
             <h4>SALARY DETAILS TABLE</h4>
-            <iframe src="allsalary.php?id=<?php echo $_GET['getdata'];?>" class="item"></iframe>
+            <iframe src="allsalary.php?id=<?php echo $personid;?>" class="item"></iframe>
         </div>
         
     </div>
     <div class = "rightbottom">
             <div class="itemtable">
             <h3>LEAVE DETAILS TABLE</h3>
-                <iframe src="../leave/allleave.php" class="item"></iframe>
+            <form action="add.php" method="post">
+                    <input type = "text" name= "name" placeholder="Search by Name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}?>" />
+                    <input title="Month" name = "month" type = date value="<?php if(isset($_POST['month'])) {echo $_POST['month'];} else {echo date("Y-m-d");}?>"><button type = "submit"><b>Search</b></button>
+                    <?php if(isset($_POST['name']) and isset($_POST['month'])){
+                        echo "<iframe src='../leave/allleave.php?name=$_POST[name]&month=$_POST[month]' class='item'></iframe>";
+                    }else{
+                        echo "<iframe src='../leave/allleave.php' class='item'></iframe>";
+                    }
+                    ?>
+                </form>
             </div>  
         </div>
 </div>
