@@ -125,6 +125,18 @@ function calculateTotal(obj){
     }
 }
 
+function calservice(obj){
+    var Percentage = parseInt(document.getElementById("Percentage").value);
+    var Monthly = parseInt(document.getElementById("Monthly").value);
+
+    Percentage = isNaN(Percentage) ? 0 : Percentage;
+    Monthly = isNaN(Monthly) ? 0 : Monthly;
+
+    var service = Monthly*(Percentage)/100;
+    var Amount = document.getElementById("Amount");
+    Amount.value = service;
+}
+
 // function addRowInvoice(itemPrice) {    
 //     var ItemID = document.getElementById("ItemID"); 
 //     var Quantity = document.getElementById("Quantity");

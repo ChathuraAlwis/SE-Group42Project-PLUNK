@@ -17,17 +17,18 @@
   
   <?php
         require_once "../../model/database.php";
-        if(isset($_GET['data'])){ //Select company
+        if(isset($_GET['data'])){ 
             //$DB2 = new DB;
-            $StaffID = explode("=", $_GET['data'])[1];
-            $StaffName = explode("=", $_GET['data'])[1];
-            $query = "SELECT * FROM plunk.user WHERE DisplayID=$StaffID";
+            $id = explode("=", $_GET['data'])[1];
+            //$StaffName = explode("=", $_GET['data'])[1];
+            $query = "SELECT DisplayID,Name,UserType FROM plunk.user WHERE  DisplayID=$id";
             $result2 = $DB2->runQuery($query)[0];
             //print_r($result2);
         }
         else{
             $StaffID = "Select the StaffID";
             $StaffName = "Select the StaffName";
+            $UserType = "Select the UserType";
         }
     ?>
     <div class="main">
@@ -49,22 +50,11 @@
                         <td><input type="text" id="StaffName" name="StaffName"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$StaffName";?>"/></td>
                     </div>
                 </tr>
-                <tr>
                 <div class="form-group">
-                    <td><label for="UserType">Staff Type</label></td>
-                    
-                    <td><select id="UserType" name="ItemType" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
-                        <option value="1">Admin</option>
-                        <option value="2">General Manager</option>
-                        <option value="3">Reasuturant Manager</option>
-                        <option value="4">Accountant</option>
-                        <option value="3">Cashier</option>
-                        <option value="4">Staff Member</option>
-                     </select></td>
+                        <td><label for="UserType">Staff Type</label></td>
+                        <td><input type="text" id="UserType" name="UserType"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$UserType";?>"/></td>
                     </div>
                 </tr>
-
                         <tr>
                             <td><label for="BasicSalary">Basic Total</label></td>
                             <td><input type="text" id= "BasicSalary" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>

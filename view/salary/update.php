@@ -43,7 +43,13 @@
               <tr>
                 <div class="form-group">
                    <td><label for="StaffID">Staff ID</label></td> 
-                    <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                    <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffName]";?>"/></td>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">
+                   <td><label for="StaffName">Staff Name</label></td> 
+                    <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                 </div>
               </tr>
               <tr>

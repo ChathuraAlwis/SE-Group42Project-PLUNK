@@ -21,18 +21,19 @@
         if(isset($_GET['data'])){
             $DB = new DB;
             $id = explode("=", $_GET['data'])[1];
-            $query = "SELECT StaffID,BasicSalary,Bonus,ETF,EPF FROM plunk.salarydetails WHERE No=$id;";
+            $query = "SELECT StaffID,StaffName,BasicSalary,Bonus,ETF,EPF FROM plunk.salarydetails WHERE No=$id;";
             $result = $DB->runQuery($query)[0];
             //print_r($_GET);
         }
-        // else{
-        //     $id=-1;
-        //     $result['StaffID'] = "Not Selected";
-        //     $result['BasicSalary'] = "Not Selected";
-        //     $result['Bonus'] = "Not Selected";  
-        //     $result['ETF'] = "Not Selected";
-        //     $result['EPF'] = "Not Selected";         
-        // }
+        else{
+             $id=-1;
+             $result['StaffID'] = "Not Selected";
+             $result['StaffName'] = "Not Selected";
+             $result['BasicSalary'] = "Not Selected";
+             $result['Bonus'] = "Not Selected";  
+             $result['ETF'] = "Not Selected";
+             $result['EPF'] = "Not Selected";         
+         }
     ?>
 
     <div class="main">
@@ -47,6 +48,14 @@
                             <td><label for="StaffID">Staff ID</label></td>
                             <td></td>
                             <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value= "<?php echo "$result[StaffID]";?>"/></td>
+                        </div>
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr>
+                        <div class="form-group">
+                            <td><label for="StaffName">Staff Name</label></td>
+                            <td></td>
+                            <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value= "<?php echo "$result[StaffName]";?>"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
