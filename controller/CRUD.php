@@ -1089,12 +1089,10 @@ if(isset($_POST['add-usersalary'])){
 
     try {
         $sql = "INSERT INTO plunk.salarystaff(SalaryID,StaffID,StaffName,Basic,Bonus,ETF,EPF,Total) VALUES ('','$_POST[StaffID]','$_POST[Basic]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
-        echo $sql;
-        // $DB->runQuery($sql);
-
-
-        // $newPage = new Page('..\view\salary\addusersalsuccess.php');
-        // $newPage->show();
+        //echo $sql;
+        $DB->runQuery($sql);
+        $newPage = new Page('..\view\salary\addusersalsuccess.php');
+        $newPage->show();
 
     } catch (\Throwable $th) {
         throw $th;
@@ -1201,11 +1199,9 @@ if(isset($_POST['add-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.salarydetails(StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentege) VALUES ('$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$_POST[BasicSalary]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
+        $sql = "INSERT INTO plunk.salarydetails(No,StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentage) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$_POST[BasicSalary]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Percentage]');";
         //echo $sql;
         $DB->runQuery($sql);
-
-
         $newPage = new Page('..\view\basicdetails\addsuccess.php');
         $newPage->show();
 

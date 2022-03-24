@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
 
@@ -51,9 +51,9 @@
         </div>
 
   </body>
-</html> -->
+</html>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
 
@@ -64,7 +64,7 @@
         <link rel="stylesheet" href="../style/stafftable.css">
         <script type="text/javascript">
             function isEmpty(){
-                var search = document.getElementById("salarysearch");
+                var search = document.getElementById("salaryusersearch");
                 // console.log(search.value);
                 if (search.value.length){
                     return true;
@@ -80,28 +80,28 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>Salary</h2>
+                    <h2>Salary Sheet</h2>
               </div>
             </div>
             <div class="covertable">
                 <div class="table">
                   <div class="upperbar">
-                  <form method="POST" action="salarytable.php" onclick = "return isEmpty()">
-                        <input type = "date" name="salarysearch" class = "search" placeholder="Enter the date"/>
+                  <form method="POST" action="alltable.php" onclick = "return isEmpty()">
+                        <input type = "text" name="salaryusersearch" class = "search" placeholder="Enter the user name"/>
                         <button type = "submit" class = "search" ><b>Search</b></button>
                   </form>
                           <div class="addicon">
-                                <a href="addsal.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                                <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
                     </div>
                     <div class="detailtable">
                     <?php 
                          //print_r($_POST['salarydetailssearch']);
                         if(isset($_POST['salarysearch'])){
-                              echo '<iframe src="details.php?salarysearch=' . $_POST['salarysearch'] . '" name="searchinfo" class="staff"></iframe>';
+                              echo '<iframe src="allsalary.php?salarysearch=' . $_POST['salarysearch'] . '" name="searchinfo" class="staff"></iframe>';
                         }
                         else{
-                              echo '<iframe src="details.php" name="searchinfo" class="staff"></iframe>';
+                              echo '<iframe src="allsalary.php" name="searchinfo" class="staff"></iframe>';
                         }
                   ?>
                     </div>
@@ -114,5 +114,5 @@
         </div>
 
   </body>
-</html>
+</html> -->
 

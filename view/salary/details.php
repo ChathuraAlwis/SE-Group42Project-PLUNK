@@ -1,5 +1,5 @@
 <?php session_start(); ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
 
@@ -27,9 +27,9 @@
 
 
   </body>
-</html> -->
+</html>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
 
@@ -67,4 +67,4 @@
 
 
   </body>
-</html>
+</html> -->

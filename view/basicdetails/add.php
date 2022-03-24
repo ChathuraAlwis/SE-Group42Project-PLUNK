@@ -18,17 +18,17 @@
   <?php
         require_once "../../model/database.php";
         if(isset($_GET['data'])){ 
-            //$DB2 = new DB;
+            $DB2 = new DB;
             $id = explode("=", $_GET['data'])[1];
             //$StaffName = explode("=", $_GET['data'])[1];
-            $query = "SELECT DisplayID,Name,UserType FROM plunk.user WHERE  DisplayID=$id";
+            $query = "SELECT DisplayID,Name,UserType FROM plunk.user WHERE  DisplayID= '$id'";
             $result2 = $DB2->runQuery($query)[0];
             //print_r($result2);
         }
         else{
-            $StaffID = "Select the StaffID";
-            $StaffName = "Select the StaffName";
-            $UserType = "Select the UserType";
+            $result2['DisplayID'] = "Select the StaffID";
+            $result2['Name'] = "Select the StaffName";
+            $result2['UserType'] = "Select the UserType";
         }
     ?>
     <div class="main">
@@ -41,23 +41,23 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="StaffID">Staff ID</label></td>
-                        <td><input type="text" id="StaffID" name="StaffID"  required class="form-control"  placeholder="Select the staff ID" value = "<?php echo "$StaffID";?>"/></td>
+                        <td><input type="text" id="StaffID" name="StaffID"  required class="form-control"  placeholder="Select the staff ID" value = "<?php echo "$result2[DisplayID]";?>"/></td>
                     </div>
                 </tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="StaffName">Staff Member Name</label></td>
-                        <td><input type="text" id="StaffName" name="StaffName"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$StaffName";?>"/></td>
+                        <td><input type="text" id="StaffName" name="StaffName"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$result2[Name]";?>"/></td>
                     </div>
                 </tr>
                 <div class="form-group">
                         <td><label for="UserType">Staff Type</label></td>
-                        <td><input type="text" id="UserType" name="UserType"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$UserType";?>"/></td>
+                        <td><input type="text" id="UserType" name="UserType"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$result2[UserType]";?>"/></td>
                     </div>
                 </tr>
                         <tr>
                             <td><label for="BasicSalary">Basic Total</label></td>
-                            <td><input type="text" id= "BasicSalary" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                            <td><input type="text" id= "BasicSalary" name="BasicSalary" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
                         <tr>
                             <td><label for="Bonus">Bonus Percentage</label></td>

@@ -86,7 +86,7 @@
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="addpage" href="..\servicecharge\servicedetail.php">Add</a></button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form> 
