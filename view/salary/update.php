@@ -20,8 +20,9 @@
         $month = $DB->runQuery($query)[0]['Date'];
         // $personid = explode("=", $_GET['data'])[1];
         // $personid=$_GET['getdata'];
-        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$_GET[getdata]";
+        $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$personid";
         $result = $DB->runQuery($query)[0];
+
     ?>
 
     <div class=main>
@@ -37,13 +38,19 @@
             <tr>
                 <div class="form-group">
                    <td><label for="SalaryID">Salary ID</label></td> 
-                    <td><input type="number" id= "SalaryID" name="SalaryID" required class="form-control" value = "<?php echo "$result[SalaryID]";?>"/></td>
+                    <td><input type="text" id= "SalaryID" name="SalaryID" required class="form-control" value = "<?php echo "$result[SalaryID]";?>"/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
                    <td><label for="StaffID">Staff ID</label></td> 
                     <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">
+                   <td><label for="StaffName">Staff Name</label></td> 
+                    <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value = "<?php echo "$result[StaffName]";?>"/></td>
                 </div>
               </tr>
               <tr>
@@ -96,7 +103,7 @@
    <div class = "righttop">
         <div class="itemtable">
             <h4>SALARY DETAILS TABLE</h4>
-            <iframe src="allsalary.php?id=<?php echo $_GET['getdata'];?>" class="item"></iframe>
+            <iframe src="allsalary.php?id=<?php echo $personid;?>" class="item"></iframe>
         </div>
         
     </div>

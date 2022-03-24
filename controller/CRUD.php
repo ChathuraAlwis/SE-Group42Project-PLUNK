@@ -1089,8 +1089,6 @@ if(isset($_POST['add-usersalary'])){
     try {
         $sql = "INSERT INTO plunk.salarystaff(SalaryID,StaffName,StaffID,Basic,Bonus,ETF,EPF,Total) VALUES ('$_POST[SalaryID]','$_POST[StaffName]','$_POST[StaffID]','$_POST[Basic]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
         $DB->runQuery($sql);
-
-
         $newPage = new Page('..\view\salary\addusersalsuccess.php');
         $newPage->show();
 
@@ -1106,7 +1104,7 @@ if(isset($_POST['update-usersalary'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE plunk.salarystaff SET `SalaryID`='$_POST[SalaryID]',`StaffID`='$_POST[StaffID]',`Basic`='$_POST[Basic]',`Bonus`='$_POST[Bonus]',`ETF`='$_POST[ETF]',`EPF`='$_POST[EPF]',`Total`='$_POST[Total]'  WHERE StaffID = '$_POST[StaffID]'";
+        $sql = "UPDATE plunk.salarystaff SET `SalaryID`='$_POST[SalaryID]',`StaffID`='$_POST[StaffID]',`StaffName`='$_POST[StaffName]',`Basic`='$_POST[Basic]',`Bonus`='$_POST[Bonus]',`ETF`='$_POST[ETF]',`EPF`='$_POST[EPF]',`Total`='$_POST[Total]'  WHERE StaffID = '$_POST[StaffID]'";
         $DB->runQuery($sql);
         $newPage = new Page('../view/salary/updatesalarysuccess.html');
         $newPage->show();
@@ -1123,7 +1121,7 @@ if(isset($_POST['add-servicecharge'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.servicecharge(ServiceChargeID,Date) VALUES ('','$_POST[Date]')";
+        $sql = "INSERT INTO plunk.servicecharge(ServiceChargeID,Date,WorkingDays) VALUES ('','$_POST[Date]','$_POST[WorkingDays]')";
         //echo $sql;
         $DB->runQuery($sql);
 
@@ -1199,11 +1197,9 @@ if(isset($_POST['add-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.salarydetails(StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentege) VALUES ('$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$_POST[BasicSalary]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
+        $sql = "INSERT INTO plunk.salarydetails(No,StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentage) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$_POST[BasicSalary]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Percentage]');";
         //echo $sql;
         $DB->runQuery($sql);
-
-
         $newPage = new Page('..\view\basicdetails\addsuccess.php');
         $newPage->show();
 

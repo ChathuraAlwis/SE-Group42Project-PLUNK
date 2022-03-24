@@ -38,6 +38,7 @@
                 $result['EPF'] = "Not Selected";         
             }
         }
+
     ?>
 
     <div class="main">
@@ -54,6 +55,14 @@
                             <td><label for="StaffID">Staff ID</label></td>
                             <td></td>
                             <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value= "<?php echo "$result[StaffID]";?>"/></td>
+                        </div>
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr>
+                        <div class="form-group">
+                            <td><label for="StaffName">Staff Name</label></td>
+                            <td></td>
+                            <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value= "<?php echo "$result[StaffName]";?>"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -119,7 +128,7 @@
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit">Add</a></button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form> 
