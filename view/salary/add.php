@@ -21,17 +21,19 @@
         if(isset($_GET['data'])){
             $DB = new DB;
             $id = explode("=", $_GET['data'])[1];
-            $query = "SELECT StaffID,BasicSalary,Bonus,ETF,EPF FROM plunk.salarydetails WHERE No=$id;";
+            $query = "SELECT StaffID,StaffName,BasicSalary,Bonus,ETF,EPF FROM plunk.salarydetails WHERE No=$id;";
             $result = $DB->runQuery($query)[0];
-            print_r($_GET);
+            //print_r($_GET);
         }
         else{
-            $result['StaffID'] = "Not Selected";
-            $result['BasicSalary'] = "Not Selected";
-            $result['Bonus'] = "Not Selected";  
-            $result['ETF'] = "Not Selected";
-            $result['EPF'] = "Not Selected";         
-        }
+             $id=-1;
+             $result['StaffID'] = "Not Selected";
+             $result['StaffName'] = "Not Selected";
+             $result['BasicSalary'] = "Not Selected";
+             $result['Bonus'] = "Not Selected";  
+             $result['ETF'] = "Not Selected";
+             $result['EPF'] = "Not Selected";         
+         }
     ?>
 
     <div class="main">
@@ -46,6 +48,14 @@
                             <td><label for="StaffID">Staff ID</label></td>
                             <td></td>
                             <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value= "<?php echo "$result[StaffID]";?>"/></td>
+                        </div>
+                    </tr>
+                    <tr><td><br></td></tr>
+                    <tr>
+                        <div class="form-group">
+                            <td><label for="StaffName">Staff Name</label></td>
+                            <td></td>
+                            <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value= "<?php echo "$result[StaffName]";?>"/></td>
                         </div>
                     </tr>
                     <tr><td><br></td></tr>
@@ -111,7 +121,7 @@
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="addpage" href="..\salary\saldetail.php">Add</a></button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form> 
@@ -121,8 +131,8 @@
       <div class = "righttop">
         <div class="itemtable">
             <h3>SALARY DETAILS TABLE</h3>
-            <iframe src="detailtable2.php" class="item"></iframe>
-            <!-- <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe> -->
+            <!-- <iframe src="detailtable2.php" class="item"></iframe> -->
+            <iframe src="detailtable2.php?id=<?php echo $id;?>" class="item"></iframe>
         </div>
         
        </div>
@@ -130,8 +140,8 @@
             <div class="itemtable">
                 <h3>LEAVE DETAILS TABLE</h3>
                 <form action="add.php" method="post">
-                    <input type = "text" name= "name" class = "search" placeholder="Search by Name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}?>" />
-                    <input title="Month" name = "month" type = date class = "search" value="<?php if(isset($_POST['month'])) {echo $_POST['month'];} else {echo date("Y-m-d");}?>">
+                    <input type = "text" name= "name" placeholder="Search by Name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}?>" />
+                    <input title="Month" name = "month" type = date value="<?php if(isset($_POST['month'])) {echo $_POST['month'];} else {echo date("Y-m-d");}?>"><button type = "submit"><b>Search</b></button>
                     <?php if(isset($_POST['name']) and isset($_POST['month'])){
                         echo "<iframe src='../leave/allleave.php?name=$_POST[name]&month=$_POST[month]' class='item'></iframe>";
                     }else{

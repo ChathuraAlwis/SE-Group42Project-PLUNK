@@ -86,7 +86,7 @@
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="addpage" href="..\servicecharge\servicedetail.php">Add</a></button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form> 
@@ -104,7 +104,17 @@
         <div class = "rightbottom">
             <div class="itemtable">
             <h3>MONTHLY PROFIT DETAILS TABLE</h3>
-                <iframe src="../report/MonthlySales.php" class="item"></iframe>
+                <!-- <iframe src="../report/MonthlySales.php" class="item"></iframe> -->
+                <form action="add.php" method="post">
+                    <!-- <input type = "text" name= "name" placeholder="Search by Name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}?>" /> -->
+                    <input title="Month" name = "month" type = date value="<?php if(isset($_POST['month'])) {echo $_POST['month'];} else {echo date("Y-m-d");}?>"><button type = "submit"><b>Search</b></button>
+                    <?php if(isset($_POST['month'])){
+                        echo "<iframe src='../report/MonthlySales.php?month=$_POST[month]' class='item'></iframe>";
+                    }else{
+                        echo "<iframe src='../report/MonthlySales.php' class='item'></iframe>";
+                    }
+                    ?>
+                </form>
             </div>  
         </div>
     </div>
