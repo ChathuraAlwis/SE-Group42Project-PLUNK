@@ -20,11 +20,14 @@ session_start();?>
                         require_once "../../controller/showtable.php";
                         $leaveTable = new Table("leave");
                         if($_SESSION['UserType'] == 'Accountant'){
-                          if(isset($_GET['name']) and isset($_GET['month'])){
+                          if(isset($_GET['StaffID']) and isset($_GET['month'])){
                             $month = substr($_GET['month'],0,7);
-                            $leaveTable->show("select *, sum(Leaves) over (order by NewTable.Leaves) as Total FROM (SELECT user.UserName as Name, LeaveType as 'Type', sum(NoOfdays) as Leaves FROM plunk.leave INNER JOIN plunk.user where plunk.leave.UserID=user.UserID and user.UserName LIKE '%$_GET[name]%' and LeaveDate LIKE '$month%' and Accepted='Yes' group by LeaveType) as NewTable;", '../salary/add');
+                            $leaveTable->show("select *, sum(Leaves) over (order by NewTable.Leaves) as Total FROM (SELECT user.UserName as Name, LeaveType as 'Type', sum(NoOfdays) as Leaves FROM plunk.leave INNER JOIN plunk.user where plunk.leave.UserID=user.UserID and user.DisplayID='$_GET[StaffID]' and LeaveDate LIKE '$month%' and Accepted='Yes' group by LeaveType) as NewTable;");
+                            if($leaveTable->recordCount==0){
+                              echo "<h3>No leaves from this staff member.<h3>";
+                            }
                           }else{
-                            echo "<h3>Search leaves by member name and salary month.<h3>";
+                            echo "<h3>Select staff member to show leave details.<h3>";
                           }
                         }
                         else{

@@ -18,19 +18,25 @@
         //$sql = "SELECT ItemID, ItemName, Quantity FROM plunk.item;";
         //$result = json_encode($DB->runQuery($sql));
         // setcookie("Items", json_encode($result));
-        if(isset($_GET['data'])){
+        if(isset($_GET['id'])){
+            $sid = $_GET['id'];
             $DB = new DB;
-            $id = explode("=", $_GET['data'])[1];
-            $query = "SELECT StaffID,BasicSalary,Bonus,ETF,EPF FROM plunk.salarydetails WHERE No=$id;";
-            $result = $DB->runQuery($query)[0];
-            print_r($_GET);
-        }
-        else{
-            $result['StaffID'] = "Not Selected";
-            $result['BasicSalary'] = "Not Selected";
-            $result['Bonus'] = "Not Selected";  
-            $result['ETF'] = "Not Selected";
-            $result['EPF'] = "Not Selected";         
+            $query = "SELECT Date FROM plunk.salary WHERE SalaryId=$sid;";
+            $month = $DB->runQuery($query)[0]['Date'];
+            if(isset($_GET['data'])){
+                $DB = new DB;
+                $id = explode("=", $_GET['data'])[1];
+                $query = "SELECT StaffID,StaffName,BasicSalary,Bonus,ETF,EPF FROM plunk.salarydetails WHERE No=$id;";
+                $result = $DB->runQuery($query)[0];
+            }
+            else{
+                $result['StaffID'] = "Not Selected";
+                $result['StaffName'] = "Not Selected";
+                $result['BasicSalary'] = "Not Selected";
+                $result['Bonus'] = "Not Selected";  
+                $result['ETF'] = "Not Selected";
+                $result['EPF'] = "Not Selected";         
+            }
         }
     ?>
 
@@ -40,6 +46,8 @@
         <h2 class="center-text"><b>Add Salary Details</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-usersalary" type="hidden" >
+                <input type="hidden" name="SalaryID" value=<?php echo $sid;?>>
+                <input type="hidden" name="StaffName" value=<?php echo $result['StaffName'];?>>
                 <table>
                     <tr>
                         <div class="form-group">
@@ -111,7 +119,7 @@
             
                 <br>
                 <div class="form-group">
-                    <button type="submit" name="submit" value="Submit" class="button submit"><a class="addpage" href="..\salary\saldetail.php">Add</a></button>
+                    <button type="submit" name="submit" value="Submit" class="button submit">Add</a></button>
                     <button type="reset" name="reset" value="Reset" class="button reset" >Reset</button>
                 </div>
         </form> 
@@ -121,24 +129,20 @@
       <div class = "righttop">
         <div class="itemtable">
             <h3>SALARY DETAILS TABLE</h3>
-            <iframe src="detailtable2.php" class="item"></iframe>
-            <!-- <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe> -->
+            <iframe src="detailtable2.php?sid=<?php echo $sid;?>" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
                 <h3>LEAVE DETAILS TABLE</h3>
-                <form action="add.php" method="post">
-                    <input type = "text" name= "name" class = "search" placeholder="Search by Name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}?>" />
-                    <input title="Month" name = "month" type = date class = "search" value="<?php if(isset($_POST['month'])) {echo $_POST['month'];} else {echo date("Y-m-d");}?>">
-                    <?php if(isset($_POST['name']) and isset($_POST['month'])){
-                        echo "<iframe src='../leave/allleave.php?name=$_POST[name]&month=$_POST[month]' class='item'></iframe>";
-                    }else{
-                        echo "<iframe src='../leave/allleave.php' class='item'></iframe>";
-                    }
-                    ?>
-                </form>
+                <?php if($result['StaffID']!="Not Selected" and isset($month)){
+                    $rsid = $result['StaffID'];
+                    echo "<iframe src='../leave/allleave.php?StaffID=$rsid&month=$month' class='item'></iframe>";
+                }else{
+                    echo "<iframe src='../leave/allleave.php' class='item'></iframe>";
+                }
+                ?>
             </div>  
         </div>
     </div>

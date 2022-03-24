@@ -16,6 +16,8 @@
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
+        $query = "SELECT Date FROM plunk.salary WHERE SalaryId=$_GET[getdata];";
+        $month = $DB->runQuery($query)[0]['Date'];
         // $personid = explode("=", $_GET['data'])[1];
         // $personid=$_GET['getdata'];
         $query = "SELECT * FROM plunk.salarystaff WHERE SalaryID=$_GET[getdata]";
@@ -41,7 +43,7 @@
               <tr>
                 <div class="form-group">
                    <td><label for="StaffID">Staff ID</label></td> 
-                    <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                    <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                 </div>
               </tr>
               <tr>
@@ -84,7 +86,7 @@
             
                 <br>
                 <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit" ><a class="cancel" href="updatesalarysuccess.html">Update</a></button>
+                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
                 <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="salarytable.php">Cancel</a></button>
             </div>
     </form>                
@@ -101,7 +103,13 @@
     <div class = "rightbottom">
             <div class="itemtable">
             <h3>LEAVE DETAILS TABLE</h3>
-                <iframe src="../leave/allleave.php" class="item"></iframe>
+            <?php if(isset($result) and isset($month)){
+                $rsid = $result['StaffID'];
+                echo "<iframe src='../leave/allleave.php?StaffID=$rsid&month=$month' class='item'></iframe>";
+            }else{
+                echo "<iframe src='../leave/allleave.php' class='item'></iframe>";
+            }
+            ?>
             </div>  
         </div>
 </div>

@@ -17,7 +17,7 @@
                     <h1><b>Success..!</b> </h1><br>
 
                     <div class="btn">
-                      <a href="allsalary.php"><button type="button" name="button"><b>OK</b> </button></a>
+                      <a href="salarytable.php"><button type="button" name="button"><b>OK</b> </button></a>
                     </div>
 
 

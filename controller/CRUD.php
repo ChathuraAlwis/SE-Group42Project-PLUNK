@@ -955,8 +955,7 @@ if (isset($_POST['update-password'])){
             $message = "Password confirmation doesn't match the password";
         }
         if (!$verify and !$confirm){
-            $message = "Current Password is not correct
-            Password confirmation doesn't match the password";
+            $message = "Current Password is not correct. Password confirmation doesn't match the password";
         }
         if ($verify and $confirm) {
             $hashedpassword = Password_hash("$_POST[newPassword]", PASSWORD_BCRYPT);
@@ -1088,8 +1087,7 @@ if(isset($_POST['add-usersalary'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.salarystaff(SalaryID,StaffID,Basic,Bonus,ETF,EPF,Total) VALUES ('','$_POST[StaffID]','$_POST[Basic]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
-        //echo $sql;
+        $sql = "INSERT INTO plunk.salarystaff(SalaryID,StaffName,StaffID,Basic,Bonus,ETF,EPF,Total) VALUES ('$_POST[SalaryID]','$_POST[StaffName]','$_POST[StaffID]','$_POST[Basic]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Total]')";
         $DB->runQuery($sql);
 
 
