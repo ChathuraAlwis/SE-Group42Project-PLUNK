@@ -16,29 +16,32 @@
 /*  background-color:#006666;*/
     background-color: #017a7a;
   font-family: sans-serif;
-  font-size: 12vw;
+  font-size: 10vw;
   color: white;
   width: 100%;
   height: 40%;
-  padding: 5px;
+  padding: 8px;
   cursor: pointer;
-  /*border-radius: 10px;
-  border-width:thick;
-  border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
+  text-align: left;
+  border-radius: 10px;
+  /* border-width:thick;
+  border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230)); */
+
 }
 
 .dropdown-container {
   display: none;
   background-color: transparent;
   width: 100%;
-
+  
   /*padding-left: 10%;*/
 }
 
 .linkbutton{
   color: white;
   text-decoration: none;
-  font-size: 12vw;
+  font-size: 8vw;
+  
 }
 .linkbutton:hover{
   color: rgb(240, 230, 230);
@@ -48,12 +51,14 @@
     background-color: #000000;
     border-color: #017a7a;
     font-family: sans-serif;
-    font-size: 14vw;
+    font-size: 8vw;
     color: white;
     width: 100%;
     height: 40%;
-    padding: 5px;
+    padding: 8px;
     cursor: pointer;
+    text-align: left;
+    border-radius: 10px; 
 }
 
 .dropdown-container .subbutton{
@@ -62,12 +67,13 @@
 /*  background-color: #f2cf27;*/
   /*background-color:#ffdf45;*/
   font-family: sans-serif;
-  font-size: 12vw;
+  font-size: 8vw;
   color: #017a7a;
   width: 100%;
   height: 40%;
   padding: 5px;
   cursor: pointer;
+  text-align: left;
   /*border-radius: 10px;
   border-width:thick;
   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
@@ -120,7 +126,7 @@ a{
   background-color: #555;
   color: #fff;
   text-align: center;
-  padding: 5px 0;
+  padding: 0 5px;
   border-radius: 6px;
   font-size: 7vw;
   /* Position the tooltip text */
@@ -128,7 +134,7 @@ a{
   z-index: 1;
   top: 50%;
   left: 50%;
-  margin-left: -60px;
+  margin-left: -20px;
 
   /* Fade in tooltip */
   opacity: 0;
