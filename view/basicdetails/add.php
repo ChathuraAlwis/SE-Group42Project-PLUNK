@@ -15,59 +15,49 @@
   </head>
   <body>
   
-    <?php
-         if(isset($_GET['data'])){
-            require_once "../../model/database.php";
-            $DB = new DB;
-            $type = explode("=", $_GET['data'])[1];
-            $query = "SELECT * FROM plunk.usersalary WHERE BookingID=$type";
-            $result = $DB->runQuery($query)[0];
-        }else{
-            $type = -1;
+  <?php
+        require_once "../../model/database.php";
+        if(isset($_GET['data'])){ 
+            $DB2 = new DB;
+            $id = explode("=", $_GET['data'])[1];
+            //$StaffName = explode("=", $_GET['data'])[1];
+            $query = "SELECT DisplayID,Name,UserType FROM plunk.user WHERE  DisplayID= '$id'";
+            $result2 = $DB2->runQuery($query)[0];
+            //print_r($result2);
         }
-        // require_once "../../model/database.php";
-        // if(isset($_GET['data'])){ //Select user type details
-        //     $usertype = explode("=", $_GET['data'])[1];
-        //     //$query = "SELECT * FROM plunk.company WHERE Company=$companyname";
-        //     //$result2 = $DB2->runQuery($query)[0];
-        //     //print_r($result2);
-        // }
-        // else{
-        //     $companyname = "Select the Company";
-        // }
+        else{
+            $result2['DisplayID'] = "Select the StaffID";
+            $result2['Name'] = "Select the StaffName";
+            $result2['UserType'] = "Select the UserType";
+        }
     ?>
     <div class="main">
     <div class= "left">
     <div class="form">
         <h2 class="center-text"><b>Add Staff Details</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
-                <input name ="add-staffdetails" type="hidden" >
+                <input name ="add-basicdetail" type="hidden" >
                 <table class="formtable">
                 <tr>
                     <div class="form-group">
-                        <td><label for="Company">Staff Member Name</label></td>
-                        <td><input type="text" id="Company" name="CompanyName"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
+                        <td><label for="StaffID">Staff ID</label></td>
+                        <td><input type="text" id="StaffID" name="StaffID"  required class="form-control"  placeholder="Select the staff ID" value = "<?php echo "$result2[DisplayID]";?>"/></td>
                     </div>
                 </tr>
                 <tr>
-                <div class="form-group">
-                    <td><label for="Type">Staff Type</label></td>
-                    
-                    <td><select id="Type" name="ItemType" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
-                        <option value="1">Admin</option>
-                        <option value="2">General Manager</option>
-                        <option value="3">Reasuturant Manager</option>
-                        <option value="4">Accountant</option>
-                        <option value="3">Cashier</option>
-                        <option value="4">Staff Member</option>
-                     </select></td>
+                    <div class="form-group">
+                        <td><label for="StaffName">Staff Member Name</label></td>
+                        <td><input type="text" id="StaffName" name="StaffName"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$result2[Name]";?>"/></td>
                     </div>
                 </tr>
-
+                <div class="form-group">
+                        <td><label for="UserType">Staff Type</label></td>
+                        <td><input type="text" id="UserType" name="UserType"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$result2[UserType]";?>"/></td>
+                    </div>
+                </tr>
                         <tr>
-                            <td><label for="Total">Basic Total</label></td>
-                            <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                            <td><label for="BasicSalary">Basic Total</label></td>
+                            <td><input type="text" id= "BasicSalary" name="BasicSalary" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
                         <tr>
                             <td><label for="Bonus">Bonus Percentage</label></td>
@@ -82,8 +72,8 @@
                             <td><input type="text" id= "" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
                         <tr>
-                            <td><label for="Service">Service Charge Percentage</label></td>
-                            <td><input type="text" id= "Service" name="Service" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
+                            <td><label for="Percentage">Service Charge Percentage</label></td>
+                            <td><input type="text" id= "Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
                     </table>
                         

@@ -6,7 +6,7 @@
         <title>Bloomfield</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/tabledesign.css">
+        <link rel="stylesheet" href="../style/tablehome.css">
 
   </head>
   <body>
@@ -16,7 +16,7 @@
                     <?php
                           require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("salarydetails");
-                          $orderTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', Percentage as 'Service Charge Percentage' FROM plunk.salarydetails");
+                          $orderTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', Percentage as 'Service Charge Percentage' FROM plunk.salarydetails", 'add');
                        ?>
 
                     </div>

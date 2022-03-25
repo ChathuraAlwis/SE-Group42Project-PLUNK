@@ -1,61 +1,115 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
 
         <meta charset="utf-8">
         <title>Bloomfield</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
-        <link rel="stylesheet" href="../style/company.css">
-
+        <link rel="stylesheet" href="../style/crud.css">
+        <script type="text/javascript" src="../script/additem.js"></script>
+        <script type="text/javascript" src="../script/updatedata.js"></script>
 
   </head>
   <body>
-    <?php
+  <?php
         require_once "../../model/database.php";
         $DB = new DB;
         $id = explode("=", $_GET['data'])[1];
-        $query = "SELECT * FROM plunk.company WHERE Company='$id'";
+        $query = "SELECT * FROM plunk.salarydetails WHERE StaffID='$id'";
 
         $result = $DB->runQuery($query)[0];
 
     ?>
 
-        <div class="main" >
-            <form class="addcompany" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-              <input name ="update-company" type="hidden" >
-              <div class="headerrow">
-                <div class="bin">
-                  <a href="delete.php?data=<?php echo $_GET['data'];?>" ><img src="..\images\bin.png" alt="Delete Icon"  class="binicon"></a>
+
+    <div class=main>
+    <div class= left>
+    <div class="form">
+			  <h2 class="center-text"><b>Staff Member Salary Details</b>
+        <a href="deletemsg.php"><image src = "../images/bin.png" class="bin"></image></a></h2>
+			
+        
+        <form action="../../controller/CRUD.php" method="POST">
+            <input name ="update-basicdetail" type="hidden" >
+            <table class="formtable">
+              <tr>
+                <div class="form-group">
+                   <td><label for="StaffID">Staff ID</label></td> 
+                    <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                 </div>
-              </div>
-              <div class="submain">
-                <div class="forminputs">
-                    <label for="Name"> Company Name:</label><br>
-                    <input type="text" id="Name" class="input" name="Company" value = "<?php echo "$result[Company]";?>"  readonly>
-                </div><br>
-
-                <div class="forminputs">
-                    <label for="DisplayID"> Distributors' Name:</label><br>
-                    <input type="text"  class="input" id="DistributorName" name="DistributorName" value = "<?php echo "$result[DistributorName]";?>"   required>
-                </div><br>
-
-                <div class="forminputs">
-                    <label for="Email"> E-mail </label><br>
-                    <input type="email" id="Email" class="input" name="Email" placeholder="xxxx@gmail.com" value = "<?php echo "$result[Email]";?>" required>
-                </div><br>
-                <div class="forminputs">
-                    <label for="ContactNo"> Contact No</label><br>
-                    <input type=" tel" id="ContactNo" class="input" name="PhoneNo" pattern="[0-9]{10}" value = "<?php echo "$result[PhoneNo]";?>" required>
-                </div><br><br>
-
-                <div class="forminputs">
-                  <button type="submit"  id="add" class="add" name="button" >Update</button>
-                  <button type="reset" id="reset" class="add" name="button">Reset</button>
+              </tr>
+              <tr>
+                <div class="form-group">
+                   <td><label for="StaffName">Staff Member Name</label></td> 
+                    <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value = "<?php echo "$result[StaffName]";?>"/></td>
                 </div>
-              </div>
-            </form>
+              </tr>
+              <tr>
+                <div class="form-group">
+                   <td><label for="UserType">Staff Type</label></td> 
+                    <td><input type="text" id= "UserType" name="UserType" required class="form-control" value = "<?php echo "$result[UserType]";?>"/></td>
+                </div>
+              </tr>
+              <tr>
+                    <div class="form-group">
+                        <td><label for="BasicSalary">Basic Value</label></td>
+                        <td><input type="text" id= "BasicSalary" name="BasicSalary" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[BasicSalary]";?>"/></td>
+                    </div>
+                </tr>
+              <tr>
+                    <div class="form-group">
+                        <td><label for="Bonus">Bonus Value</label></td>
+                        <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>"/></td>
+                    </div>
+                </tr>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="ETF">ETF Value</label></td>
+                        <td><input type="text" id= "ETF" name="ETF" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ETF]";?>"/></td>
+                    </div>
+                </tr>
+                <tr>
+                <div class="form-group">
+                   <td><label for="EPF">EPF Value</label></td> 
+                    <td><input type="text" id= "EPF" name="EPF" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[EPF]";?>"/></td>
+                </div>
+              </tr>
+              <tr>
+                <div class="form-group">
+                   <td><label for="Percentage">Service Charge Percentage</label></td> 
+                    <td><input type="text" id= "Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Percentage]";?>"/></td>
+                </div>
+              </tr>
+            </table>
+            
+                <br>
+                <div class="form-group">
+                <button type="submit" name="submit" value="Submit" class="button submit" >Update</button>
+                <button type="submit" name="cancel" value="cancel" class="button submit"><a class="cancel" href="salarytable.php">Cancel</a></button>
+            </div>
+    </form>                
+</div>
+</div>
+<div class= right>
+    <div class = "righttop">
+        <div class="itemtable">
+            <h4>STAFF MEMBERS DETAILS TABLE</h4>
+            <iframe src="staff.php" class="item"></iframe>
         </div>
-
+        
+       </div>
+        <div class = "rightbottom">
+            <div class="itemtable">
+                <h4>STAFF CATEGORY PAYMENTS DETAILS TABLE</h4>
+                <iframe src="detailtable2.php" class="item"></iframe>
+            </div>  
+        </div>
+    </div>
+</div>
+     
   </body>
+
+ 
 </html>

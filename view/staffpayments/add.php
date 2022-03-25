@@ -20,7 +20,7 @@
             require_once "../../model/database.php";
             $DB = new DB;
             $type = explode("=", $_GET['data'])[1];
-            $query = "SELECT * FROM plunk.usersalary WHERE BookingID=$type";
+            $query = "SELECT * FROM plunk.usersalary WHERE detailID=$type";
             $result = $DB->runQuery($query)[0];
         }else{
             $type = -1;

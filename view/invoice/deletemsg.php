@@ -13,12 +13,11 @@
         <div class="main" >
 
                     <div class="detailtable">
-                    <h3><b>Updating distributer's details in the database.</b></h3>
-
-                    <h1><b>Updated..!</b> </h1><br>
+                    <h3><b>This invoice was added to the GRN...</b> </h3>
+                    <h1 id="Error"><b>This invoice cannot be deleted</b> </h1><br>
 
                     <div class="btn">
-                      <a href="..\company\companydash.php"><button type="button" name="button"><b>OK</b> </button></a>
+                      <a href="invoicetable.php"><button type="button" name="button"><b>OK</b> </button></a>
                     </div>
 
 

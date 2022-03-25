@@ -13,7 +13,7 @@
             $this->tableName = $table;
         }
 
-        function show($sql, $linkPage="none", $getdata="none", $SearchBy="none"){
+        function show($sql, $linkPage="none", $getdata="none", $SearchBy="none", $getdatawithname="none"){
             //for search query
             if(isset($_GET[$SearchBy])){
                 $search = $_GET[$SearchBy];
@@ -62,6 +62,10 @@
                             if($getdata!="none"){
                                 // $send = $result[$row][$getdata];
                                 echo "<td><a href=\"" . $linkPage . ".php?data=$record&getdata=$getdata\" target=\"Pages\">$data</a></td>";
+                            }elseif($getdatawithname!="none"){
+                                $getdataname=$getdatawithname[0];
+                                $getdataval=$getdatawithname[1];
+                                echo "<td><a href=\"" . $linkPage . ".php?data=$record&$getdataname=$getdataval\" target=\"Pages\">$data</a></td>";
                             }else{
                                 echo "<td><a href=\"" . $linkPage . ".php?data=$record\" target=\"Pages\">$data</a></td>";
                             }

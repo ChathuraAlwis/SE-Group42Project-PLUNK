@@ -50,7 +50,14 @@
                               
                             $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',Company as 'Company' ,ItemName as 'Item Name' ,PurchasePrice as 'Purchase Price',SellingPrice as 'Selling Price',Quantity as 'Quantity',Discount as 'Discount',Availability as 'Availability', ReorderQuantity  as 'Reorder Quantity' FROM plunk.item WHERE IsDeleted = 'No' AND ItemName LIKE ('%$name%') AND ItemType=$type ", 'update');
                           }
+                          else if(isset($_GET['companyname'])){
+                                                
+                            $companyname = $_GET['companyname'];
+                            $type = $_GET['type'];
+                            
+                            $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',Company as 'Company' ,ItemName as 'Item Name' ,PurchasePrice as 'Purchase Price',SellingPrice as 'Selling Price',Quantity as 'Quantity',Discount as 'Discount',Availability as 'Availability', ReorderQuantity  as 'Reorder Quantity' FROM plunk.item WHERE IsDeleted = 'No' AND Company='$companyname' AND ItemType='$type' ");
                           
+                          }
                           else{
 
                             $itemTable->show("SELECT ItemID as 'Item ID',ItemType as 'Item Type',Company as 'Company' ,ItemName as 'Item Name' ,PurchasePrice as 'Purchase Price',SellingPrice as 'Selling Price',Quantity as 'Quantity',Discount as 'Discount',Availability as 'Availability', ReorderQuantity  as 'Reorder Quantity' FROM plunk.item WHERE IsDeleted = 'No' ", 'update');

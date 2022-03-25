@@ -47,9 +47,11 @@
     <?php
         require_once "../../model/database.php";
         $DB = new DB;
-        $id = explode("=", $_GET['data'])[1];
+        //print_r($_GET);
+        $id = explode("=", $_GET['InvoiceID'])[0];
         $query = "SELECT * FROM plunk.invoice WHERE InvoiceID=$id";
         $result = $DB->runQuery($query)[0];
+        //print_r($result);
     ?>
 
     <div class=main>
@@ -65,70 +67,29 @@
 			
         
         <form action="../../controller/CRUD.php" method="POST">
-            <input name ="update-invoice" type="hidden" >
+            <input name ="delete-invoice" type="hidden" >
+            <input name="InvoiceID" type="hidden" value="<?php echo $_GET['InvoiceID']?>"/> 
             <table class="formtable">
             <tr>
-                <div class="form-group">
-                   <td><label for="InvoiceID">Invoice ID</label></td> 
-                   <td></td>
-                    <td><input type="number" id= "InvoiceID" name="InvoiceID" required class="form-control" value = "<?php echo "$result[InvoiceID]";?>"/></td>
-                </div>
-              </tr>
+                    <div class="form-group">
+                        <td><label for="DeleteDate">Delete Date</label></td>
+                        <td><input type="date" id= "DeleteDate" name="DeleteDate" required class="form-control" value="<?php echo date("Y-m-d") ?>" readonly/></td>
+                    </div>
+                </tr> 
             
             <tr>
-                        <div class="form-group">
-                            <td><label for="Company">Company Name</label></td>
-                            <td></td>
-                            <td><input type="text" id= "Company" name="Company" required class="form-control" value = "<?php echo "$result[Company]";?>"/></td>
-                        </div>
+            <div class="form-group">
+                    <td><label for="Reason">Reason</label></td>
+                    <td><textarea id= "Reason" name="Reason" required class="form-control" placeholder="Enter the Reason"></textarea></td>
+                </div>
                     </tr>
                     
-                <tr>
-                <div class="form-group">
-                    <td><label for="Type">Item Type</label></td>
-                    <td></td>
-                    <td><select id="Type" name="Type" class="form-control" onchange="changeType(this);">
-                    <option selected>Choose type...</option>
-                        <option value="Beverage" <?php if("$result[Type]"=="Beverage") echo 'selected="selected"'; ?> >Beverage Items</option>
-                        <option value="Food"<?php if("$result[Type]"=="Food") echo 'selected="selected"'; ?> >Food Items</option>
-                     </select></td>
-                    </div>
-                </tr>
-                <tr>
-                    <div class="form-group">
-                        <td><label for="ReceivedDate">Received Date</label></td>
-                        <td></td>
-                        <td><input type="date" id= "ReceivedDate" name="ReceivedDate" required class="form-control" value = "<?php echo "$result[ReceivedDate]";?>"/></td>
-                    </div>
-                </tr> 
-
-                <tr>
-                    <div class="form-group">
-                        <td><label for="DueDate">Due Date</label></td>
-                        <td></td>
-                        <td><input type="date" id= "DueDate" name="DueDate" required class="form-control" value = "<?php echo "$result[DueDate]";?>"/></td>
-                    </div>
-                </tr> 
-
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Total">Total Invoice Value</label></td>
-                        <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Total]";?>"/></td>
-                    </div>
-                </tr>
-                <tr>
-                <div class="form-group">
-                   <td><label for="UserID">User ID</label></td> 
-                   <td></td>
-                    <td><input type="number" id= "UserID" name="UserD" required class="form-control" value = "<?php echo "$result[UserID]";?>"/></td>
-                </div>
-              </tr>
+                
             
             </table>
            
                 <div class="form-group">
-                <button type="submit" name="submit" value="Submit" class="button submit"  >Update</button>
+                <button type="submit" name="submit" value="Submit" class="button submit"  >Delete</button>
                 <button type="back" name="cancel" value="cancel" class="button submit" ><a class="cancel" href="invoicetable.php">Cancel</a></button>
             </div>
     </form>                

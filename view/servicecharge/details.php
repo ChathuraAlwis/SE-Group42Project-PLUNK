@@ -17,7 +17,7 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $orderTable = new Table("servicecharge");
-                          $orderTable->show("SELECT ServiceChargeID as 'Service Charge ID', Date FROM plunk.servicecharge ORDER BY ServiceChargeID DESC",'alltable');
+                          $orderTable->show("SELECT ServiceChargeID as 'Service Charge ID', Date, WorkingDays as 'Working Days' FROM plunk.servicecharge",'alltable');
                        ?>
 
                     </div>

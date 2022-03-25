@@ -28,12 +28,12 @@
     <div class=main>
     <div class= left>
     <div class="form">
-			<h2 class="center-text"><b>Service Charge Details</b>
-            <a href="deleteservicesuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2>
+			<h2 class="center-text"><b>Service Charge Details</b></h2>
+            <!-- <a href="deleteservicesuccess.html"><image src = "../images/bin.png" class="bin"></image></a></h2> -->
 			
         
         <form action="../../controller/CRUD.php" method="POST">
-            <input name ="update-servicechargestaff" type="hidden" >
+            <input name ="update-userservicecharge" type="hidden" >
             <table class="formtable">
             <tr>
                 <div class="form-group">
@@ -45,7 +45,7 @@
             <tr>
                         <div class="form-group">
                             <td><label for="StaffID">Staff ID</label></td>
-                            <td><input type="number" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                            <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
                         </div>
                     </tr>
 

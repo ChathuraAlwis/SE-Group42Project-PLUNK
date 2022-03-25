@@ -13,12 +13,11 @@
         <div class="main" >
 
                     <div class="detailtable">
-                    <h3><b>Updating distributer's details in the database.</b></h3>
-
+                    <h3><b>Updating Staff Member basic salary details in the Database </b> </h3>
                     <h1><b>Updated..!</b> </h1><br>
 
                     <div class="btn">
-                      <a href="..\company\companydash.php"><button type="button" name="button"><b>OK</b> </button></a>
+                      <a href="detailform.php"><button type="button" name="button"><b>OK</b> </button></a>
                     </div>
 
 
