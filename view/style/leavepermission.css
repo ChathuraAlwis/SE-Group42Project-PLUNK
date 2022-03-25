@@ -2,8 +2,9 @@
     color: gray;
 }
 .body{
-    background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
-
+    background-image:url(../images/cricket.png);
+     /* linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60); */
+  background-color: #0b7fab;
   }
 .main{
 
@@ -154,7 +155,7 @@ button.return{
     cursor: pointer;
     margin-top:5%;
     margin-left:10%;
-    background-color: #017a7a;
+    background-color: #0b7fab;
     opacity: 0.8;
 
   }

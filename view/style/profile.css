@@ -63,7 +63,7 @@ label{
   border-radius: 50%;
   border-style: solid;
   border-width: 3px;
-  border-color:#017a7a;
+  border-color:#0b7fab;
 }
 .forminputs{
   width: 100%;
@@ -91,8 +91,8 @@ label{
   width: 15%;
   height: 100%;
   border-radius: 10px;
-  border-color:#017a7a;
-  background-color:#017a7a;
+  border-color:#0b7fab;
+  background-color:#0b7fab;
   color:  #acacac;
   font-size: 1.5vw;
   transition-duration: 1s;
@@ -103,8 +103,8 @@ label{
   height: 100%;
   width: 30%;
   border-radius: 10px;
-  border-color:#017a7a;
-  background-color:#017a7a;
+  border-color:#0b7fab;
+  background-color:#0b7fab;
   color:  #acacac;
   font-size: 1.5vw;
   transition-duration: 1s;
@@ -112,8 +112,8 @@ label{
 .update-pw{
   float: right;
   border-radius: 10px;
-  border-color:#017a7a;
-  background-color:#017a7a;
+  border-color:#0b7fab;
+  background-color:#0b7fab;
   color:  #acacac;
   font-size: 1.5vw;
   transition-duration: 1s;
@@ -121,8 +121,8 @@ label{
 .save{
   float: right;
   border-radius: 10px;
-  border-color:#017a7a;
-  background-color:#017a7a;
+  border-color:#0b7fab;
+  background-color:#0b7fab;
   color:  #acacac;
   font-size: 1.5vw;
   transition-duration: 1s;

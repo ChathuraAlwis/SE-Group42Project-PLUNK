@@ -30,7 +30,7 @@ a{
   color: #acacac;
 }
 .btnlink:hover{
-  color:#017a7a;
+  color:#0b7fab;
 }
 
  .mainpage3{ /*for decision page */
@@ -58,11 +58,12 @@ a{
 }
 /* for APPROVE PHP */
 .formbox2{
+  float: left;
   width: 65%;
   height: auto;
   background-color: white;
   border-radius: 20px;
-  margin-left: auto;
+  margin-left: 20px;
   margin-right: auto;
   margin-top: 50px;
   display: block;
@@ -71,6 +72,55 @@ a{
   padding-top: 20px;
   padding-right: 30px;
   padding-bottom: 20px;
+}
+.ids{
+  width: 25%;
+  height: auto;
+  float: right;
+  margin-top: 30px;
+  margin-right: 20px;
+  border-width: 2px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: white;
+  background-color:white;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 10px;
+}
+.idtitle{
+  text-align: center;
+}
+table{
+  border: none;
+}
+th{
+  font-size: 1.3vw;
+  border-collapse: collapse;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0b7fab;
+  background-color: white;
+  text-align: center;
+}
+th:first-child,td:first-child{
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+th:last-child,td:last-child{
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+td{
+  font-size: 1.2vw;
+  border-collapse: collapse;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #0b7fab;
+  text-align: center;
 }
 .detail{
   color: red;
@@ -111,7 +161,7 @@ a{
   /* background-color: yellow; */
 }
 .add{
-  background-color: #017a7a;
+  background-color: #0b7fab;
   width: 45%;
   height:auto;
   border-radius: 50px;
@@ -121,7 +171,7 @@ a{
 }
 .add:hover{
   background-color: #acacac;
-  color:#017a7a;
+  color:#0b7fab;
 }
 .imagebox{
   float:right;
@@ -136,7 +186,7 @@ a{
   border-radius: 50%;
   border-style: solid;
   border-width: 3px;
-  border-color:#017a7a;
+  border-color:#0b7fab;
 }
 
 @media only screen and (max-width:720px) {
@@ -212,7 +262,7 @@ marquee.msg{
 
 }
 h4{
-  color:rgb(175, 207, 245);
+  color: rgb(240, 230, 230);
   margin-top: 0%;
 }
 

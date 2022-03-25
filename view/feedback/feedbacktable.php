@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php session_start();
+date_default_timezone_set("Asia/Kolkata");
+require_once "..\..\controller\showtable.php";?>
 <html lang="en" dir="ltr">
   <head>
 
@@ -13,20 +16,38 @@
         <div class="main" >
 
                     <div class="detailtable">
-                      <?php session_start();
+                      <?php
+                      $today= date("Y-m-d");
 
-                          if (isset($_SESSION['UserType'])){
-                          if ($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'HL Member'){
-                            require_once "..\..\controller\showtable.php";
+                            $orderTable = new Table("booking");
+                          if(isset($_GET['UserID'])){
+                            $search = $_GET['UserID'];
+                            $sql = "SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE UserID LIKE ('%$search%')";
+
+                            if(isset($_GET['OrderBy'])){
+                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            }
+                              $orderTable->show($sql, 'update');
+                          }
+                          elseif (isset($_POST['history'])) {
                             $orderTable = new Table("feedback");
-                            $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback order by FeedBackID desc");
+                            $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE Reply IS NOT NULL order by FeedBackID desc", 'update');
                           }
                           else {
-                          require_once "..\..\controller\showtable.php";
-                          $orderTable = new Table("feedback");
-                          $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback order by FeedBackID desc", 'update');
+
+
+                          if ($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'HL Member'){
+
+                            $orderTable = new Table("feedback");
+                            $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE UserID='$_SESSION[UserID]' order by FeedBackID desc");
                           }
+                          else {
+
+                          $orderTable = new Table("feedback");
+                          $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE Reply IS NULL order by FeedBackID desc", 'update');
+
                         }
+                      }
                        ?>
 
                     </div>

@@ -2,7 +2,7 @@ html,body{
   width: 100%;
   height: 100%;
   margin: auto;
-  background-color: #017a7a;
+  background-color: #0b7fab;
 
 
 }
@@ -56,8 +56,8 @@ html,body{
   border-style: solid;
   border-width: 3px;
   border-radius: 20px;
-  border-color: #017a7a; /*#dcdcdc*/
-  background-color: #017a7a;
+  border-color: #0b7fab; /*#dcdcdc*/
+  background-color: #0b7fab;
   margin-top: 2%;
   margin-bottom: auto;
 /*background-color: blue;*/
@@ -72,11 +72,11 @@ html,body{
   border-width: none;
   border-radius: 20px;
   border-color: transparent;
- background-color: #017a7a;
+ background-color: #0b7fab;
 }
 h2{
   font-size:2.5vw;
-  color: #017a7a;
+  color: #0b7fab;
   text-align:center;
   vertical-align: baseline;
   line-height:3vw;
@@ -98,7 +98,7 @@ th{
   margin-bottom: 30px;
   border-style: solid;
   border-width: none;
-  border-color: #017a7a;
+  border-color: #0b7fab;
   background-color: #ffffff;
 }
 th:first-child,td:first-child{
@@ -117,7 +117,7 @@ td{
   padding-bottom: 5px;
   border-style: solid;
   border-width: 1px;
-  border-color: #017a7a;
+  border-color: #0b7fab;
   text-align: center;
 
 }

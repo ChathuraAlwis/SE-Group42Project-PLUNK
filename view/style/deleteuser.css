@@ -114,7 +114,7 @@ option{
 }
 
 .add{
-  background-color: #017a7a;
+  background-color: #0b7fab;
   width: 49%;
   height:auto;
   border-radius: 50px;
@@ -124,7 +124,7 @@ option{
 }
 .add:hover{
   background-color: #acacac;
-  color:#017a7a;
+  color:#0b7fab;
 }
 #reset{
   float: right;
@@ -169,5 +169,5 @@ a{
 }
 a:hover{
 
-  color:#017a7a;
+  color:#0b7fab;
 }

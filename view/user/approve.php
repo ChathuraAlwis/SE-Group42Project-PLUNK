@@ -15,7 +15,8 @@
   </head>
   <body>
     <?php
-    require_once "../../model/database.php";
+    require_once "..\..\controller\showtable.php";
+    require_once "..\..\model\database.php";
     $DB = new DB;
     $id = explode("=", $_GET['data'])[1];
     $query = "SELECT * FROM plunk.signup WHERE SignupID='$id'";
@@ -31,10 +32,10 @@
                             <div class="mainpage3" id="mainpages">
                               <div class="formbox2">
                                 <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
-                                  <input name ="give-approve" type="hidden" >
+                                  <input name ="giveapprove" type="hidden" >
                                   <div class="submain">
                                     <div class="imagebox">
-                                      <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" required>
+                                      <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" readonly>
 
                                       <?php echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';?>
                                       <!-- <label for="file" class="upload"><b>Upload Image</b> </label>
@@ -59,12 +60,7 @@
                                     <div class="radio">
                                           <label for="UserType">Requested Member Type</label><br>
                                           <input type="text" class="input" name="UserType" value="<?php echo "$result[UserType]";?>" readonly>
-                                          <!-- <select class="UserType" name="UserType" id="UserType" readonly>
-                                                  <option selected>Select the member type</option>
-                                                  <option value="Ordinary Member">Ordinary Member</option>
-                                                  <option value="Life Member">Life Member</option>
-                                                  <option value="HL Member"> HL Member</option>
-                                          </select> -->
+
                                     </div>
 
                                     <div class="forminputs">
@@ -83,11 +79,7 @@
                                         <label for="Name"> User Name</label><br>
                                         <input type="text" id="UserName" class="input" name="UserName" onchange='<?php echo 'checkUserName('. $result .')';?>' required>
                                     </div>
-                                    <div class="forminputs">
-                                        <label for="Name"> Password</label><br>
-                                        <input type="text" id="Password" class="input" name="Password"><br>
-                                        <p class="detail">Password is optional. If you doesn't enter it, Display ID will work as a password</p>
-                                    </div>
+
                                     <div class="forminputs">
                                         <label for="DisplayID"> Display ID</label><br>
                                         <input type="text" id="DisplayID" class="input" name="DisplayID" onchange='<?php echo 'checkDisplayID('. $result .')';?>' required>
@@ -96,15 +88,20 @@
 
 
                                     <div class="formbtn">
-                                      <button type="submit"  id="add" class="add" name="button" > Approve</button>
+                                      <button type="submit"  id="add" class="add" formaction="..\..\controller\CRUD.php" > Approve</button>
                                       <button type="reset" id="reset" class="add" name="button">Reset</button>
                                     </div>
 
                                   </div>
                                 </form>
 
+                              </div><br>
+                              <div class="ids">
+                                <h3 class="idtitle">Latest Member ID</h3>
+                                <?php
+                                $orderTable = new Table("lastdisplayid");
+                                $orderTable->show("SELECT * FROM plunk.lastdisplayid",);?>
                               </div>
-
 
                             </div>
                   </div>
