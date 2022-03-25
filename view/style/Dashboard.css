@@ -16,27 +16,34 @@ html, body{
   width: 100%;
   height: 45%;
   padding-top: 15px;
-  /*background-color: blue;*/
+  /* background-color: blue; */
 }
-.resbooking{
-  width: 30%;
+.resbooking2{
+  width: 47.5%;
   height: 95%;
   float:left;
   margin-left: 15px;
+  margin-right: 10px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
- background-color: #017a7a;
+  border-radius: 10px;
+  /* border-color: #017a7a;
+ background-color: #017a7a; */
+ border-color: #0b7fab;
+ background-color: #0b7fab;
 }
-.clubbooking{
-  width: 35%;
+.clubbooking2{
+  width: 47.5%;
   height: 95%;
-  float:left;
-  margin-left: 1%;
+  float:right;
+  margin-right: 15px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
-background-color:#017a7a;
+  border-radius: 10px;
+  /* border-color: #017a7a;
+  background-color: #017a7a; */
+  border-color: #0b7fab;
+  background-color: #0b7fab;
 }
 .reorder{
   width: 35%;
@@ -45,7 +52,9 @@ background-color:#017a7a;
   margin-left: 1%;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
+  /* border-color: #017a7a; */
+  border-color: #0b7fab;
+
 }
 .calendar{
   width: 30%;
@@ -54,7 +63,9 @@ background-color:#017a7a;
   margin-right: 15px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
+  /* border-color: #017a7a; */
+  border-color: #0b7fab;
+
 /* background-color: red;*/
 }
 .bloomcal{
@@ -72,10 +83,13 @@ background-color:#017a7a;
   margin-right: auto;
   display: block;
   border-width: 2px;
+  border-radius: 10px;
   border-style: solid;
-  border-color: #017a7a;
+  /* border-color: #017a7a; */
   margin-top: 1%;
-  background-color: #017a7a;
+  /* background-color: #017a7a; */
+  border-color: #0b7fab;
+  background-color: #0b7fab;
  /*background-color: orange;*/
 }
 .notificationtable{
@@ -90,6 +104,7 @@ background-color:#017a7a;
   width: 100%;
   height: 83%;
   margin-top: 0.25%;
+  border: none;
 
 }
 .notifichead{
@@ -101,7 +116,7 @@ h2{
   text-align: center ;
   margin: none;
   padding: none;
-  color: #017a7a;
+  color: #0b7fab;
 
 
 }
@@ -123,14 +138,17 @@ h3{
 
 /*Admin Dashboard*/
 .Feedback{
-  width: 65%;
+  width: 98%;
   height: 95%;
-  float:left;
-  margin-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
-  background-color: #017a7a;
+  border-radius: 10px;
+  /* border-color: #017a7a;
+  background-color: #017a7a; */
+  border-color: #0b7fab;
+  background-color: #0b7fab;
   display: block;
 
 }
@@ -152,51 +170,27 @@ h3{
   margin-left: 15px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
+  /* border-color: #017a7a; */
+  border-color: #0b7fab;
+
   /* padding-bottom: 1%; */
 }
 
-/*Club Member Dashboard*/
-.resbooking{
-  width: 32.5%;
-  height: 95%;
-  float:left;
-  margin-left: 15px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #017a7a;
-}
-
-.clubbooking{
-  width: 32.5%;
-  height: 95%;
-  float:left;
-  margin-left: 15px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #017a7a;
-}
 
 /*Restaurant Manager Dashboard*/
-.resbooking{
-  width: 32.5%;
-  height: 95%;
-  float:left;
-  margin-left: 15px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #017a7a;
-}
 
 .reorder{
-  width: 32.5%;
+  width: 47.5%;
   height: 95%;
-  float:left;
-  margin-left: 15px;
+  float:right;
+  margin-right: 15px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
-  background-color:#017a7a;
+  border-radius: 10px;
+  /* border-color: #017a7a;
+  background-color: #017a7a; */
+  border-color: #0b7fab;
+  background-color:#0b7fab;
 }
 
 /*Accountant Dashboard*/
@@ -207,7 +201,9 @@ h3{
   margin-left: 15px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
+  /* border-color: #017a7a; */
+  border-color: #0b7fab;
+
 }
 
 .iteminvoicing{
@@ -217,7 +213,9 @@ h3{
   margin-left: 15px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
+  /* border-color: #017a7a; */
+  border-color: #0b7fab;
+
 }
 
 /*Staff Member Dashboard*/
@@ -228,7 +226,9 @@ h3{
   margin-left: 15px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
+  /* border-color: #017a7a; */
+  border-color: #0b7fab;
+
 }
 
 .clubooking{
@@ -238,7 +238,9 @@ h3{
   margin-left: 15px;
   border-width: 2px;
   border-style: solid;
-  border-color: #017a7a;
+  /* border-color: #017a7a; */
+  border-color:#0b7fab;
+
 }
 a{
   text-decoration: none;

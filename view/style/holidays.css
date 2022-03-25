@@ -34,7 +34,7 @@ h2{
   text-align: center;
   line-height: 2.5vw;
 }
-.addbooking{
+.addholiday{
   width: 50%;
   height: auto;
   float: left;
@@ -48,17 +48,18 @@ h2{
   border-radius: 20px;
 /*  background-color: #cccccc;*/
    background-color: white;
-  color: Black;
+  color: #474747;
   font-family: sans-serif;
   font-size: 1.7vw;
 }
-.resevationtable, .holidaytable{
+.holidaytable{
  float:right;
  width: 40%;
  height: auto;
  border-radius: 10px;
- background-color:#0b7fab;
-color: Black;
+background-color:  #0b7fab;
+ /* background-color: #03c9a9; */
+color: #474747;
 font-family: sans-serif;
 
 
@@ -129,7 +130,19 @@ input{
   color:#495057;
   background-color: transparent;
 }
-
+.type{
+  float: right;
+  width: 65%;
+  font-size: 1.5vw;
+  border-top: 0;
+  border-bottom-width: 2px;
+  border-left: 0;
+  border-right: 0;
+  border-style: solid;
+  border-color: #6c757d;
+  color:#495057;
+  background-color: transparent;
+}
 .line3{
   width: 70%;
   height: 15%;
@@ -140,19 +153,21 @@ input{
 /*background-color: brown;*/
 }
 .add{
-  background-color: #0b7fab;
-  width: 49%;
+   background-color:  #0b7fab;
+  /* background-color: #03c9a9; */
+  width: 32%;
   height:auto;
   border-radius: 50px;
-  /* color:  #acacac; */
   color: rgb(240, 230, 230);
-  font-size: 2vw;
+  font-size: 1.5vw;
   transition-duration: 1s;
 }
 .add:hover{
-  background-color:  #474747;
+  background-color: #474747;
+
 }
-#reset{
+
+#delete{
   float: right;
 }
 .ReservationMenu{
@@ -160,7 +175,7 @@ input{
   color: white;
   font-size: 2vw;
 }
-#table, #table1{
+#table1, #table2{
   width: 95%;
   height: 95%;
   margin-left: auto;
@@ -173,7 +188,8 @@ th{
   margin-bottom: 30px;
   border-style: solid;
   border-width: 1px;
-  border-color: #0b7fab;
+  border-color:  #0b7fab;
+  /* border-color: #017a7a; */
   background-color: white;
   text-align: center;
 }
@@ -193,7 +209,8 @@ td{
   padding-bottom: 5px;
   border-style: solid;
   border-width: 1px;
-  border-color: #0b7fab;
+  border-color:  #0b7fab;
+  /* border-color: #017a7a; */
   text-align: center;
   cursor: pointer;
 }

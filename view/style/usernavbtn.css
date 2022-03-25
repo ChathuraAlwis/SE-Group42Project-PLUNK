@@ -14,10 +14,13 @@
 .buttongroup #dropbtn{
   display: block;
 /*  background-color:#006666;*/
-    background-color: #017a7a;
+    /* background-color: #017a7a; */
+    background-color:  #0b7fab;
   font-family: sans-serif;
   font-size: 14vw;
-  color: white;
+  /* color: white; */
+  color: rgb(240, 230, 230);
+  /* color: #787878; */
   width: 100%;
   height: 40%;
   padding: 5px;
@@ -26,7 +29,9 @@
   border-width:thick;
   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
 }
-
+#dropbtn:hover{
+color: #474747;
+}
 .dropdown-container {
   display: none;
   background-color: transparent;
@@ -36,17 +41,20 @@
 }
 
 .linkbutton{
-  color: white;
+/* color: #787878; */
+  color: rgb(240, 230, 230);
   text-decoration: none;
   font-size: 14vw;
 }
 .linkbutton:hover{
-  color: rgb(240, 230, 230);
+  color: #474747;
 
 }
 #open{
     background-color: #000000;
-    border-color: #017a7a;
+    /* border-color: #017a7a; */
+    /* border-color: #03c9a9; */
+    border-color:  #0b7fab;
     font-family: sans-serif;
     font-size: 14vw;
     color: white;
@@ -63,7 +71,7 @@
   /*background-color:#ffdf45;*/
   font-family: sans-serif;
   font-size: 12vw;
-  color: #017a7a;
+  color: #474747;
   width: 100%;
   height: 40%;
   padding: 5px;
@@ -73,7 +81,7 @@
   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
 }
 .dropdown-container a{
-  color: #017a7a;
+  color: #474747;
   text-decoration: none;
 }
 

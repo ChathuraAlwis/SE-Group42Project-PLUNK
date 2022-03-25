@@ -32,7 +32,8 @@ html, body{
   border-radius: 20px;
 /*  background-color: #cccccc;*/
    background-color: white;
-  color: Black;
+  /* color: Black; */
+  color:#474747;
   font-family: sans-serif;
   font-size: 1.7vw;
 }
@@ -98,31 +99,41 @@ html, body{
 .UserType{
   width: 80%;
   font-size: 1.5vw;
-  color: black;
+  /* color: black; */
+  color:#474747;
 }
 option{
   font-size: 1.5vw;
-  color: black;
+  /* color: black; */
+  color:#474747;
 }
  #Member{
   width:20%;
 }
-
+.submitbtn{
+  width: 80%;
+  height: auto;
+  margin-left:auto;
+  margin-right: auto;
+  display: block;
+}
 .add{
-  background-color: #017a7a;
+  /* background-color: #017a7a; */
+  background-color: #0b7fab;
   width: 49%;
   height:auto;
   border-radius: 50px;
-  color:  #acacac;
+  color:#474747;
   font-size: 2.5vw;
   transition-duration: 1s;
 }
 .add:hover{
+  /* background-color: #787878;; */
   background-color: #acacac;
-  color:#017a7a;
 }
 #reset{
   float: right;
+
 }
 @media only screen and (max-width: 720px) {
   /* For mobile phones: */

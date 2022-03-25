@@ -1,6 +1,7 @@
 body{
-  background-image:url(../images/cricket.png), linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60);
-
+  background-image:url(../images/cricket.png);
+   /* linear-gradient(to bottom right, #3e9157 ,#03a191 0.5%, #03ae60); */
+background-color: #0b7fab;
 }
 header{
   margin: 0;
@@ -43,12 +44,13 @@ h1{
   margin-right: auto;
   border-radius: 10px;
   border-width:thick;
-  border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));
+  border-color: #0b7fab;
+  /* border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230)); */
   background:transparent;
 
 
 }
 a{
   text-decoration: none;
-  
+
 }

@@ -29,10 +29,14 @@ html, body{
   height: 2%;
 }
 h2{
-  color: #017a7a;
+  color: #0b7fab;
   font-size: 2.5vw;
   text-align: center;
   line-height: 2.5vw;
+  font-family: sans-serif;
+}
+.paymenttitle{
+  margin-top: 25px;
 }
 .addbooking{
   width: 55%;
@@ -62,6 +66,23 @@ h2{
   padding-bottom: 4%;
   padding-left: 4%;
   padding-right: 4%;
+  border-radius: 20px;
+/*  background-color: #cccccc;*/
+   background-color: white;
+  color: Black;
+  font-family: sans-serif;
+  font-size: 1.7vw;
+}
+.addbookingthree{
+  width: 30%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-top: 10px%;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
   border-radius: 20px;
 /*  background-color: #cccccc;*/
    background-color: white;
@@ -119,7 +140,13 @@ h2{
   color:#495057;
   background-color: transparent;
 }
-
+.qtype11{
+  width: 50%;
+  font-size: 1.5vw;
+  border: none;
+  color:#495057;
+  background-color: transparent;
+}
 .bookingid{
   width: 30%;
   font-size: 1.5vw;
@@ -128,6 +155,12 @@ h2{
 }
 .type{
   width: 20%;
+  font-size: 1.5vw;
+  border: none;
+  background-color: transparent;
+}
+.Bookingtype{
+  width: 50%;
   font-size: 1.5vw;
   border: none;
   background-color: transparent;
@@ -168,7 +201,7 @@ select{
 /*background-color: brown;*/
 }
 .add{
-  background-color: #017a7a;
+  background-color:  #0b7fab;
   width: 49%;
   height:auto;
   border-radius: 50px;
@@ -178,7 +211,25 @@ select{
   cursor: pointer;
   opacity: 0.8;
 }
+
 .add:hover, .addlink:hover{
+  opacity: 1;
+}
+.pay{
+  background-color:  #0b7fab;
+  width: 50%;
+  height:auto;
+  border-radius: 50px;
+  color:  #acacac;
+  font-size: 2vw;
+  transition-duration: 1s;
+  cursor: pointer;
+  opacity: 0.8;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.pay:hover{
   opacity: 1;
 }
 #reset{
@@ -225,23 +276,26 @@ select{
 .qtype6{
   width: 48%;
 }
-.resevationtable{
+.resevationtable,.holidaytable{
  float:right;
  width: 35%;
  height: auto;
  border-radius: 10px;
- background-color:#017a7a;
+ background-color: #0b7fab;
 color: Black;
 font-family: sans-serif;
 
 
+}
+.holidaytable{
+  margin-bottom: 10px;
 }
 .ReservationMenu{
   text-align: center;
   color: white;
   font-size: 2vw;
 }
-#table{
+#table,#table1{
   width: 95%;
   height: 95%;
   margin-left: auto;
@@ -254,7 +308,7 @@ th{
   margin-bottom: 30px;
   border-style: solid;
   border-width: 1px;
-  border-color: #017a7a;
+  border-color:  #0b7fab;
   background-color: white;
   text-align: center;
 }
@@ -274,7 +328,7 @@ td{
   padding-bottom: 5px;
   border-style: solid;
   border-width: 1px;
-  border-color: #017a7a;
+  border-color:  #0b7fab;
   text-align: center;
   cursor: pointer;
 }
