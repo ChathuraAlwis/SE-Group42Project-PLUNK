@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
 
@@ -60,9 +60,9 @@
         </div>
 
   </body>
-</html>
+</html> -->
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
 
@@ -123,4 +123,4 @@
         </div>
 
   </body>
-</html> -->
+</html>

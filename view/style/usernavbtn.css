@@ -81,13 +81,16 @@
   padding: 5px;
   cursor: pointer;
   text-align: left;
-  /*border-radius: 10px;
+  border-radius: 10px;
+  
+  /*
   border-width:thick;
   border-color: linear-gradient( to left,rgb(53, 115, 119),rgb(27, 216, 230));*/
 }
 .dropdown-container a{
   color: #0b7fab;
   text-decoration: none;
+  font-size: 8vw;
 }
 
 .dropdown-container a:hover{
@@ -123,7 +126,7 @@ a{
 .linkbutton{
   position: relative;
   display:inline-block;
-  border-bottom: 1px dotted black;
+  /* border-bottom: 1px dotted black; */
 }
 
 /* Tooltip text */
