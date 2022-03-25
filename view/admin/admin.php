@@ -37,6 +37,8 @@
         <script type="text/javascript" src="../script/usernavbtn.js"> </script>
         <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
         <script type="text/javascript" src="../script/restauranrStatus.js"> </script>
+        <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+
 
   </head>
   <body>
@@ -46,7 +48,7 @@
                   <div class="leftheader">
                       <img class="plunk" src="../images/projectlogo.png" alt="plunk logo"><br>
                       <div class="menudiv">
-                         <a href="adminnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() >&#9776;</button></a>
+                         <a href="adminnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() ><box-icon name='menu' animation='tada' color=#017a7a ></box-icon></button></a>
                       </div>
                   </div>
 
