@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<!-- <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -31,9 +31,9 @@
 
 
   </body>
-</html>
+</html> -->
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
 
@@ -53,7 +53,7 @@
                           $salaryTable = new Table("salary");
                           if(isset($_GET['salarysearch'])){
                             $search = $_GET['salarysearch'];
-                            $salaryTable->show("SELECT SalaryID as 'Salary ID', Date, WorkingDays as 'No of Working days' FROM plunk.salary WHERE WorkingDays LIKE ('%$search%');",'alltable');
+                            $salaryTable->show("SELECT SalaryID as 'Salary ID', Date, WorkingDays as 'No of Working days' FROM plunk.salary WHERE Date LIKE ('%$search%');",'alltable');
                             //$salarydetailsTable->show("SELECT StaffID, StaffName AS 'Staff Name', UserType AS 'Staff Type', BasicSalary as 'Basic Salary Percentage',Bonus as 'Bonus Percentage',ETF as 'ETF Percentage',EPF as 'EPF Percentage',Percentage as 'Service Charge Percentage' FROM plunk.salarydetails WHERE StaffName LIKE ('%$search%');", 'update');
     
                           }
@@ -71,4 +71,4 @@
 
 
   </body>
-</html> -->
+</html>
