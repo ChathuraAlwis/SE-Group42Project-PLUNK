@@ -51,7 +51,7 @@
                                   <input name ="joinrequest" type="hidden" >
                                   <div class="submain">
                                     <div class="imagebox">
-                                      <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" required>
+                                      <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" >
 
                                       <img id="output" >
                                       <label for="file" class="upload"><b>Upload Image</b> </label>
