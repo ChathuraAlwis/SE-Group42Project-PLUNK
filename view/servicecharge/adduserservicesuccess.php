@@ -17,7 +17,7 @@
                     <h1><b>Success..!</b> </h1><br>
 
                     <div class="btn">
-                      <a href="allservicecharge.php"><button type="button" name="button"><b>OK</b> </button></a>
+                      <a href="servicetable.php"><button type="button" name="button"><b>OK</b> </button></a>
                     </div>
 
 

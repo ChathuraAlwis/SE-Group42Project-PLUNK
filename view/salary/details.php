@@ -18,6 +18,10 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $salaryTable = new Table("salary");
+                          if($_GET['salSearch']){
+                            $salaryTable->show("SELECT SalaryID as 'Salary ID', Date, WorkingDays as 'No of Working days' FROM plunk.salary where Date LIKE $_GET[salSearch];",'alltable');
+
+                          }
                           $salaryTable->show("SELECT SalaryID as 'Salary ID', Date, WorkingDays as 'No of Working days' FROM plunk.salary",'alltable');
                        ?>
 

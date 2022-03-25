@@ -39,10 +39,11 @@
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-item" type="hidden" >
                 <table class="formtable">
+                    
                 <tr>
                     <div class="form-group">
                         <td><label for="Company">Company</label></td>
-                        <td><input type="text" id="Company" name="Company"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
+                        <td><input type="text" id="Company" name="Company"  required class="form-control"  placeholder="Select the company name from the company table" readonly value = "<?php echo "$companyname";?>"/></td>
                     </div>
                 </tr> 
                   <tr>

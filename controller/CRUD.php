@@ -1137,10 +1137,9 @@ if(isset($_POST['add-userservice'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.servicechargestaff(ServiceChargeID,StaffID,StaffName,Percentage,Amount) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[Percentage]','$_POST[Amount]')";
+        $sql = "INSERT INTO plunk.servicechargestaff(ServiceChargeID,StaffID,StaffName,Percentage,Amount) VALUES ('$_POST[ServiceChargeID]','$_POST[StaffID]','$_POST[StaffName]','$_POST[Percentage]','$_POST[Amount]')";
         //echo $sql;
         $DB->runQuery($sql);
-
 
         $newPage = new Page('..\view\servicecharge\adduserservicesuccess.php');
         $newPage->show();
