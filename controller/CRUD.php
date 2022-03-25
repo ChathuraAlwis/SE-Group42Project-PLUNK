@@ -462,19 +462,24 @@ if(isset($_POST['joinrequest'])){
     }
 }
 //-------------give approve for requests---------------
-if(isset($_POST['give-approve'])){
+if(isset($_POST['giveapprove'])){
     $DB = new DB;
-    $pw="$_POST[Password]";
+    // $pw="$_POST[Password]";
     $day = date("Y-m-d");
-    if (is_null($pw)) {
+    // if (is_null($pw)) {
+    //   $pw="$_POST[DisplayID]";
+    // }
       $pw="$_POST[DisplayID]";
-    }
-
     try {
-        $sql = "UPDATE plunk.signup SET UserName='$_POST[UserName]', Password='$pw',DisplayID='$_POST[DisplayID]',JoinedYear='$day', Approval='Yes' WHERE SignupID='$_POST[SignupID]'";
-        $DB->runQuery($sql);
+        $signup = "UPDATE plunk.signup SET UserName='$_POST[UserName]', Password='$pw',DisplayID='$_POST[DisplayID]',JoinedYear='$day', Approval='Yes' WHERE SignupID='$_POST[SignupID]'";
+        $DB->runQuery($signup);
 
-
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+    try {
+        $lastid="UPDATE plunk.lastdisplayid SET ID='$_POST[DisplayID]' WHERE MemberType='$_POST[UserType]'";
+        $DB->runQuery($lastid);
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -564,25 +569,16 @@ if(isset($_POST['update-user'])){
 
 if(isset($_POST['delete-user'])){
     $DB = new DB;
-
-
-
     try {
-          $sql = "INSERT INTO plunk.deleteuser (UserID, Name,  Email, ContactNo, JoinedYear, DisplayID,UserType,Reason) VALUES ( '$_POST[UserID]' , '$_POST[Name]',  '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]','$_POST[Reason]')";
+          $sql = "INSERT INTO plunk.deleteuser (UserID, DisplayID,Reason) VALUES ( '$_POST[UserID]' , '$_POST[DisplayID]', '$_POST[Reason]')";
          $DB->runQuery($sql);
+         $sqll = "UPDATE plunk.user SET IsDeleted = 'Yes' WHERE UserID='$_POST[UserID]'";
+         $DB->runQuery($sqll);
+         $newPage = new Page('..\view\user\deleteusersuccess.html');
+         $newPage->show();
     } catch (\Throwable $th) {
         throw $th;
     }
-
-    try {
-        $sql = "DELETE FROM plunk.user WHERE UserID='$_POST[UserID]'";
-        $DB->runQuery($sql);
-        $newPage = new Page('..\view\user\deleteusersuccess.html');
-        $newPage->show();
-    } catch (\Throwable $th) {
-        throw $th;
-    }
-
 }
 //---------------------------------------------------Nortification-----------------------------------------------------------------------
 //---------Add notification------------
@@ -1027,11 +1023,21 @@ if(isset($_POST['addbook'])){
 
     $DB = new DB;
 
+
     try {
+        $holiday="SELECT Holiday FROM plunk.holidays WHERE (Type ='Restaurant'or Type ='Restaurant and Club') AND Holiday='$_POST[ReservedDate]'";
+        $holidayslot=$DB->runQuery($holiday);
+        if ( $holidayslot) {
+          $newPage = new Page('..\view\bookings\member\holidaywarn.html');
+          $newPage->show();
+        }
+        else {
+
         $slot="SELECT BookingID FROM plunk.booking WHERE BookingType ='Restaurant'AND Reservation='$_POST[Reservation]' AND ReservedDate='$_POST[ReservedDate]' AND 	(ReservedTime BETWEEN '$_POST[ReservedTime]' AND'$_POST[EndTime]' OR EndTime BETWEEN '$_POST[ReservedTime]' AND '$_POST[EndTime]' )";
 
         $bookslot=$DB->runQuery($slot);
         $booklen=count($bookslot);
+
 
           if ($booklen>=1) {
             $newPage = new Page('..\view\bookings\duplicate.html');
@@ -1069,16 +1075,24 @@ if(isset($_POST['addbook'])){
                     $newPage->show();
                   }
       }
-    } catch (\Throwable $th) {
+
+    }} catch (\Throwable $th) {
         throw $th;
     }
-
 }
+
 //---------------------add club booking----------------------------
 elseif (isset($_POST['add-clubbook'])) {
   $DB = new DB;
 
   try {
+    $holiday="SELECT Holiday FROM plunk.holidays WHERE (Type ='Club'or Type ='Restaurant and Club') AND Holiday='$_POST[ReservedDate]'";
+    $holidayslot=$DB->runQuery($holiday);
+    if ( $holidayslot) {
+      $newPage = new Page('..\view\bookings\member\holidayclubwarn.html');
+      $newPage->show();
+    }
+    else {
       $slot="SELECT BookingID FROM plunk.booking WHERE BookingType ='Club'AND Reservation='$_POST[Reservation]' AND ReservedDate='$_POST[ReservedDate]' AND 	(ReservedTime BETWEEN '$_POST[ReservedTime]' AND'$_POST[EndTime]' OR EndTime BETWEEN '$_POST[ReservedTime]' AND '$_POST[EndTime]' )";
 
       $bookslot=$DB->runQuery($slot);
@@ -1100,7 +1114,7 @@ elseif (isset($_POST['add-clubbook'])) {
           }
           $planday=$create;
 
-          if ($start>='8:00'&& $start<='17:00'&& $end >='09:00'&& $end <='18:00' && $start<$end) {
+          if (($start>='08:00'&& $start<='17:00') && ($end >='09:00'&& $end <='18:00') && $start<$end) {
         $sql = "INSERT INTO plunk.booking (BookingID,CustomerName,BookingType,Reservation,NoOfPeople,ReservedDate,ReservedTime,EndTime,CreatedDate,LastModifiedDate,ContactNo,Total,UserID) VALUES ('','$_POST[CustomerName]','Club','$_POST[Reservation]','$_POST[NoOfPeaople]','$_POST[ReservedDate]','$_POST[ReservedTime]','$_POST[EndTime]','$_POST[CreatedDate]','$_POST[CreatedDate]','$_POST[ContactNo]','$_POST[Total]','$_POST[UserID]')";
         $DB->runQuery($sql);
 
@@ -1117,7 +1131,8 @@ elseif (isset($_POST['add-clubbook'])) {
         $newPage->show();
       }
     }
-  } catch (\Throwable $th) {
+
+  }} catch (\Throwable $th) {
       throw $th;
   }
 
@@ -1128,7 +1143,13 @@ if(isset($_POST['update-booking'])){
     $DB = new DB;
 
     try {
-
+      $holiday="SELECT Holiday FROM plunk.holidays WHERE Type ='Restaurant'or Type ='Restaurant and Club' AND Holiday='$_POST[ReservedDate]'";
+      $holidayslot=$DB->runQuery($holiday);
+      if ( $holidayslot) {
+        $newPage = new Page('..\view\bookings\member\holidaywarn.html');
+        $newPage->show();
+      }
+      else {
         $checkID="SELECT BookingID FROM plunk.booking WHERE BookingType ='Restaurant'AND Reservation='$_POST[Reservation]' AND ReservedDate='$_POST[ReservedDate]' AND 	(ReservedTime BETWEEN '$_POST[ReservedTime]' AND'$_POST[EndTime]' OR EndTime BETWEEN '$_POST[ReservedTime]' AND '$_POST[EndTime]' )";
 
         $result = $DB->runQuery($checkID);
@@ -1182,7 +1203,7 @@ if(isset($_POST['update-booking'])){
           }
 
 
-    } catch (\Throwable $th) {
+    } }catch (\Throwable $th) {
         throw $th;
     }
 
@@ -1192,7 +1213,13 @@ elseif(isset($_POST['update-clubbooking'])){
     $DB = new DB;
 
     try {
-
+      $holiday="SELECT Holiday FROM plunk.holidays WHERE Type ='Club'or Type ='Restaurant and Club' AND Holiday='$_POST[ReservedDate]'";
+      $holidayslot=$DB->runQuery($holiday);
+      if ( $holidayslot) {
+        $newPage = new Page('..\view\bookings\member\holidayclubwarn.html');
+        $newPage->show();
+      }
+      else {
         $checkID="SELECT BookingID FROM plunk.booking WHERE BookingType ='Club'AND Reservation='$_POST[Reservation]' AND ReservedDate='$_POST[ReservedDate]' AND 	(ReservedTime BETWEEN '$_POST[ReservedTime]' AND'$_POST[EndTime]' OR EndTime BETWEEN '$_POST[ReservedTime]' AND '$_POST[EndTime]' )";
 
         $result = $DB->runQuery($checkID);
@@ -1237,7 +1264,7 @@ elseif(isset($_POST['update-clubbooking'])){
             $newPage = new Page('..\view\bookings\resclubtime.html');
             $newPage->show();
           }
-    } catch (\Throwable $th) {
+    }} catch (\Throwable $th) {
         throw $th;
     }
 
@@ -1273,4 +1300,77 @@ if(isset($_POST['delete-booking'])){
 
 
 }
+//-----------------------------------------payment for booking---------------------------------------------------------
+if(isset($_POST['changepayment'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.booking SET Payment='Yes'WHERE BookingID='$_POST[order_id]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('..\view\bookings\paymentupdatedsuccess.html');
+        $newPage->show();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+if (isset($_POST['changeclubpayment'])) {
+  $DB = new DB;
+
+  try {
+      $sql = "UPDATE plunk.booking SET Payment='Yes'WHERE BookingID='$_POST[order_id]'";
+      $DB->runQuery($sql);
+      $newPage = new Page('..\view\bookings\clubpaymentupdatedsuccess.html');
+      $newPage->show();
+  } catch (\Throwable $th) {
+      throw $th;
+  }
+}
+//-------------------------------------------------holidays------------------------------------------------------------------------------
+if(isset($_POST['addholiday'])){
+    $DB = new DB;
+
+    try {
+        $sql = "INSERT INTO plunk.holidays (HolidayID,Holiday,Type, Reason) VALUES ('','$_POST[Holiday]','$_POST[Type]','$_POST[Reason]')";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\bookings\holidaysuccess.html');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+if(isset($_POST['updateholiday'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.holidays SET Holiday='$_POST[Holiday]',Type='$_POST[Type]',Reason='$_POST[Reason]' WHERE HolidayID='$_POST[HolidayID]'";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\bookings\holidaysuccess.html');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+if(isset($_POST['deleteholiday'])){
+    $DB = new DB;
+
+    try {
+        $sql = "DELETE FROM plunk.holidays  WHERE HolidayID='$_POST[HolidayID]'";
+        $DB->runQuery($sql);
+
+        $newPage = new Page('..\view\bookings\holidaysuccess.html');
+        $newPage->show();
+
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
 ?>
