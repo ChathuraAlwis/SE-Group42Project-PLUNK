@@ -1,4 +1,5 @@
-<?php session_start(); ?>
+<?php session_start();
+  date_default_timezone_set("Asia/Kolkata");?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -11,13 +12,16 @@
 
   </head>
   <body>
+
         <div class="main" >
 
                     <div class="detailtable">
                       <?php
+                          $today= date("Y-m-d");
                           require_once "..\..\controller\showtable.php";
+
                           $orderTable = new Table("booking");
-                          $orderTable->show("SELECT ReservedDate as 'Reserved Date',Total as 'Total Payment',Payment as Paid FROM plunk.booking WHERE BookingType=1 AND UserID=$_SESSION[UserID]");
+                          $orderTable->show("SELECT BookingID as 'Booking ID', ReservedDate as 'Reserved Date',Reservation as 'Reserved Place',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment as Paid FROM plunk.booking WHERE BookingType='Club' AND UserID=$_SESSION[UserID] AND ReservedDate>='$today'  ",'clubupdate');
                        ?>
 
 
