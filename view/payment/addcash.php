@@ -64,18 +64,9 @@
 
                 <tr>
                     <div class="form-group">
-                        <td><label for="Reservation1">Reservation 1</label></td>
+                        <td><label for="Reservation">Reservation</label></td>
                         <td></td>
-                        <td><input type="text" id= "Reservation1" name="Reservation1" required class="form-control" placeholder="Enter the reservation 1" value = "<?php echo "$result[Reservation1]";?>"/></td>
-                    </div>
-                </tr>
-                <tr><td><br></td></tr>
-
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Reservation2">Reservation 2</label></td>
-                        <td></td>
-                        <td><input type="text" id= "Reservation2" name="Reservation2" class="form-control" placeholder="No reservation 2" value = "<?php echo "$result[Reservation2]";?>"/></td>
+                        <td><input type="text" id= "Reservation" name="Reservation" required class="form-control" placeholder="Enter the reservation" value = "<?php echo "$result[Reservation]";?>"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>

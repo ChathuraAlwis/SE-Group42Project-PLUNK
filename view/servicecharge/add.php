@@ -18,16 +18,22 @@
         //$sql = "SELECT ItemID, ItemName, Quantity FROM plunk.item;";
         //$result = json_encode($DB->runQuery($sql));
         // setcookie("Items", json_encode($result));
-        if(isset($_GET['data'])){
+        if(isset($_GET['id'])){
+            $serId = $_GET['id'];
             $DB = new DB;
-            $id = explode("=", $_GET['data'])[1];
-            $query = "SELECT StaffID,StaffName,Percentage FROM plunk.salarydetails WHERE StaffID='$id';";
-            $result = $DB->runQuery($query)[0];
-        }
-        else{
-            $result['StaffID'] = "Not Selected";
-            $result['StaffName'] = "Not Selected";
-            $result['Percentage'] = "Not Selected";         
+            $query = "SELECT Date FROM plunk.servicecharge WHERE ServiceChargeID=$serId;";
+            $month = $DB->runQuery($query)[0]['Date'];
+            if(isset($_GET['data'])){
+                $DB = new DB;
+                $id = explode("=", $_GET['data'])[1];
+                $query = "SELECT StaffID,StaffName,Percentage FROM plunk.salarydetails WHERE StaffID='$id';";
+                $result = $DB->runQuery($query)[0];
+            }
+            else{
+                $result['StaffID'] = "Not Selected";
+                $result['StaffName'] = "Not Selected";
+                $result['Percentage'] = "Not Selected";         
+            }
         }
     ?>
     <div class="main">
@@ -36,6 +42,7 @@
         <h2 class="center-text"><b>Add Service Charge Details</b></h2>
         <form action="../../controller/CRUD.php" method="POST">
                 <input name ="add-userservice" type="hidden" >
+                <input type="hidden" name="ServiceChargeID" value="<?php echo $serId;?>">
                 <table>
                 <tr>
                         <div class="form-group">
@@ -66,7 +73,7 @@
                     <div class="form-group">
                         <td><label for="Monthly">Monthly Profit</label></td>
                         <td></td>
-                        <td><input type="number" id="Monthly" name="Monthly" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Monthly Profit"/></td>
+                        <td><input type="number" id="Monthly" name="Monthly" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the Monthly Profit" onchange="calservice(this)"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -74,7 +81,7 @@
                     <div class="form-group">
                         <td><label for="Amount">Total Amount</label></td>
                         <td></td>
-                        <td><input type="number" id="Amount" name="Amount" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Total Amount"/></td>
+                        <td><input type="text" id="Amount" name="Amount" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Total Amount"/></td>
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
@@ -96,25 +103,20 @@
       <div class = "righttop">
         <div class="itemtable">
         <h3>SERVICE CHARGE DETAILS TABLE</h3>
-            <iframe src="detailtable2.php" class="item"></iframe>
-            <!-- <iframe src="detailtable2.php?id=<?php echo $_GET['id'];?>" class="item"></iframe> -->
+            <!-- <iframe src="detailtable2.php" class="item"></iframe> -->
+            <iframe src="detailtable2.php?serid=<?php echo $serId;?>" class="item"></iframe>
         </div>
         
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
             <h3>MONTHLY PROFIT DETAILS TABLE</h3>
-                <!-- <iframe src="../report/MonthlySales.php" class="item"></iframe> -->
-                <form action="add.php" method="post">
-                    <!-- <input type = "text" name= "name" placeholder="Search by Name" value="<?php if(isset($_POST['name'])) {echo $_POST['name'];}?>" /> -->
-                    <input title="Month" name = "month" type = date value="<?php if(isset($_POST['month'])) {echo $_POST['month'];} else {echo date("Y-m-d");}?>"><button type = "submit"><b>Search</b></button>
-                    <?php if(isset($_POST['month'])){
-                        echo "<iframe src='../report/MonthlySales.php?month=$_POST[month]' class='item'></iframe>";
-                    }else{
-                        echo "<iframe src='../report/MonthlySales.php' class='item'></iframe>";
-                    }
-                    ?>
-                </form>
+                <?php if(isset($month)){
+                    echo "<iframe src='../report/MonthlySales.php?today=$month&ser' class='item'></iframe>";
+                }else{
+                    echo "<iframe src='../report/MonthlySales.php' class='item'></iframe>";
+                }
+                ?>
             </div>  
         </div>
     </div>
