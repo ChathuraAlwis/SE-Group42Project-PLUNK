@@ -32,7 +32,7 @@
                 </div><br><br>
 
                 <div class="newforminputs1">
-                    <label for="DisplayID" class="staffid"> Staff Id :</label>
+                    <label for="DisplayID" class="staffid"> Display Id :</label>
                     <input type="text" id="DisplayID" name="DisplayID" maxlength="10" value = "<?php echo "$result[DisplayID]";?>" readonly>
                 </div>
                 <div class="newforminputs">

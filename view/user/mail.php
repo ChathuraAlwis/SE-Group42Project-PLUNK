@@ -19,9 +19,10 @@
     require "..\..\controller\pages.php";
     require_once "..\..\model\database.php";
 
-      $API_KEY ="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";
-    if (isset($_POST['sendmail'])) {
 
+      $API_KEY ="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";
+    if (isset($_POST['sendmail'])) {
+      $DB = new DB;
       $name = $_POST['Name'];
       $email_id = $_POST['to'];
       $subject = $_POST['Subject'];
