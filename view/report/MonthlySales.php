@@ -17,7 +17,11 @@
             <?php
                 require_once "../../controller/showreport.php";
                 $MonthlySales = new Report("MonthlySales");
-                $MonthlySales->DailySalesReport($_GET['today'], 1);
+                if(isset($_GET['ser'])){
+                  $MonthlySales->DailySalesReport($_GET['today'], 1, TRUE);
+                }else{
+                  $MonthlySales->DailySalesReport($_GET['today'], 1);
+                }
             ?>
             </div>
 

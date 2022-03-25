@@ -8,6 +8,16 @@
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/stafftable.css">
 
+        <script type="text/javascript">
+            function isEmpty(){
+                var search = document.getElementById("salSearch");
+                // console.log(search.value);
+                if (search.value.length){
+                    return true;
+                }
+                else{ return false; }
+            }
+        </script>
   </head>
   <body>
         <div class="main" >
@@ -22,23 +32,28 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                    <div >
-                              <input type = "text" class = "search" placeholder="Enter the salary"/>
-                  </div>
-                    <div >
+                        <div >
+                        <form method="POST" action="salarytable.php" onclick = "return isEmpty()">
+                              <input type="date" id="salSearch" name="salSearch" class="search" value="<?php if(isset($_POST['salSearch'])) { echo "$_POST[salSearch]"; }else{ echo date("Y-m-d");} ?>" required>
                               <button type = "submit" class = "search" ><b>Search</b></button>
+                        </form>
                         </div>
-                          <div class="addicon">
-                                <a href="addsal.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
-                          </div>
+                        <div class="addicon">
+                              <a href="addsal.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
+                        </div>
                     </div>
                     <div class="detailtable">
-
+                    <?php 
+                        if(isset($_POST['salSearch'])){
+                              echo '<iframe src="details.php?salSearch=' . $_POST['salSearch'] . '" name="searchinfo" class="staff"></iframe>';
+                        }
+                        else{
+                              echo '<iframe src="details.php" name="searchinfo" class="staff"></iframe>';
+                        }
+                    ?>
                             <iframe src="details.php" class="staff"></iframe>
                     </div>
-
-                </div>
-
+                 </div>
             </div>
 
 

@@ -166,7 +166,7 @@ class Report{
         echo "</table>";
     }
 
-    function DailySalesReport($today, $monthly=0){
+    function DailySalesReport($today, $monthly=0,$serviceCharge=FALSE){
         if($monthly){
             $date = explode("-",$today);
             $year = $date[0];
@@ -181,25 +181,26 @@ class Report{
         $heading = false;
         echo "<table border=1 width=100% >";
         for ($row=0; $row<$recordCount; $row++) {
-            echo "<tr>";
+            if(!$serviceCharge) echo "<tr>";
             foreach ($result[$row] as $column=>$data){
                 if (!$heading){
-                    echo "<th>$column</th>";
+                    if(!$serviceCharge) echo "<th>$column</th>";
                 }
                 else{
                     if($column=="Revenue"){
                         $totRevenue += $data;
                     }
-                    echo "<td>$data</td>";
+                    if(!$serviceCharge) echo "<td>$data</td>";
                 }
             }
-            echo "</tr>";
+            if(!$serviceCharge) echo "</tr>";
             if (!$heading){
                 $row--;
                 $heading = true;
             }
         }
-        echo "<tr><td colspan=5><b>Total Revenue</b></td><td><b>$totRevenue</b></td></tr>";
+        $colspan = $serviceCharge ? 1 : 5;
+        echo "<tr><td colspan=$colspan><b>Total Revenue</b></td><td><b>$totRevenue</b></td></tr>";
         echo "</table>";
     }
 }
