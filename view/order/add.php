@@ -73,6 +73,8 @@
                                         <td><input id="CustomerName" name="CustomerName" required>
                                     </tr>
                                     ';
+                                }else{
+                                    echo "<input type='hidden' name='CustomerName' value='$_SESSION[UserName]'>";
                                 }
                             ?>
                         </div>
