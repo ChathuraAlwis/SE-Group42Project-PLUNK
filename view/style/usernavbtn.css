@@ -11,7 +11,10 @@
 
 
 }
-.buttongroup #dropbtn{
+.button{
+  font-size: 10vw;
+}
+#dropbtn{
   display: block;
 /*  background-color:#006666;*/
     background-color: #0b7fab;
