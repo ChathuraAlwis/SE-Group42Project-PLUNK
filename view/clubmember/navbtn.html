@@ -21,7 +21,16 @@
                 </div> -->
                 <button type="button" id="dropbtn" name="Items"><a href="../items/itemspage.php" target="Pages" class="linkbutton">Restaurant<br> Menu<span class="tooltiptext">See the restaurant menu details</span></a></button>
                 <button type="button" id="dropbtn" name="order"><a href="../order/ordertable.php" target="Pages" class="linkbutton">View Orders<span class="tooltiptext">Search, Create orders</span></a></button>
-                <button type="button" id="dropbtn" name="Booking"><a href="../bookings/bookingui.html" target="Pages" class="linkbutton">Bookings<span class="tooltiptext">Create booking</span></a></button>
+                <button type="button" class="button" id="dropbtn" name="Booking" onclick="drop()"> <a class="linkbutton">
+                 <box-icon name='book-content' type='solid' animation='tada' color='#ffffff' ></box-icon>&nbsp;Bookings<span class="tooltiptext">See the booking details</span></a></button><!-- <a href="..\bookings\bookingui.html" target="Pages" class="linkbutton" >Bookings</a> -->
+               <div class="dropdown-container">
+
+                     <button type="button" class="subbutton"  name="Restaurant"><a href="..\bookings\restaurantbookingui.php" target="Pages" ><b>
+                       <box-icon name='restaurant' animation='tada' color='#ffffff' ></box-icon>&nbsp; Restaurant  </b></a></button>
+                     <button type="button" class="subbutton" name="Club"><a href="..\bookings\clubbookingui.php" target="Pages" ><b>
+                       <box-icon name='cricket-ball' type='solid' animation='tada' color='#ffffff' ></box-icon>&nbsp;Club & Cricket  </b></a></button>
+
+               </div>
                     <!-- <div class="dropdown-container">
                           <button type="button" class="subbutton" name="Add Booking"><a href="#" ><b> Add </b></a></button>
                           <button type="button" class="subbutton" name="Update Booking"><a href="#" ><b>Update </b></a></button>
