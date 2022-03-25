@@ -41,7 +41,9 @@
   color: white;
   text-decoration: none;
   font-size: 8vw;
+
   
+
 }
 .linkbutton:hover{
   color: rgb(240, 230, 230);
@@ -58,7 +60,9 @@
     padding: 8px;
     cursor: pointer;
     text-align: left;
+
     border-radius: 10px; 
+
 }
 
 .dropdown-container .subbutton{
@@ -116,7 +120,7 @@ a{
 .linkbutton{
   position: relative;
   display:inline-block;
-  border-bottom: 1px dotted black; 
+  border-bottom: 1px dotted black;
 }
 
 /* Tooltip text */

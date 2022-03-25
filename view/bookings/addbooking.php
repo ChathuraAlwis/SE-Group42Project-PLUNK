@@ -51,11 +51,11 @@
 
                   <div class="questions">
                       <label for="reservation1">Reservation  :</label>
-                      <input type="text" name="Reservation" id="ReservationName"  required>
+                      <input type="text" name="Reservation" id="ReservationName" autocomplete="off" readonly required>
                   </div><br>
                   <div class="questions">
                       <label for="reservation1">Price  :</label>
-                      <input type="text" name="Total" id="Cost"  required>
+                      <input type="text" name="Total" id="Cost" readonly required>
                   </div><br>
 
 
@@ -66,15 +66,17 @@
                   <div class="questions">
                         <label for="date">Reserved Date :</label>
                         <input type="date" name="ReservedDate" min="<?php echo date("Y-m-d") ?>" value="<?php echo date("Y-m-d") ?>" required>
-                  </div><br>
+                  </div>
                   <div class="questions">
+                    <p class=" tips">Please enter between 05.00 p.m and 10.30 p.m</p>
                         <label for="time">Reserved Time:</label>
-                        <input type="time" name="ReservedTime" value="<?php echo date("H:i") ?>" required>
+                        <input type="time" name="ReservedTime" min="17:00" max="22:30" value="<?php echo date("H:i") ?>" required>
 
-                  </div><br>
+                  </div>
                   <div class="questions">
+                    <p class=" tips">Please enter between 05.30 p.m and 11.00 p.m</p>
                         <label for="EndTime">End Time :</label>
-                        <input type="time" name="EndTime"  required>
+                        <input type="time" name="EndTime" min="17:30" max="23:00" required>
 
                   </div><br>
                   <div class="questions">
@@ -91,6 +93,51 @@
 
 
             </form>
+            <div class="holidaytable">
+              <h3 class="ReservationMenu">Holidays</h3>
+              <table id="table1" >
+                <tr>
+                  <th>Date</th>
+                  <th>Reason</th>
+
+                </tr>
+
+              <?php
+              require '..\..\model\bookingdatabaseconnection.php';
+              $today= date("Y-m-d");
+              $days = mysqli_query($conn,"SELECT Holiday,Reason FROM plunk.holidays WHERE Type ='Restaurant'or Type ='Restaurant and Club' AND Holiday>=$today ");
+              while($data = mysqli_fetch_array($days))
+              {
+              ?>
+                <tr>
+                  <td><?php echo $data['Holiday']; ?></td>
+                  <td><?php echo $data['Reason']; ?></td>
+
+                </tr>
+              <?php
+              }
+              ?>
+              </table>
+
+              <?php mysqli_close($conn); // Close connection ?>
+              <script>
+
+                              var table = document.getElementById('table1');
+
+                              for(var i = 1; i < table.rows.length; i++)
+                              {
+                                  table.rows[i].onclick = function()
+                                  {
+                                       //rIndex = this.rowIndex;
+                                       document.getElementById("Holiday").value = this.cells[0].innerHTML;
+                                       document.getElementById("Reason").value = this.cells[1].innerHTML;
+                                  };
+                              }
+
+                       </script>
+
+
+            </div> <br>
             <div class="resevationtable">
               <h3 class="ReservationMenu">Reservation Menu</h3>
               <table id="table" >

@@ -56,12 +56,7 @@
                                     <div class="radio">
                                           <label for="UserType">Requested Member Type</label><br>
                                           <input type="text" class="input" name="UserType" value="<?php echo "$result[UserType]";?>" readonly>
-                                          <!-- <select class="UserType" name="UserType" id="UserType" readonly>
-                                                  <option selected>Select the member type</option>
-                                                  <option value="Ordinary Member">Ordinary Member</option>
-                                                  <option value="Life Member">Life Member</option>
-                                                  <option value="HL Member"> HL Member</option>
-                                          </select> -->
+                                          
                                     </div>
 
                                     <div class="forminputs">

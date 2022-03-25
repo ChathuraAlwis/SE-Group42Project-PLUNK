@@ -46,7 +46,7 @@
 
         <button class = "button login">Login</button>
         <button class = "buttonforgot"><a href="forgotpassword.html">Forgot Password</a></button><br>
-        <a class="signup" href="..\view\user\signup.php"> <b>Want to join with Bloomfield?</b></a>
+        
 
     </form>
 

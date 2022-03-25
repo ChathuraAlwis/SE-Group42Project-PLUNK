@@ -23,8 +23,13 @@
           </div>
 
           <div class="footer">
+            <div class="subfooter">
               <div class="login">
               <a href="login.php" class="loginlink"><button class = "button" ><b>Login</b></button></a>
+              </div>
+              <div class="login2">
+              <a href="..\view\user\signup.php" class="loginlink"><button class = "button" ><b>Sign up</b></button></a>
+              </div>
               </div>
           </div>
       </div>

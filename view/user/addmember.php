@@ -64,12 +64,14 @@
                 </div><br><br>
 
                 <div class="forminputs">
-                  <button type="submit"  id="add" class="add" name="button" onclick='<?php echo 'checkUser('. $result .')';?>'>Add Member</button>
-                  <button type="reset" id="reset" class="add" name="button">Reset</button>
+                  <div class="submitbtn">
+                  <button type="submit"  id="add" class="add" name="button" onclick='<?php echo 'checkUser('. $result .')';?>'><b>Add</b> </button>
+                  <button type="reset" id="reset" class="add" name="button"><b>Reset</b> </button>
+                  </div>
                 </div>
               </div>
             </form>
         </div>
-        
+
   </body>
 </html>

@@ -91,8 +91,8 @@
                 <div class="line3">
                   <button type="submit" name="button" class="add" formaction="restaurentupdatetwo.php?data=<?php echo $_GET['data'];?>">  <b>Edit</b>  </button>
 
-                  <button type="submit" name="button" class="Payment" formaction="..\payment\paymentgm.php" ><b>Payment</b> </button>
-
+                  <button type="submit" name="button" class="Payment" formaction="..\bookings\payhere.php?data=<?php echo $_GET['data'];?>" ><b>Payment</b> </button>
+<!-- ..\payment\paymentgm.php -->
                 </div>
 
 

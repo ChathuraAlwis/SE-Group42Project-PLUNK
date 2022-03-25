@@ -16,7 +16,7 @@
     <body>
         <div class="main">
           <div class="upper">
-                <div class="resbooking">
+                <div class="resbooking2">
 
                 <div class="detailtable">
                           <h3>Restaurant Bookings List</h3>
@@ -31,9 +31,7 @@
                     <iframe src="../restaurantmanager/itemtablerm.php" class="staff"></iframe>
                     </div>
                     </div>
-                <div class="calendar">
-                    <iframe class="bloomcal" src="https://calendar.google.com/calendar/embed?height=500&wkst=2&bgcolor=%23009688&ctz=Asia%2FColombo&showTz=0&showPrint=0&title=Bloomfield%20Calendar&showTabs=0&showDate=1&showTitle=1&src=NG5vZWhmNTQzMXZoaGtidDRnczdoYTJ0N29AZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZW4ubGsjaG9saWRheUBncm91cC52LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%23B39DDB&color=%230B8043" style="border-width:0" width="500" height="500" frameborder="0" scrolling="no"></iframe>
-                </div>
+
           </div>
           <div class="notifichead">
               <h2>Notifications</h2>

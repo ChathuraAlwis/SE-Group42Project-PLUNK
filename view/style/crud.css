@@ -48,14 +48,14 @@
     width: 100%;
     border-radius: 20px;
     margin-bottom: 10%;
-    background-color: #017a7a;
+    background-color: #0b7fab;
 }
 .itemtable{
     height: 100%;
     width: 100%;
     border-radius: 20px;
     margin-bottom: 5%;
-    background-color: #017a7a;
+    background-color: #0b7fab;
 }
 h5{
     font-family: sans-serif;
@@ -205,11 +205,11 @@ button.return{
     width: 130px;
     height:40px;
     border:0px;
-    color: white;
+    color: rgb(240, 230, 230);
     cursor: pointer;
     margin-top:5%;
     margin-left:10%;
-    background-color: #017a7a;
+    background-color: #0b7fab;
     opacity: 0.8;
 
   }
@@ -222,7 +222,7 @@ a{
     text-decoration: none;
   }
 .addpage{
-  color: white;
+  color: rgb(240, 230, 230);
   text-decoration: none;
 }
 .addrowtable,table.addrowtable th, table.addrowtable td{
@@ -230,7 +230,7 @@ a{
 }
 
 a.cancel{
-    color: white;
+    color: rgb(240, 230, 230);
     text-decoration: none;
 }
 

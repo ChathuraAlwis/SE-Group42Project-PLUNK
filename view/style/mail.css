@@ -16,7 +16,7 @@ html, body{
 h2{
   font-size: 2.5vw;
   text-align:center;
-  color: #017a7a;
+  color: #0b7fab;
 }
 
 .middle2{
@@ -32,7 +32,7 @@ a{
   color: #acacac;
 }
 .btnlink:hover{
-  color:#017a7a;
+  color:#0b7fab;
 }
 
  .mainpage3{ /*for decision page */
@@ -98,7 +98,7 @@ label{
   /* background-color: yellow; */
 }
 .add{
-  background-color: #017a7a;
+  background-color:#0b7fab;
   width: 45%;
   height:auto;
   border-radius: 50px;
@@ -108,7 +108,7 @@ label{
 }
 .add:hover{
   background-color: #acacac;
-  color:#017a7a;
+  color:#0b7fab;
 }
 .success{
   background-color: green;
@@ -135,7 +135,7 @@ label{
  width: 100%;
  height: auto;
  border-radius: 10px;
- background-color:#017a7a;
+ background-color:#0b7fab;
 color: Black;
 font-family: sans-serif;
 margin-right:auto;
@@ -161,7 +161,7 @@ th{
   margin-bottom: 30px;
   border-style: solid;
   border-width: 1px;
-  border-color: #017a7a;
+  border-color: #0b7fab;
   background-color: white;
   text-align: center;
 }
@@ -181,7 +181,7 @@ td{
   padding-bottom: 5px;
   border-style: solid;
   border-width: 1px;
-  border-color: #017a7a;
+  border-color:#0b7fab;
   text-align: center;
   cursor: pointer;
 }
@@ -258,7 +258,7 @@ marquee.msg{
 
 }
 h4{
-  color:rgb(175, 207, 245);
+  color: rgb(240, 230, 230);
   margin-top: 0%;
 }
 
