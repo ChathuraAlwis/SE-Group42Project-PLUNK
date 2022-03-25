@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -7,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../style/usernavbtn.css">
         <script type="text/javascript" src="../script/usernavbtn.js"> </script>
+        <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+
 
   </head>
   <body>
@@ -15,16 +18,18 @@
 
 
             <div class="buttongroup" id="buttonset">
-                <button type="button" id="dropbtn" name="user"> <a href="..\Dashboards\admindash.html" target="Pages"  class="linkbutton" ><b>Home</b></a> </button>
+                <button type="button" id="dropbtn" name="user"> <a href="..\Dashboards\admindash.html" target="Pages"  class="linkbutton"
+                  box-icon name='home-alt-2' type='solid' animation='tada' color='#ffffff' ></box-icon>&nbsp;Home<span class="tooltiptext">Go to the home page</span></a></button>
 
-                <button type="button" class="button" id="dropbtn" name="user" onclick="drop()"> User </button>
+                <button type="button" class="button" id="dropbtn" name="user" onclick="drop()"><box-icon name='user-detail' type='solid' animation='tada' color='#ffffff' ></box-icon>&nbsp;User </button>
                     <div class="dropdown-container">
                           <button type="button" class="subbutton" name="requests"><a href="..\user\JoinRequests.html" target="Pages" ><b> Join Requests  </b></a></button>
                           <button type="button" class="subbutton" name="Add User"><a href="..\user\stafftable.html" target="Pages" ><b> Staff  </b></a></button>
                           <button type="button" class="subbutton" name="Update User"><a href="..\user\membertable.html" target="Pages"><b>Club Member  </b></a></button>
                     </div>
 
-                <button type="button"  id="dropbtn" name="Feedback" ><a href="..\feedback\reply.php" target="Pages"  class="linkbutton" ><b>Feedback</b></a> </button> <br><br><br><br><br><br>
+                <button type="button"  id="dropbtn" name="Feedback" ><a href="..\feedback\reply.html" target="Pages"  class="linkbutton" >
+                  <box-icon name='comment-detail' animation='tada' color='#ffffff' ></box-icon>&nbsp;Feedback</a> </button> <br><br><br><br><br><br>
 
 
             </div>
