@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -7,7 +8,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="icon" href="images/bloomfieldlogo.png" sizes="32*32">
         <link rel="stylesheet" href="../style/stafftable.css">
-
+        <script type="text/javascript">
+            function isEmpty(){
+                var search = document.getElementById("ordersearch");
+                // console.log(search.value);
+                if (search.value.length){
+                    return true;
+                }
+                else{ return false; }
+            }
+        </script>
   </head>
   <body>
         <div class="main" >
@@ -16,25 +26,32 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2>Leave</h2>
+                    <h2><?php if(isset($_POST['leavesearch'])){ echo "Searched "; }?>Leaves</h2>
               </div>
             </div>
+
             <div class="covertable">
                 <div class="table">
-                    <div>
+                    <div class="upperbar">
+                        <form method="POST" action="leavepage.php" onclick = "return isEmpty()">
+                            <input type="date" id="leavesearch" name="leavesearch" class="search" value="<?php if(isset($_POST['leavesearch'])) { echo "$_POST[leavesearch]"; }else{ echo date("Y-m-d");} ?>" required>
+                            <button type = "submit" class = "search"><a href="#"><b>Search</b></a></button>
+                        </form>
                     <div >
-                              <input type = date class = "search" />
-                        </div>
-                        <div >
-                              <button type = "submit" class = "search" ><b>Leave Date</b></button>
-                        </div>                
+                    </div>
                         <div class="addicon">
                               <a href="../leave/addleave.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                         </div>
-                    </div>
+                 </div>
                     <div class="detailtable">
-
-                        <iframe src="leavetable.php" class="staff"></iframe>
+                    <?php 
+                        if(isset($_POST['leavesearch'])){
+                        echo '<iframe src="leavetable.php?leavesearch=' . $_POST['leavesearch'] . '" name="searchinfo" class="staff"></iframe>';
+                        }
+                        else{
+                        echo '<iframe src="leavetable.php" name="searchinfo" class="staff"></iframe>';
+                        }
+                    ?>
                   </div>
                 </div>
 
