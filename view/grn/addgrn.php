@@ -45,17 +45,14 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="CompanyName">Company</label></td>
-                        <td><input type="text" id= "CompanyName" name="CompanyName" required class="form-control" value= "<?php echo "$result2[Company]";?>"/></td>
+                        <td><input type="text" id= "CompanyName" name="CompanyName" required class="form-control" value= "<?php echo "$result2[Company]";?>" readonly/></td>
                     </div>
                 </tr>    
                 <tr>
                 <div class="form-group">
                     <td><label for="Type">Item Type</label></td>
-                    <td><select id="Type" name="ItemType" class="form-control"  onchange="changeType(this);">
-                        <option selected>Choose type...</option>
-                        <option value="Food"  <?php if("$result2[Type]"=="Food") echo 'selected="selected"'; ?> >Food Items</option>
-                        <option value="Beverage"  <?php if("$result2[Type]"=="Beverage") echo 'selected="selected"'; ?> >Beverage Items</option>
-                     </select></td>
+                    <td><input type="text" id= "ItemType" name="ItemType" required class="form-control" value= "<?php echo "$result2[Type]";?>" readonly/></td>
+                    
                 </div>
                 </tr>
                 <tr>
