@@ -40,28 +40,28 @@
 
                 <div class="forminputs">
                     <label for="basic"> Basic Salary </label><br>
-                    <input type="text" id="basic" class="input" name="basic"  value = "<?php echo "$result[basic]";?>" required>
+                    <input type="number" id="basic" class="input" name="basic" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[basic]";?>" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="bonusValue"> Bounus Percentage </label><br>
-                    <input type="text" id="bonusValue" class="input" name="bonusValue"  value = "<?php echo "$result[bonusValue]";?>" required>
+                    <input type="number" id="bonusValue" class="input" name="bonusValue" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[bonusValue]";?>" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="ETFvalue"> ETF Percentage </label><br>
-                    <input type="text" id="ETFvalue" class="input" name="ETFvalue"  value = "<?php echo "$result[ETFvalue]";?>" required>
+                    <input type="number" id="ETFvalue" class="input" name="ETFvalue" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ETFvalue]";?>" required>
                 </div><br>
 
                 <div class="forminputs">
                     <label for="EPFvalue"> EPF Percentage </label><br>
-                    <input type="text" id="EPFvalue" class="input" name="EPFvalue"  value = "<?php echo "$result[EPFvalue]";?>" required>
+                    <input type="number" id="EPFvalue" class="input" name="EPFvalue" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[EPFvalue]";?>" required>
                 </div><br>
 
 
                 <div class="forminputs">
                     <label for="percentage"> Service Charge Percentage</label><br>
-                    <input type="text" id="percentage" class="input" name="percentage" value = "<?php echo "$result[percentage]";?>" required>
+                    <input type="number" id="percentage" class="input" name="percentage" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[percentage]";?>" required>
                 </div><br><br>
 
                 <div class="forminputs">
