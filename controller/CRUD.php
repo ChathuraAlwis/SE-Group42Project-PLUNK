@@ -1192,9 +1192,10 @@ if(isset($_POST['add-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.salarydetails(No,StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentage) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$_POST[BasicSalary]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Percentage]');";
-        //echo $sql;
-        $DB->runQuery($sql);
+        $sql = "SELECT * FROM plunk.usersalary WHERE UserType='$_POST[UserType]';";
+        $result = $DB->runQuery($sql)[0];
+        $sql2 = "INSERT INTO plunk.salarydetails(No,StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentage) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$result[basic]','$result[bonusValue]','$result[ETFvalue]','$result[EPFvalue]','$result[percentage]');";
+        $DB->runQuery($sql2);
         $newPage = new Page('..\view\basicdetails\addsuccess.php');
         $newPage->show();
 
@@ -1210,9 +1211,11 @@ if(isset($_POST['update-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE plunk.salarydetails SET `StaffID`='$_POST[StaffID]',`StaffName`='$_POST[StaffName]',`UserType`='$_POST[UserType]',`BasicSalary`='$_POST[BasicSalary]',`Bonus`='$_POST[Bonus]',`ETF`='$_POST[ETF]',`EPF`='$_POST[EPF]',`Percentage`='$_POST[Percentage]'  WHERE `StaffID` = '$_POST[StaffID]'";
+        $sql = "SELECT * FROM plunk.usersalary WHERE UserType='$_POST[UserType]'";
+        $result = $DB->runQuery($sql)[0];
+        $sql2 = "UPDATE plunk.salarydetails SET `StaffID`='$_POST[StaffID]',`StaffName`='$_POST[StaffName]',`UserType`='$_POST[UserType]',`BasicSalary`='$result[basic]',`Bonus`='$result[bonusValue]',`ETF`='$result[ETFvalue]',`EPF`='$result[EPFvalue]',`Percentage`='$result[percentage]'  WHERE `StaffID` = '$_POST[StaffID]'";
         //echo $sql;
-        $DB->runQuery($sql);
+        $DB->runQuery($sql2);
         $newPage = new Page('../view/basicdetails/updatesuccess.php');
         $newPage->show();
     } catch (\Throwable $th) {
@@ -1226,9 +1229,10 @@ if(isset($_POST['delete-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "SELECT * FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
-        $data = $DB->runQuery($sql)[0];
-        $sql2 = "DELETE FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
+        // $sql = "SELECT * FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
+        // $data = $DB->runQuery($sql)[0];
+        $sql2 = "DELETE FROM plunk.salarydetails WHERE StaffID='$_POST[StaffID]'";
+        
         $DB->runQuery($sql2);
 
         $newPage = new Page('../view/basicdetails/deletesuccess.php');
@@ -1604,6 +1608,22 @@ if (isset($_POST['changeclubpayment'])) {
       throw $th;
   }
 }
+
+//------------------------------------------------cashpayment----------------------------------------------------------------------------
+if(isset($_POST['cashpayment'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.booking SET Payment='Yes', UserID='$_POST[UserID]' WHERE BookingID='$_POST[BookingID]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('..\view\bookings\paymentupdatedsuccess.html');
+        $newPage->show();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
 //-------------------------------------------------holidays------------------------------------------------------------------------------
 if(isset($_POST['addholiday'])){
     $DB = new DB;
