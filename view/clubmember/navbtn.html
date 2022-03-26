@@ -7,20 +7,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../style/usernavbtn.css">
         <script type="text/javascript" src="../script/usernavbtn.js"> </script>
+        <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 
   </head>
   <body>
 
     <div class="">
             <div class="buttongroup" id="buttonset">
-                <button type="button" id="dropbtn" name="user"> <a href="../Dashboards/cmDashboard.html" target="Pages" class="linkbutton" >Home<span class="tooltiptext">Go to the home page</span></a> </button>
+                <button type="button" id="dropbtn" name="user"> <a href="../Dashboards/cmDashboard.html" target="Pages" class="linkbutton" >
+                  <box-icon name='home-alt-2' type='solid' animation='tada' color='#ffffff' ></box-icon>&nbsp;Home<span class="tooltiptext">Go to the home page</span></a> </button>
                 <!-- <div class="dropdown-container">
                     <button type="button" class="subbutton" name="Add Order"><a href="../adduser.html" target="Pages" ><b> Add  </b></a></button>
                     <button type="button" class="subbutton" name="Update Order"><a href="#" ><b>Update  </b></a></button>
                     <button type="button" class="subbutton" name="Delete Order"><a href="#" ><b>Search </b></a></button>
                 </div> -->
-                <button type="button" id="dropbtn" name="Items"><a href="../items/itemspage.php" target="Pages" class="linkbutton">Restaurant<br> Menu<span class="tooltiptext">See the restaurant menu details</span></a></button>
-                <button type="button" id="dropbtn" name="order"><a href="../order/ordertable.php" target="Pages" class="linkbutton">View Orders<span class="tooltiptext">Search, Create orders</span></a></button>
+                <button type="button" id="dropbtn" name="Items"><a href="../items/itemspage.php" target="Pages" class="linkbutton">
+                  <box-icon name='food-menu' type='solid' animation='tada' flip='horizontal' color='#ffffff' ></box-icon>&nbsp;Restaurant Menu<span class="tooltiptext">See the restaurant menu details</span></a></button>
+                <button type="button" id="dropbtn" name="order"><a href="../order/ordertable.php" target="Pages" class="linkbutton">
+                  <box-icon name='cart-download' animation='tada' color='#ffffff' ></box-icon>&nbsp;View Orders<span class="tooltiptext">Search, Create orders</span></a></button>
                 <button type="button" class="button" id="dropbtn" name="Booking" onclick="drop()"> <a class="linkbutton">
                  <box-icon name='book-content' type='solid' animation='tada' color='#ffffff' ></box-icon>&nbsp;Bookings<span class="tooltiptext">See the booking details</span></a></button><!-- <a href="..\bookings\bookingui.html" target="Pages" class="linkbutton" >Bookings</a> -->
                <div class="dropdown-container">
@@ -42,7 +46,8 @@
                           <button type="button" class="subbutton" name="Update User"><a href="#" ><b>Visa </b></a></button>
                     </div> -->
 
-                <button type="button"  id="dropbtn" name="Feedback"><a href="..\feedback\feedbackmember.html" target="Pages" class="linkbutton">Feedback<span class="tooltiptext">Give us your feedback</span></a></button>
+                <button type="button"  id="dropbtn" name="Feedback"><a href="..\feedback\feedbackmember.html" target="Pages" class="linkbutton">
+                  <box-icon name='comment-detail' animation='tada' color='#ffffff' ></box-icon>&nbsp;Feedback<span class="tooltiptext">Give us your feedback</span></a></button>
             </div>
         </div>
   </body>
