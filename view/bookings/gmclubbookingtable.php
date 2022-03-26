@@ -26,7 +26,12 @@ date_default_timezone_set("Asia/Kolkata");?>
                             if(isset($_GET['OrderBy'])){
                               $sql .= " ORDER BY $_GET[OrderBy]";
                             }
-                            $bookingTable->show($sql, 'clubupdate');
+                            if($_SESSION['UserType'] == 'Manager'){
+                              $bookingTable->show($sql, 'clubupdate');
+                              }
+                            else {
+                              $bookingTable->show($sql, );
+                            }
                           }
                           else {
 
