@@ -260,7 +260,6 @@ if(isset($_POST['add-grn'])){
 
                 $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";
                 //echo $sql;
-                $DB->runQuery($sql1);
 
                 $rowCount = $_POST['rowCount'];
                 // echo $rowCount;
@@ -278,7 +277,7 @@ if(isset($_POST['add-grn'])){
                     if(isset($_POST['ItemID' . $GRNRow])){
                         $rowCount--;
                         $grnRow = 'ItemID' . $GRNRow;
-                        //$itemname = 'ItemName'. $GRNRow;
+                        $itemname = 'ItemName'. $GRNRow;
                         $QuanRow = 'Quantity' . $GRNRow;
                         $sql = "INSERT INTO plunk.grnitem (GRNID, ItemID,ItemName, Quantity) VALUES ('$GRNID', '$_POST[$grnRow]','$_POST[ItemName]','$_POST[$QuanRow]');";
                         //echo $sql;
@@ -317,25 +316,25 @@ if(isset($_POST['return-grn'])){
        $sql = "SELECT * FROM plunk.grn WHERE GRNID = $_POST[GRNID]";
        $result = $DB->runQuery($sql)[0];
 
-       $sql = "INSERT INTO plunk.returngrn(`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `ReturnDate`, `Reason`, `UserID`, `Accepted`) VALUES ('$result[GRNID]','$result[CompanyName]','$result[AddDate]','$result[ItemType]','$_POST[ReturnDate]','$_POST[Reason]','$_SESSION[UserID]','No')";
-       //echo $sql;
-       $DB->runQuery($sql);
-       $sql = "SELECT  `ItemID` FROM plunk.grnitem WHERE GRNID = $_POST[GRNID]";
-       //echo $sql;
-       $result= $DB->runQuery($sql);
+       $sql1 = "INSERT INTO plunk.returngrn(`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `ReturnDate`, `Reason`, `UserID`, `Accepted`) VALUES ('$result[GRNID]','$result[CompanyName]','$result[AddDate]','$result[ItemType]','$_POST[ReturnDate]','$_POST[Reason]','$_SESSION[UserID]','Pending');";
+    //    echo $sql1;
+       $DB->runQuery($sql1);
+       $sql2 = "SELECT  `ItemID` FROM plunk.grnitem WHERE GRNID = $_POST[GRNID]";
+    //    echo $sql2;
+       $result= $DB->runQuery($sql2);
 
        $counter = count($result);
        $index = 0;
 
        while($counter>$index){
             $id = $result[$index]['ItemID'];
-            $sql2 = "SELECT `GRNID`, `ItemID`, `ItemName`, `Quantity` FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = $id";
-            // echo $sql2;
-            $result2= $DB->runQuery($sql2)[0];
-
-            $sql3 = "INSERT INTO plunk.returngrnitem(`GRNID`, `ItemID`, `ItemName`, `Quantity`) VALUES ('$result2[GRNID]','$result2[ItemID]','$result2[ItemName]','$result2[Quantity]')";
+            $sql3 = "SELECT `GRNID`, `ItemID`, `ItemName`, `Quantity` FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = '$id';";
             // echo $sql3;
-            $DB->runQuery($sql3);
+            $result2= $DB->runQuery($sql3)[0];
+
+            $sql4 = "INSERT INTO plunk.returngrnitem(`GRNID`, `ItemID`, `ItemName`, `Quantity`) VALUES ('$result2[GRNID]','$result2[ItemID]','$result2[ItemName]','$result2[Quantity]');";
+            // echo $sql4;
+            $DB->runQuery($sql4);
 
             $index++;
         }
