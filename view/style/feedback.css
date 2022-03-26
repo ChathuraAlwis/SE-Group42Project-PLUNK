@@ -166,6 +166,7 @@ label{
   float: left;
 
 }
+
 #today{
   font-size: 2vw;
   border: none;
@@ -205,8 +206,10 @@ textarea{
 }
 .labelbox{
   width: 100%;
-  height: 30%;
+  height: 45%;
   padding-bottom: 3%;
+  float: left;
+  
 }
 .labelbox2{
   width: 100%;
