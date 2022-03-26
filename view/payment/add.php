@@ -31,91 +31,125 @@
     <div class="form">
         <h2 class="center-text"><b>Add Payment</b></h2>
         <form>
-                <table>
-                <div class="form-group">
-                            <tr>
-                                <td style="text-align: right"><label for="PaymentDate">Payment Date</label></td>
-                                <td></td>
-                                <td><input name ="PaymentDate" id="PaymentDate" type="date" value="<?php echo date("Y-m-d") ?>" readonly></td>
-                            </tr>
-                        </div>
-                </table>
-                <tr><td><br></td></tr>
-                <table>
-                     <tr>
-                     <div class="form-group">
-                   <td><label for="BookingID">Booking ID</label></td>
-                   <td></td>
-                    <td><input type="number" id= "BookingID" name="BookingID"  class="form-control" <?php if(isset($result)){echo "value=$result[BookingID]";}?> readonly/></td>
-                </div>
-                    </tr>
-                    <tr><td><br></td></tr>
+          <div class="submain">
+            <input type="hidden" name="UserID" >
+            <div class="questions">
 
-                    <tr>
-                    <div class="form-group">
-                   <td><label for="CustomerName">Customer Name</label></td>
-                   <td></td>
-                    <td><input type="text" id= "CustomerName" name="CustomerName"  class="form-control" <?php if(isset($result)){echo "value=$result[CustomerName]";}?> readonly/></td>
-                </div>
-                    </tr>
-                    <tr><td><br></td></tr>
-                    <tr>
-                        <div class="form-group">
-                            <td><label for="ContactNo">Contact No</label></td>
-                            <td></td>
-                            <td><input type="text" id= "ContactNo" name="ContactNo"  class="form-control" <?php if(isset($result)){echo "value=$result[ContactNo]";}?> readonly/></td>
-                        </div>
-                    </tr>
-                    <tr><td><br></td></tr>
+                    <label for="CreatedDate">Date :</label>
+                    <input type="date" name="LastModifiedDate" id="today" class="bookingid" value="<?php echo date("Y-m-d") ?>" readonly>
 
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Reservation">Reservation List</label></td>
-                        <td></td>
-                        <td><input type="text" id= "Reservation" name="Reservation"  class="form-control" <?php if(isset($result)){echo "value=$result[Reservation]";}?> readonly/></td>
-                    </div>
-                </tr>
-                <tr><td><br></td></tr>
+            </div><br>
+            <div class="bookingiddiv">
+                <label for="BookingID">Booking ID :</label>
+                <input type="text" name="BookingID" class="bookingid"  readonly>
+            </div>
+            <div class="questions">
+              <label for="type">Booking Type   :</label>
+              <input type="text" name="BookingType"  class="type"  readonly>
 
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Total">Total Value</label></td>
-                        <td></td>
-                        <td><input type="text" id= "Total" name="Total" required class="form-control" <?php if(isset($result)){echo "value=$result[Total]";}?> readonly/></td>
-                    </div>
-                </tr>
-                <tr><td><br></td></tr>
+            </div><br>
+              <div class="questions">
+                  <label for="name">Name :</label>
+                  <input type="text" name="CustomerName" class="qtype1" readonly>
+              </div><br>
 
-                <tr>
-                    <div class="form-group">
-                        <td><label for="Payment">Payment Clear</label></td>
-                        <td></td>
-                        <td><select id="Payment" name="Type" class="form-control" placeholder="Enter the payment clear or not" onchange="changeType(this);">
-                        <option selected>Choose ...</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                         </select></td>
-                        </div>
-                    </tr>
-                    <tr><td><br></td></tr>
-            </table>
+              <div class="questions">
+                  <label for="reservation">Reservation  :</label>
+                  <input type="text" name="Reservation" class="qtype1" id="ReservationName"  readonly>
+              </div><br>
+              <div class="questions">
+                  <label for="Total">Price  :</label>
+                  <input type="number" name="Total" class="qtype1" id="Cost" readonly>
+              </div><br>
 
+              <div class="questions">
+                    <label for="date">Reserved Date :</label>
+                    <input type="date" name="ReservedDate" class="qtype1" min="<?php echo date("Y-m-d") ?>"  readonly>
+              </div><br>
+              <div class="reservedtime">
+                    <label for="time">Reserved Time:</label>
+                    <input type="time" name="ReservedTime"  class="qtype3"  readonly>
 
-                <div class="form-group">
-                    <button type="submit" name="cash" value="cash" class="button submit"><a class= "cancel" href="addcash.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Cash</a></button>
-                    <button type="submit" name="visa" value="visa" class="button submit"><a class= "cancel" href="addvisa.php<?php if(isset($result)){echo "?id=$result[BookingID]";}?>">Visa Card</a></button>
-                </div>
+              </div>
+            <br>
+              <div class="questions">
+                    <label for="contactno">Contact No :</label>
+                    <input type="tel" name="ContactNo" class="qtype1"   readonly>
+              </div><br>
+
+            </div>
+          <div class="line3">
+            <button type="submit" name="button" class="add" formaction="cashgm.php?data=<?php echo $_GET['data'];?>">  <b>Cash</b>  </button>
+
+            <button type="submit" name="button" class="Payment" formaction="..\bookings\payhere.php?data=<?php echo $_GET['data'];?>" ><b>Visa</b> </button>
+<!-- ..\payment\paymentgm.php -->
+          </div>
         </form>
     </div>
 </div>
-<div class= right>
-            <div class="righttop">
-            <div class="itemtable">
-                <h3>CRICKET CLUB PROPERTY BOOKING TABLE</h3>
-                <iframe src="paymentbooking.php" class="item"></iframe>
-            </div>
-    </div>
-    </div>
+
+
+
+                <div class="holidaytable">
+                  <h3 class="ReservationMenu">CRICKET CLUB BOOKING TABLE</h3>
+                  <table id="table1" >
+                    <tr>
+                      <th>Booking ID</th>
+                      <th>Name</th>
+                      <th>Type</th>
+                      <th>Reservation</th>
+                      <th>Price</th>
+                      <th>Reserved Date</th>
+                      <th>Reserved Time</th>
+                      <th>Contact No</th>
+
+
+                    </tr>
+
+                  <?php
+                  require '..\..\model\bookingdatabaseconnection.php';
+
+                  $days = mysqli_query($conn,"SELECT Holiday,Reason FROM plunk.booking WHERE Type ='Club' AND Payment='No'");
+                  while($data = mysqli_fetch_array($days))
+                  {
+                  ?>
+                    <tr>
+                      <td><?php echo $data['Holiday']; ?></td>
+                      <td><?php echo $data['Reason']; ?></td>
+                      <td><?php echo $data['Reason']; ?></td>
+                      <td><?php echo $data['Reason']; ?></td>
+                      <td><?php echo $data['Reason']; ?></td>
+                      <td><?php echo $data['Reason']; ?></td>
+                      <td><?php echo $data['Reason']; ?></td>
+
+                    </tr>
+                  <?php
+                  }
+                  ?>
+                  </table>
+
+                  <?php mysqli_close($conn); // Close connection ?>
+                  <script>
+
+                                  var table = document.getElementById('table1');
+
+                                  for(var i = 1; i < table.rows.length; i++)
+                                  {
+                                      table.rows[i].onclick = function()
+                                      {
+                                           //rIndex = this.rowIndex;
+                                           document.getElementById("Holiday").value = this.cells[0].innerHTML;
+                                           document.getElementById("Reason").value = this.cells[1].innerHTML;
+                                      };
+                                  }
+
+                           </script>
+
+
+                </div> <br>
+
+
+
     <div class= right>
             <div class="rightbottom">
             <div class="itemtable">
