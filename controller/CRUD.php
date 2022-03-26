@@ -257,7 +257,7 @@ if(isset($_POST['add-grn'])){
                 $newPage->show();
             }
             else{
-                
+
                 $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";
                 //echo $sql;
                 $DB->runQuery($sql1);
@@ -355,13 +355,13 @@ if(isset($_POST['return-grn'])){
 
 if(isset($_POST['permission-return-grn'])){
     $DB =new DB;
-    
+
     if($_POST['accept'] == 'Yes'){
 
         try{
             $sql = "SELECT Accepted FROM plunk.returngrn WHERE GRNID='$_POST[GRNID]' ";
             $result = $DB->runQuery($sql)[0];
-            
+
             if($result['Accepted'] == 'Yes'){
                 $newPage = new Page('../view/grn/alreadyacceptmsg.html');
                 $newPage->show();
@@ -378,7 +378,7 @@ if(isset($_POST['permission-return-grn'])){
 
                 $counter = count($result);
                 $index = 0;
-                
+
                 while($counter>$index){
                     $id = $result[$index]['ItemID'];
                     $sql2 = "SELECT Quantity FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = $id";
@@ -399,7 +399,7 @@ if(isset($_POST['permission-return-grn'])){
                         // echo $sql3;
                         $DB->runQuery($sql3);
                     }
-                    
+
 
                     $index++;
                 }
@@ -414,14 +414,14 @@ if(isset($_POST['permission-return-grn'])){
 
                 $newPage = new Page('../view/grn/requestacceptmg.html');
                 $newPage->show();
-                
+
             }
 
         }
-                
+
         catch(\Throwable $th) {
             throw $th;
-    
+
         }
 
     }
@@ -429,7 +429,7 @@ if(isset($_POST['permission-return-grn'])){
         try{
             $sql = "SELECT Accepted FROM plunk.returngrn WHERE GRNID='$_POST[GRNID]' ";
             $result = $DB->runQuery($sql)[0];
-            
+
             if($result['Accepted'] == 'Yes'){
                 $newPage = new Page('../view/grn/alreadyacceptmsg.html');
                 $newPage->show();
@@ -447,12 +447,12 @@ if(isset($_POST['permission-return-grn'])){
                 $newPage = new Page('../view/grn/requestdenied.html');
                 $newPage->show();
             }
-            
+
         }
-            
+
         catch(\Throwable $th) {
             throw $th;
-    
+
         }
     }
 }
@@ -856,12 +856,12 @@ if(isset($_POST['delete-reservation'])){
 
 //--------------------------------------------feedback-------------------------------------------
 //----give feedback-------
-if(isset($_POST['give-feedback'])){
+if(isset($_POST['givefeedback'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.feedback (FeedBackID,FeedBack,FeedBackDate, UserID) VALUES ('','$_POST[FeedBack]','$_POST[CreatedDate]','$_SESSION[UserID]')";
-        $DB->runQuery($sql);
+        $sqlfeedback = "INSERT INTO plunk.feedback (FeedBackID,FeedBack,FeedBackDate, UserID) VALUES ('','$_POST[FeedBack]','$_POST[CreatedDate]','$_SESSION[UserID]')";
+        $DB->runQuery($sqlfeedback);
 
         $newPage = new Page('..\view\feedback\feebacksuccess.html');
         $newPage->show();

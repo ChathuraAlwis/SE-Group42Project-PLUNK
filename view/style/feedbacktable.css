@@ -32,10 +32,11 @@ table{
   width:100%;
   text-align: center;
    color: #333333;
+   border: none;
 }
 
 th{
-  font-size: 2vw;
+  font-size: 1.5vw;
   border-collapse: collapse;
   margin-bottom: 30px;
   border-style: solid;

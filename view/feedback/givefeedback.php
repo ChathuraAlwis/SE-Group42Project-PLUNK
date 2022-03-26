@@ -24,7 +24,7 @@
             <div class="replyboxcover">
               <div class="replybox2">
                 <form class="feedbackform" action="..\..\controller\CRUD.php" method="post">
-                  <input name ="give-feedback" type="hidden" >
+                  <input name ="givefeedback" type="hidden" >
                   <div class="questions">
 
                           <label for="CreatedDate"><b>Date :</b> </label>
@@ -32,14 +32,14 @@
 
                   </div><br><br>
                 <div class="labelbox">
-                    <label for="FeedBack"><b>Message :</b> </label>
+                    <label for="FeedBack" class="feedmsg"><b>Message :</b> </label>
 
                     <textarea name="FeedBack" rows="8" cols="80"  required></textarea>
-                </div><br><br>
+                </div><br><br><br><br>
 
 
                 <div  class="btnbox">
-                  <button type="submit" name="submit" class="btn" formaction="..\feedback\feebacksuccess.html"><b>Submit</b> </button>
+                  <button type="submit" name="submit" class="btn" ><b>Submit</b> </button>
                   <button type="reset" name="reset" class="btn"><b>Reset</b> </button>
                 </div>
               </form>
