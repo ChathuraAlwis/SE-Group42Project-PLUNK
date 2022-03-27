@@ -76,7 +76,7 @@
                 <tr><td><br></td></tr>
                 <tr>
                     <div class="form-group">
-                        <td><label for="Bonus">Bonus Value</label></td>
+                        <td><label for="Bonus">Bonus Percentage</label></td>
                         <td></td>
                         <td><input type="number" id="Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value= "<?php echo "$result[Bonus]";?>"/></td>
                     </div>
@@ -84,7 +84,7 @@
                 <tr><td><br></td></tr>
                     <tr>
                     <div class="form-group">
-                        <td><label for="ETF">ETF Value</label></td>
+                        <td><label for="ETF">ETF Percentage</label></td>
                         <td></td>
                         <td><input type="number" id="ETF" name="ETF" required class="form-control" min=0 oninput="validity.valid||(value='');" value= "<?php echo "$result[ETF]";?>"/></td>
                     </div>
@@ -92,7 +92,7 @@
                 <tr><td><br></td></tr>
                     <tr>
                     <div class="form-group">
-                        <td><label for="EPF">EPF Value</label></td>
+                        <td><label for="EPF">EPF Percentage</label></td>
                         <td></td>
                         <td><input type="number" id="EPF" name="EPF" required class="form-control" min=0 oninput="validity.valid||(value='');" value= "<?php echo "$result[EPF]";?>"/></td>
                     </div>
@@ -106,7 +106,7 @@
                     <td><select id="Type" name="LeaveType" class="form-control" placeholder="Choose the leaves details" onchange="calculateTotal(this);">
                     <option selected>Choose correct detail...</option>
                         <option value="1">Total leaves less than 5</option>
-                        <option value="2">All Medical leaves less than 7</option>
+                        <option value="2">All Medical leaves greater than 7</option>
                         <option value="3">Total leaves greater than 5</option>
                      </select></td>
                     </div>

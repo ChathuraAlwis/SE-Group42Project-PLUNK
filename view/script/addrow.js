@@ -118,7 +118,7 @@ function calculateTotal(obj){
             Total.value = Salary/2;
             break;
         case "3":
-            Total.value = 0;
+            Total.value = (Salary)*30/100;
             break;
         default:
             break;

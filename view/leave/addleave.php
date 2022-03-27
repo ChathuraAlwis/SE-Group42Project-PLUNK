@@ -63,7 +63,7 @@
             </tr>
                 <tr>
                       <td><label for="NoOfdays">No Of Days</label></td>
-                      <td><input type="text" id= "NoOfdays" name="NoOfdays" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the no of days"/></td>
+                      <td><input type="number" id= "NoOfdays" name="NoOfdays" required class="form-control" min=1 oninput="validity.valid||(value='');" max=3 oninput="validity.valid||(value='');" placeholder="Enter the no of days"/></td>
                 </tr>
                 <div class="form-group">
                     <td><label for="Reason">Reason</label></td>
@@ -82,6 +82,12 @@
             <div class="itemtable">
                 <h3>LEAVE TABLE</h3>
                 <iframe src="leavetable.php" class="item"></iframe>
+                <!-- <?php if(isset($month)){
+                    echo "<iframe src='../report/leave.php?today=$month&ser' class='item'></iframe>";
+                }else{
+                    echo "<iframe src='../report/leave.php' class='item'></iframe>";
+                }
+                ?> -->
             </div>
     </div>
     </div>
