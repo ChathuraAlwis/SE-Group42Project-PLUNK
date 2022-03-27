@@ -30,6 +30,7 @@ date_default_timezone_set("Asia/Kolkata");?>
                           <input type="text" id="clubsearch" name="clubsearch" class="search" placeholder="Search By Customer Name" value="<?php if(isset($_POST['clubsearch'])) { echo "$_POST[clubsearch]"; } ?>" >
 
                                 <button type = "submit" class = "searchbtn" ><b>Search</b></button>
+
                                 <?php //in this , check the user type .
                                 if($_SESSION['UserType'] == 'Manager'){?>
                                     <button type="button" name="history" class="history" ><a href="..\bookings\bookinghistory.php" class="hislink" ><b>History</b><a></button>
@@ -42,6 +43,7 @@ date_default_timezone_set("Asia/Kolkata");?>
                                   else {?>
                                     <button type="button" name="history" class="history" ><a href="..\bookings\bookinghistory.php" class="hislink" ><b>My Bookings</b><a></button>
                                     <?php } ?>
+
                         </form>
 
                           <div class="addicon">
@@ -50,6 +52,23 @@ date_default_timezone_set("Asia/Kolkata");?>
                             if($_SESSION['UserType'] == 'Manager'){?>
                                 <a href="..\bookings\addcricketbooking.php" class="add"><button type="button" name="button" class="addbtn"> <b>+</b></button></a>
                               <?php }
+                            else if($_SESSION['UserType'] == 'Accountant'){
+                                  ?>
+                                  <form class="" action="clubbookingui.php" method="post">
+
+                                  
+                                 <?php //if member has unpaid bookings, he can not add new booking until payment will complete
+                                 require_once "..\..\model\database.php";
+                                 require_once "..\..\controller\pages.php";
+
+                                 if (isset($_POST['check'])) {
+                                   $DB = new DB;
+                                 $notpaid="SELECT BookingID FROM plunk.booking WHERE BookingType ='Club' AND Payment='No'";
+                                 $paidslot=$DB->runQuery($notpaid);
+                                 $nonotpaid= count($paidslot);
+
+                                 }
+                                }
                                 else {?>
                                   <form class="" action="clubbookingui.php" method="post">
 

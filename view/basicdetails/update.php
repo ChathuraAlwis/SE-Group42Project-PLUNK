@@ -28,7 +28,7 @@
     <div class= left>
     <div class="form">
 			  <h2 class="center-text"><b>Staff Member Salary Details</b>
-        <a href="deletemsg.php"><image src = "../images/bin.png" class="bin"></image></a></h2>
+        <a href="deletemsg.php?<?php echo 'StaffID='.$result['StaffID'];?>"><image src = "../images/bin.png" class="bin"></image></a></h2>
 			
         
         <form action="../../controller/CRUD.php" method="POST">
@@ -37,49 +37,49 @@
               <tr>
                 <div class="form-group">
                    <td><label for="StaffID">Staff ID</label></td> 
-                    <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>"/></td>
+                    <td><input type="text" id= "StaffID" name="StaffID" required class="form-control" value = "<?php echo "$result[StaffID]";?>" readonly/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
                    <td><label for="StaffName">Staff Member Name</label></td> 
-                    <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value = "<?php echo "$result[StaffName]";?>"/></td>
+                    <td><input type="text" id= "StaffName" name="StaffName" required class="form-control" value = "<?php echo "$result[StaffName]";?>" readonly/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
                    <td><label for="UserType">Staff Type</label></td> 
-                    <td><input type="text" id= "UserType" name="UserType" required class="form-control" value = "<?php echo "$result[UserType]";?>"/></td>
+                    <td><input type="text" id= "UserType" name="UserType" required class="form-control" value = "<?php echo "$result[UserType]";?>" readonly/></td>
                 </div>
               </tr>
               <tr>
                     <div class="form-group">
                         <td><label for="BasicSalary">Basic Value</label></td>
-                        <td><input type="text" id= "BasicSalary" name="BasicSalary" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[BasicSalary]";?>"/></td>
+                        <td><input type="text" id= "BasicSalary" name="BasicSalary" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[BasicSalary]";?>" readonly/></td>
                     </div>
                 </tr>
               <tr>
                     <div class="form-group">
                         <td><label for="Bonus">Bonus Value</label></td>
-                        <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>"/></td>
+                        <td><input type="text" id= "Bonus" name="Bonus" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Bonus]";?>" readonly/></td>
                     </div>
                 </tr>
                 <tr>
                     <div class="form-group">
                         <td><label for="ETF">ETF Value</label></td>
-                        <td><input type="text" id= "ETF" name="ETF" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ETF]";?>"/></td>
+                        <td><input type="text" id= "ETF" name="ETF" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[ETF]";?>" readonly/></td>
                     </div>
                 </tr>
                 <tr>
                 <div class="form-group">
                    <td><label for="EPF">EPF Value</label></td> 
-                    <td><input type="text" id= "EPF" name="EPF" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[EPF]";?>"/></td>
+                    <td><input type="text" id= "EPF" name="EPF" class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[EPF]";?>" readonly/></td>
                 </div>
               </tr>
               <tr>
                 <div class="form-group">
                    <td><label for="Percentage">Service Charge Percentage</label></td> 
-                    <td><input type="text" id= "Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Percentage]";?>"/></td>
+                    <td><input type="text" id= "Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[Percentage]";?>" readonly/></td>
                 </div>
               </tr>
             </table>

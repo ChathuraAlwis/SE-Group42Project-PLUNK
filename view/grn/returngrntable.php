@@ -16,8 +16,27 @@
 
                     <?php
                         require_once "../../controller/showtable.php";
-                        $grnTable = new Table("grn");
-                        $grnTable->show("SELECT * FROM plunk.returngrn order by GRNID desc", 'permissionform');
+                        $returngrnTable = new Table("returngrn");
+                        
+                        if(isset($_GET['name'])){                    
+                              $name = $_GET['name'];
+  
+                              if ($_GET['type']=='0'){
+                                $type = '1 OR Itemtype=2';
+                              }
+                              else{
+                                $type = $_GET['type'];
+                              }
+                                
+                              $returngrnTable->show("SELECT `GRNID` AS 'GRN ID', `CompanyName` AS 'Company Name', `AddDate` AS 'Add Date', `ItemType` AS 'Item Type', `ReturnDate` AS 'Return Date', `Reason` AS 'Reason', `UserID` AS 'User ID', `Accepted` As 'Acceptance Status' FROM plunk.returngrn WHERE CompanyName LIKE ('%$name%') AND ItemType=$type order by GRNID desc", 'permissionform');
+                              
+                            }
+                            
+                            else{
+  
+                              $returngrnTable->show("SELECT `GRNID` AS 'GRN ID', `CompanyName` AS 'Company Name', `AddDate` AS 'Add Date', `ItemType` AS 'Item Type', `ReturnDate` AS 'Return Date', `Reason` AS 'Reason', `UserID` AS 'User ID', `Accepted` As 'Acceptance Status' FROM plunk.returngrn order by GRNID desc", 'permissionform');
+                            }
+                        
                       ?>
 
                 </div>
@@ -25,3 +44,4 @@
 
   </body>
 </html>
+                            

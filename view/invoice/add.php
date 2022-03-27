@@ -38,7 +38,7 @@
                 <tr>
                     <div class="form-group">
                         <td><label for="Company">Company</label></td>
-                        <td><input type="text" id="Company" name="CompanyName"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>"/></td>
+                        <td><input type="text" id="Company" name="CompanyName"  required class="form-control"  placeholder="Select the company name from the company table" value = "<?php echo "$companyname";?>" readonly/></td>
                     </div>
                 </tr>
                 <tr>
@@ -68,7 +68,7 @@
 
                         <tr>
                             <td><label for="Total">Total</label></td>
-                            <td><input type="text" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total"/></td>
+                            <td><input type="number" id= "Total" name="Total" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total"/></td>
                         </tr>
                     </table>
                         

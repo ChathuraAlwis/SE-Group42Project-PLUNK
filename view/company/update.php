@@ -24,11 +24,7 @@
         <div class="main" >
             <form class="addcompany" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
               <input name ="update-company" type="hidden" >
-              <div class="headerrow">
-                <div class="bin">
-                  <a href="delete.php?data=<?php echo $_GET['data'];?>" ><img src="..\images\bin.png" alt="Delete Icon"  class="binicon"></a>
-                </div>
-              </div>
+              
               <div class="submain">
                 <div class="forminputs">
                     <label for="Name"> Company Name:</label><br>

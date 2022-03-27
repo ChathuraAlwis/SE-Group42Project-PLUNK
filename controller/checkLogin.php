@@ -16,7 +16,6 @@
         else{
             $page = new Page('../view/login.php?result="Invaild User"');
             $page->show();
-            echo '<script>alert("Invalid Username or Password")</script>';
         }
     }
     else{

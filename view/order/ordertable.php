@@ -26,7 +26,7 @@
               <div class="tableheader">
                     <div class="innerdiv">
                     </div>
-                    <h2><?php if(isset($_POST['ordersearch'])){ echo "Searched "; } else{ echo "Unpaid "; } ?>Orders</h2>
+                    <h2><?php if(isset($_POST['ordersearch'])){ echo "Searched "; } else{ echo "All "; } ?>Orders</h2>
               </div>
             </div>
             <div class="covertable">
