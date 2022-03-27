@@ -208,10 +208,11 @@ h2{
   display: block;
   height: 400px;
   width: 400px;
-  border-radius: 50%;
-  border-style: solid;
+  border: none;
+  /* border-radius: 50%; */
+  /* border-style: solid;
   border-width: 3px;
-  border-color:  #0b7fab;
+  border-color:  #0b7fab; */
 
 
 }

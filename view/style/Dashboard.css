@@ -131,7 +131,7 @@ h3{
 
 }
 .staff{
-  height:90%;
+  height:85%;
   width:100%;
   border: none;
 }
@@ -164,14 +164,15 @@ h3{
 }
 /*Cashier Dashboard*/
 .Table{
-  width: 65%;
+  width: 98%;
   height: 95%;
   float:left;
   margin-left: 15px;
-  border-width: 2px;
-  border-style: solid;
+  border: none;
+  /* border-width: 2px;
+  border-style: solid; */
   /* border-color: #017a7a; */
-  border-color: #0b7fab;
+  /* border-color: #0b7fab; */
 
   /* padding-bottom: 1%; */
 }

@@ -44,6 +44,11 @@ h1{
 #Error{
   color: red;
 }
+#Error2{
+  color: red;
+  ine-height: 6vw;
+  font-size: 5vw;
+}
 .btn{
   width: 20%;
   height: auto;

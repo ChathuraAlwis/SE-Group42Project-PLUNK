@@ -49,8 +49,8 @@ a{
   background-color: white;
   border-radius: 20px;
   float: left;
-  margin-left: 5%;
-  margin-right: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   margin-top: 50px;
   display: block;
   font-size: 1.5vw;
@@ -124,9 +124,9 @@ label{
 }
 .tablediv{
   float:right;
-  width: 45%;
+  width: 55%;
   height: auto;
-  margin-right: 5%;
+  margin-right: 10px;
   margin-left: 0;
   margin-top: 2%;
 }
@@ -156,7 +156,7 @@ display:block;
   border: none;
 }
 th{
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   border-collapse: collapse;
   margin-bottom: 30px;
   border-style: solid;
