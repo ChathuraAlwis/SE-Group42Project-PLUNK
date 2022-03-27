@@ -25,7 +25,7 @@
         <div class="main" >
             <div class="header">
               <div class="upperrow"></div>
-              <h2>Cash Payment</h2>
+              <h2>Payment</h2>
 
             </div><br>
             <form class="addbookingtwo" action=""  method="post" autocomplete="on" >
@@ -88,16 +88,12 @@
                           <label for="contactno">Contact No :</label>
                           <input type="tel" name="ContactNo" class="qtype1"  value="<?php echo "$result[ContactNo]";?>" readonly>
                     </div><br>
-                    <div class="questions">
-                          <label for="contactno">Receipt No :</label>
-                          <input type="tel" name="ReceiptNo" class="qtype1" required>
-                    </div><br>
 
                   </div>
                 <div class="line3">
-                  <button type="submit" name="button" class="add" formaction="..\..\controller\CRUD.php">  <b>Pay</b>  </button>
+                  <button type="submit" name="button" class="add" formaction="cashgm.php?data=<?php echo $_GET['data'];?>">  <b>Cash</b>  </button>
 
-                  <button type="reset" name="button" class="Payment" ><b>Reset</b> </button>
+                  <button type="submit" name="button" class="Payment" formaction="..\bookings\payhere.php?data=<?php echo $_GET['data'];?>" ><b>Visa</b> </button>
 <!-- ..\payment\paymentgm.php -->
                 </div>
 

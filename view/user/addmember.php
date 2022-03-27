@@ -45,10 +45,7 @@
                     <label for="UserName"> User Name</label><br>
                     <input type="text" id="UserName" class="input" name="UserName" maxlength="50" onchange='<?php echo 'checkUserName('. $result .')';?>' required>
                 </div><br>
-                <div class="forminputs">
-                    <label for="Password"> Password</label><br>
-                    <input type="password" id="Password" class="input" name="Password"  required>
-                </div><br>
+                
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>

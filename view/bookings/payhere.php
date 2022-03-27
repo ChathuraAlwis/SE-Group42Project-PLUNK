@@ -10,12 +10,14 @@
 </head>
 <body>
   <?php
+      session_start();
       require_once "../../model/database.php";
       $DB = new DB;
       $id = explode("=", $_GET['data'])[1];
       $query = "SELECT * FROM plunk.booking WHERE BookingID='$id'";
-
       $result = $DB->runQuery($query)[0];
+      $query2 = "SELECT * FROM plunk.user";
+      $result2 = $DB->runQuery($query2)[0];
 
   ?>
 
@@ -35,6 +37,7 @@
     <input type="hidden" name="last_name" value="#"><br>
     <input type="hidden" name="email" value="#">
     <input type="hidden" name="changepayment" >
+    <input type="hidden" name="UserType" value="<?php echo "$result2[UserType]";?>">
 
     <div class="submain">
 

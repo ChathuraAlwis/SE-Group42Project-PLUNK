@@ -29,13 +29,14 @@ date_default_timezone_set("Asia/Kolkata");?>
                         <input type="text" id="restaurantsearch" name="restaurantsearch" class="search" placeholder="Search By Customer Name" value="<?php if(isset($_POST['restaurantsearch'])) { echo "$_POST[restaurantsearch]"; } ?>" required>
 
                               <button type = "submit" class = "searchbtn" ><b>Search</b></button>
-                              <?php
-                                    if ($_SESSION['UserType']!='Accountant'){
-                                  
-                                          echo "<button type=\"button\" name=\"history\" class=\"history\" ><a href=\"../bookings/resbookinghistory.php\" class=\"hislink\" ><b>History</b><a></button>";  
-                                         }  
-                             ?>
-                             
+
+                              <?php //in this , check the user type .
+                              if($_SESSION['UserType'] == 'Manager'){?>
+                              <button type="button" name="history" class="history" ><a href="..\bookings\resbookinghistory.php" class="hislink" ><b>History</b><a></button>
+                              <?php }
+                                else {?>
+                                  <button type="button" name="history" class="history" ><a href="..\bookings\resbookinghistory.php" class="hislink" ><b>My Bookings</b><a></button>
+                                    <?php } ?>
 
                       </form>
                           <div class="addicon">
@@ -86,6 +87,15 @@ date_default_timezone_set("Asia/Kolkata");?>
                                      }}
                                     } ?>
                           </div>
+                          <?php //in this , check the user type .
+                          if($_SESSION['UserType'] == 'Manager'){?>
+                          <div class="confimationdiv">
+                            <button type="button" name="history" class="typebtn" ><a href="restaurentconfrimedbooking.php" class="hislink" ><b>Confirmed</b><a></button>
+
+                            <button type="button" name="history" class="typebtn2" ><a href="deniedrestaurant.php" class="hislink" ><b>Denied</b><a></button>
+
+                            <button type="button" name="history" class="typebtn3" ><a href="nodecisionrestaurant.php" class="hislink" ><b>No Decision</b><a></button>
+                          </div><?php } ?>
                     </div>
                     <div class="detailtable">
                       <?php

@@ -70,7 +70,7 @@ html,body{
   display: block;
   border-style: solid;
   border-width: none;
-  border-radius: 20px;
+  border-radius: 10px;
   border-color: transparent;
  background-color: #0b7fab;
 }
@@ -91,6 +91,9 @@ h2{
   width: 100%;
   text-align: center;
    color: #333333;
+}
+table{
+  border: none;
 }
 th{
   /*font-size: 2vw;*/

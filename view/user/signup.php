@@ -51,16 +51,16 @@
                                   <input name ="joinrequest" type="hidden" >
                                   <div class="submain">
                                     <div class="imagebox">
-                                      <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" >
+                                      <!-- <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" > -->
 
-                                      <img id="output" >
-                                      <label for="file" class="upload"><b>Upload Image</b> </label>
+                                      <img id="output" src="..\images\welcome.jpg" >
+                                      <!-- <label for="file" class="upload"><b>Upload Image</b> </label>
 
                                       <script>
                                       var loadFile = function(event) {
                                       	var image = document.getElementById('output');
                                       	image.src = URL.createObjectURL(event.target.files[0]);
-                                      };
+                                      }; -->
                                       </script>
 
                                     </div><br>

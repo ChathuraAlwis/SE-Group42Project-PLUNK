@@ -27,15 +27,23 @@ date_default_timezone_set("Asia/Kolkata");?>
 
                         <form class="searchbar" action="clubbookingui.php" method="post">
                           <!-- <input type="hidden" name="clubsearch" > -->
-                          <input type="text" id="clubsearch" name="clubsearch" class="search" placeholder="Search By Customer Name" value="<?php if(isset($_POST['clubsearch'])) { echo "$_POST[clubsearch]"; } ?>" required>
+                          <input type="text" id="clubsearch" name="clubsearch" class="search" placeholder="Search By Customer Name" value="<?php if(isset($_POST['clubsearch'])) { echo "$_POST[clubsearch]"; } ?>" >
 
                                 <button type = "submit" class = "searchbtn" ><b>Search</b></button>
 
-                                <?php
-                                    if ($_SESSION['UserType']!='Accountant'){
-                                      echo "<button type=\"button\" name=\"history\" class=\"history\" ><a href=\"../bookings/bookinghistory.php\" class=\"hislink\" ><b>History</b><a></button>";
-                                    }
-                                ?>
+                                <?php //in this , check the user type .
+                                if($_SESSION['UserType'] == 'Manager'){?>
+                                    <button type="button" name="history" class="history" ><a href="..\bookings\bookinghistory.php" class="hislink" ><b>History</b><a></button>
+                                      <!-- <div class="confimationdiv">
+                                        <button type="button" name="history" class="typebtn" ><a href="..\bookings\bookingconfirmation.php" class="hislink" ><b>Confirmed</b><a></button>
+                                        <button type="button" name="history" class="typebtn2" ><a href="..\bookings\bookingconfirmation.php" class="hislink" ><b>Denied</b><a></button>
+                                      </div> -->
+
+                                <?php }
+                                  else {?>
+                                    <button type="button" name="history" class="history" ><a href="..\bookings\bookinghistory.php" class="hislink" ><b>My Bookings</b><a></button>
+                                    <?php } ?>
+
                         </form>
 
                           <div class="addicon">
@@ -86,6 +94,15 @@ date_default_timezone_set("Asia/Kolkata");?>
                                  }}
                                 } ?>
                           </div>
+                          <?php //in this , check the user type .
+                          if($_SESSION['UserType'] == 'Manager'){?>
+                          <div class="confimationdiv">
+                            <button type="button" name="history" class="typebtn" ><a href="..\bookings\bookingconfirmation.php" class="hislink" ><b>Confirmed</b><a></button>
+
+                            <button type="button" name="history" class="typebtn2" ><a href="..\bookings\deniedclubbooking.php" class="hislink" ><b>Denied</b><a></button>
+
+                            <button type="button" name="history" class="typebtn3" ><a href="..\bookings\nodecisionclub.php" class="hislink" ><b>No Decision</b><a></button>
+                          </div> <?php } ?>
                     </div>
                     <div class="detailtable">
                       <?php

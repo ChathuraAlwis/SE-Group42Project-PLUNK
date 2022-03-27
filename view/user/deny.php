@@ -33,20 +33,20 @@
                                 <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
                                   <input name ="denied" type="hidden" >
                                   <div class="submain">
-                                    <div class="imagebox">
+                                    <!-- <div class="imagebox">
                                       <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" required>
 
-                                      <?php echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';?>
-                                      <!-- <label for="file" class="upload"><b>Upload Image</b> </label>
+                                      <?php //echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';?>
+                                       <label for="file" class="upload"><b>Upload Image</b> </label>
 
                                       <script>
                                       var loadFile = function(event) {
                                       	var image = document.getElementById('output');
                                       	image.src = URL.createObjectURL(event.target.files[0]);
                                       };
-                                      </script> -->
+                                      </script>
 
-                                    </div><br>
+                                    </div><br> -->
                                     <div class="forminputs">
                                         <label for="Name"> Name with initials</label><br>
                                         <input type="text" id="Name" class="input" name="Name" value ="<?php echo "$result[Name]";?>"  readonly>

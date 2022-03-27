@@ -33,10 +33,11 @@ date_default_timezone_set("Asia/Kolkata");?>
                               $bookingTable->show($sql, );
                             }
                           }
+
                           else {
 
                               if($_SESSION['UserType'] == 'Manager'){
-                                  $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Club') AND Payment='No'AND ReservedDate>='$today'", 'clubupdate');
+                                  $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment,permission as 'Confirmation', ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Club')  AND Payment='No'AND ReservedDate>='$today'", 'clubupdate');
                               }
                               else if($_SESSION['UserType'] == 'Accountant'){
                                 $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Club') AND Payment='No' ", 'accclubpayment');

@@ -631,8 +631,8 @@ if(isset($_POST['denied'])){
 //---------------------Add, update and delete user--------------------------
 if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
     $DB = new DB;
-
-    $hashedpassword = Password_hash("$_POST[Password]", PASSWORD_BCRYPT);
+      $pw="$_POST[DisplayID]";
+    $hashedpassword = Password_hash("$pw", PASSWORD_BCRYPT);
 
     try {
           $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$hashedpassword', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]')";
@@ -1347,7 +1347,8 @@ if(isset($_POST['addbook'])){
 
 
                     if ($planday>=$reserve) {
-                      $newPage = new Page('..\view\bookings\forneardaysuccess.html');
+
+                      $newPage = new Page('..\view\bookings\forneardaysuccess.php');
                       $newPage->show();
                     }else {
                       $newPage = new Page('..\view\bookings\addbookingsuccess.html');
@@ -1403,7 +1404,8 @@ elseif (isset($_POST['add-clubbook'])) {
 
 
         if ($planday>=$reserve) {
-          $newPage = new Page('..\view\bookings\forneardaysuccess.html');
+
+          $newPage = new Page('..\view\bookings\forneardaysuccess.php');
           $newPage->show();
         }else {
           $newPage = new Page('..\view\bookings\addclubbookingsuccess.html');
@@ -1583,6 +1585,44 @@ if(isset($_POST['delete-booking'])){
 
 
 }
+//----------------------------------------Booking confirmation-------------------------------------------------------
+if(isset($_POST['confirmbook'])){
+    $DB = new DB;
+    try {
+      $sql = "UPDATE plunk.booking SET permission='Confirmed' WHERE BookingID='$_POST[BookingID]'  ";
+      $DB->runQuery($sql);
+      if ($_POST['BookingType']=='Restaurant') {
+        $newPage = new Page('..\view\bookings\member\bookingconfimed.html');
+        $newPage->show();
+      }else {
+        $newPage = new Page('..\view\bookings\member\clubbookingconfirmed.html');
+        $newPage->show();
+      }
+
+    } catch (\Throwable $th) {
+
+    }
+  }
+
+  if(isset($_POST['denybook'])){
+      $DB = new DB;
+      try {
+        $sql = "UPDATE plunk.booking SET permission='Denied' WHERE BookingID='$_POST[BookingID]'  ";
+        $DB->runQuery($sql);
+        if ($_POST['BookingType']=='Restaurant') {
+          $newPage = new Page('..\view\bookings\member\resbookdenied.html');
+          $newPage->show();
+        }else {
+          $newPage = new Page('..\view\bookings\member\clubbookdenied.html');
+          $newPage->show();
+        }
+
+      } catch (\Throwable $th) {
+
+      }
+
+
+    }
 //-----------------------------------------payment for booking---------------------------------------------------------
 if(isset($_POST['changepayment'])){
     $DB = new DB;
@@ -1590,8 +1630,16 @@ if(isset($_POST['changepayment'])){
     try {
         $sql = "UPDATE plunk.booking SET Payment='Yes'WHERE BookingID='$_POST[order_id]'";
         $DB->runQuery($sql);
+        $today = date("Y-m-d");
+        $sql2 = "INSERT INTO plunk.payment (PaymentID,PaymentDate,PaymentType,UserID,BookingID,CustomerName,Paid) VALUES ('','$today','Visa','$_POST[UserID]','$_POST[order_id]','$_POST[CustomerName]','Yes')";
+        $DB->runQuery($sql2);
+        if ($_SESSION['UserType']== 'Accountant') {
+          $newPage = new Page('..\view\payment\payemntsuccessfullyupdated.html');
+          $newPage->show();
+        }else{
         $newPage = new Page('..\view\bookings\paymentupdatedsuccess.html');
         $newPage->show();
+      }
     } catch (\Throwable $th) {
         throw $th;
     }
@@ -1603,8 +1651,36 @@ if (isset($_POST['changeclubpayment'])) {
   try {
       $sql = "UPDATE plunk.booking SET Payment='Yes'WHERE BookingID='$_POST[order_id]'";
       $DB->runQuery($sql);
+
+      $today = date("Y-m-d");
+      $sql2 = "INSERT INTO plunk.payment (PaymentID,PaymentDate,PaymentType,UserID,BookingID,CustomerName,Paid) VALUES ('','$today','Visa','$_POST[UserID]','$_POST[order_id]','$_POST[CustomerName]','Yes')";
+      $DB->runQuery($sql2);
+      if ($_SESSION['UserType']== 'Accountant') {
+        $newPage = new Page('..\view\payment\payemntsuccessfullyupdated.html');
+        $newPage->show();
+      }else{
       $newPage = new Page('..\view\bookings\clubpaymentupdatedsuccess.html');
       $newPage->show();
+      }
+  } catch (\Throwable $th) {
+      throw $th;
+  }
+}
+//------------Cash payment------------------
+if (isset($_POST['cashpayment'])) {
+  $DB = new DB;
+
+  try {
+      $sql = "UPDATE plunk.booking SET Payment='Yes'WHERE BookingID='$_POST[BookingID]'";
+      $DB->runQuery($sql);
+
+      $today = date("Y-m-d");
+      $sql2 = "INSERT INTO plunk.payment (PaymentID,PaymentDate,PaymentType,UserID,BookingID,CustomerName,Paid,ReceiptNo) VALUES ('','$today','Cash','$_POST[UserID]','$_POST[BookingID]','$_POST[CustomerName]','Yes','$_POST[ReceiptNo]')";
+      $DB->runQuery($sql2);
+
+      $newPage = new Page('..\view\payment\payemntsuccessfullyupdated.html');
+      $newPage->show();
+
   } catch (\Throwable $th) {
       throw $th;
   }

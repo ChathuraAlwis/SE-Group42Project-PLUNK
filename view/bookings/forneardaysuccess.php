@@ -17,7 +17,7 @@
                     <br> <h1><b>Success..!</b> </h1>
                     <h3>Please make the payment</h3>
                     <div class="btn">
-                      <a href="..\payment\paymentgm.php"><button type="button" name="button"><b>Payment</b> </button></a>
+                      <a href="../payment/paymentpage.php"><button type="button" name="button"><b>Payment</b> </button></a>
                     </div>
 
 

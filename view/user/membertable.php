@@ -22,13 +22,28 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Search..." >
+                      <form class="searchbar" action="membertable.php" method="post">
+                        <!-- <input type="hidden" name="clubsearch" > -->
+                        <input type="text" id="clubsearch" name="clubsearch" class="search" placeholder="Search By Name" value="<?php if(isset($_POST['clubsearch'])) { echo "$_POST[clubsearch]"; } ?>" required>
+
+                              <button type = "submit" class = "searchbtn" ><b>Search</b></button>
+
+                      </form>
+                          <!-- <input type="text" name="search" class="search" placeholder="Search..." > -->
                           <div class="addicon">
                                 <a href="addmember.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
                     </div>
                     <div class="detailtable">
-                            <iframe src="clubmember.php" class="staff"></iframe>
+                      <?php
+                        if(isset($_POST['clubsearch'])){
+                          echo'<iframe src="clubmember.php?Name='.$_POST['clubsearch'].'" name="searchinfo" class="staff"></iframe>';
+                        }
+                        else{
+                          echo '<iframe src="clubmember.php" name="searchinfo" class="staff"></iframe>';
+                        }
+                      ?>
+                            <!-- <iframe src="clubmember.php" class="staff"></iframe> -->
                     </div>
 
                 </div>

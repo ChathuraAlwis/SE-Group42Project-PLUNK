@@ -94,6 +94,11 @@
                   <button type="submit" name="button" class="Payment" formaction="..\bookings\payhere.php?data=<?php echo $_GET['data'];?>" ><b>Payment</b> </button>
 
                 </div>
+                <div class="line4">
+                  <button type="submit" name="confirmbook" class="decisionbtn" formaction="..\..\controller\CRUD.php">  <b>Confirm</b>  </button>
+
+                <button type="submit" name="denybook" class="decisionbtn2" formaction="..\..\controller\CRUD.php">  <b>Deny</b>  </button>
+              </div>
 
 
             </form>

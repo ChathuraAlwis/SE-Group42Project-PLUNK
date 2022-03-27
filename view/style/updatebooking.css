@@ -205,15 +205,43 @@ select{
   width: 49%;
   height:auto;
   border-radius: 50px;
-  color:  #acacac;
+  color: rgb(240, 230, 230);
   font-size: 2vw;
   transition-duration: 1s;
   cursor: pointer;
-  opacity: 0.8;
+
 }
 
-.add:hover, .addlink:hover{
-  opacity: 1;
+.add:hover{
+  background-color: #474747;
+}
+.line4{
+  width: 75%;
+  height: 20%;
+
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.decisionbtn, .decisionbtn2{
+  background-color:  #0b7fab;
+  width: 25%;
+  height:auto;
+  border-radius: 50px;
+  color: rgb(240, 230, 230);
+  font-size: 2vw;
+  transition-duration: 1s;
+  cursor: pointer;
+
+}
+.decisionbtn:hover, .decisionbtn2:hover{
+  background-color: #474747;
+}
+.decisionbtn{
+  float:left;
+}
+.decisionbtn2{
+  float:right;
 }
 .pay{
   background-color:  #0b7fab;
@@ -242,13 +270,13 @@ select{
   height:auto;
   margin-top: 5px;
   border-radius: 50px;
-  color:  #acacac;
+  color: rgb(240, 230, 230);
   font-size: 2vw;
   transition-duration: 0.5s;
   cursor: pointer;
 }
 .Payment:hover{
-  opacity: 1;
+  background-color: #474747;
 
 }
 /* For delete.php file */
