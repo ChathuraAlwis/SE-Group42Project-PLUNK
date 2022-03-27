@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 09:32 PM
+-- Generation Time: Mar 27, 2022 at 10:41 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -1129,7 +1129,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"plunk\",\"table\":\"order\"},{\"db\":\"plunk\",\"table\":\"payment\"},{\"db\":\"plunk\",\"table\":\"reservationmenu\"},{\"db\":\"plunk\",\"table\":\"user\"},{\"db\":\"plunk\",\"table\":\"booking\"},{\"db\":\"plunk\",\"table\":\"signup\"},{\"db\":\"plunk\",\"table\":\"leave\"},{\"db\":\"plunk\",\"table\":\"notification\"},{\"db\":\"plunk\",\"table\":\"orderitem\"},{\"db\":\"plunk\",\"table\":\"feedback\"}]');
+('root', '[{\"db\":\"plunk\",\"table\":\"booking\"},{\"db\":\"plunk\",\"table\":\"order\"},{\"db\":\"plunk\",\"table\":\"payment\"},{\"db\":\"plunk\",\"table\":\"reservationmenu\"},{\"db\":\"plunk\",\"table\":\"user\"},{\"db\":\"plunk\",\"table\":\"signup\"},{\"db\":\"plunk\",\"table\":\"leave\"},{\"db\":\"plunk\",\"table\":\"notification\"},{\"db\":\"plunk\",\"table\":\"orderitem\"},{\"db\":\"plunk\",\"table\":\"feedback\"}]');
 
 -- --------------------------------------------------------
 
@@ -1306,7 +1306,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2022-03-27 17:40:19', '{\"Console\\/Mode\":\"show\",\"Console\\/Height\":5.9895,\"NavigationWidth\":243}');
+('root', '2022-03-27 20:06:10', '{\"Console\\/Mode\":\"show\",\"Console\\/Height\":5.9895,\"NavigationWidth\":243}');
 
 -- --------------------------------------------------------
 
@@ -1550,14 +1550,14 @@ CREATE TABLE `booking` (
   `Total` int(11) NOT NULL,
   `Payment` enum('Yes','No') NOT NULL,
   `UserID` int(11) NOT NULL,
-  `Permission` enum('No Decision','Confirmed','Denied') NOT NULL DEFAULT 'No Decision'
+  `permission` enum('No Decision','Confirmed','Denied') NOT NULL DEFAULT 'No Decision'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`BookingID`, `CustomerName`, `BookingType`, `Reservation`, `NoOfPeople`, `ReservedDate`, `ReservedTime`, `EndTime`, `CreatedDate`, `LastModifiedDate`, `ContactNo`, `Total`, `Payment`, `UserID`, `Permission`) VALUES
+INSERT INTO `booking` (`BookingID`, `CustomerName`, `BookingType`, `Reservation`, `NoOfPeople`, `ReservedDate`, `ReservedTime`, `EndTime`, `CreatedDate`, `LastModifiedDate`, `ContactNo`, `Total`, `Payment`, `UserID`, `permission`) VALUES
 (21, 'Nurad', 'Restaurant', 'table-02', 1, '2022-03-30', '18:00:00', '21:00:00', '2022-03-27', '2022-03-27', 788854567, 500, 'Yes', 4, 'Confirmed'),
 (22, 'Jithru', 'Club', 'PracticeWicket-02', 1, '2022-04-01', '09:00:00', '17:01:00', '2022-03-27', '2022-03-27', 788854511, 5000, 'Yes', 4, 'No Decision'),
 (24, 'P.N.S.Bandara', 'Club', 'PracticeWicket-02', 1, '2022-04-02', '09:00:00', '17:11:00', '2022-03-27', '2022-03-27', 789012346, 5000, 'Yes', 17, 'Confirmed'),
