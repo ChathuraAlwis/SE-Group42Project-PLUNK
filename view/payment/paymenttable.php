@@ -16,7 +16,7 @@
                       <?php
                           require_once "../../controller/showtable.php";
                           $paymentTable = new Table("payment");
-                          $paymentTable->show("SELECT PaymentID as 'Payment ID', PaymentDate as 'Payment Date', PaymentType as 'Payment Type', BookingID as 'Booking ID', UserID as 'User ID' FROM plunk.payment");
+                          $paymentTable->show("SELECT BookingID as 'Booking ID',CustomerName as 'Customer Name', BookingType as 'Booking Type', Reservation,Total as 'Pirce', UserID as 'User ID' FROM plunk.booking WHERE Payment = 'No'");
                        ?>
 
                     </div>
@@ -47,14 +47,14 @@
                           $salarydetailsTable = new Table("payment");
                           if(isset($_GET['paymentsearch'])){
                             $search = $_GET['paymentsearch'];
-                            $paymentTable->show("SELECT PaymentID as 'Payment ID', PaymentDate as 'Payment Date', PaymentType as 'Payment Type', BookingID as 'Booking ID', UserID as 'User ID' FROM plunk.payment WHERE PaymentType LIKE ('%$search%');");
-    
+                            $paymentTable->show("SELECT BookingID as 'Booking ID',CustomerName as 'Customer Name', BookingType as 'Booking Type', Reservation,Total as 'Pirce', UserID as 'User ID' FROM plunk.booking WHERE CustomerName LIKE ('%$search%');", 'makepayment');
+
                           }
                           else{
-                            
-                            $paymentTable->show("SELECT PaymentID as 'Payment ID', PaymentDate as 'Payment Date', PaymentType as 'Payment Type', BookingID as 'Booking ID', UserID as 'User ID' FROM plunk.payment");
+
+                            $paymentTable->show("SELECT BookingID as 'Booking ID',CustomerName as 'Customer Name', BookingType as 'Booking Type', Reservation,Total as 'Pirce', UserID as 'User ID' FROM plunk.booking WHERE Payment = 'No'",'makepayment');
                           }
-                          
+
                        ?>
 
                     </div>
@@ -64,5 +64,3 @@
 
   </body>
 </html>
-
-

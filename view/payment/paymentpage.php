@@ -33,12 +33,10 @@
                 <div class="table">
                   <div class="upperbar">
                   <form method="POST" action="paymentpage.php" onclick = "return isEmpty()">
-                        <input type = "text" name="paymentsearch" class = "search" placeholder="Enter the payment type"/>
+                        <input type = "text" name="paymentsearch" class = "search" placeholder="Enter the customer name"/>
                         <button type = "submit" class = "search" ><b>Search</b></button>
                   </form>
-                  <div class="addicon">
-                                <a href="add.php" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
-                          </div>
+                  <div class="addicon">  </div>
 
                     </div>
                     <div class="detailtable">
