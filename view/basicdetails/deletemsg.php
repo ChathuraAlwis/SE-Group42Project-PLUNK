@@ -13,8 +13,9 @@
         <div class="main" >
 
           <form action="../../controller/CRUD.php" method="POST">    
-            <input name="delete-item" type="hidden"/>
-            <!-- <input name="No" type="hidden" value="<?php echo $_GET['No']?>"/>   -->
+            <input name="delete-basicdetail" type="hidden"/>
+            <input name="StaffID" type="hidden" value=<?php echo $_GET['StaffID']?>>
+            
               <div class="detailtable">
                 <h3><b>Are you sure you want to delete this Staff Member Salary Details...! </h3>
 

@@ -111,7 +111,7 @@ class Report{
     }
 
     function returnGRNreport($start, $end){
-        $sql = "SELECT returngrn.GRNID, CompanyName, AddDate, ItemType, ItemID, ItemName, Quantity, ReturnDate, Reason FROM plunk.returngrnitem INNER JOIN plunk.returngrn WHERE returngrnitem.GRNID=returngrn.GRNID AND Accepted='Yes' AND ReturnDate BETWEEN '$start' AND '$end';";
+        $sql = "SELECT returngrn.GRNID, CompanyName, AddDate, ItemType, ItemID, ItemName, Quantity, ReturnDate, Reason, Accepted AS 'Acceptance Status' FROM plunk.returngrnitem INNER JOIN plunk.returngrn WHERE returngrnitem.GRNID=returngrn.GRNID AND ReturnDate BETWEEN '$start' AND '$end';";
         $result = $this->DB->runQuery($sql);
         $recordCount = count($result);
         $heading = false;
