@@ -49,7 +49,7 @@ form{
     z-index: 1;
     background: rgb(300, 300, 300);
     max-width: 300px;
-    height: 400px;
+    height: 410px;
     padding: 35px;
     margin-top: 5%;
     margin-bottom: 10%;
@@ -119,7 +119,7 @@ button{
   border:0px;
   color: white;
   cursor: pointer;
-  margin-top:10%;
+  margin-top:6%;
   margin-left: 5%;
   /* background: linear-gradient( to bottom right, #3ea077 ,#017a7a); */
   background-color: #0b7fab;
@@ -152,4 +152,10 @@ button:hover{
 
 .buttonsend{
   margin-left: 13%;
+}
+
+.passworderror{
+  color: red;
+  align-content: center;
+  size: 1vw;
 }
