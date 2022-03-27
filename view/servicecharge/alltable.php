@@ -27,12 +27,12 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                    <div >
+                    <!-- <div >
                               <input type = "text" class = "search" placeholder="Enter the serviceCharge"/>
                   </div>
                     <div >
                               <button type = "submit" class = "search" ><b>Search</b></button>
-                        </div>
+                        </div> -->
                           <div class="addicon">
                                 <a href="add.php ?id=<?php echo $id;?>" class="add"><button type="button" name="button" class="addbtn"><b>+</b></button></a>
                           </div>
