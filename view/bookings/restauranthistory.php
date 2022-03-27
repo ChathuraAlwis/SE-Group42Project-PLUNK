@@ -33,6 +33,20 @@ date_default_timezone_set("Asia/Kolkata");?>
                               $bookingTable->show($sql, );
                             }
                           }
+                          elseif (isset($_GET['ReservedDate'])) {
+                            $search = $_GET['ReservedDate'];
+                            $sql = "SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Restaurant') AND CustomerName LIKE ('%$search%')";
+
+                            if(isset($_GET['OrderBy'])){
+                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            }
+                            if($_SESSION['UserType'] == 'Manager'){
+                              $bookingTable->show($sql, 'restaurantupdate');
+                            }
+                            else {
+                              $bookingTable->show($sql, );
+                            }
+                          }
                           else {
 
 
@@ -41,7 +55,7 @@ date_default_timezone_set("Asia/Kolkata");?>
                           }
 
                             else {
-                              $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place', ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',EndTime as 'End time' FROM plunk.booking WHERE UserID='$_SESSION[UserID]' AND BookingType in ('Restaurant')  ",'restaurantupdate');
+                              $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place', ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',EndTime as 'End time',permission as 'Confirmation' FROM plunk.booking WHERE UserID='$_SESSION[UserID]' AND BookingType in ('Restaurant')  ",'restaurantupdate');
                             }
                           }
                        ?>
