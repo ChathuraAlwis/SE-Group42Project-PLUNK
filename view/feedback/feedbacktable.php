@@ -31,7 +31,7 @@ require_once "..\..\controller\showtable.php";?>
                           }
                           elseif (isset($_POST['history'])) {
                             $orderTable = new Table("feedback");
-                            $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE Reply IS NOT NULL order by FeedBackID desc", 'update');
+                            $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE Reply IS NOT NULL ", 'update');
                           }
                           else {
 
@@ -39,12 +39,12 @@ require_once "..\..\controller\showtable.php";?>
                           if ($_SESSION['UserType'] == 'Life Member' || $_SESSION['UserType'] == 'Ordinary Member' || $_SESSION['UserType'] == 'HL Member'){
 
                             $orderTable = new Table("feedback");
-                            $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE UserID='$_SESSION[UserID]' order by FeedBackID desc");
+                            $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE UserID='$_SESSION[UserID]' ");
                           }
                           else {
 
                           $orderTable = new Table("feedback");
-                          $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE Reply IS NULL order by FeedBackID desc", 'update');
+                          $orderTable->show("SELECT FeedBackID as 'Feedback ID',FeedBack as 'Feedback', FeedBackDate as 'Feedback Date',UserID as 'User ID',Reply,ReplyDate as 'Replyed Date', ReplyPersonID as 'Replyed Person ID' FROM plunk.feedback WHERE Reply IS NULL ", 'update');
 
                         }
                       }
