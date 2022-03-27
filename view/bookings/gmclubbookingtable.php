@@ -26,15 +26,23 @@ date_default_timezone_set("Asia/Kolkata");?>
                             if(isset($_GET['OrderBy'])){
                               $sql .= " ORDER BY $_GET[OrderBy]";
                             }
-                            $bookingTable->show($sql, 'clubupdate');
+                            if($_SESSION['UserType'] == 'Manager'){
+                              $bookingTable->show($sql, 'clubupdate');
+                              }
+                            else {
+                              $bookingTable->show($sql, );
+                            }
                           }
                           else {
 
                               if($_SESSION['UserType'] == 'Manager'){
                                   $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Club') AND Payment='No'AND ReservedDate>='$today'", 'clubupdate');
                               }
+                              else if($_SESSION['UserType'] == 'Accountant'){
+                                $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Club') AND Payment='No' ", 'accclubpayment');
+                            }
 
-                                else {
+                              else {
                                   $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',EndTime as 'End time' FROM plunk.booking WHERE BookingType in ('Club') AND ReservedDate>='$today' ", );
                                 }
                           }

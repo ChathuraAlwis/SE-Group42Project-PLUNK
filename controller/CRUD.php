@@ -257,10 +257,9 @@ if(isset($_POST['add-grn'])){
                 $newPage->show();
             }
             else{
-                
+
                 $sql1 = "INSERT INTO plunk.grn (`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `UserID`) VALUES ( '' , '$_POST[CompanyName]','$_POST[AddDate]','$_POST[ItemType]','$_SESSION[UserID]');";
                 //echo $sql;
-                $DB->runQuery($sql1);
 
                 $rowCount = $_POST['rowCount'];
                 // echo $rowCount;
@@ -278,7 +277,7 @@ if(isset($_POST['add-grn'])){
                     if(isset($_POST['ItemID' . $GRNRow])){
                         $rowCount--;
                         $grnRow = 'ItemID' . $GRNRow;
-                        //$itemname = 'ItemName'. $GRNRow;
+                        $itemname = 'ItemName'. $GRNRow;
                         $QuanRow = 'Quantity' . $GRNRow;
                         $sql = "INSERT INTO plunk.grnitem (GRNID, ItemID,ItemName, Quantity) VALUES ('$GRNID', '$_POST[$grnRow]','$_POST[ItemName]','$_POST[$QuanRow]');";
                         //echo $sql;
@@ -317,25 +316,25 @@ if(isset($_POST['return-grn'])){
        $sql = "SELECT * FROM plunk.grn WHERE GRNID = $_POST[GRNID]";
        $result = $DB->runQuery($sql)[0];
 
-       $sql = "INSERT INTO plunk.returngrn(`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `ReturnDate`, `Reason`, `UserID`, `Accepted`) VALUES ('$result[GRNID]','$result[CompanyName]','$result[AddDate]','$result[ItemType]','$_POST[ReturnDate]','$_POST[Reason]','$_SESSION[UserID]','No')";
-       //echo $sql;
-       $DB->runQuery($sql);
-       $sql = "SELECT  `ItemID` FROM plunk.grnitem WHERE GRNID = $_POST[GRNID]";
-       //echo $sql;
-       $result= $DB->runQuery($sql);
+       $sql1 = "INSERT INTO plunk.returngrn(`GRNID`, `CompanyName`, `AddDate`, `ItemType`, `ReturnDate`, `Reason`, `UserID`, `Accepted`) VALUES ('$result[GRNID]','$result[CompanyName]','$result[AddDate]','$result[ItemType]','$_POST[ReturnDate]','$_POST[Reason]','$_SESSION[UserID]','Pending');";
+    //    echo $sql1;
+       $DB->runQuery($sql1);
+       $sql2 = "SELECT  `ItemID` FROM plunk.grnitem WHERE GRNID = $_POST[GRNID]";
+    //    echo $sql2;
+       $result= $DB->runQuery($sql2);
 
        $counter = count($result);
        $index = 0;
 
        while($counter>$index){
             $id = $result[$index]['ItemID'];
-            $sql2 = "SELECT `GRNID`, `ItemID`, `ItemName`, `Quantity` FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = $id";
-            // echo $sql2;
-            $result2= $DB->runQuery($sql2)[0];
-
-            $sql3 = "INSERT INTO plunk.returngrnitem(`GRNID`, `ItemID`, `ItemName`, `Quantity`) VALUES ('$result2[GRNID]','$result2[ItemID]','$result2[ItemName]','$result2[Quantity]')";
+            $sql3 = "SELECT `GRNID`, `ItemID`, `ItemName`, `Quantity` FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = '$id';";
             // echo $sql3;
-            $DB->runQuery($sql3);
+            $result2= $DB->runQuery($sql3)[0];
+
+            $sql4 = "INSERT INTO plunk.returngrnitem(`GRNID`, `ItemID`, `ItemName`, `Quantity`) VALUES ('$result2[GRNID]','$result2[ItemID]','$result2[ItemName]','$result2[Quantity]');";
+            // echo $sql4;
+            $DB->runQuery($sql4);
 
             $index++;
         }
@@ -355,13 +354,13 @@ if(isset($_POST['return-grn'])){
 
 if(isset($_POST['permission-return-grn'])){
     $DB =new DB;
-    
+
     if($_POST['accept'] == 'Yes'){
 
         try{
             $sql = "SELECT Accepted FROM plunk.returngrn WHERE GRNID='$_POST[GRNID]' ";
             $result = $DB->runQuery($sql)[0];
-            
+
             if($result['Accepted'] == 'Yes'){
                 $newPage = new Page('../view/grn/alreadyacceptmsg.html');
                 $newPage->show();
@@ -378,7 +377,7 @@ if(isset($_POST['permission-return-grn'])){
 
                 $counter = count($result);
                 $index = 0;
-                
+
                 while($counter>$index){
                     $id = $result[$index]['ItemID'];
                     $sql2 = "SELECT Quantity FROM plunk.grnitem WHERE GRNID = '$_POST[GRNID]' AND ItemID = $id";
@@ -399,7 +398,7 @@ if(isset($_POST['permission-return-grn'])){
                         // echo $sql3;
                         $DB->runQuery($sql3);
                     }
-                    
+
 
                     $index++;
                 }
@@ -414,14 +413,14 @@ if(isset($_POST['permission-return-grn'])){
 
                 $newPage = new Page('../view/grn/requestacceptmg.html');
                 $newPage->show();
-                
+
             }
 
         }
-                
+
         catch(\Throwable $th) {
             throw $th;
-    
+
         }
 
     }
@@ -429,7 +428,7 @@ if(isset($_POST['permission-return-grn'])){
         try{
             $sql = "SELECT Accepted FROM plunk.returngrn WHERE GRNID='$_POST[GRNID]' ";
             $result = $DB->runQuery($sql)[0];
-            
+
             if($result['Accepted'] == 'Yes'){
                 $newPage = new Page('../view/grn/alreadyacceptmsg.html');
                 $newPage->show();
@@ -447,12 +446,12 @@ if(isset($_POST['permission-return-grn'])){
                 $newPage = new Page('../view/grn/requestdenied.html');
                 $newPage->show();
             }
-            
+
         }
-            
+
         catch(\Throwable $th) {
             throw $th;
-    
+
         }
     }
 }
@@ -856,12 +855,12 @@ if(isset($_POST['delete-reservation'])){
 
 //--------------------------------------------feedback-------------------------------------------
 //----give feedback-------
-if(isset($_POST['give-feedback'])){
+if(isset($_POST['givefeedback'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.feedback (FeedBackID,FeedBack,FeedBackDate, UserID) VALUES ('','$_POST[FeedBack]','$_POST[CreatedDate]','$_SESSION[UserID]')";
-        $DB->runQuery($sql);
+        $sqlfeedback = "INSERT INTO plunk.feedback (FeedBackID,FeedBack,FeedBackDate, UserID) VALUES ('','$_POST[FeedBack]','$_POST[CreatedDate]','$_SESSION[UserID]')";
+        $DB->runQuery($sqlfeedback);
 
         $newPage = new Page('..\view\feedback\feebacksuccess.html');
         $newPage->show();
@@ -1192,9 +1191,10 @@ if(isset($_POST['add-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "INSERT INTO plunk.salarydetails(No,StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentage) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$_POST[BasicSalary]','$_POST[Bonus]','$_POST[ETF]','$_POST[EPF]','$_POST[Percentage]');";
-        //echo $sql;
-        $DB->runQuery($sql);
+        $sql = "SELECT * FROM plunk.usersalary WHERE UserType='$_POST[UserType]';";
+        $result = $DB->runQuery($sql)[0];
+        $sql2 = "INSERT INTO plunk.salarydetails(No,StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentage) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$result[basic]','$result[bonusValue]','$result[ETFvalue]','$result[EPFvalue]','$result[percentage]');";
+        $DB->runQuery($sql2);
         $newPage = new Page('..\view\basicdetails\addsuccess.php');
         $newPage->show();
 
@@ -1210,9 +1210,11 @@ if(isset($_POST['update-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE plunk.salarydetails SET `StaffID`='$_POST[StaffID]',`StaffName`='$_POST[StaffName]',`UserType`='$_POST[UserType]',`BasicSalary`='$_POST[BasicSalary]',`Bonus`='$_POST[Bonus]',`ETF`='$_POST[ETF]',`EPF`='$_POST[EPF]',`Percentage`='$_POST[Percentage]'  WHERE `StaffID` = '$_POST[StaffID]'";
+        $sql = "SELECT * FROM plunk.usersalary WHERE UserType='$_POST[UserType]'";
+        $result = $DB->runQuery($sql)[0];
+        $sql2 = "UPDATE plunk.salarydetails SET `StaffID`='$_POST[StaffID]',`StaffName`='$_POST[StaffName]',`UserType`='$_POST[UserType]',`BasicSalary`='$result[basic]',`Bonus`='$result[bonusValue]',`ETF`='$result[ETFvalue]',`EPF`='$result[EPFvalue]',`Percentage`='$result[percentage]'  WHERE `StaffID` = '$_POST[StaffID]'";
         //echo $sql;
-        $DB->runQuery($sql);
+        $DB->runQuery($sql2);
         $newPage = new Page('../view/basicdetails/updatesuccess.php');
         $newPage->show();
     } catch (\Throwable $th) {
@@ -1226,9 +1228,10 @@ if(isset($_POST['delete-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "SELECT * FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
-        $data = $DB->runQuery($sql)[0];
-        $sql2 = "DELETE FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
+        // $sql = "SELECT * FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
+        // $data = $DB->runQuery($sql)[0];
+        $sql2 = "DELETE FROM plunk.salarydetails WHERE StaffID='$_POST[StaffID]'";
+        
         $DB->runQuery($sql2);
 
         $newPage = new Page('../view/basicdetails/deletesuccess.php');
@@ -1604,6 +1607,22 @@ if (isset($_POST['changeclubpayment'])) {
       throw $th;
   }
 }
+
+//------------------------------------------------cashpayment----------------------------------------------------------------------------
+if(isset($_POST['cashpayment'])){
+    $DB = new DB;
+
+    try {
+        $sql = "UPDATE plunk.booking SET Payment='Yes', UserID='$_POST[UserID]' WHERE BookingID='$_POST[BookingID]'";
+        $DB->runQuery($sql);
+        $newPage = new Page('..\view\bookings\paymentupdatedsuccess.html');
+        $newPage->show();
+    } catch (\Throwable $th) {
+        throw $th;
+    }
+
+}
+
 //-------------------------------------------------holidays------------------------------------------------------------------------------
 if(isset($_POST['addholiday'])){
     $DB = new DB;

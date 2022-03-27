@@ -43,7 +43,7 @@
                   <div class="leftheader">
                       <img class="plunk" src="../images/projectlogo.png" alt="plunk logo"><br>
                       <div class="menudiv">
-                         <a href="gmnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() ><box-icon name='menu' animation='tada' color=#017a7a ></box-icon></button></a>
+                         <a href="gmnavbtn.html" class="menubtn" target="navigation"><button type="button" name="Menu" class="Menu" onclick=myFunction() ><box-icon name='menu' animation='tada' color=#0b7fab ></box-icon></button></a>
                       </div>
                   </div>
 

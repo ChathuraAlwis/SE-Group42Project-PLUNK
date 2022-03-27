@@ -25,7 +25,7 @@ html,body{
   border-radius: 20px;
   border-color:  #0b7fab;
  background-color:  #0b7fab;
-  /* border-color: #017a7a; /*#dcdcdc*/
+  /* border-color: #017a7a;
   background-color: #017a7a; */
   /* border-color: #03c9a9;
   background-color: #03c9a9; */
@@ -47,6 +47,9 @@ html,body{
   width: 100%;
 
 }
+table{
+  border: none;
+}
 th{
   font-family: sans-serif;
   font-size: 1.5vw;
@@ -55,8 +58,6 @@ th{
   border-style: solid;
   border-width: 1px;
   border-color:  #0b7fab;
-  /* border-color: #017a7a; */
-  /* border-color: #03c9a9; */
   background-color: white;
   text-align: center;
 }
