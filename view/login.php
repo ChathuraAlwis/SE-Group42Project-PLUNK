@@ -12,7 +12,8 @@
     <?php
       if(isset($_GET['result'])){
         if(!isset($_SESSION['UserName'])){
-          echo '<script>alert("Invail Username or Password")</script>';
+          // echo '<script>alert("Invail Username or Password")</script>';
+          $message = "Invail Username or Password.";
         }else{
           session_unset();;
         }
@@ -29,7 +30,7 @@
       <img class="Logo2" src="../view/images/bloomfieldlogo.png" alt="Bloomfield Logo">
 
       <p><br></p>
-
+      <font style="color:red"><center><?php if(isset($message)) { echo $message; } ?></center></font><br>
           <div class="form-control">
                 <label for="UserName"><b>User Name</b></label>
                 <input name ="UserName" id="UserName" type="text" placeholder="Enter Your username" <?php if(isset($_SESSION['UserName'])){echo "value=$_SESSION[UserName]";}?>>
