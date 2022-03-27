@@ -26,15 +26,22 @@ date_default_timezone_set("Asia/Kolkata");?>
                             if(isset($_GET['OrderBy'])){
                               $sql .= " ORDER BY $_GET[OrderBy]";
                             }
-                            $bookingTable->show($sql, 'restaurantupdate');
+                            if($_SESSION['UserType'] == 'Accountant'){
+                              $bookingTable->show($sql, 'accrestaurantpayment');
+                            }
+                            else{
+                              $bookingTable->show($sql, 'restaurantupdate');
+                            }
+                            
                           }
                           else {
-
 
                           if($_SESSION['UserType'] == 'Manager'){
                               $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Restaurant') AND Payment='No'AND ReservedDate>='$today'  ", 'restaurantupdate');
                           }
-
+                          else if($_SESSION['UserType'] == 'Accountant'){
+                            $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place',ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',Total as 'Total Payment',Payment, ContactNo as 'Contact No' FROM plunk.booking WHERE BookingType in ('Restaurant') AND Payment='No' ", 'accrestaurantpayment');
+                          }
                             else {
                               $bookingTable->show("SELECT BookingID as 'Booking ID',CustomerName as Name,Reservation as 'Reserved Place', ReservedDate as 'Reserved Date',ReservedTime as 'Reserved Time',EndTime as 'End time' FROM plunk.booking WHERE BookingType in ('Restaurant') AND ReservedDate>='$today' ",);
                             }

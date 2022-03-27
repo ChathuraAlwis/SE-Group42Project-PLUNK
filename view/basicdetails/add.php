@@ -55,7 +55,7 @@
                         <td><input type="text" id="UserType" name="UserType"  required class="form-control"  placeholder="Select the staff Name" value = "<?php echo "$result2[UserType]";?>"/></td>
                     </div>
                 </tr>
-                        <tr>
+                        <!-- <tr>
                             <td><label for="BasicSalary">Basic Total</label></td>
                             <td><input type="text" id= "BasicSalary" name="BasicSalary" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
                         </tr>
@@ -74,7 +74,7 @@
                         <tr>
                             <td><label for="Percentage">Service Charge Percentage</label></td>
                             <td><input type="text" id= "Percentage" name="Percentage" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the value"/></td>
-                        </tr>
+                        </tr> -->
                     </table>
                         
             
