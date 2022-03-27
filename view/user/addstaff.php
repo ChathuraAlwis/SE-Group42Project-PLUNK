@@ -71,7 +71,7 @@
 
                 <div class="forminputs">
                   <div class="submitbtn">
-                  <button type="submit"  class="add" id="add" name="submit" value="submit" formaction="..\..\controller\CRUD.php" onclick='<?php echo 'checkUser('. $result .')';?>'><b>Add</b> </button>
+                  <button type="submit"  class="add" id="add" name="submit" value="submit" onclick='<?php echo 'checkUser('. $result .')';?>'><b>Add</b> </button>
                   <button type="reset" id="reset" class="add" name="reset" value="reset"><b>Reset</b></button>
                 </div>
                 </div>

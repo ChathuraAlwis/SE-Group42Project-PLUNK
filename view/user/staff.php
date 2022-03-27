@@ -16,7 +16,21 @@
                       <?php
                           require_once "..\..\controller\showtable.php";
                           $orderTable = new Table("user");
-                          $orderTable->show("SELECT DisplayID as 'Staff ID',Name, UserType as 'User Type', Email as 'E-mail', ContactNo as 'Contact No', JoinedYear as 'Joined Date' FROM plunk.user WHERE IsDeleted = 'No' AND UserType in ('Admin', 'Manager','Accountant','Restaurant Manager','Cashier','Staff Member') order by UserID desc", 'update');
+
+                          if(isset($_GET['Name'])){
+                            $search = $_GET['Name'];
+                            $sql = "SELECT DisplayID as 'Staff ID',Name, UserType as 'User Type', Email as 'E-mail', ContactNo as 'Contact No', JoinedYear as 'Joined Date' FROM plunk.user WHERE IsDeleted = 'No' AND UserType in ('Admin', 'Manager','Accountant','Restaurant Manager','Cashier','Staff Member')   AND Name LIKE ('%$search%')";
+
+                            if(isset($_GET['OrderBy'])){
+                              $sql .= " ORDER BY $_GET[OrderBy]";
+                            }
+
+                              $orderTable->show($sql, 'update');
+
+                          }
+                          else {
+                          $orderTable->show("SELECT DisplayID as 'Staff ID',Name, UserType as 'User Type', Email as 'E-mail', ContactNo as 'Contact No', JoinedYear as 'Joined Date' FROM plunk.user WHERE IsDeleted = 'No' AND UserType in ('Admin', 'Manager','Accountant','Restaurant Manager','Cashier','Staff Member') ", 'update');
+                        }
                        ?>
 
 

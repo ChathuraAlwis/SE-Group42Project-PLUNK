@@ -20,7 +20,7 @@
     require_once "..\..\model\database.php";
 
 
-      $API_KEY ="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";
+      $API_KEY ="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";
     if (isset($_POST['sendmail'])) {
       $DB = new DB;
       $name = $_POST['Name'];
@@ -30,7 +30,7 @@
 
 
       $email = new \SendGrid\Mail\Mail();
-      $email->setFrom("shandilranga61@gmail.com", "shan dilranga");
+      $email->setFrom("shandilranga62@gmail.com", "shan dilranga");
       $email->setSubject($subject);
       $email->addTo($email_id, $name);
       $email->addContent("text/plain", $massage);
@@ -149,7 +149,7 @@
                                   <script>
 
                                                   var table = document.getElementById('table');
-                                                  var msg=" Hello, Your Request has accepted by the bllomfield Management.";
+                                                  var msgs=" Hello, Your Request has accepted by the bllomfield Management.";
                                                   for(var i = 1; i < table.rows.length; i++)
                                                   {
                                                       table.rows[i].onclick = function()
@@ -158,7 +158,7 @@
                                                            document.getElementById("SignupID").value = this.cells[0].innerHTML;
                                                            document.getElementById("Name").value = this.cells[1].innerHTML;
                                                            document.getElementById("Email").value = this.cells[2].innerHTML;
-                                                           document.getElementById("message").value =msg+"User Name :"+ this.cells[3].innerHTML+" "+"Password :"+this.cells[4].innerHTML+" "+"Member ID :"+this.cells[5].innerHTML;
+                                                           document.getElementById("message").value = msgs+"User Name :"+ this.cells[3].innerHTML+" "+"Password :"+this.cells[4].innerHTML+" "+"Member ID :"+this.cells[5].innerHTML;
                                                            // document.getElementById("message").value = this.cells[3].innerHTML;
 
 

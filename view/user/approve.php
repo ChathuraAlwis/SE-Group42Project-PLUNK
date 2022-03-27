@@ -34,20 +34,20 @@
                                 <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
                                   <input name ="giveapprove" type="hidden" >
                                   <div class="submain">
-                                    <div class="imagebox">
+                                    <!-- <div class="imagebox">
                                       <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;" readonly>
 
-                                      <?php echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';?>
-                                      <!-- <label for="file" class="upload"><b>Upload Image</b> </label>
+                                      <?php //echo '<img id="output" alt="No Profile Picture" src="data:image/jpeg;base64,'.base64_encode($result['ProfilePic']).'"/>';?>
+                                      <label for="file" class="upload"><b>Upload Image</b> </label>
 
                                       <script>
                                       var loadFile = function(event) {
                                       	var image = document.getElementById('output');
                                       	image.src = URL.createObjectURL(event.target.files[0]);
                                       };
-                                      </script> -->
+                                      </script>
 
-                                    </div><br>
+                                    </div><br> -->
                                     <div class="forminputs">
                                         <label for="Name"> Sign-up ID</label><br>
                                         <input type="text" id="SignupID" class="input" name="SignupID" value ="<?php echo "$result[SignupID]";?>" readonly>

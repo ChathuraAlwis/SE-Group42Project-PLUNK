@@ -23,14 +23,29 @@
             <div class="covertable">
                 <div class="table">
                     <div class="upperbar">
-                          <input type="text" name="search" class="search" placeholder="Search..." >
+                      <form class="searchbar" action="JoinRequests.php" method="post">
+                        <!-- <input type="hidden" name="clubsearch" > -->
+                        <input type="text" id="clubsearch" name="clubsearch" class="search" placeholder="Search By Name" value="<?php if(isset($_POST['clubsearch'])) { echo "$_POST[clubsearch]"; } ?>" required>
+
+                              <button type = "submit" class = "searchbtn" ><b>Search</b></button>
+
+                      </form>
+                          <!-- <input type="text" name="search" class="search" placeholder="Search..." > -->
                           <div class="addicon2">
                                 <a href="mail.php" class="add"><button type="button" name="button" class="addbtn"><b><i class="material-icons">&#xe158;</i></b></button></a>
                           </div>
 
                     </div>
                     <div class="detailtable">
-                            <iframe src="requeststable.php" class="staff"></iframe>
+                      <?php
+                        if(isset($_POST['clubsearch'])){
+                          echo'<iframe src="requeststable.php?Name='.$_POST['clubsearch'].'" name="searchinfo" class="staff"></iframe>';
+                        }
+                        else{
+                          echo '<iframe src="requeststable.php" name="searchinfo" class="staff"></iframe>';
+                        }
+                      ?>
+                            <!-- <iframe src="requeststable.php" class="staff"></iframe> -->
                     </div>
 
                 </div>
