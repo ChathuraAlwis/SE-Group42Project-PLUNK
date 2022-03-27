@@ -35,7 +35,7 @@
 
                 <div class="forminputs">
                     <label for="userType"> Staff Category Type</label><br>
-                    <input type="text" id="userType" class="input" name="userType" value = "<?php echo "$result[userType]";?>"  readonly>
+                    <input type="text" id="UserType" class="input" name="UserType" value = "<?php echo "$result[UserType]";?>"  readonly>
                 </div><br>
 
                 <div class="forminputs">
@@ -44,7 +44,7 @@
                 </div><br>
 
                 <div class="forminputs">
-                    <label for="bonusValue"> Bounus Percentage </label><br>
+                    <label for="bonusValue"> Bonus Percentage </label><br>
                     <input type="number" id="bonusValue" class="input" name="bonusValue" min=0 oninput="validity.valid||(value='');" value = "<?php echo "$result[bonusValue]";?>" required>
                 </div><br>
 

@@ -1173,7 +1173,7 @@ if(isset($_POST['update-basicsalary'])){
     $DB = new DB;
 
     try {
-        $sql = "UPDATE plunk.usersalary SET basic='$_POST[basic]', bonusValue='$_POST[bonusValue]', ETFvalue='$_POST[ETFvalue]',EPFvalue='$_POST[EPFvalue]',percentage='$_POST[percentage]' WHERE userType='$_POST[userType]'";
+        $sql = "UPDATE plunk.usersalary SET basic='$_POST[basic]', bonusValue='$_POST[bonusValue]', ETFvalue='$_POST[ETFvalue]',EPFvalue='$_POST[EPFvalue]',percentage='$_POST[percentage]' WHERE UserType='$_POST[UserType]'";
         $DB->runQuery($sql);
 
         $newPage = new Page('..\view\staffpayments\updateusesalsuccess.html');
@@ -1191,10 +1191,10 @@ if(isset($_POST['add-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "SELECT * FROM plunk.usersalary WHERE UserType='$_POST[UserType]';";
+        $sql = "SELECT * FROM plunk.usersalary WHERE UserType='$_POST[UserType]';";     
         $result = $DB->runQuery($sql)[0];
         $sql2 = "INSERT INTO plunk.salarydetails(No,StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentage) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$result[basic]','$result[bonusValue]','$result[ETFvalue]','$result[EPFvalue]','$result[percentage]');";
-        $DB->runQuery($sql2);
+        $DB->runQuery($sql2);  
         $newPage = new Page('..\view\basicdetails\addsuccess.php');
         $newPage->show();
 
