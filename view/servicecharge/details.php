@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,10 +13,19 @@
         <div class="main" >
 
                     <div class="detailtable">
-                      <?php
+                    <?php
                           require_once "../../controller/showtable.php";
-                          $orderTable = new Table("servicecharge");
-                          $orderTable->show("SELECT ServiceChargeID as 'Service Charge ID', Date, WorkingDays as 'Working Days' FROM plunk.servicecharge",'alltable');
+                          $serviceTable = new Table("servicecharge");
+                          if(isset($_GET['servicesearch'])){
+                            $search = $_GET['servicesearch'];
+                            $serviceTable->show("SELECT ServiceChargeID as 'Service Charge ID', Date, WorkingDays as 'Working Days' FROM plunk.servicecharge WHERE Date LIKE ('%$search%');",'alltable');
+    
+                          }
+                          else{
+                            $serviceTable->show("SELECT ServiceChargeID as 'Service Charge ID', Date, WorkingDays as 'Working Days' FROM plunk.servicecharge",'alltable');
+                            
+                          }
+                          
                        ?>
 
                     </div>
