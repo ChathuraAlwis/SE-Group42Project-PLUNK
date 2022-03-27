@@ -13,7 +13,7 @@
       if(isset($_GET['result'])){
         if(!isset($_SESSION['UserName'])){
           // echo '<script>alert("Invail Username or Password")</script>';
-          $message = "Invail Username or Password.";
+          $message = "Invalid Username or Password.";
         }else{
           session_unset();;
         }
