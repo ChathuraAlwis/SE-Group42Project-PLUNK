@@ -1270,8 +1270,10 @@ if(isset($_POST['delete-basicdetail'])){
 
 
         try {
-
-            $sql = "UPDATE plunk.leave SET Accepted='Yes' WHERE UserID='$_POST[UserID]' AND LeaveDate='$_POST[LeaveDate]' ";
+            $manager = $_SESSION['UserID'];
+            // echo  $manager;
+            $sql = "UPDATE plunk.leave SET Accepted='Yes', ManagerID=$manager WHERE UserID='$_POST[UserID]' AND LeaveDate='$_POST[LeaveDate]' ";
+            // echo $sql;
             $DB->runQuery($sql);
 
             $newPage = new Page('..\view\leave\accepted.html');
@@ -1286,8 +1288,8 @@ if(isset($_POST['delete-basicdetail'])){
       $DB = new DB;
 
       try {
-
-          $sql = "UPDATE plunk.leave SET Accepted='No' WHERE UserID='$_POST[UserID]' AND LeaveDate='$_POST[LeaveDate]' ";
+          $manager = $_SESSION['UserID'];
+          $sql = "UPDATE plunk.leave SET Accepted='No', ManagerID=$manager WHERE UserID='$_POST[UserID]' AND LeaveDate='$_POST[LeaveDate]' ";
           $DB->runQuery($sql);
 
           $newPage = new Page('..\view\leave\denied.html');

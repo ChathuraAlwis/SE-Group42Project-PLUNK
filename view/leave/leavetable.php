@@ -23,7 +23,7 @@ session_start();?>
                         if($_SESSION['UserType'] == 'Manager'){
                           if(isset($_GET['leavesearch'])){
                             $search = $_GET['leavesearch'];
-                            $sql = "SELECT * FROM plunk.leave WHERE LeaveDate='$search'";
+                            $sql = "SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted, ManagerID AS 'Manager ID' FROM plunk.leave WHERE LeaveDate='$search' order by LeaveDate ASC";
                             if(isset($_GET['OrderBy'])){
                               $orderBy = str_replace("-", " ", $_GET['OrderBy']);
                               $sql .= " ORDER BY $orderBy";
@@ -31,7 +31,7 @@ session_start();?>
                             $itemTable->show($sql, 'givepermission');
                           }
                           else{
-                            $sql = "SELECT * FROM plunk.leave";
+                            $sql = "SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted, ManagerID AS 'Manager ID' FROM plunk.leave order by LeaveDate ASC";
                             if(isset($_GET['OrderBy'])){
                               $orderBy = str_replace("-", " ", $_GET['OrderBy']);
                               $sql .= " ORDER BY $orderBy";
@@ -42,7 +42,7 @@ session_start();?>
                         else{
                           if(isset($_GET['leavesearch'])){
                             $search = $_GET['leavesearch'];
-                            $sql = "SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]' and LeaveDate='$search'";
+                            $sql = "SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]' and LeaveDate='$search' order by LeaveDate ASC";
                             if(isset($_GET['OrderBy'])){
                               $orderBy = str_replace("-", " ", $_GET['OrderBy']);
                               $sql .= " ORDER BY $orderBy";
@@ -50,7 +50,7 @@ session_start();?>
                             $itemTable->show($sql, 'update');
                           }
                           else{
-                            $sql = "SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]'";
+                            $sql = "SELECT LeaveDate As 'Leave Date',LeaveType AS 'Leave Type', NoOfdays AS 'No of leave days',Reason,Accepted FROM plunk.leave where UserID = '$_SESSION[UserID]' order by LeaveDate ASC";
                             if(isset($_GET['OrderBy'])){
                               $orderBy = str_replace("-", " ", $_GET['OrderBy']);
                               $sql .= " ORDER BY $orderBy";
