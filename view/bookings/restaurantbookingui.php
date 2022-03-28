@@ -47,9 +47,9 @@ date_default_timezone_set("Asia/Kolkata");?>
                                   <?php }
                                 else if($_SESSION['UserType'] == 'Accountant'){
                                   ?>
-                                  <form class="" action="restaurantbookingui.php" method="post">
-
                                   
+
+
                                  <?php //if member has unpaid bookings, he can not add new booking until payment will complete
                                  require_once "..\..\model\database.php";
                                  require_once "..\..\controller\pages.php";
@@ -72,7 +72,7 @@ date_default_timezone_set("Asia/Kolkata");?>
 
                                       if (isset($_POST['check'])) {
                                         $DB = new DB;
-                                      $notpaid="SELECT BookingID FROM plunk.booking WHERE BookingType ='Restaurant' AND Payment='No'AND UserID= '$_SESSION[UserID]'";
+                                      $notpaid="SELECT BookingID FROM plunk.booking WHERE BookingType ='Restaurant' AND (permission='Confirmed' OR permission='No Decision') AND Payment='No'AND UserID= '$_SESSION[UserID]'";
                                       $paidslot=$DB->runQuery($notpaid);
                                       $nonotpaid= count($paidslot);
 
