@@ -150,7 +150,7 @@
               <?php
               require '..\..\model\bookingdatabaseconnection.php';
 // C:\xampp\htdocs\project\SE-Group42Project-PLUNK\model\bookingdatabaseconnection.php
-              $records = mysqli_query($conn,"SELECT * FROM plunk.reservationmenu WHERE Type ='Restaurant' and IsDeleted='No'");
+              $records = mysqli_query($conn,"SELECT * FROM plunk.reservationmenu WHERE Type ='Restaurant' AND Availability='Yes' and IsDeleted='No'");
               while($data = mysqli_fetch_array($records))
               {
               ?>
