@@ -115,7 +115,7 @@
                     <option selected>Choose correct detail...</option>
                         <option value="1">Total leaves less than 5</option>
                         <option value="2">All Medical leaves greater than 7</option>
-                        <option value="3">Total leaves greater than 5</option>
+                        <option value="3">Total Casual leaves greater than 5</option>
                      </select></td>
                     </div>
                 </tr>
