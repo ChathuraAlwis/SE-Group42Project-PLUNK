@@ -190,12 +190,12 @@ h2{
   width: 45%;
   height:auto;
   border-radius: 50px;
-  color:#474747;
+  color: rgb(240, 230, 230);
   font-size: 1.5vw;
   transition-duration: 1s;
 }
 .add:hover{
-  background-color: #acacac;
+  background-color: #474747;;
 
 }
 .imagebox{
