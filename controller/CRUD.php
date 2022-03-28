@@ -637,6 +637,11 @@ if(isset($_POST['add-staff'])||isset($_POST['add-member'])){
     try {
           $sql = "INSERT INTO plunk.user (UserID, Name, UserName, Password, Email, ContactNo, JoinedYear, DisplayID,UserType) VALUES ( '' , '$_POST[Name]',  '$_POST[UserName]','$hashedpassword', '$_POST[Email]', '$_POST[ContactNo]','$_POST[JoinedYear]','$_POST[DisplayID]','$_POST[UserType]')";
          $DB->runQuery($sql);
+
+           $lastid="UPDATE plunk.lastdisplayid SET ID='$_POST[DisplayID]' WHERE MemberType='$_POST[UserType]'";
+           $DB->runQuery($lastid);
+
+
          $type="$_POST[UserType]";
          if($type=='Manager'||$type=='Admin'||$type=='Accountant'||$type=='Restaurant Manager'||$type=='Cashier'||$type=='Staff Member'){
            $newPage = new Page('..\view\user\success.html');
@@ -667,6 +672,7 @@ if(isset($_POST['update-user'])){
     try {
         $sql = "UPDATE plunk.user SET Name='$_POST[Name]', DisplayID='$_POST[DisplayID]',UserID='$_POST[UserID]', UserType='$_POST[UserType]', JoinedYear='$_POST[JoinedYear]', Email='$_POST[Email]', ContactNo='$_POST[ContactNo]' WHERE UserID='$_POST[UserID]'";
         $DB->runQuery($sql);
+        
         $type="$_POST[UserType]";
         if($type=='Manager'||$type=='Admin'||$type=='Accountant'||$type=='Restaurant Manager'||$type=='Cashier'||$type=='Staff Member'){
           $newPage = new Page('..\view\user\updatestaffsuccess.html');
@@ -1191,10 +1197,10 @@ if(isset($_POST['add-basicdetail'])){
     $DB = new DB;
 
     try {
-        $sql = "SELECT * FROM plunk.usersalary WHERE UserType='$_POST[UserType]';";     
+        $sql = "SELECT * FROM plunk.usersalary WHERE UserType='$_POST[UserType]';";
         $result = $DB->runQuery($sql)[0];
         $sql2 = "INSERT INTO plunk.salarydetails(No,StaffID,StaffName,UserType,BasicSalary,Bonus,ETF,EPF,Percentage) VALUES ('','$_POST[StaffID]','$_POST[StaffName]','$_POST[UserType]','$result[basic]','$result[bonusValue]','$result[ETFvalue]','$result[EPFvalue]','$result[percentage]');";
-        $DB->runQuery($sql2);  
+        $DB->runQuery($sql2);
         $newPage = new Page('..\view\basicdetails\addsuccess.php');
         $newPage->show();
 
@@ -1231,7 +1237,7 @@ if(isset($_POST['delete-basicdetail'])){
         // $sql = "SELECT * FROM plunk.salarydetails WHERE StaffID=$_POST[StaffID]";
         // $data = $DB->runQuery($sql)[0];
         $sql2 = "DELETE FROM plunk.salarydetails WHERE StaffID='$_POST[StaffID]'";
-        
+
         $DB->runQuery($sql2);
 
         $newPage = new Page('../view/basicdetails/deletesuccess.php');
