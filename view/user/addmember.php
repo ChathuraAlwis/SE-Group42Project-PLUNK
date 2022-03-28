@@ -13,10 +13,13 @@
   <body>
     <?php
         require_once "../../model/database.php";
+        require_once "..\..\controller\showtable.php";
         $DB = new DB;
         $sql = "SELECT UserName, DisplayID, Email FROM plunk.user;";
         $result = json_encode($DB->runQuery($sql));
         date_default_timezone_set("Asia/Kolkata");
+
+
     ?>
         <div class="main" >
             <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
@@ -45,7 +48,7 @@
                     <label for="UserName"> User Name</label><br>
                     <input type="text" id="UserName" class="input" name="UserName" maxlength="50" onchange='<?php echo 'checkUserName('. $result .')';?>' required>
                 </div><br>
-                
+
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>
@@ -68,6 +71,12 @@
                 </div>
               </div>
             </form>
+            <div class="ids">
+              <h3 class="idtitle">Latest Member ID</h3>
+              <?php
+              $orderTable = new Table("lastdisplayid");
+              $orderTable->show("SELECT * FROM plunk.lastdisplayid where MemberType IN ('HL Member','Life Member','Ordinary Member')",);?>
+            </div>
         </div>
 
   </body>

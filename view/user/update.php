@@ -21,7 +21,7 @@
 
     ?>
         <div class="main" >
-            <form class="adduser" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
+            <form class="adduser2" action="..\..\controller\CRUD.php" method="post" autocomplete="on" >
               <input name ="update-user" type="hidden" >
 
               <div class="headerrow">
@@ -37,7 +37,7 @@
 
                 <div class="newforminputs1">
                     <label for="DisplayID" class="staffid"> Display Id :</label>
-                    <input type="text" id="DisplayID" name="DisplayID" maxlength="10" value = "<?php echo "$result[DisplayID]";?>" required>
+                    <input type="text" id="DisplayID" name="DisplayID" maxlength="10" value = "<?php echo "$result[DisplayID]";?>" readonly>
                 </div>
                 <div class="newforminputs">
                     <label for="UserID"> User Id :</label>

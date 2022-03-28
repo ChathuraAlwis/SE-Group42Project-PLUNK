@@ -150,6 +150,7 @@
 
                                                   var table = document.getElementById('table');
                                                   var msgs=" Hello, Your Request has accepted by the bllomfield Management.";
+                                                  var title=" Request Approved";
                                                   for(var i = 1; i < table.rows.length; i++)
                                                   {
                                                       table.rows[i].onclick = function()
@@ -159,6 +160,7 @@
                                                            document.getElementById("Name").value = this.cells[1].innerHTML;
                                                            document.getElementById("Email").value = this.cells[2].innerHTML;
                                                            document.getElementById("message").value = msgs+"User Name :"+ this.cells[3].innerHTML+" "+"Password :"+this.cells[4].innerHTML+" "+"Member ID :"+this.cells[5].innerHTML;
+                                                           document.getElementById("Subject").value =title;
                                                            // document.getElementById("message").value = this.cells[3].innerHTML;
 
 
@@ -171,7 +173,7 @@
                                 </div><br><br>
                                 <div class="resevationtable2">
                                   <h3 class="ReservationMenu">Denied Member Requestes</h3>
-                                  <table id="table" >
+                                  <table id="table2" >
                                     <tr>
                                       <th>Sign-up ID</th>
                                       <th>Name</th>
@@ -205,8 +207,9 @@
                                   <?php mysqli_close($conn); // Close connection ?>
                                   <script>
 
-                                                  var table = document.getElementById('table');
+                                                  var table = document.getElementById('table2');
                                                   var msg=" Hello, Your Request has denied by the bllomfield Management.";
+                                                  var title=" Request Denied";
                                                   for(var i = 1; i < table.rows.length; i++)
                                                   {
                                                       table.rows[i].onclick = function()
@@ -216,6 +219,7 @@
                                                            document.getElementById("Name").value = this.cells[1].innerHTML;
                                                            document.getElementById("Email").value = this.cells[2].innerHTML;
                                                            document.getElementById("message").value =msg+" "+"Reason is :" +this.cells[3].innerHTML;
+                                                           document.getElementById("Subject").value =title;
                                                            // document.getElementById("message").value = this.cells[3].innerHTML;
 
 
