@@ -110,7 +110,7 @@
        </div>
         <div class = "rightbottom">
             <div class="itemtable">
-            <h3>MONTHLY PROFIT DETAILS TABLE</h3>
+            <h3>MONTHLY TOTAL SERVICE CHARGE DETAILS TABLE</h3>
                 <?php if(isset($month)){
                     echo "<iframe src='../report/MonthlySales.php?today=$month&ser' class='item'></iframe>";
                 }else{
