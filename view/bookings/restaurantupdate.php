@@ -91,8 +91,11 @@
                   </div>
                 <div class="line3">
                   <button type="submit" name="button" class="add" formaction="restaurentupdatetwo.php?data=<?php echo $_GET['data'];?>">  <b>Edit</b>  </button>
-
-                  <button type="submit" name="button" class="Payment" formaction="..\bookings\payhere.php?data=<?php echo $_GET['data'];?>" ><b>Payment</b> </button>
+                  <?php if ($result['permission']=='Confirmed') { ?>
+                  <button type="submit" name="button" class="Payment" formaction="..\bookings\payhere.php?data=<?php echo $_GET['data'];?>" ><b>Payment</b> </button> <?php }
+                  elseif ($result['permission']=='Denied') {?>
+                    <button type="submit" name="button" class="Payment" formaction="..\bookings\deniedpayment.html" ><b>Payment</b> </button><?php }else { ?>
+                      <button type="submit" name="button" class="Payment" formaction="..\bookings\nodecisionpayment.html" ><b>Payment</b> </button> <?php } ?>
 
                 </div>
                 <?php if($_SESSION['UserType'] == 'Manager'){ ?>

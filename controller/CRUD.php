@@ -672,7 +672,7 @@ if(isset($_POST['update-user'])){
     try {
         $sql = "UPDATE plunk.user SET Name='$_POST[Name]', DisplayID='$_POST[DisplayID]',UserID='$_POST[UserID]', UserType='$_POST[UserType]', JoinedYear='$_POST[JoinedYear]', Email='$_POST[Email]', ContactNo='$_POST[ContactNo]' WHERE UserID='$_POST[UserID]'";
         $DB->runQuery($sql);
-        
+
         $type="$_POST[UserType]";
         if($type=='Manager'||$type=='Admin'||$type=='Accountant'||$type=='Restaurant Manager'||$type=='Cashier'||$type=='Staff Member'){
           $newPage = new Page('..\view\user\updatestaffsuccess.html');
@@ -1354,7 +1354,7 @@ if(isset($_POST['addbook'])){
 
                     if ($planday>=$reserve) {
 
-                      $newPage = new Page('..\view\bookings\forneardaysuccess.php');
+                      $newPage = new Page('..\view\bookings\addbookingsuccess.html');
                       $newPage->show();
                     }else {
                       $newPage = new Page('..\view\bookings\addbookingsuccess.html');
@@ -1411,7 +1411,7 @@ elseif (isset($_POST['add-clubbook'])) {
 
         if ($planday>=$reserve) {
 
-          $newPage = new Page('..\view\bookings\forneardaysuccess.php');
+          $newPage = new Page('..\view\bookings\addclubbookingsuccess.html');
           $newPage->show();
         }else {
           $newPage = new Page('..\view\bookings\addclubbookingsuccess.html');
