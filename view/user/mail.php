@@ -209,7 +209,7 @@
 
                                                   var table = document.getElementById('table2');
                                                   var msg=" Hello, Your Request has denied by the bllomfield Management.";
-                                                  var title=" Request Denied";
+                                                  var titletwo=" Request Denied";
                                                   for(var i = 1; i < table.rows.length; i++)
                                                   {
                                                       table.rows[i].onclick = function()
@@ -219,7 +219,7 @@
                                                            document.getElementById("Name").value = this.cells[1].innerHTML;
                                                            document.getElementById("Email").value = this.cells[2].innerHTML;
                                                            document.getElementById("message").value =msg+" "+"Reason is :" +this.cells[3].innerHTML;
-                                                           document.getElementById("Subject").value =title;
+                                                           document.getElementById("Subject").value =titletwo;
                                                            // document.getElementById("message").value = this.cells[3].innerHTML;
 
 
