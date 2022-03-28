@@ -55,7 +55,7 @@
                     
                     <td><select id="Type" name="Type" class="form-control" placeholder="Enter the type" onchange="changeType(this);">
                     <option selected>Choose type...</option>
-                    <option value="Annual">Annual Leaves</option>
+                    <!-- <option value="Annual">Annual Leaves</option> -->
                     <option value="Casual">Casual Leaves</option>
                     <option value="Medical">Medical Leaves</option>
                      </select></td>

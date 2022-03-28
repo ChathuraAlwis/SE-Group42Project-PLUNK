@@ -101,11 +101,13 @@ function calculateTotal(obj){
     var EPF = parseInt(document.getElementById("EPF").value);
     var ETF = parseInt(document.getElementById("ETF").value);
     var Bonus = parseInt(document.getElementById("Bonus").value);
+    var Bonus = parseInt(document.getElementById("Num").value);
 
     Basic = isNaN(Basic) ? 0 : Basic;
     EPF = isNaN(EPF) ? 0 : EPF;
     ETF = isNaN(ETF) ? 0 : ETF;
     Bonus = isNaN(Bonus) ? 0 : Bonus;
+    Num = isNaN(Num) ? 0 : Bonus;
 
     var Salary = Basic + Basic*(Bonus + EPF + ETF)/100;
     var Total = document.getElementById("Total");
@@ -115,10 +117,10 @@ function calculateTotal(obj){
             Total.value = Salary;
             break;
         case "2":
-            Total.value = Salary/2;
+            Total.value = Salary - (Basic*((Num-7)/60)) ;
             break;
         case "3":
-            Total.value = (Salary)*30/100;
+            Total.value = Basic + (Basic*((Num-5)/30));
             break;
         default:
             break;

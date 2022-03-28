@@ -98,6 +98,14 @@
                     </div>
                 </tr>
                 <tr><td><br></td></tr>
+                <tr>
+                    <div class="form-group">
+                        <td><label for="Num">Leave days</label></td>
+                        <td></td>
+                        <td><input type="number" id="Num" name="Num" required class="form-control" min=0 oninput="validity.valid||(value='');" placeholder="Enter the total leaves"/></td>
+                    </div>
+                </tr>
+                <tr><td><br></td></tr>
 
                 <tr>
                 <div class="form-group">
