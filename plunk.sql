@@ -864,7 +864,6 @@ INSERT INTO `user` (`UserID`, `Name`, `UserName`, `Password`, `Email`, `ContactN
 INSERT INTO `user` (`UserID`, `Name`, `UserName`, `Password`, `Email`, `ContactNo`, `JoinedYear`, `DisplayID`, `UserType`, `ProfilePic`, `IsDeleted`) VALUES
 (4, 'Chathura Alwis', 'Chathura', '$2y$10$32qhL..6B.Q4aVGPxAuRyOEo6jVIf9H6TcMX1uBnW4MQ5bSvH8luC', 'chathura@gmail.com', 788854567, '2019-07-19', 'GM00001', 'Manager', NULL, 'No'),
 (6, 'Member', 'Member', '$2y$10$9RaH99CEpIK1ivO.KwhRUOdsalIUeP3vYuzT/2xd8PU4vfgmfF7sG', 'member@gmail.com', 789012346, '2020-08-30', 'LM00001', 'Life Member', NULL, 'Yes'),
-(7, 'Piyal Perera', 'piyal(member)', '$2y$10$9RaH99CEpIK1ivO.KwhRUOdsalIUeP3vYuzT/2xd8PU4vfgmfF7sG', 'piyal@gmail.com', 781154576, '2018-10-17', 'OM00002', '', NULL, 'Yes'),
 (13, 'U.P.Perera', 'Priyani', '$2y$10$tUb0K.wyPaVrM7UV2wTdy.yTCBF/K3FJGMnm46XW1apxjVEwtkYOa', 'priyani@gmail.com', 789012346, '2021-10-05', 'S00002', 'Staff Member', NULL, 'No'),
 (14, 'S.Rubasinghe', 'Sumith', '$2y$10$hw0xzIbaG57V11zsEmXsZueeYXOQx71VriiLYStCu6ehnJV8/Qjem', 'sumith@gmail.com', 789012342, '2021-10-03', 'S00001', 'Staff Member', NULL, 'No'),
 (15, 'J.S.Peris', 'Jayani', '$2y$10$9A/2JIgWKjr0m3fH2oNmrOglFJNsd.XJ0zylSYEH/M4itx8iVmARG', 'Jayani@gmail.com', 719012346, '2021-10-17', 'HL00002', 'HL Member', NULL, 'No'),
@@ -1321,12 +1320,6 @@ ALTER TABLE `deleteitem`
   ADD CONSTRAINT `deleteitem_ibfk_1` FOREIGN KEY (`CompanyID`) REFERENCES `item` (`ItemID`);
 
 --
--- Constraints for table `deleteuser`
---
-ALTER TABLE `deleteuser`
-  ADD CONSTRAINT `deleteuser_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Constraints for table `feedback`
 --
 ALTER TABLE `feedback`
@@ -1444,6 +1437,3 @@ CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1
 USE `test`;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
