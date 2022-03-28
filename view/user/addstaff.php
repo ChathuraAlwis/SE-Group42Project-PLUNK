@@ -13,6 +13,7 @@
   <body>
   <?php
         require_once "../../model/database.php";
+        require_once "..\..\controller\showtable.php";
         $DB = new DB;
         $sql = "SELECT UserName, DisplayID, Email FROM plunk.user;";
         $result = json_encode($DB->runQuery($sql));
@@ -49,10 +50,7 @@
                     <label for="UserName"> User Name</label><br>
                     <input type="text" id="UserName" class="input" name="UserName" maxlength="50" onchange='<?php echo 'checkUserName('. $result .')';?>' required>
                 </div><br>
-                <div class="forminputs">
-                    <label for="Password"> Password</label><br>
-                    <input type="password" id="Password" class="input" name="Password"  required>
-                </div><br>
+
 
                 <div class="forminputs">
                     <label for="JoinedYear"> Joined date</label><br>
@@ -76,7 +74,13 @@
                 </div>
                 </div>
               </div>
-            </form>
+            </form><br>
+            <div class="ids">
+              <h3 class="idtitle">Latest Member ID</h3>
+              <?php
+              $orderTable = new Table("lastdisplayid");
+              $orderTable->show("SELECT * FROM plunk.lastdisplayid WHERE MemberType IN ('Accountant','Admin','Cashier','Manager','Restaurant Manager','Staff Member')",);?>
+            </div>
         </div>
   </body>
 </html>
