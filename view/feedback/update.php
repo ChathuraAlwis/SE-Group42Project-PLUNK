@@ -43,7 +43,7 @@
                     <label for="FeedBackID" class="fblabel"><b>Feedback ID:</b> </label>
                     <input type="text" name="FeedBackID" class="fbid" value="<?php echo "$result[FeedBackID]";?>">
                   </div> <br><br>
-                <div class="labelbox">
+                <div class="labelbox3">
                     <label for="FeedBack"><b>Message :</b> </label>
 
                     <textarea name="FeedBack" rows="5" cols="80"  readonly><?php echo "$result[FeedBack]";?></textarea>
